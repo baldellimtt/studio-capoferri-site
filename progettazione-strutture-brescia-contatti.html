@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contatti – Studio Capoferri</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="container">
+      <div class="logo">
+        <a href="index.html">Studio Capoferri</a>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html#team">Chi Siamo</a></li>
+          <li><a href="index.html#progetti">Progetti</a></li>
+          <li><a href="index.html#servizi">Servizi</a></li>
+          <li><a href="#contatti">Contatti</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="contatti" class="section light">
+      <div class="container contact-grid">
+        <div class="contact-info">
+          <h2>Recapiti</h2>
+          <p><strong>Studio Capoferri</strong></p>
+          <p><strong>Indirizzo:</strong> Via Piave 35, 25030 Adro (BS)</p>
+          <p><strong>Telefono:</strong> <a href="tel:+393408389958">+39 340 8389 958</a></p>
+        </div>
+        <div class="map-wrapper">
+          <h2>Dove Siamo</h2>
+          <iframe class="map-frame" loading="lazy" allowfullscreen
+            src="https://maps.google.com/maps?q=Via%20Piave%2035,%20Adro%20BS&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed">
+          </iframe>
+        </div>
+
+        <!-- Form sotto le colonne -->
+        <div class="form-section">
+          <h2>Contattaci direttamente</h2>
+          <form action="https://formspree.io/f/xnnpnvqy" class="contact-form" method="POST">
+            <label for="name">Nome e Cognome*</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email*</label>
+            <input type="email" id="email" name="_replyto" required>
+
+            <label for="subject">Oggetto</label>
+            <input type="text" id="subject" name="subject">
+
+            <label for="message">Messaggio*</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+
+            <button type="submit">Invia messaggio</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container">
+      <p>© 2025 Studio Associato Capoferri – Tutti i diritti riservati</p>
+    </div>
+  </footer>
+
+</body>
+</html>
