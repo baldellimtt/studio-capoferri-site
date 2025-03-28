@@ -101,7 +101,7 @@ ul {
 
 /* HERO – TESTO IN SOVRAIMPRESSIONE */
 .hero {
-  background-image: url('../assets/hero-struttura.jpg');
+  background-image: url('../assets/hero-struttura.webp');
   background-size: cover;
   background-position: center;
   min-height: 100vh;
