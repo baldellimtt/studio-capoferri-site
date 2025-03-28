@@ -494,3 +494,39 @@ ul {
     margin: 0 auto;
   }
 }
+
+.projects-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.project-large {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.project-large img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.4s ease;
+}
+
+.project-large:hover img {
+  transform: scale(1.05);
+}
+
+.caption {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1.1rem;
+  text-align: center;
+  transition: background 0.3s ease;
+}
