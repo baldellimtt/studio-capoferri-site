@@ -585,7 +585,7 @@ ul {
 .caption {
   position: absolute;
   bottom: 0;
-  background: rgba(0,0,0,0.6);
+  background: rgba(42, 63, 84, 0.85); /* Change the rgba value for a consistent background */
   color: #fff;
   width: 100%;
   padding: 0.8rem;
@@ -593,6 +593,7 @@ ul {
   text-align: center;
   transition: background 0.3s ease;
 }
+
 
 .section ul {
   list-style-type: disc;
