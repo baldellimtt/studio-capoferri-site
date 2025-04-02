@@ -519,6 +519,23 @@ ul {
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-text h1, 
+.hero-text p, 
+.hero-text a.button-link {
+  animation: fadeInUp 1.5s ease-out;
+}
+
 /* RESPONSIVE – MOBILE */
 @media (max-width: 768px) {
   .contact-grid {
