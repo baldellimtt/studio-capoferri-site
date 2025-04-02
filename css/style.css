@@ -114,13 +114,10 @@ ul {
 .hero-text {
   position: relative;
   z-index: 2;
-  background: rgba(0, 0, 0, 0.75); /* sfondo più pulito e uniforme */
   padding: 40px 50px;
   max-width: 700px;
-  margin-left: auto; /* allinea a destra */
-  border-radius: 12px;
+  margin-left: auto;
   text-align: right;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
 
@@ -129,14 +126,15 @@ ul {
   font-weight: 700;
   color: #ffffff;
   margin: 0;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+  -webkit-text-stroke: 1px #333;
 }
 
 .hero-text p {
   font-size: 1.1rem;
   font-weight: 400;
-  color: #dddddd;
-  text-shadow: none;
-  margin-top: 10px;
+  color: #ffffff;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 /* SECTIONS */
