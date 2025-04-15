@@ -636,3 +636,19 @@ ul {
 #superstudio-village-gallery {
     margin-top: -10px !important; /* Usa un margine negativo per ridurre lo spazio */
 }
+
+/* Solo per la pagina con l'ID "superstudio-village-page" */
+#superstudio-village-page .image-item img {
+  max-width: 100%;  /* Impedisce alle immagini di superare la larghezza del contenitore */
+  height: auto;  /* Mantiene le proporzioni dell'immagine */
+  object-fit: cover; /* Impedisce che le immagini si deformino */
+}
+
+#superstudio-village-page .image-grid {
+  max-width: 100%;  /* Limita la larghezza della galleria */
+  overflow: hidden; /* Nasconde le immagini che escono dai bordi */
+}
+
+#superstudio-village-page #superstudio-village-gallery {
+  margin-top: 20px; /* Modifica il margine superiore */
+}
