@@ -12,7 +12,7 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.6;
   color: #1a1a1a;
   background-color: #f5f5f5;
@@ -597,7 +597,6 @@ ul {
   font-family: 'Montserrat', sans-serif;  /* aggiunto */
   font-weight: 500;                   /* aggiunto */
   letter-spacing: 0.5px;              /* opzionale per coerenza */
-  text-transform: uppercase;          /* opzionale per uniformità visiva */
 }
 
 
