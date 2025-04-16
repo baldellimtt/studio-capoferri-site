@@ -656,3 +656,9 @@ ul {
   margin-top: 20px; /* Modifica il margine superiore */
 }
 
+a {
+  font-weight: bold; /* Imposta il testo in grassetto */
+  text-decoration: none; /* Rimuove la sottolineatura */
+  color: inherit; /* Rimuove il colore blu di default e fa ereditare il colore del testo */
+}
+
