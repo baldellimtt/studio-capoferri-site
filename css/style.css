@@ -47,21 +47,16 @@ ul {
 
 .main-header .container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 0;
+  justify-content: space-between; /* Distribute space between logo and menu */
+  align-items: center; /* Vertically center the content */
+  height: 100px; /* Imposta un'altezza per il contenitore dell'header (modifica a tuo piacere) */
+  padding: 0 20px; /* Spazio laterale, regolabile */
 }
 
 .logo a {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 2.9rem;
-  font-weight: 800;
-  letter-spacing: 0.1px;
-  color: #2a3f54;
-  text-decoration: none;
-  text-transform: uppercase;
+  display: flex;
+  align-items: center; /* Centra verticalmente il logo */
 }
-
 /* NAVIGATION – STILE IMPICCIATORE */
 .main-nav ul {
   display: flex;
