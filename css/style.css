@@ -70,7 +70,7 @@ ul {
 
 .main-nav a {
   position: relative;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   font-weight: 400;
   text-transform: uppercase;
@@ -114,24 +114,32 @@ ul {
 .hero-text {
   position: relative;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;  /* Allinea il contenuto in basso */
+  align-items: flex-end;  /* Allinea tutto a destra */
   padding: 40px 50px;
   max-width: 700px;
-  margin-left: auto;
-  text-align: right;
+  width: 100%;  /* Impedisce l'overflow e garantisce l'allineamento a destra */
 }
-
 
 .hero-text h1 {
-  font-size: 3.8rem;
+  font-size: 3.2rem;
   font-weight: 700;
   color: #ffffff;
-  margin: 0;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
-  -webkit-text-stroke: 1px #333;
+  margin: 0;  /* Rimuove i margini predefiniti */
+  text-align: right;  /* Allinea il testo a destra */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  font-family: 'Montserrat', sans-serif;
 }
 
+.hero-text .h1-container {
+  width: 100%;  /* Fai in modo che il contenitore prenda tutta la larghezza disponibile */
+  display: flex;
+  justify-content: flex-end; /* Allinea l'h1 a destra */
+}
 .hero-text p {
-  font-size: 1.1rem;
+  font-size: 1.0rem;
   font-weight: 400;
   color: #ffffff;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
@@ -652,3 +660,4 @@ ul {
 #superstudio-village-page #superstudio-village-gallery {
   margin-top: 20px; /* Modifica il margine superiore */
 }
+
