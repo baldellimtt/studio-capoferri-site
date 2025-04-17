@@ -57,6 +57,12 @@ ul {
   display: flex;
   align-items: center; /* Centra verticalmente il logo */
 }
+
+.logo img {
+  max-height: 70px; /* o un valore che preferisci */
+  height: auto;
+  width: auto;
+}
 /* NAVIGATION – STILE IMPICCIATORE */
 .main-nav ul {
   display: flex;
