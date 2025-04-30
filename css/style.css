@@ -670,47 +670,68 @@ a {
   color: inherit; /* Rimuove il colore blu di default e fa ereditare il colore del testo */
 }
 
-/* Responsivo – Mobile */
+/* RESPONSIVE – MOBILE */
 @media (max-width: 768px) {
-  /* Navbar in versione mobile */
-  .main-nav ul {
-    display: none;  /* Nasconde il menu a livello desktop */
+  /* Hamburger menu visibile su dispositivi mobili */
+  .hamburger-menu {
+    display: block;  /* Mostra l'hamburger */
+    font-size: 30px;
+    cursor: pointer;
+    color: #ffffff; /* Colore visibile */
+    z-index: 1001;  /* Assicurati che l'icona sia sopra gli altri contenuti */
   }
 
-  /* Aggiungi un hamburger menu o una versione mobile del menu */
-  .main-header {
-    display: flex;
-    justify-content: space-between;
+  /* Navbar in versione mobile */
+  .main-nav ul {
+    display: none;  /* Nasconde il menu per la versione mobile */
+    flex-direction: column; /* Imposta il menu a colonna */
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  .main-nav.active ul {
+    display: flex;  /* Mostra il menu quando attivato */
+  }
+
+  /* Hero Section - Centrare il contenuto */
+  .hero-text {
+    text-align: center;
+    padding: 20px;
     align-items: center;
   }
 
-  /* Hero Section - allineamento centralizzato del testo */
-  .hero-text {
-    padding: 20px;
-    text-align: center;
-  }
-
   .hero-text h1 {
-    font-size: 2rem;
+    font-size: 2rem; /* Riduci la dimensione del testo */
+    text-align: center; /* Centra il testo */
+    margin-bottom: 10px; /* Distanza tra il titolo e la descrizione */
   }
 
-  /* Progetti - Grid a colonna singola */
+  .hero-text p {
+    font-size: 1rem; /* Riduci la dimensione del paragrafo */
+    margin-bottom: 20px;
+  }
+
+  .hero-text .button-link {
+    font-size: 1rem; /* Riduci la dimensione del bottone */
+  }
+
+  /* Grid di progetti a colonna singola per mobile */
   .projects-grid {
     grid-template-columns: 1fr;
   }
 
-  /* Servizi - Grid a colonna singola */
+  /* Servizi a colonna singola */
   .services-list {
     grid-template-columns: 1fr;
   }
 
-  /* Immagini */
+  /* Immagini – Adattamento per mobile */
   .section-img, .project-item img {
     max-width: 100%;
     height: auto;
   }
 
-  /* Layout contatti - Form sotto la mappa */
+  /* Layout contatti – Form sotto la mappa */
   .contact-grid {
     flex-direction: column;
     gap: 30px;
@@ -721,32 +742,10 @@ a {
   }
 }
 
-/* Nascondi il menu di navigazione su dispositivi mobili */
-.main-nav ul {
-  display: flex;
-  gap: 30px;
-}
-
-/* Mostra l'hamburger menu solo su schermi piccoli */
-.hamburger-menu {
-  display: none;
-  font-size: 30px;
-  cursor: pointer;
-}
-
-/* Mostra il menu orizzontale su schermi piccoli quando attivato */
-@media (max-width: 768px) {
-  .main-nav ul {
-    display: none;  /* Nascondi il menu */
-    flex-direction: column;  /* Imposta il menu come una colonna */
-    gap: 20px;
-  }
-
+/* VERSIONE WEB – Hamburger non visibile */
+@media (min-width: 769px) {
+  /* Nasconde l'icona dell'hamburger sui dispositivi desktop */
   .hamburger-menu {
-    display: block;  /* Mostra l'icona dell'hamburger */
-  }
-
-  .main-nav.active ul {
-    display: flex;  /* Mostra il menu quando il menu è attivo */
+    display: none;
   }
 }
