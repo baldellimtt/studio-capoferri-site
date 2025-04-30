@@ -14,23 +14,27 @@
 </head>
 <body>
 
-  <header class="main-header">
-    <div class="container">
-	<div class="logo">
-	  <a href="index.html">
-		<img src="assets/logo-studio-progettazione-capoferri.webp" alt="Studio Capoferri Logo">
-	  </a>
-	</div>
-      <nav class="main-nav">
-        <ul>
-          <li><a href="chi-siamo.html">Chi Siamo</a></li>
-          <li><a href="progetti-studio-ingegneria-capoferri.html">Progetti</a></li>
-          <li><a href="servizi-studio-progettazione.html">Servizi</a></li>
-          <li><a href="progettazione-strutture-brescia-contatti.html">Contatti</a></li>
-        </ul>
-      </nav>
+<header class="main-header">
+  <div class="container">
+    <div class="logo">
+      <a href="index.html">
+        <img src="assets/logo-studio-progettazione-capoferri.webp" alt="Studio Capoferri Logo">
+      </a>
     </div>
-  </header>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="chi-siamo.html">Chi Siamo</a></li>
+        <li><a href="progetti-studio-ingegneria-capoferri.html">Progetti</a></li>
+        <li><a href="servizi-studio-progettazione.html">Servizi</a></li>
+        <li><a href="progettazione-strutture-brescia-contatti.html">Contatti</a></li>
+      </ul>
+    </nav>
+    <!-- Aggiungi il pulsante hamburger per dispositivi mobili -->
+    <div class="hamburger-menu" onclick="toggleMenu()">
+      &#9776; <!-- Carattere hamburger -->
+    </div>
+  </div>
+</header>
 
 <section class="hero">
   <div class="hero-text">
@@ -114,6 +118,11 @@
       <p>© 2025 Studio Associato Capoferri – Tutti i diritti riservati</p>
     </div>
   </footer>
-
+  <script>
+    function toggleMenu() {
+      const nav = document.querySelector('.main-nav');
+      nav.classList.toggle('active');
+    }
+  </script>
 </body>
 </html>
