@@ -750,3 +750,29 @@ a {
     display: flex;  /* Mostra il menu quando il menu è attivo */
   }
 }
+
+/* Hide the menu on mobile and show hamburger */
+@media (max-width: 768px) {
+  .main-nav ul {
+    display: none;  /* Hide the menu by default on mobile */
+    flex-direction: column;  /* Stack menu items vertically */
+    gap: 20px;
+  }
+
+  .hamburger-menu {
+    display: block;  /* Show hamburger icon */
+    font-size: 30px;
+    cursor: pointer;
+  }
+
+  /* When the menu is active, show the menu */
+  .main-nav.active ul {
+    display: flex;  /* Show the menu when it's active */
+  }
+}
+
+/* Desktop menu should remain as it is */
+.main-nav ul {
+  display: flex;  /* Display horizontally on desktop */
+  gap: 30px;
+}
