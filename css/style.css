@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 /* RESET & BASE */
 * {
@@ -59,7 +60,7 @@ ul {
 }
 
 .logo img {
-  max-height: 70px; /* o un valore che preferisci */
+  max-height: 90px; /* o un valore che preferisci */
   height: auto;
   width: auto;
 }
@@ -71,8 +72,8 @@ ul {
 
 .main-nav a {
   position: relative;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 25px;
   font-weight: 400;
   text-transform: uppercase;
   color: #1a1a1a;
