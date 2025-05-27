@@ -20,8 +20,9 @@ body {
 }
 
 h1, h2, h3 {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
   color: #4c4747;
+  
 }
 
 ul {
@@ -126,13 +127,13 @@ ul {
 }
 
 .hero-text h1 {
-  font-size: 3.2rem;
+  font-size: 4.2rem;
   font-weight: 700;
   color: #ffffff;
   margin: 0;  /* Rimuove i margini predefiniti */
   text-align: right;  /* Allinea il testo a destra */
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
 }
 
 .hero-text .h1-container {
@@ -161,7 +162,7 @@ ul {
 }
 
 .section h2 {
-  font-size: 2rem;
+  font-size: 3rem;
   margin-top: 60px; /* più spazio sopra */
   margin-bottom: 25px;
   color: #4c4747;
