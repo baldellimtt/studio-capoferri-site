@@ -27,6 +27,11 @@
           <li><a href="progettazione-strutture-brescia-contatti.html">Contatti</a></li>
         </ul>
       </nav>
+	      <!-- Aggiungi il pulsante hamburger per dispositivi mobili -->
+    <div class="hamburger-menu" onclick="toggleMenu()">
+      &#9776; <!-- Carattere hamburger -->
+    </div>
+  </div>
     </div>
   </header>
 
@@ -67,6 +72,11 @@
     <p><a href="privacy-policy.html">Privacy Policy</a></p>
   </div>
 </footer>
-
+<script>
+  function toggleMenu() {
+    const nav = document.querySelector('.main-nav');
+    nav.classList.toggle('active');
+  }
+</script>
 </body>
 </html>

@@ -778,3 +778,136 @@ a {
   display: flex;  /* Display horizontally on desktop */
   gap: 30px;
 }
+
+/* ... Tutto il CSS originale rimane invariato fino a questa parte ... */
+
+/* ========== AGGIUNTE RESPONSIVE – MENU MOBILE ========== */
+@media (max-width: 768px) {
+  .main-nav {
+    position: absolute;
+    top: 100px; /* altezza header */
+    right: 0;
+    background-color: #ffffff;
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 999;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+  }
+
+  .main-nav ul li {
+    margin: 10px 0;
+  }
+
+  .main-nav:not(.active) ul {
+    display: none;
+  }
+
+  .main-nav.active ul {
+    display: flex;
+  }
+
+  .hamburger-menu {
+    display: block;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 10px;
+    user-select: none;
+  }
+}
+
+/* ========== AGGIUNTE RESPONSIVE – HERO ========== */
+@media (max-width: 768px) {
+  .hero-text {
+    align-items: center !important; /* centratura orizzontale */
+    text-align: center !important;  /* centratura del testo */
+    padding: 20px;
+  }
+
+  .hero-text .h1-container {
+    justify-content: center !important; /* centra anche l'h1 container */
+  }
+
+  .hero-text h1 {
+    text-align: center !important;
+    font-size: 2.2rem;
+  }
+
+  .hero-text p {
+    text-align: center !important;
+    font-size: 1rem;
+  }
+
+  .hero-text a.button-link {
+    margin: 15px auto 0 auto;
+    display: inline-block;
+  }
+}
+
+/* ========== AGGIUNTE RESPONSIVE – SEZIONI E TESTO ========== */
+@media (max-width: 768px) {
+  .section {
+    padding: 40px 20px;
+  }
+
+  .section h2 {
+    font-size: 2rem;
+    margin-top: 30px;
+  }
+
+  .section p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-header .container {
+    flex-direction: row; /* Mantieni l’allineamento orizzontale */
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    height: auto;
+  }
+
+  .logo img {
+    max-height: 60px; /* Logo più compatto */
+    width: auto;
+  }
+
+  .hamburger-menu {
+    font-size: 28px;
+    padding: 10px;
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 16px; /* da 18px a 16px */
+  }
+
+  h1, h2, h3 {
+    font-size: 90%; /* Riduzione generica dei titoli */
+  }
+
+  .hero-text h1 {
+    font-size: 2.2rem; /* specifico per h1 nella hero */
+  }
+
+  .section h2 {
+    font-size: 1.8rem;
+  }
+
+  .button-link {
+    font-size: 0.95rem;
+    padding: 10px 16px;
+  }
+
+  .project-caption {
+    font-size: 0.95rem;
+  }
+}
