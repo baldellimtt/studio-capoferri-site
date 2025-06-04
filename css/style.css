@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
 
 /* RESET & BASE */
 * {
@@ -22,12 +23,17 @@ body {
 h1, h2, h3 {
   font-family: 'Bebas Neue', sans-serif;
   color: #4c4747;
-  
 }
 
 ul {
   list-style: none;
   padding-left: 0;
+}
+
+a {
+  font-weight: bold;
+  text-decoration: none;
+  color: inherit;
 }
 
 /* CONTAINER */
@@ -45,30 +51,44 @@ ul {
   position: sticky;
   top: 0;
   z-index: 1000;
+  padding: 0 40px;
 }
 
 .main-header .container {
   display: flex;
-  justify-content: space-between; /* Distribute space between logo and menu */
-  align-items: center; /* Vertically center the content */
-  height: 100px; /* Imposta un'altezza per il contenitore dell'header (modifica a tuo piacere) */
-  padding: 0 20px; /* Spazio laterale, regolabile */
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0; /* Rimuovi padding orizzontale qui */
+}
+
+.logo {
+  flex-shrink: 0; /* evita che il logo si ridimensioni */
 }
 
 .logo a {
   display: flex;
-  align-items: center; /* Centra verticalmente il logo */
+  align-items: center;
 }
 
+
 .logo img {
-  max-height: 90px; /* o un valore che preferisci */
+  max-height: 90px;
   height: auto;
   width: auto;
 }
-/* NAVIGATION – STILE IMPICCIATORE */
+
+.main-nav {
+  margin-left: auto;
+}
+
 .main-nav ul {
   display: flex;
   gap: 30px;
+  justify-content: flex-end;
+  width: 100%;
 }
 
 .main-nav a {
@@ -102,16 +122,24 @@ ul {
   transform: scaleX(1);
 }
 
-/* HERO – TESTO IN SOVRAIMPRESSIONE */
+.hamburger-menu {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  padding: 10px;
+  user-select: none;
+}
+
+/* HERO SECTION */
 .hero {
   background-image: url('../assets/hero-struttura-new.webp');
   background-size: cover;
   background-position: center;
   min-height: 100vh;
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  padding: 40px 8% 150px 8%;
+  flex-direction: column;
+  justify-content: flex-end; /* Pushes content to the bottom */
+  padding: 40px 8% 150px 8%; /* General padding for the hero section */
 }
 
 .hero-text {
@@ -119,33 +147,35 @@ ul {
   z-index: 2;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;  /* Allinea il contenuto in basso */
-  align-items: flex-end;  /* Allinea tutto a destra */
-  padding: 40px 50px;
-  max-width: 700px;
-  width: 100%;  /* Impedisce l'overflow e garantisce l'allineamento a destra */
+  justify-content: flex-end;
+  align-items: flex-end; /* Ensure content inside aligns right */
+  text-align: right; /* Ensure text itself aligns right */
+  width: 40%; /* Reduced width to give more room on the right */
+  margin-left: auto; /* Push the element to the right */
+  padding-right: 0; /* Remove internal padding */
 }
 
 .hero-text h1 {
-  font-size: 4.2rem;
+  font-size: 5.2rem;
   font-weight: 700;
   color: #ffffff;
-  margin: 0;  /* Rimuove i margini predefiniti */
-  text-align: right;  /* Allinea il testo a destra */
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
   font-family: 'Bebas Neue', sans-serif;
+  margin-right: 0;
 }
 
-.hero-text .h1-container {
-  width: 100%;  /* Fai in modo che il contenitore prenda tutta la larghezza disponibile */
-  display: flex;
-  justify-content: flex-end; /* Allinea l'h1 a destra */
-}
 .hero-text p {
   font-size: 1.0rem;
   font-weight: 400;
   color: #ffffff;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+  margin-right: 0;
+}
+
+.hero-text .h1-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 /* SECTIONS */
@@ -163,7 +193,7 @@ ul {
 
 .section h2 {
   font-size: 3rem;
-  margin-top: 10px; /* più spazio sopra */
+  margin-top: 10px;
   margin-bottom: 25px;
   color: #4c4747;
 }
@@ -187,8 +217,6 @@ ul {
   grid-template-columns: 1fr 1fr;
   gap: 20px;
   margin-top: 20px;
-  list-style: none;         /* <-- Rimuove i bullet */
-  padding-left: 0;
 }
 
 .services-list li {
@@ -197,24 +225,6 @@ ul {
   padding: 10px 15px;
   font-weight: 400;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-}
-
-.services-list li::marker {
-  display: none;
-}
-
-/* Rimozione forzata dei bullet point SOLO nella lista servizi */
-.section .services-list {
-  list-style: none !important;
-  padding-left: 0 !important;
-}
-
-.section .services-list li {
-  position: relative;
-}
-
-.section .services-list li::marker {
-  display: none;
 }
 
 .button-link {
@@ -278,24 +288,53 @@ ul {
   opacity: 0;
   transition: opacity 0.3s ease;
   font-family: 'Montserrat', sans-serif;
-  letter-spacing: 1px
+  letter-spacing: 1px;
 }
 
 .project-item:hover .project-caption {
   opacity: 1;
 }
 
-/* FORM CONTATTI */
+/* CONTACTS */
+#contatti p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.contact-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.contact-info,
+.map-wrapper {
+  flex: 1 1 45%;
+  min-width: 300px;
+}
+
+.map-wrapper {
+  flex: 1 1 400px;
+}
+
 .contact-form {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  margin-top: 30px;
+  margin-top: 10px;
+  max-width: 600px;
 }
 
 .contact-form label {
   font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
   margin-bottom: 5px;
+  text-align: left;
 }
 
 .contact-form input,
@@ -306,7 +345,7 @@ ul {
   font-size: 1rem;
   border-radius: 4px;
   width: 100%;
-  max-width: 600px;
+  max-width: 100%;
 }
 
 .contact-form button {
@@ -323,6 +362,19 @@ ul {
 
 .contact-form button:hover {
   background-color: #1f2e3d;
+}
+
+.map-frame {
+  width: 100%;
+  height: 400px;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.form-section {
+  width: 100%;
+  margin-top: 60px;
 }
 
 /* FOOTER */
@@ -334,201 +386,8 @@ ul {
   font-size: 0.9rem;
   border-top: 1px solid #ddd;
 }
-#contatti p {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1rem;
-  color: #333;
-  margin-bottom: 15px;
-  text-align: left;
-}
 
-
-/* CENTRATURA CAMPi FORM */
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  margin-top: 30px;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  max-width: 600px;
-}
-
-.dark-hero {
-  background-color: #eaeaea;
-  color: #2a3f54;
-  padding: 40px 0;
-  text-align: center;
-}
-
-.dark-hero h1 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.8rem;
-  font-weight: 400;
-  color: #2a3f54;
-}
-
-/* CONTATTI – LAYOUT AFFIANCATO */
-/* CONTATTI – LAYOUT DUE COLONNE + BLOCCO SOTTO */
-.contact-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 40px;
-  align-items: flex-start;
-}
-
-/* COLONNE A SINISTRA E DESTRA */
-.contact-info,
-.map-wrapper {
-  flex: 1 1 45%;
-  min-width: 300px;
-}
-
-/* COLONNA DESTRA – MAPPA */
-.map-wrapper {
-  flex: 1 1 400px;
-}
-
-
-/* FORM CONTATTI */
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-top: 10px;
-  max-width: 600px;
-}
-
-.contact-form label {
-  font-weight: 500;
-  font-family: 'Montserrat', sans-serif;
-  margin-bottom: 5px;
-  text-align: left;
-}
-
-.contact-form input,
-.contact-form textarea {
-  padding: 10px;
-  border: 1px solid #ccc;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1rem;
-  border-radius: 4px;
-  width: 100%;
-  max-width: 100%;
-}
-
-.contact-form button {
-  padding: 12px 24px;
-  background-color: #2a3f54;
-  color: #ffffff;
-  border: none;
-  border-radius: 4px;
-  font-size: 1rem;
-  cursor: pointer;
-  width: fit-content;
-  transition: background-color 0.3s ease;
-}
-
-.contact-form button:hover {
-  background-color: #1f2e3d;
-}
-
-/* MAPPA */
-.map-frame {
-  width: 100%;
-  height: 400px;
-  border: none;
-  border-radius: 6px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-/* RESPONSIVE – MOBILE */
-@media (max-width: 768px) {
-  .contact-grid {
-    flex-direction: column;
-    gap: 60px;
-  }
-
-  .contact-info,
-  .map-wrapper,
-  .form-section {
-    flex: 1 1 100%;
-  }
-
-  .form-section h3 {
-    text-align: center;
-  }
-
-  .contact-form {
-    margin: 0 auto;
-  }
-}
-
-
-/* SEZIONE FORM SOTTO LE DUE COLONNE */
-.form-section {
-  width: 100%;
-  margin-top: 60px;
-}
-
-
-/* FORM CONTATTI */
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-top: 10px;
-  max-width: 600px;
-}
-
-.contact-form label {
-  font-weight: 500;
-  font-family: 'Montserrat', sans-serif;
-  margin-bottom: 5px;
-  text-align: left;
-}
-
-.contact-form input,
-.contact-form textarea {
-  padding: 10px;
-  border: 1px solid #ccc;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1rem;
-  border-radius: 4px;
-  width: 100%;
-  max-width: 100%;
-}
-
-.contact-form button {
-  padding: 12px 24px;
-  background-color: #2a3f54;
-  color: #ffffff;
-  border: none;
-  border-radius: 4px;
-  font-size: 1rem;
-  cursor: pointer;
-  width: fit-content;
-  transition: background-color 0.3s ease;
-}
-
-.contact-form button:hover {
-  background-color: #1f2e3d;
-}
-
-/* MAPPA */
-.map-frame {
-  width: 100%;
-  height: 400px;
-  border: none;
-  border-radius: 6px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
+/* ANIMATIONS */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -540,34 +399,13 @@ ul {
   }
 }
 
-.hero-text h1, 
-.hero-text p, 
+.hero-text h1,
+.hero-text p,
 .hero-text a.button-link {
   animation: fadeInUp 1.5s ease-out;
 }
 
-/* RESPONSIVE – MOBILE */
-@media (max-width: 768px) {
-  .contact-grid {
-    flex-direction: column;
-    gap: 60px;
-  }
-
-  .contact-info,
-  .map-wrapper,
-  .form-section {
-    flex: 1 1 100%;
-  }
-
-  .form-section h3 {
-    text-align: center;
-  }
-
-  .contact-form {
-    margin: 0 auto;
-  }
-}
-
+/* PROJECT GALLERY (Superstudio Village specific) */
 .projects-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -602,23 +440,11 @@ ul {
   font-size: 1.1rem;
   text-align: center;
   transition: background 0.3s ease;
-  font-family: 'Montserrat', sans-serif;  /* aggiunto */
-  font-weight: 500;                   /* aggiunto */
-  letter-spacing: 0.5px;              /* opzionale per coerenza */
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
-
-.section ul {
-  list-style-type: disc;
-  padding-left: 20px;
-  margin-bottom: 30px;
-}
-
-.section ul li {
-  margin-bottom: 12px;
-}
-
-/* Stili specifici per la galleria di Superstudio Village */
 #superstudio-village-gallery .image-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -645,147 +471,48 @@ ul {
   transform: scale(1.05);
 }
 
-/* Ridurre lo spazio tra il testo e la galleria nella pagina superstudio-village */
 #superstudio-village-gallery {
-    margin-top: -10px !important; /* Usa un margine negativo per ridurre lo spazio */
+    margin-top: -10px !important;
 }
 
-/* Solo per la pagina con l'ID "superstudio-village-page" */
 #superstudio-village-page .image-item img {
-  max-width: 100%;  /* Impedisce alle immagini di superare la larghezza del contenitore */
-  height: auto;  /* Mantiene le proporzioni dell'immagine */
-  object-fit: cover; /* Impedisce che le immagini si deformino */
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 #superstudio-village-page .image-grid {
-  max-width: 100%;  /* Limita la larghezza della galleria */
-  overflow: hidden; /* Nasconde le immagini che escono dai bordi */
+  max-width: 100%;
+  overflow: hidden;
 }
 
 #superstudio-village-page #superstudio-village-gallery {
-  margin-top: 20px; /* Modifica il margine superiore */
+  margin-top: 20px;
 }
 
-a {
-  font-weight: bold; /* Imposta il testo in grassetto */
-  text-decoration: none; /* Rimuove la sottolineatura */
-  color: inherit; /* Rimuove il colore blu di default e fa ereditare il colore del testo */
-}
-
-/* Responsivo – Mobile */
+/* RESPONSIVE - MOBILE */
 @media (max-width: 768px) {
-  /* Navbar in versione mobile */
-  .main-nav ul {
-    display: none;  /* Nasconde il menu a livello desktop */
+  body {
+    font-size: 16px;
   }
 
-  /* Aggiungi un hamburger menu o una versione mobile del menu */
-  .main-header {
-    display: flex;
+  /* Header */
+  .main-header .container {
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-  }
-
-  /* Hero Section - allineamento centralizzato del testo */
-  .hero-text {
-    padding: 20px;
-    text-align: center;
-  }
-
-  .hero-text h1 {
-    font-size: 2rem;
-  }
-
-  /* Progetti - Grid a colonna singola */
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* Servizi - Grid a colonna singola */
-  .services-list {
-    grid-template-columns: 1fr;
-  }
-
-  /* Immagini */
-  .section-img, .project-item img {
-    max-width: 100%;
+    padding: 10px 20px;
     height: auto;
   }
 
-  /* Layout contatti - Form sotto la mappa */
-  .contact-grid {
-    flex-direction: column;
-    gap: 30px;
+  .logo img {
+    max-height: 60px;
   }
 
-  .contact-info, .map-wrapper, .form-section {
-    flex: 1 1 100%;
-  }
-}
-
-/* Nascondi il menu di navigazione su dispositivi mobili */
-.main-nav ul {
-  display: flex;
-  gap: 30px;
-}
-
-/* Mostra l'hamburger menu solo su schermi piccoli */
-.hamburger-menu {
-  display: none;
-  font-size: 30px;
-  cursor: pointer;
-}
-
-/* Mostra il menu orizzontale su schermi piccoli quando attivato */
-@media (max-width: 768px) {
-  .main-nav ul {
-    display: none;  /* Nascondi il menu */
-    flex-direction: column;  /* Imposta il menu come una colonna */
-    gap: 20px;
-  }
-
-  .hamburger-menu {
-    display: block;  /* Mostra l'icona dell'hamburger */
-  }
-
-  .main-nav.active ul {
-    display: flex;  /* Mostra il menu quando il menu è attivo */
-  }
-}
-
-/* Hide the menu on mobile and show hamburger */
-@media (max-width: 768px) {
-  .main-nav ul {
-    display: none;  /* Hide the menu by default on mobile */
-    flex-direction: column;  /* Stack menu items vertically */
-    gap: 20px;
-  }
-
-  .hamburger-menu {
-    display: block;  /* Show hamburger icon */
-    font-size: 30px;
-    cursor: pointer;
-  }
-
-  /* When the menu is active, show the menu */
-  .main-nav.active ul {
-    display: flex;  /* Show the menu when it's active */
-  }
-}
-
-/* Desktop menu should remain as it is */
-.main-nav ul {
-  display: flex;  /* Display horizontally on desktop */
-  gap: 30px;
-}
-
-/* ... Tutto il CSS originale rimane invariato fino a questa parte ... */
-
-/* ========== AGGIUNTE RESPONSIVE – MENU MOBILE ========== */
-@media (max-width: 768px) {
+  /* Navigation */
   .main-nav {
     position: absolute;
-    top: 100px; /* altezza header */
+    top: 100px;
     right: 0;
     background-color: #ffffff;
     width: 100%;
@@ -797,14 +524,11 @@ a {
     flex-direction: column;
     align-items: center;
     padding: 20px 0;
+    display: none;
   }
 
   .main-nav ul li {
     margin: 10px 0;
-  }
-
-  .main-nav:not(.active) ul {
-    display: none;
   }
 
   .main-nav.active ul {
@@ -813,32 +537,26 @@ a {
 
   .hamburger-menu {
     display: block;
-    font-size: 30px;
-    cursor: pointer;
-    padding: 10px;
-    user-select: none;
   }
-}
 
-/* ========== AGGIUNTE RESPONSIVE – HERO ========== */
-@media (max-width: 768px) {
+  /* Hero Section */
   .hero-text {
-    align-items: center !important; /* centratura orizzontale */
-    text-align: center !important;  /* centratura del testo */
+    align-items: center;
+    text-align: center;
     padding: 20px;
+    margin: 0 auto;
+    width: auto; /* Reset width for mobile */
   }
 
   .hero-text .h1-container {
-    justify-content: center !important; /* centra anche l'h1 container */
+    justify-content: center;
   }
 
   .hero-text h1 {
-    text-align: center !important;
     font-size: 2.2rem;
   }
 
   .hero-text p {
-    text-align: center !important;
     font-size: 1rem;
   }
 
@@ -846,10 +564,8 @@ a {
     margin: 15px auto 0 auto;
     display: inline-block;
   }
-}
 
-/* ========== AGGIUNTE RESPONSIVE – SEZIONI E TESTO ========== */
-@media (max-width: 768px) {
+  /* Sections */
   .section {
     padding: 40px 20px;
   }
@@ -862,52 +578,49 @@ a {
   .section p {
     font-size: 1rem;
   }
+
+  /* Services */
+  .services-list {
+    grid-template-columns: 1fr;
+  }
+
+  /* Projects */
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Contacts */
+  .contact-grid {
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  .contact-info,
+  .map-wrapper,
+  .form-section {
+    flex: 1 1 100%;
+  }
+
+  .form-section h3 {
+    text-align: center;
+  }
+
+  .contact-form {
+    margin: 0 auto;
+  }
 }
 
-@media (max-width: 768px) {
-  .main-header .container {
-    flex-direction: row; /* Mantieni l’allineamento orizzontale */
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    height: auto;
-  }
-
-  .logo img {
-    max-height: 60px; /* Logo più compatto */
-    width: auto;
-  }
-
-  .hamburger-menu {
-    font-size: 28px;
-    padding: 10px;
-    margin-left: auto;
+/* Responsive - Desktop */
+@media (min-width: 1024px) {
+  .main-nav ul {
+    gap: 40px;
   }
 }
 
-@media (max-width: 768px) {
-  body {
-    font-size: 16px; /* da 18px a 16px */
-  }
-
-  h1, h2, h3 {
-    font-size: 90%; /* Riduzione generica dei titoli */
-  }
-
-  .hero-text h1 {
-    font-size: 2.2rem; /* specifico per h1 nella hero */
-  }
-
-  .section h2 {
-    font-size: 1.8rem;
-  }
-
-  .button-link {
-    font-size: 0.95rem;
-    padding: 10px 16px;
-  }
-
-  .project-caption {
-    font-size: 0.95rem;
-  }
+.container-left {
+  width: 90%;
+  max-width: 1100px;
+  margin-left: 40px; /* stesso padding orizzontale del header */
+  margin-right: auto;
+  padding: 60px 0;
 }
