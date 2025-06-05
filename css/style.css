@@ -152,7 +152,7 @@ a {
   text-align: right; /* Ensure text itself aligns right */
   width: 40%; /* Reduced width to give more room on the right */
   margin-left: auto; /* Push the element to the right */
-  padding-right: 0; /* Remove internal padding */
+  padding-right: 80px; /* Remove internal padding */
 }
 
 .hero-text h1 {
