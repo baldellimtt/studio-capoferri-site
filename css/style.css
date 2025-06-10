@@ -165,7 +165,7 @@ a {
 }
 
 .hero-text p {
-  font-size: 1.0rem;
+  font-size: 0.rem;
   font-weight: 400;
   color: #ffffff;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
@@ -640,4 +640,8 @@ a {
   height: 18px;
   accent-color: #2a3f54; /* colore coerente col pulsante */
   cursor: pointer;
+}
+
+.no-wrap {
+  white-space: nowrap;
 }
