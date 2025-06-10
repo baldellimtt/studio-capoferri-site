@@ -75,7 +75,7 @@ a {
 
 
 .logo img {
-  max-height: 90px;
+  max-height: 80px;
   height: auto;
   width: auto;
 }
@@ -94,8 +94,8 @@ a {
 .main-nav a {
   position: relative;
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 25px;
-  font-weight: 300;
+  font-size: 20px;
+  font-weight: 200;
   text-transform: uppercase;
   color: #4c4747;
   text-decoration: none;
