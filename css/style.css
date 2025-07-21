@@ -437,7 +437,7 @@ a {
 .hero-text h1,
 .hero-text p,
 .hero-text a.button-link {
-  animation: fadeInUp 1.5s ease-out;
+  animation: fadeInUp 4s ease-out;
 }
 
 /* PROJECT GALLERY (Superstudio Village specific) */
