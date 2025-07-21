@@ -124,11 +124,17 @@ a {
 }
 
 .main-nav a:hover {
-  color: #cc7a33; /* arancione testo al passaggio del mouse */
+  color: #b11010; /* arancione testo al passaggio del mouse */
 }
 
 .main-nav a:hover::after {
   transform: scaleX(1); /* linea sottolineatura attiva */
+}
+
+.services-list li:hover {
+  color: #b11010; /* rosso tendente al grigio acceso */
+  font-weight: 700; /* grassetto */
+  transition: color 0.3s ease, font-weight 0.3s ease;
 }
 
 .hamburger-menu {
