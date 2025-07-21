@@ -38,10 +38,11 @@ a {
 
 /* CONTAINER */
 .container {
-  width: 90%;
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 60px 0;
+  padding: 0 15px;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 /* HEADER */
@@ -213,15 +214,14 @@ a {
 
 .chi-siamo-img {
   display: block;
-  margin: 40px auto;
-  width: 100%;
-  max-width: 800px;
+  max-width: 100%;
   height: auto;
+  margin: 40px auto;
   border-radius: 4px;
-  padding: 0 15px; /* evita che l'immagine tocchi i lati su mobile */
-  box-sizing: border-box; /* per far funzionare il padding correttamente */
+  padding-left: 15px;
+  padding-right: 15px;
+  box-sizing: border-box;
 }
-
 
 /* SERVICES */
 .services-list {
