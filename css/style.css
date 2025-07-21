@@ -645,3 +645,13 @@ a {
 .no-wrap {
   white-space: nowrap;
 }
+.projects-gallery.single {
+  display: grid;
+  place-items: center;
+  margin-top: 2rem;
+}
+
+.projects-gallery.single .project-large {
+  width: 100%;
+  max-width: 500px; /* dimensione simile a quelle industriali */
+}
