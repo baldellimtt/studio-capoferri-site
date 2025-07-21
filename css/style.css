@@ -213,10 +213,13 @@ a {
 
 .chi-siamo-img {
   display: block;
-  margin: 50px auto 50px auto;
+  margin: 40px auto;
   width: 100%;
   max-width: 800px;
+  height: auto;
   border-radius: 4px;
+  padding: 0 15px; /* evita che l'immagine tocchi i lati su mobile */
+  box-sizing: border-box; /* per far funzionare il padding correttamente */
 }
 
 
