@@ -47,7 +47,7 @@ a {
 
 /* HEADER */
 .main-header {
-  background-color: #ffffff;
+  background-color: #f5f5f5;
   border-bottom: 1px solid #e0e0e0;
   position: sticky;
   top: 0;
@@ -121,6 +121,14 @@ a {
 
 .main-nav a:hover::after {
   transform: scaleX(1);
+}
+
+.main-nav a:hover {
+  color: #cc7a33; /* arancione testo al passaggio del mouse */
+}
+
+.main-nav a:hover::after {
+  transform: scaleX(1); /* linea sottolineatura attiva */
 }
 
 .hamburger-menu {
