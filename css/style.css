@@ -597,9 +597,9 @@ a {
     padding: 35px 0; /* Leggermente più spazio verticale */
   }
 
-  .container {
-    padding: 35px 0;
-  }
+	 .container {
+	  padding: 0 20px;
+	}
 
   /* HERO SECTION */
   .hero {
