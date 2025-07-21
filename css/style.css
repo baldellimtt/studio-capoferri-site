@@ -214,7 +214,7 @@ a {
 
 .chi-siamo-img {
   display: block;
-  max-width: 60%;
+  max-width: 70%;
   height: auto;
   margin: 40px auto;
   border-radius: 4px;
@@ -391,7 +391,7 @@ a {
 
 /* FOOTER */
 .main-footer {
-  background-color: #ffffff;
+  background-color: #e0e5ec;
   color: #999999;
   text-align: center;
   padding: 20px 0;
