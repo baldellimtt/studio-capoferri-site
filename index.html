@@ -40,10 +40,7 @@
 <section class="hero">
   <div class="hero-text">
     <div class="h1-container">
-		<h1>
-  <span class="no-break">Architettura e ingegneria</span><br>
-  <span class="no-break">al servizio dell’innovazione</span>
-</h1>
+      <h1 id="hero-title">Architettura e ingegneria<br>al servizio dell’innovazione</h1>
     </div>
   </div>
 </section>
@@ -137,10 +134,37 @@
 </footer>
 
 <script>
-  function toggleMenu() {
-    const nav = document.querySelector('.main-nav');
-    nav.classList.toggle('active');
+  const hero = document.querySelector('.hero');
+  const heroTitle = document.getElementById('hero-title');
+
+  const slides = [
+    {
+      image: 'assets/hero-struttura-new.webp',
+      text: '<span class="no-break">Architettura e ingegneria</span><br>al servizio dell’innovazione'
+    },
+    {
+      image: 'assets/superstudio-village-sala-proiezione.webp',
+      text: '<span class="no-break">Esperienza tecnica</span> <span class="no-break"> per soluzioni su misura.'
+    },
+    {
+      image: 'assets/superstudio-village-acciaio-pre-fabbricato.webp',
+      text: '<span class="no-break">Strutture in acciaio</span><br>per l’efficienza e la rapidità'
+    }
+  ];
+
+  let currentIndex = 0;
+  const interval = 10000;
+
+  function updateHero() {
+    const slide = slides[currentIndex];
+    hero.style.backgroundImage = `url('${slide.image}')`;
+    heroTitle.innerHTML = slide.text;
+    currentIndex = (currentIndex + 1) % slides.length;
   }
+
+  updateHero(); // Mostra subito il primo
+  setInterval(updateHero, interval);
 </script>
+
 </body>
 </html>

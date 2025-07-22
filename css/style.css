@@ -154,9 +154,10 @@ a {
 
 /* HERO SECTION */
 .hero {
-  background-image: url('../assets/hero-struttura-new.webp');
-  background-size: cover;
+ background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 1s ease-in-out; /* transizione morbida */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -172,13 +173,13 @@ a {
   justify-content: flex-end;
   align-items: flex-end; /* Ensure content inside aligns right */
   text-align: right; /* Ensure text itself aligns right */
-  width: 40%; /* Reduced width to give more room on the right */
+  width: 60%; /* Reduced width to give more room on the right */
   margin-left: auto; /* Push the element to the right */
   padding-right: 80px; /* Remove internal padding */
 }
 
 .hero-text h1 {
-  font-size: 5.2rem;
+  font-size: 4.2rem;
   font-weight: 700;
   color: #ffffff;
   text-shadow:2px 2px 6px rgba(0, 0, 0, 0.6),   /* ombra principale */
@@ -789,4 +790,20 @@ a {
 .projects-gallery.single .project-large {
   width: 100%;
   max-width: 500px; /* dimensione simile a quelle industriali */
+}
+
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 1.2s ease-out;
 }
