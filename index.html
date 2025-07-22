@@ -38,6 +38,8 @@
 </header>
 
 <section class="hero">
+  <div class="hero-slide hero-slide1"></div>
+  <div class="hero-slide hero-slide2"></div>
   <div class="hero-text">
     <div class="h1-container">
       <h1 id="hero-title">Architettura e ingegneria<br>al servizio dell’innovazione</h1>
@@ -134,36 +136,71 @@
 </footer>
 
 <script>
-  const hero = document.querySelector('.hero');
-  const heroTitle = document.getElementById('hero-title');
-
-  const slides = [
-    {
-      image: 'assets/hero-struttura-new.webp',
-      text: '<span class="no-break">Architettura e ingegneria</span><br>al servizio dell’innovazione'
-    },
-    {
-      image: 'assets/superstudio-village-sala-proiezione.webp',
-      text: '<span class="no-break">Esperienza tecnica</span> <span class="no-break"> per soluzioni su misura.'
-    },
-    {
-      image: 'assets/superstudio-village-acciaio-pre-fabbricato.webp',
-      text: '<span class="no-break">Strutture in acciaio</span><br>per l’efficienza e la rapidità'
-    }
-  ];
-
-  let currentIndex = 0;
-  const interval = 4500;
-
-  function updateHero() {
-    const slide = slides[currentIndex];
-    hero.style.backgroundImage = `url('${slide.image}')`;
-    heroTitle.innerHTML = slide.text;
-    currentIndex = (currentIndex + 1) % slides.length;
+const slides = [
+  {
+    image: 'assets/hero-struttura-new.webp',
+    text: '<span class="no-break">Architettura e ingegneria</span><br>al servizio dell’innovazione'
+  },
+  {
+    image: 'assets/superstudio-village-sala-proiezione.webp',
+    text: '<span class="no-break">Esperienza tecnica</span> <span class="no-break"> per soluzioni su misura.'
+  },
+  {
+    image: 'assets/superstudio-village-acciaio-pre-fabbricato.webp',
+    text: '<span class="no-break">Strutture in acciaio</span><br>per l’efficienza e la rapidità'
   }
+];
 
-  updateHero(); // Mostra subito il primo
-  setInterval(updateHero, interval);
+const heroTitle = document.getElementById('hero-title');
+const slideElems = document.querySelectorAll('.hero-slide');
+
+let currentIndex = 0;
+let currentSlide = 0; // quale div mostra ora
+
+function updateHero() {
+  const nextIndex = (currentIndex + 1) % slides.length;
+  const currentDiv = slideElems[currentSlide];
+  const nextDiv = slideElems[1 - currentSlide];
+
+  // Imposto l'immagine del prossimo div
+  nextDiv.style.backgroundImage = `url('${slides[nextIndex].image}')`;
+
+  // Prima faccio sparire il testo con un fade out
+  heroTitle.style.opacity = '0';
+  heroTitle.style.transform = 'translateY(30px)';
+
+  // Dopo 300ms cambio il testo e lo faccio riapparire con l'animazione
+  setTimeout(() => {
+    heroTitle.innerHTML = slides[nextIndex].text;
+    
+    // Reset delle proprietà per l'animazione di entrata
+    heroTitle.style.opacity = '0';
+    heroTitle.style.transform = 'translateY(100px)';
+    
+    // Forzo il reflow
+    void heroTitle.offsetWidth;
+    
+    // Applico l'animazione di entrata
+    heroTitle.style.transition = 'opacity 1.2s ease-out, transform 1.2s ease-out';
+    heroTitle.style.opacity = '1';
+    heroTitle.style.transform = 'translateY(0)';
+  }, 300);
+
+  // Fade immagini
+  nextDiv.classList.add('visible');
+  currentDiv.classList.remove('visible');
+
+  currentIndex = nextIndex;
+  currentSlide = 1 - currentSlide;
+}
+
+
+// inizializzo
+slideElems[0].style.backgroundImage = `url('${slides[0].image}')`;
+slideElems[0].classList.add('visible');
+heroTitle.innerHTML = slides[0].text;
+
+setInterval(updateHero, 4500);
 </script>
 
 </body>
