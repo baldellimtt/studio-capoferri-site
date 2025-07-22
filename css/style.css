@@ -140,9 +140,6 @@ a {
   transition: color 0.3s ease;
 }
 
-.section h2:hover {
-  color: #b11010; /* rosso-grigio */
-}
 
 .hamburger-menu {
   display: none;
@@ -455,7 +452,7 @@ a {
 }
 
 .animate-text {
-  animation: fadeInUp 1s ease forwards;
+  animation: fadeInUp 2s ease forwards;
 }
 
 .hero-slide.visible {
