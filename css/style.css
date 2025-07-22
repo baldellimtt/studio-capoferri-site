@@ -187,6 +187,10 @@ a {
   margin-right: 0;
 }
 
+.no-break {
+  white-space: nowrap;
+}
+
 .hero-text p {
   font-size: 1.6rem;
   font-weight: 400;
