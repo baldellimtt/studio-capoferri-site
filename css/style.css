@@ -163,23 +163,21 @@ a {
 }
 
 .hero-text {
-  position: relative;
-  z-index: 2;
+  width: 100%;
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 0 10px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-end; /* Ensure content inside aligns right */
-  text-align: right; /* Ensure text itself aligns right */
-  width: 60%; /* Reduced width to give more room on the right */
-  margin-left: auto; /* Push the element to the right */
-  padding-right: 80px; /* Remove internal padding */
+  align-items: flex-end;
+  text-align: right;
 }
 
 .hero-text h1 {
   font-size: 4.2rem;
   font-weight: 700;
   color: #ffffff;
-  text-shadow:2px 2px 6px rgba(0, 0, 0, 0.6),   /* ombra principale */
+  text-shadow:2px 2px 6px #b11010,   /* ombra principale */
    0 0 12px rgba(0, 0, 0, 0.4);      /* alone morbido */
   font-family: 'Bebas Neue', sans-serif;
   margin-right: 0;
