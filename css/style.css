@@ -40,7 +40,7 @@ a {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 50px; /* Allineato al padding dell'header */
   box-sizing: border-box;
   width: 100%;
 }
@@ -73,7 +73,6 @@ a {
   display: flex;
   align-items: center;
 }
-
 
 .logo img {
   max-height: 80px;
@@ -615,7 +614,7 @@ a {
   }
 
 	 .container {
-	  padding: 0 20px;
+	  padding: 0 20px; /* Allineato al padding mobile dell'header */
 	}
 
   /* HERO SECTION */
