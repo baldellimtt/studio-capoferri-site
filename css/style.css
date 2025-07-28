@@ -580,7 +580,7 @@ a {
   }
   
     .main-header .logo img {
-    max-height: 45px; /* aumenta la dimensione del logo */
+    max-height: 60px; /* aumenta la dimensione del logo */
     width: auto;
   }
 
