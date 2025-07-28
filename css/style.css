@@ -580,7 +580,7 @@ a {
   }
   
     .main-header .logo img {
-    max-height: 90px; /* aumenta la dimensione del logo */
+    max-height: 70px; /* aumenta la dimensione del logo */
     width: auto;
   }
 
@@ -622,7 +622,7 @@ a {
   /* HAMBURGER MENU - PIÙ DISTANZIATO */
 .hamburger-menu {
   display: block; /* visibile solo su mobile */
-  font-size: 38px; /* aumento dimensione icona */
+  font-size: 32px; /* aumento dimensione icona */
   margin-left: 20px;
   transform: scale(1.2); /* opzionale: ingrandimento extra */
   transition: transform 0.2s ease;
