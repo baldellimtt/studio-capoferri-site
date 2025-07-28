@@ -623,7 +623,7 @@ a {
 .hamburger-menu {
   display: block; /* visibile solo su mobile */
   font-size: 30px; /* aumento dimensione icona */
-  margin-left: 20px;
+  margin-left: 10px;
   transform: scale(1.2); /* opzionale: ingrandimento extra */
   transition: transform 0.2s ease;
   position: relative;
