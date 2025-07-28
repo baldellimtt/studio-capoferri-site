@@ -595,6 +595,15 @@ a {
     position: relative;
     z-index: 1;
   }
+  
+    /* Disabilita hover su .project-item */
+  .project-item img {
+    transform: scale(1.05);
+  }
+
+  .project-caption {
+    opacity: 1;
+  }
 
   .logo img {
     max-height: 45px; /* Leggermente più piccolo */
