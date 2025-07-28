@@ -580,7 +580,7 @@ a {
   }
   
     .main-header .logo img {
-    max-height: 40px; /* aumenta la dimensione del logo */
+    max-height: 35px; /* aumenta la dimensione del logo */
     width: auto;
   }
 
@@ -677,7 +677,7 @@ a {
 
   /* HERO SECTION */
   .hero {
-    height: 500px;     /* Imposti un'altezza più piccola solo su mobile */
+    height: 450px;     /* Imposti un'altezza più piccola solo su mobile */
     min-height: auto;  /* Disabiliti eventuale min-height grande */
     padding-top: 0;    /* Se c’è padding verticale, lo togli o riduci */
   }
