@@ -578,6 +578,11 @@ a {
   .main-header {
     position: relative;
   }
+  
+    .main-header .logo img {
+    max-height: 90px; /* aumenta la dimensione del logo */
+    width: auto;
+  }
 
 
 .chi-siamo-img {
@@ -588,11 +593,9 @@ a {
 
   .main-header .container {
     display: flex;
-    justify-content: space-between; /* Cambiato per dare più spazio */
+    justify-content: space-between;
     align-items: center;
-    padding: 15px 25px; /* Aumentato padding laterale */
-    height: 80px;
-    position: relative;
+    padding: 10px 20px; /* spazio orizzontale */
   }
 
   /* Logo - non più centrato ma con margine automatico */
@@ -617,20 +620,15 @@ a {
   }
 
   /* HAMBURGER MENU - PIÙ DISTANZIATO */
-  .hamburger-menu {
-    display: block !important;
-    position: relative; /* Cambiato da absolute a relative */
-    font-size: 22px; /* Leggermente più piccolo */
-    cursor: pointer;
-    padding: 10px;
-    user-select: none;
-    color: #4c4747;
-    background: none;
-    border: none;
-    z-index: 1001;
-    margin-left: auto; /* Spinge a destra */
-  }
-
+.hamburger-menu {
+  display: block; /* visibile solo su mobile */
+  font-size: 38px; /* aumento dimensione icona */
+  margin-left: 20px;
+  transform: scale(1.2); /* opzionale: ingrandimento extra */
+  transition: transform 0.2s ease;
+  position: relative;
+  z-index: 2; /* assicurati che sia sopra il menu */
+}
   /* Navigation mobile */
   .main-nav {
     position: absolute;
