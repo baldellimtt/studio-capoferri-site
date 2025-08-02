@@ -418,7 +418,27 @@ a {
   font-size: 0.9rem;
   border-top: 1px solid #ddd;
 }
+.main-footer,
+#superstudio-maxi-page .main-footer {
+  background-color: #2a3f54 !important; /* Sfondo blu scuro uniforme */
+  color: #ffffff !important;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0.9rem;
+  border-top: 1px solid #1f2e3d;
+}
 
+/* Link nel footer */
+.main-footer a,
+#superstudio-maxi-page .main-footer a {
+  color: #ffffff !important;
+  text-decoration: underline;
+}
+
+.main-footer a:hover,
+#superstudio-maxi-page .main-footer a:hover {
+  color: #e0e5ec !important;
+}
 .hero {
   position: relative;
   height: 400px; /* o l’altezza che vuoi */
