@@ -517,14 +517,14 @@ a {
 
   .main-header .container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Spinge logo a sinistra e menu a destra */
     align-items: center;
     padding: 0;
     position: relative;
   }
   
   .logo {
-    margin: 0; /* Centra il logo all'interno del suo spazio */
+    margin-right: auto; /* Spinge via il menu hamburger */
     z-index: 1;
   }
 
@@ -537,10 +537,7 @@ a {
     font-size: 30px;
     cursor: pointer;
     user-select: none;
-    position: absolute; /* Rimosso dal flusso per non influenzare il logo */
-    right: 20px; /* Allineato a destra del contenitore */
-    top: 50%;
-    transform: translateY(-50%);
+    position: relative; /* Rimosso dal posizionamento assoluto per la corretta gestione del flusso */
     z-index: 2;
   }
 
@@ -592,10 +589,9 @@ a {
   .hero-text {
     align-items: center;
     text-align: center;
-    padding: 0;
+    padding: 0 20px; /* Aggiunto un padding orizzontale */
     margin: 0 auto;
     width: auto;
-    padding-right: 20px;
   }
 
   .hero-text .h1-container {
@@ -604,10 +600,14 @@ a {
 
   .hero-text h1 {
     font-size: 2.2rem;
+    max-width: 90%; /* Limita la larghezza del titolo */
+    margin: 0 auto; /* Centra il titolo */
   }
 
   .hero-text p {
     font-size: 1rem;
+    max-width: 90%; /* Limita la larghezza del paragrafo */
+    margin: 0 auto; /* Centra il paragrafo */
   }
 
   .hero-text a.button-link {
