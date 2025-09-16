@@ -517,14 +517,14 @@ a {
 
   .main-header .container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     padding: 0;
     position: relative;
   }
   
   .logo {
-    margin: 0 auto; /* Centra il logo all'interno del suo spazio */
+    margin: 0; /* Centra il logo all'interno del suo spazio */
     z-index: 1;
   }
 
