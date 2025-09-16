@@ -516,20 +516,20 @@ a {
   }
 
   .main-header .container {
-    justify-content: center; /* Centra il contenuto del menu */
+    justify-content: center;
     padding: 0;
     position: relative;
+    display: flex; /* Assicurati che il display flex sia attivo */
+    align-items: center; /* Centra gli elementi verticalmente */
   }
   
   .logo {
     flex-shrink: 0;
-    margin: 0 auto;
-    position: relative;
     z-index: 1;
   }
 
   .logo img {
-    max-height: 70px; /* Ingrandito il logo per maggiore visibilità */
+    max-height: 70px;
   }
 
   .hamburger-menu {
@@ -537,8 +537,8 @@ a {
     font-size: 30px;
     cursor: pointer;
     user-select: none;
-    position: absolute; /* Rimosso dal flusso per non influenzare il logo */
-    right: 20px; /* Allineato a destra del contenitore */
+    position: absolute;
+    right: 20px;
     top: 50%;
     transform: translateY(-50%);
     z-index: 2;
@@ -553,13 +553,19 @@ a {
     width: 100%;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     z-index: 999;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+  }
+
+  .main-nav.active {
+    max-height: 400px;
   }
 
   .main-nav ul {
     flex-direction: column;
     align-items: center;
     padding: 20px 0;
-    display: none;
     margin: 0;
     gap: 0;
   }
@@ -574,10 +580,6 @@ a {
     display: block;
     padding: 15px 20px;
     font-size: 20px;
-  }
-
-  .main-nav.active ul {
-    display: flex;
   }
 
   /* HERO SECTION MOBILE */
@@ -724,11 +726,5 @@ a {
   
   .contact-form {
     margin: 0 auto;
-  }
-}
-
-@media (min-width: 1024px) {
-  .main-nav ul {
-    gap: 40px;
   }
 }
