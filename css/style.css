@@ -591,7 +591,7 @@ a {
     text-align: center;
     padding: 0 20px; /* Aggiunto un padding orizzontale */
     margin: 0 auto;
-    width: auto;
+    width: 100%; /* Assicura che il contenitore occupi tutta la larghezza */
   }
 
   .hero-text .h1-container {
@@ -600,14 +600,19 @@ a {
 
   .hero-text h1 {
     font-size: 2.2rem;
-    max-width: 90%; /* Limita la larghezza del titolo */
-    margin: 0 auto; /* Centra il titolo */
+    max-width: 100%; /* Lascia che sia il padding del padre a gestire la larghezza */
+    margin: 0 auto;
+    white-space: normal; /* Permette al testo di andare a capo */
   }
 
   .hero-text p {
     font-size: 1rem;
-    max-width: 90%; /* Limita la larghezza del paragrafo */
-    margin: 0 auto; /* Centra il paragrafo */
+    max-width: 100%; /* Lascia che sia il padding del padre a gestire la larghezza */
+    margin: 0 auto;
+  }
+
+  .hero-text .no-break {
+    white-space: normal;
   }
 
   .hero-text a.button-link {
