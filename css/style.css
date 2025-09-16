@@ -1,7 +1,5 @@
 /* FONT IMPORT */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 html {
@@ -97,14 +95,14 @@ a {
 .main-nav a {
   position: relative;
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 200;
   text-transform: uppercase;
   color: #4c4747;
   text-decoration: none;
   padding: 10px 0;
   transition: all 0.2s ease;
-  letter-spacing: 0.5px;
+  letter-spacing: 1.5px; /* Aumentato da 0.5px a 1.5px */
 }
 
 .main-nav a::after {
@@ -323,7 +321,7 @@ a {
   padding: 12px 0;
   opacity: 0;
   transition: opacity 0.3s ease;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Inter', sans-serif;
   letter-spacing: 1px;
 }
 
@@ -333,7 +331,7 @@ a {
 
 /* CONTACTS */
 #contatti p {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1rem;
   color: #333;
   margin-bottom: 15px;
@@ -368,7 +366,7 @@ a {
 
 .contact-form label {
   font-weight: 500;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Inter', sans-serif;
   margin-bottom: 5px;
   text-align: left;
 }
@@ -377,7 +375,7 @@ a {
 .contact-form textarea {
   padding: 10px;
   border: 1px solid #ccc;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1rem;
   border-radius: 4px;
   width: 100%;
@@ -543,7 +541,7 @@ a {
   font-size: 1.1rem;
   text-align: center;
   transition: background 0.3s ease;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 500;
   letter-spacing: 0.5px;
 }
@@ -844,7 +842,7 @@ a {
   align-items: center;
   gap: 10px;
   margin-top: 15px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1rem;
   color: #333;
 }
