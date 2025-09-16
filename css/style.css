@@ -504,10 +504,10 @@ a {
   animation: fadeInUp 4s ease-out;
 }
 
-/* MEDIA QUERIES */
 @media (max-width: 768px) {
   body {
     font-size: 14px;
+    overflow-x: hidden;
   }
 
   .main-header {
@@ -516,15 +516,15 @@ a {
   }
 
   .main-header .container {
+    display: flex;
     justify-content: center;
+    align-items: center;
     padding: 0;
     position: relative;
-    display: flex; /* Assicurati che il display flex sia attivo */
-    align-items: center; /* Centra gli elementi verticalmente */
   }
   
   .logo {
-    flex-shrink: 0;
+    margin: 0 auto; /* Centra il logo all'interno del suo spazio */
     z-index: 1;
   }
 
@@ -537,8 +537,8 @@ a {
     font-size: 30px;
     cursor: pointer;
     user-select: none;
-    position: absolute;
-    right: 20px;
+    position: absolute; /* Rimosso dal flusso per non influenzare il logo */
+    right: 20px; /* Allineato a destra del contenitore */
     top: 50%;
     transform: translateY(-50%);
     z-index: 2;
@@ -582,7 +582,6 @@ a {
     font-size: 20px;
   }
 
-  /* HERO SECTION MOBILE */
   .hero {
     height: 300px;
     min-height: auto;
@@ -616,7 +615,6 @@ a {
     display: inline-block;
   }
   
-  /* SEZIONI - PADDING OTTIMIZZATO */
   .section {
     padding: 35px 0;
   }
@@ -639,7 +637,6 @@ a {
     color: #444;
   }
 
-  /* CHI SIAMO LAYOUTS - MOBILE */
   .chi-siamo-grid,
   .chi-siamo-grid-reversed {
     grid-template-columns: 1fr;
