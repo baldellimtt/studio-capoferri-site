@@ -41,7 +41,7 @@ a {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 50px; /* Allineato al padding dell'header */
+  padding: 0 50px;
   box-sizing: border-box;
   width: 100%;
 }
@@ -516,8 +516,9 @@ a {
   }
 
   .main-header .container {
-    justify-content: space-between;
+    justify-content: center; /* Centra il contenuto del menu */
     padding: 0;
+    position: relative;
   }
   
   .logo {
@@ -528,16 +529,18 @@ a {
   }
 
   .logo img {
-    max-height: 55px;
+    max-height: 70px; /* Ingrandito il logo per maggiore visibilità */
   }
 
   .hamburger-menu {
     display: block;
     font-size: 30px;
-    margin-left: 7px;
-    transform: scale(1.2);
-    transition: transform 0.2s ease;
-    position: relative;
+    cursor: pointer;
+    user-select: none;
+    position: absolute; /* Rimosso dal flusso per non influenzare il logo */
+    right: 20px; /* Allineato a destra del contenitore */
+    top: 50%;
+    transform: translateY(-50%);
     z-index: 2;
   }
 
@@ -577,19 +580,12 @@ a {
     display: flex;
   }
 
-  /* SEZIONI - PADDING OTTIMIZZATO */
-  .section {
-    padding: 35px 0;
-  }
-
-  .container {
-    padding: 0 20px;
-  }
-  
+  /* HERO SECTION MOBILE */
   .hero {
-    height: 370px;
+    height: 300px;
     min-height: auto;
     padding-top: 0;
+    justify-content: flex-end;
   }
 
   .hero-text {
@@ -618,6 +614,15 @@ a {
     display: inline-block;
   }
   
+  /* SEZIONI - PADDING OTTIMIZZATO */
+  .section {
+    padding: 35px 0;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+  
   .section h2 {
     font-size: 1.9rem;
     margin-top: 0;
@@ -635,13 +640,13 @@ a {
   /* CHI SIAMO LAYOUTS - MOBILE */
   .chi-siamo-grid,
   .chi-siamo-grid-reversed {
-    grid-template-columns: 1fr; /* Colonna singola su mobile */
+    grid-template-columns: 1fr;
     gap: 20px;
-    margin-top: 30px; /* Spazio uniforme */
+    margin-top: 30px;
   }
 
   .chi-siamo-grid-reversed .image-content {
-    order: 0; /* Ripristina l'ordine su mobile */
+    order: 0;
   }
 
   .services-list {
