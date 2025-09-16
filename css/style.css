@@ -588,6 +588,16 @@ a {
   font-weight: 500;
   letter-spacing: 0.5px;
 }
+.projects-gallery.single {
+  display: grid;
+  place-items: center;
+  margin-top: 2rem;
+}
+
+.projects-gallery.single .project-large {
+  width: 100%;
+  max-width: 500px; /* dimensione simile a quelle industriali */
+}
 
 @media (max-width: 768px) {
   body {
