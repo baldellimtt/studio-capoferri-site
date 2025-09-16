@@ -599,7 +599,7 @@ a {
   }
 
   .hero-text h1 {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     max-width: 100%; /* Lascia che sia il padding del padre a gestire la larghezza */
     margin: 0 auto;
     white-space: normal; /* Permette al testo di andare a capo */
