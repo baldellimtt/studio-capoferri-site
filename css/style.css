@@ -23,6 +23,7 @@ body {
 h1, h2, h3 {
   font-family: 'Bebas Neue', sans-serif;
   color: #4c4747;
+  letter-spacing: 1.5px;
 }
 
 ul {
@@ -101,7 +102,7 @@ a {
   text-decoration: none;
   padding: 10px 0;
   transition: all 0.2s ease;
-  letter-spacing: 1.5px; /* Aumentato da 0.5px a 1.5px */
+  letter-spacing: 1.5px;
 }
 
 .main-nav a::after {
@@ -180,6 +181,7 @@ a {
    0 0 12px rgba(0, 0, 0, 0.4);      /* alone morbido */
   font-family: 'Bebas Neue', sans-serif;
   margin-right: 0;
+  letter-spacing: 2.5px;
 }
 
 .no-break {
