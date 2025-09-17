@@ -127,6 +127,24 @@ a {
   color: #b11010;
 }
 
+.form-group {
+  display: flex;
+  align-items: center; /* centra verticalmente */
+  gap: 10px; /* distanza tra checkbox e testo */
+}
+
+.form-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 0; /* rimuove margini default */
+}
+
+.form-group label {
+  margin: 0; /* evita margini extra */
+  font-size: 0.95rem;
+}
+
+
 .services-list li:hover {
   color: #b11010;
   font-weight: 700;
