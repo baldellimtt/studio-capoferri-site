@@ -848,6 +848,11 @@ a {
   .form-section {
     flex: 1 1 100%;
   }
+   #superstudio-village-gallery .image-grid {
+    grid-template-columns: 1fr; /* Forza una singola colonna per adattarsi sempre */
+    gap: 10px; /* Riduci lo spazio tra le immagini */
+    padding: 0; /* Assicura che la griglia non aggiunga padding extra */
+  }
 
   .form-section {
     margin-top: 40px;
@@ -860,4 +865,3 @@ a {
   .contact-form {
     margin: 0 auto;
   }
-}
