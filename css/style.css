@@ -618,160 +618,81 @@ a {
 }
 
 @media (max-width: 768px) {
+  
+  /* RESET E BASE AGGRESSIVA: QUESTE SONO LE REGOLE CHIAVE */
+  html, body {
+    /* Impedisce a TUTTA la pagina di scorrere orizzontalmente */
+    overflow-x: hidden !important; 
+    /* Forza la larghezza del body a non superare il viewport */
+    width: 100vw !important; 
+  }
+  
+  /* Regola universale: nessun elemento può superare la larghezza dello schermo */
+  * {
+    max-width: 100vw !important;
+  }
+  
+  /* Stili base */
   body {
     font-size: 14px;
-    overflow-x: hidden !important; /* Forza la regola di nascosto */
-    width: 100vw !important; /* Forza la larghezza del body a non superare il viewport */
   }
-
+  
+  /* HEADER E NAVIGAZIONE */
   .main-header {
     position: relative;
     padding: 10px 20px;
   }
 
-  .main-header .container {
-    display: flex;
-    justify-content: space-between; /* Spinge logo a sinistra e menu a destra */
-    align-items: center;
-    padding: 0;
-    position: relative;
-  }
-  
-    * {
-    max-width: 100vw !important;
-	}
-  
-  .logo {
-    margin-right: auto; /* Spinge via il menu hamburger */
-    z-index: 1;
-  }
-
-  .logo img {
-    max-height: 70px;
-  }
-
-  .hamburger-menu {
-    display: block;
-    font-size: 30px;
-    cursor: pointer;
-    user-select: none;
-    position: relative; /* Rimosso dal posizionamento assoluto per la corretta gestione del flusso */
-    z-index: 2;
-  }
-
   .main-nav {
+    display: none;
     position: absolute;
-    top: 100%;
+    top: 60px;
     left: 0;
-    right: 0;
-    background-color: #f5f5f5;
     width: 100%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    z-index: 999;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease-in-out;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
   }
 
   .main-nav.active {
-    max-height: 400px;
+    display: block;
   }
 
   .main-nav ul {
     flex-direction: column;
-    align-items: center;
-    padding: 20px 0;
-    margin: 0;
-    gap: 0;
-  }
-  
-   img {
-    max-width: 100%; /* Assicura che nessuna immagine fuoriesca */
-    height: auto;
-    display: block;
-  }
-  
-  /* Controlla anche i margini negativi o i padding eccessivi */
-  .section {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .main-nav ul li {
-    margin: 10px 0;
-    width: 100%;
-    text-align: center;
   }
 
   .main-nav ul li a {
     display: block;
     padding: 15px 20px;
-    font-size: 20px;
+    border-bottom: 1px solid #eee;
   }
 
-  .hero {
-    height: 300px;
-    min-height: auto;
-    padding-top: 0;
-    justify-content: flex-end;
-  }
-
-  .hero-text {
-    align-items: center;
-    text-align: center;
-    padding: 0 20px; /* Aggiunto un padding orizzontale */
-    margin: 0 auto;
-    width: 100%; /* Assicura che il contenitore occupi tutta la larghezza */
-  }
-
-  .hero-text .h1-container {
-    justify-content: center;
-  }
-
-  .hero-text h1 {
-    font-size: 1.8rem;
-    max-width: 100%; /* Lascia che sia il padding del padre a gestire la larghezza */
-    margin: 0 auto;
-    white-space: normal; /* Permette al testo di andare a capo */
-  }
-
-  .hero-text p {
-    font-size: 1rem;
-    max-width: 100%; /* Lascia che sia il padding del padre a gestire la larghezza */
-    margin: 0 auto;
-  }
-
-  .hero-text .no-break {
-    white-space: normal;
-  }
-
-  .hero-text a.button-link {
-    margin: 15px auto 0 auto;
-    display: inline-block;
+  .main-header .menu-toggle {
+    display: block;
   }
   
-  .section {
-    padding: 35px 0;
-  }
-
+  /* CONTAINER */
   .container {
     padding: 0 20px;
+    /* Assicura che il container non sia mai troppo grande */
+    min-width: 0; 
   }
   
-  .section h2 {
-    font-size: 1.9rem;
-    margin-top: 0;
-    margin-bottom: 20px;
-    font-weight: 400;
+  /* SEZIONI E GRIGLIE */
+  .section {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  /* Fix immagini generico (già esistente) */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
   }
 
-  .section p {
-    font-size: 0.9rem;
-    margin-bottom: 16px;
-    line-height: 1.55;
-    color: #444;
-  }
-
+  /* CHISIAMO */
   .chi-siamo-grid,
   .chi-siamo-grid-reversed {
     grid-template-columns: 1fr;
@@ -783,11 +704,13 @@ a {
     order: 0;
   }
 
+  /* SERVIZI */
   .services-list {
     grid-template-columns: 1fr;
     margin-top: 15px;
   }
   
+  /* GRIGLIA PROGETTI */
   .projects-grid {
     grid-template-columns: 1fr;
   }
@@ -800,11 +723,12 @@ a {
     opacity: 1;
   }
   
+  /* GALLERIE E IMMAGINI SINGOLE (LE VERE CAUSE DELL'OVERFLOW) */
   .projects-gallery.single {
-  display: grid;
-  place-items: center;
-  margin-top: 2rem;
-}
+    display: grid;
+    place-items: center;
+    margin-top: 2rem;
+  }
   
   .projects-gallery {
     display: flex;
@@ -812,58 +736,39 @@ a {
     align-items: center;
     gap: 1.5rem;
     margin-top: 1.5rem;
-    padding: 0 20px;
+    padding: 0; /* Rimuoviamo l'eventuale padding per sicurezza */
   }
   
-
-	  .projects-gallery.single .project-large {
-    max-width: 100% !important;
-    width: 100% !important;
+  /* FIX SPECIFICO PER L'IMMAGINE GRANDE IN projects-residenziali */
+  .projects-gallery.single .project-large {
+    /* Forziamo il contenitore al 100% della pagina con un piccolo margine di sicurezza */
+    width: 95vw !important; 
+    max-width: 95vw !important;
+    margin: 0 auto; 
   }
-
+  
   .project-large {
     width: 100%;
-    max-width: 320px;
+    max-width: 100%; /* Contenuto nel 95vw del parent */
     margin: 0 auto;
   }
   
   .project-large img {
     width: 100% !important;
+    max-width: 100% !important;
     height: auto !important;
-    object-fit: contain !important;
-  }
-
-  .caption {
-    text-align: center;
-    font-size: 0.85rem;
-    padding: 0.5rem;
-    font-weight: 500;
+    object-fit: cover !important;
   }
   
-  .contact-grid {
-    flex-direction: column;
-    gap: 40px;
-  }
-
-  .contact-info,
-  .map-wrapper,
-  .form-section {
-    flex: 1 1 100%;
-  }
+  /* FIX PER LE GALLERIE DETTAGLIO PROGETTI */
    #superstudio-village-gallery .image-grid {
     grid-template-columns: 1fr; /* Forza una singola colonna per adattarsi sempre */
     gap: 10px; /* Riduci lo spazio tra le immagini */
-    padding: 0; /* Assicura che la griglia non aggiunga padding extra */
-  }
-
-  .form-section {
-    margin-top: 40px;
-  }
-
-  .form-section h3 {
-    text-align: center;
+    padding: 0; 
   }
   
+  /* CONTATTI */
   .contact-form {
     margin: 0 auto;
   }
+}
