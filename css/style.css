@@ -679,6 +679,18 @@ a {
     margin: 0;
     gap: 0;
   }
+  
+   img {
+    max-width: 100%; /* Assicura che nessuna immagine fuoriesca */
+    height: auto;
+    display: block;
+  }
+  
+  /* Controlla anche i margini negativi o i padding eccessivi */
+  .section {
+    padding-left: 0;
+    padding-right: 0;
+  }
 
   .main-nav ul li {
     margin: 10px 0;
