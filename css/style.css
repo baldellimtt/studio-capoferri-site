@@ -804,7 +804,7 @@ a {
     max-width: 100vw;       /* Non supera mai la larghezza visibile */
     width: 100%;            /* Si adatta al contenitore */
     margin: 0 auto;         /* Centrato */
-    padding: 0 10px;        /* Un po’ di respiro ai lati */
+    padding: 0 15px;        /* Un po’ di respiro ai lati */
     box-sizing: border-box; /* Include il padding nella larghezza */
     overflow-x: hidden;     /* Previene lo scroll orizzontale */
   }
