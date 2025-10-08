@@ -816,11 +816,10 @@ a {
   }
   
 
-	.projects-gallery.single .project-large {
-	  width: 100%;
-	  max-width: 500px; /* dimensione simile a quelle industriali */
-	}
-
+	  .projects-gallery.single .project-large {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
 
   .project-large {
     width: 100%;
@@ -829,10 +828,9 @@ a {
   }
   
   .project-large img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 10px;
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
   }
 
   .caption {
