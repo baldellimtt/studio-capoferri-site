@@ -620,8 +620,8 @@ a {
 @media (max-width: 768px) {
   body {
     font-size: 14px;
-    overflow-x: hidden;
-    width: 100vw; 
+    overflow-x: hidden !important; /* Forza la regola di nascosto */
+    width: 100vw !important; /* Forza la larghezza del body a non superare il viewport */
   }
 
   .main-header {
@@ -636,6 +636,10 @@ a {
     padding: 0;
     position: relative;
   }
+  
+    * {
+    max-width: 100vw !important;
+	}
   
   .logo {
     margin-right: auto; /* Spinge via il menu hamburger */
@@ -812,10 +816,10 @@ a {
   }
   
 
-.projects-gallery.single .project-large {
-  width: 100%;
-  max-width: 500px; /* dimensione simile a quelle industriali */
-}
+	.projects-gallery.single .project-large {
+	  width: 100%;
+	  max-width: 500px; /* dimensione simile a quelle industriali */
+	}
 
 
   .project-large {
