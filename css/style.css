@@ -809,22 +809,20 @@ a {
     overflow-x: hidden;     /* Previene lo scroll orizzontale */
   }
 
-  .projects-gallery.single .project-large {
-    width: 100% !important; 
-    max-width: 100% !important; 
-    margin: 0; /* Rimuoviamo il margine per evitare spazzi extra */
-    padding: 0 20px; /* Aggiungiamo il padding mancante qui! */
-    box-sizing: border-box; /* Cruciale per includere il padding nella larghezza */
-  }
-  .projects-gallery {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-    padding: 0 20px;
-  }
- 
+ .project-large img {
+  width: 100% !important;
+  height: auto !important;
+  display: block; /* Aggiungi display: block per evitare spazi bianchi indesiderati */
+  margin: 0 auto; /* Ri-centra l'immagine nel caso non fosse già centrata */
+}
+.projects-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  padding: 0; 
+}
 
  .project-large {
     width: 100%;
@@ -832,15 +830,12 @@ a {
     margin: 0;
   }
   
-  .project-large img {
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-    object-fit: cover !important;
-    /* Se l'immagine è tagliata, è perché object-fit: cover la sta ingrandendo per coprire.
-       Usiamo 'contain' solo per prevenire lo stretching, ma 'cover' è più comune per le gallerie.
-       Manteniamo 'cover' e ci affidiamo a width: 100% per il contenimento. */
-  }
+.project-large img {
+  width: 100% !important;
+  height: auto !important;
+  display: block; /* Aggiungi display: block per evitare spazi bianchi indesiderati */
+  margin: 0 auto; /* Ri-centra l'immagine nel caso non fosse già centrata */
+}
 
   .caption {
     text-align: center;
