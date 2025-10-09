@@ -839,9 +839,13 @@ a {
     margin: 0 auto;
   }
 
-  .projects-gallery.single .project-large img {
-    transform: none !important; /* CORREZIONE: Forza l'annullamento di qualsiasi scala */
-  }
+ .projects-gallery.single .project-large {
+  /* Annulla il max-width: 100% per i singoli progetti 
+     e riapplica il limite desiderato (es. 90% del container) 
+     o un valore fisso (es. 400px) */
+  max-width: 400px; 
+  width: 90%; 
+}
 
   .caption {
     text-align: center;
