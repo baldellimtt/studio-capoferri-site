@@ -78,6 +78,7 @@ class ScrollAnimations {
 
   animateCounter(element) {
     const target = parseInt(element.getAttribute('data-target'));
+    const suffix = element.getAttribute('data-suffix') || '';
     const duration = 2000;
     const increment = target / (duration / 16);
     let current = 0;
@@ -85,10 +86,10 @@ class ScrollAnimations {
     const updateCounter = () => {
       current += increment;
       if (current < target) {
-        element.textContent = Math.floor(current) + (element.getAttribute('data-suffix') || '');
+        element.textContent = Math.floor(current) + suffix;
         requestAnimationFrame(updateCounter);
       } else {
-        element.textContent = target + (element.getAttribute('data-suffix') || '');
+        element.textContent = target + suffix;
       }
     };
 

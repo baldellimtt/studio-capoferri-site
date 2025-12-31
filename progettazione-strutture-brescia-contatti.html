@@ -34,6 +34,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="js/cookie-consent.js" defer></script>
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.webp"> 
 <link rel="icon" type="image/webp" href="/assets/favicon-32x32.webp">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -122,9 +123,13 @@
         </div>
         <div class="map-wrapper">
           <h2>Dove Siamo</h2>
+          <div class="map-placeholder" id="map-placeholder" style="background: #f0f0f0; display: flex; align-items: center; justify-content: center; min-height: 400px; border-radius: 8px; margin-bottom: 20px;">
+            <p style="padding: 20px; text-align: center; color: #666;">La mappa verrà caricata dopo l'accettazione dei cookie</p>
+          </div>
           <iframe class="map-frame" loading="lazy" allowfullscreen
-            src="https://maps.google.com/maps?q=Via%20Piave%2035,%20Adro%20BS&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
-            title="Mappa della posizione dello Studio Capoferri in Via Piave 35, Adro (BS)">
+            data-src="https://maps.google.com/maps?q=Via%20Piave%2035,%20Adro%20BS&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+            title="Mappa della posizione dello Studio Capoferri in Via Piave 35, Adro (BS)"
+            style="display: none; width: 100%; height: 400px; border: none; border-radius: 8px;">
           </iframe>
         </div>
 
@@ -161,9 +166,40 @@
     </section>
   </main>
 
-<footer class="main-footer" role="contentinfo">
+<footer class="main-footer">
   <div class="container">
-    <p>© 2025 Studio Ingegneria Architettura Capoferri – Tutti i diritti riservati | <a href="privacy-policy.html" title="Leggi la nostra informativa sulla privacy">Privacy Policy</a><br><strong>INGEGNERIA | ARCHITETTURA | PROGETTAZIONE STRUTTURE IN ACCIAIO</strong><br> ADRO (BS) - via Piave 35 Italia | Tel. +39 030 7357263 | P.I. 00705160984 </p>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Servizi</h3>
+        <ul>
+          <li><a href="servizi-studio-progettazione.html">Progettazione Strutturale</a></li>
+          <li><a href="servizi-studio-progettazione.html">Urbanistica e Architettura</a></li>
+          <li><a href="servizi-studio-progettazione.html">Direzione Lavori</a></li>
+          <li><a href="servizi-studio-progettazione.html">Servizi Tecnici</a></li>
+          <li><a href="servizi-studio-progettazione.html">Sicurezza Cantieri</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Azienda</h3>
+        <ul>
+          <li><a href="chi-siamo.html">Chi Siamo</a></li>
+          <li><a href="progetti-studio-ingegneria-capoferri.html">Progetti</a></li>
+          <li><a href="progettazione-strutture-brescia-contatti.html">Contatti</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Contatti</h3>
+        <ul>
+          <li><strong>Indirizzo:</strong><br>Via Piave 35<br>25030 Adro (BS) - Italia</li>
+          <li><strong>Telefono:</strong><br><a href="tel:+390307357263">+39 030 7357263</a></li>
+          <li><strong>Email:</strong><br><a href="mailto:info@studiocapoferri.eu">info@studiocapoferri.eu</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Studio Ingegneria Architettura Capoferri – Tutti i diritti riservati | <a href="privacy-policy.html" title="Leggi la nostra informativa sulla privacy">Privacy Policy</a><br><strong>INGEGNERIA | ARCHITETTURA | PROGETTAZIONE STRUTTURE IN ACCIAIO</strong><br>P.I. 00705160984</p>
+    </div>
   </div>
 </footer>
 <script>
