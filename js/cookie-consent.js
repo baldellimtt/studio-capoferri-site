@@ -36,7 +36,7 @@
     
     banner.innerHTML = `
       <div class="cookie-banner-content">
-        <div class="cookie-banner-icon">🍪</div>
+        <div class="cookie-banner-icon"></div>
         <div class="cookie-banner-text">
           <p><strong>Utilizzo dei Cookie</strong></p>
           <p>Questo sito utilizza cookie tecnici necessari al funzionamento e, in alcune pagine, cookie di terze parti (Google Maps). Continuando la navigazione accetti l'utilizzo dei cookie. <a href="privacy-policy.html#cookie" style="text-decoration: underline; color: inherit;">Maggiori informazioni</a></p>
