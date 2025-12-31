@@ -119,8 +119,8 @@
         <li><strong>Progettazione architettonica</strong> – Sviluppo di soluzioni estetico-funzionali per nuove costruzioni, ristrutturazioni e riqualificazioni.</li>
 		<li><strong>Urbanistica</strong> – Piani attuativi, varianti urbanistiche, analisi di conformità agli strumenti di pianificazione.</li>
       </ul>
-	  
-	        <h2 id="direzione-lavori">Direzione Lavori e Consulenza</h2>
+      
+      <h2 id="direzione-lavori">Direzione Lavori e Consulenza</h2>
       <ul>
         <li><strong>Direzione lavori strutturali</strong> – Supervisione tecnica delle fasi di costruzione per garantire qualità e rispetto dei progetti.</li>
         <li><strong>Assistenza in cantiere</strong> – Supporto continuo alle imprese durante montaggi, modifiche e verifiche tecniche.</li>
@@ -137,8 +137,8 @@
 		<li><strong>Successioni e divisioni</strong> – Assistenza tecnica e documentale in pratiche di successione ereditaria e divisione patrimoniale.</li>
 
       </ul>
-	  
-	   <h2 id="sicurezza-cantieri">Sicurezza Cantieri</h2>
+      
+      <h2 id="sicurezza-cantieri">Sicurezza Cantieri</h2>
       <ul>
         <li><strong>Sicurezza cantieri</strong> – Coordinamento della sicurezza in fase di progettazione ed esecuzione (CSP e CSE), piani di sicurezza e gestione rischi.</li>
       </ul>
@@ -199,6 +199,30 @@
     const isActive = nav.classList.toggle('active');
     hamburger.setAttribute('aria-expanded', isActive);
   }
+
+  // Gestione scroll per anchor links quando la pagina viene caricata con hash
+  (function() {
+    if (window.location.hash) {
+      const hash = window.location.hash.substring(1);
+      const targetElement = document.getElementById(hash);
+      
+      if (targetElement) {
+        // Aspetta che la pagina sia completamente caricata
+        window.addEventListener('load', function() {
+          setTimeout(function() {
+            const headerHeight = 130; // Altezza header + margine
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+            
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          }, 100);
+        });
+      }
+    }
+  })();
 </script>
 </body>
 </html>

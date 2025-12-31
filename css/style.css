@@ -126,7 +126,8 @@ h1, h2, h3 {
 
 /* Scroll offset per anchor links con header fisso */
 h2[id], h3[id] {
-  scroll-margin-top: 120px; /* Compensa l'altezza dell'header (100px) + margine */
+  scroll-margin-top: 130px; /* Compensa l'altezza dell'header (100px) + margine extra */
+  scroll-padding-top: 130px; /* Fallback per browser più vecchi */
 }
 
 ul {
