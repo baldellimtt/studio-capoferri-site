@@ -3,7 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="author" content="Studio Capoferri">
+  <meta name="language" content="Italian">
+  
+  <!-- Primary Meta Tags -->
   <title>Contatti – Studio Capoferri - Ingegneria | Architettura | Urbanistica</title>
+  <meta name="title" content="Contatti – Studio Capoferri - Ingegneria | Architettura | Urbanistica">
+  <meta name="description" content="Contatta lo Studio Capoferri per richiedere un preventivo o fissare un appuntamento per i tuoi progetti di ingegneria e architettura. Trova i nostri recapiti, indirizzo e orari di apertura della sede ad Adro (BS).">
+  <meta name="keywords" content="contatti studio ingegneria Brescia, preventivo progettazione, ingegneria Adro, architettura Franciacorta">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.studiocapoferri.eu/progettazione-strutture-brescia-contatti.html">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.studiocapoferri.eu/progettazione-strutture-brescia-contatti.html">
+  <meta property="og:title" content="Contatti – Studio Capoferri">
+  <meta property="og:description" content="Contatta lo Studio Capoferri per richiedere un preventivo o fissare un appuntamento per i tuoi progetti di ingegneria e architettura.">
+  <meta property="og:image" content="https://www.studiocapoferri.eu/assets/progettazione-strutturale-in-acciaio-contatti.webp">
+  <meta property="og:locale" content="it_IT">
+  
+  
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
@@ -53,15 +78,16 @@
 </script>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Vai al contenuto principale</a>
 
-  <header class="main-header">
+  <header class="main-header" role="banner">
     <div class="container">
   	<div class="logo">
 	  <a href="index.html" title="Torna alla home page">
 		<img src="assets/logo-studio-ingegneria-removebg-preview.png" alt="Studio Capoferri Logo">
 	  </a>
 	</div>
-      <nav class="main-nav">
+      <nav class="main-nav" role="navigation" aria-label="Menu principale">
 	  <ul>
 		<li><a href="chi-siamo.html" title="Scopri chi siamo">Chi Siamo</a></li>
         <li><a href="progetti-studio-ingegneria-capoferri.html" title="Guarda i nostri progetti">Progetti</a></li>
@@ -69,15 +95,12 @@
 		<li><a href="progettazione-strutture-brescia-contatti.html" title="Contatta lo Studio Capoferri">Contatti</a></li>
 	  </ul>
       </nav>
-	      <!-- Aggiungi il pulsante hamburger per dispositivi mobili -->
-    <div class="hamburger-menu" onclick="toggleMenu()">
-      &#9776; <!-- Carattere hamburger -->
-    </div>
+    <button class="hamburger-menu" onclick="toggleMenu()" aria-label="Apri menu di navigazione" aria-expanded="false">&#9776;</button>
   </div>
     </div>
   </header>
 
-  <main>
+  <main id="main-content" role="main">
     <section id="contatti" class="section light">
       <div class="container contact-grid">
         <div class="contact-info">
@@ -100,7 +123,8 @@
         <div class="map-wrapper">
           <h2>Dove Siamo</h2>
           <iframe class="map-frame" loading="lazy" allowfullscreen
-            src="https://maps.google.com/maps?q=Via%20Piave%2035,%20Adro%20BS&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed">
+            src="https://maps.google.com/maps?q=Via%20Piave%2035,%20Adro%20BS&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+            title="Mappa della posizione dello Studio Capoferri in Via Piave 35, Adro (BS)">
           </iframe>
         </div>
 
@@ -116,6 +140,9 @@
 
             <label for="subject">Oggetto</label>
             <input type="text" id="subject" name="subject">
+            
+            <label for="city">Città / Zona di interesse</label>
+            <input type="text" id="city" name="city" placeholder="Es: Brescia, Bergamo, Milano, Verona...">
 
             <label for="message">Messaggio*</label>
             <textarea id="message" name="message" rows="6" required></textarea>
@@ -134,7 +161,7 @@
     </section>
   </main>
 
-<footer class="main-footer">
+<footer class="main-footer" role="contentinfo">
   <div class="container">
     <p>© 2025 Studio Ingegneria Architettura Capoferri – Tutti i diritti riservati | <a href="privacy-policy.html" title="Leggi la nostra informativa sulla privacy">Privacy Policy</a><br><strong>INGEGNERIA | ARCHITETTURA | PROGETTAZIONE STRUTTURE IN ACCIAIO</strong><br> ADRO (BS) - via Piave 35 Italia | Tel. +39 030 7357263 | P.I. 00705160984 </p>
   </div>
@@ -142,7 +169,9 @@
 <script>
   function toggleMenu() {
     const nav = document.querySelector('.main-nav');
-    nav.classList.toggle('active');
+    const hamburger = document.querySelector('.hamburger-menu');
+    const isActive = nav.classList.toggle('active');
+    hamburger.setAttribute('aria-expanded', isActive);
   }
 </script>
 </body>

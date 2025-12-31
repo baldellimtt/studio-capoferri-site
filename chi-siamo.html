@@ -3,7 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chi Siamo – Studio Capoferri</title>
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="author" content="Studio Capoferri">
+  <meta name="language" content="Italian">
+  
+  <!-- Primary Meta Tags -->
+  <title>Chi Siamo – Studio Capoferri | Team di Ingegneri e Architetti</title>
+  <meta name="title" content="Chi Siamo – Studio Capoferri | Team di Ingegneri e Architetti">
+  <meta name="description" content="Scopri lo Studio Capoferri, il nostro team di professionisti, la storia e la filosofia che ci guida nella progettazione ingegneristica e architettonica con sede ad Adro (BS).">
+  <meta name="keywords" content="studio ingegneria Adro, team ingegneri Brescia, professionisti architettura, ingegneria civile Franciacorta">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.studiocapoferri.eu/chi-siamo.html">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.studiocapoferri.eu/chi-siamo.html">
+  <meta property="og:title" content="Chi Siamo – Studio Capoferri">
+  <meta property="og:description" content="Scopri lo Studio Capoferri, il nostro team di professionisti, la storia e la filosofia che ci guida nella progettazione ingegneristica e architettonica con sede ad Adro (BS).">
+  <meta property="og:image" content="https://www.studiocapoferri.eu/assets/ingegneria-civile-e-ambientale-adro-chi-siamo.webp">
+  <meta property="og:locale" content="it_IT">
+  
+  
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
   <link rel="stylesheet" href="css/style.css" />
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.webp"> 
 <link rel="icon" type="image/webp" href="/assets/favicon-32x32.webp">
@@ -49,15 +74,16 @@
 </script>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Vai al contenuto principale</a>
 
-  <header class="main-header">
+  <header class="main-header" role="banner">
     <div class="container">
 	<div class="logo">
 	  <a href="index.html" title="Torna alla home page">
 		<img src="assets/logo-studio-ingegneria-removebg-preview.png" alt="Studio Capoferri Logo">
 	  </a>
 	</div>
-      <nav class="main-nav">
+      <nav class="main-nav" role="navigation" aria-label="Menu principale">
 	  <ul>
 		<li><a href="chi-siamo.html" title="Scopri chi siamo">Chi Siamo</a></li>
         <li><a href="progetti-studio-ingegneria-capoferri.html" title="Guarda i nostri progetti">Progetti</a></li>
@@ -65,20 +91,17 @@
 		<li><a href="progettazione-strutture-brescia-contatti.html" title="Contatta lo Studio Capoferri">Contatti</a></li>
 	  </ul>
       </nav>
-	      <!-- Aggiungi il pulsante hamburger per dispositivi mobili -->
-    <div class="hamburger-menu" onclick="toggleMenu()">
-      &#9776; <!-- Carattere hamburger -->
-    </div>
+    <button class="hamburger-menu" onclick="toggleMenu()" aria-label="Apri menu di navigazione" aria-expanded="false">&#9776;</button>
   </div>
     </div>
   </header>
 
-  <main>
+  <main id="main-content" role="main">
     <section class="section light">
       <div class="container">
-        <h2>Chi Siamo</h2>
+        <h1>Chi Siamo</h1>
         <p>
-          <strong>Studio Capoferri</strong> è una realtà tecnica indipendente nata dalla passione per l’edilizia in ogni sua forma e sfaccettatura. 
+          <strong>Studio Capoferri</strong> è una realtà tecnica indipendente nata dalla passione per l'edilizia in ogni sua forma e sfaccettatura. 
           Con una solida esperienza maturata sul campo, affianchiamo imprese, architetti e studi tecnici per realizzare soluzioni strutturali 
           affidabili, innovative e sempre conformi alle normative.
         </p>
@@ -89,11 +112,11 @@
         <p>
           Dal piccolo intervento locale ai grandi impianti industriali, mettiamo la stessa dedizione per garantire qualità e sicurezza in ogni progetto.
         </p>
-        <img src="assets/ingegneria-civile-e-ambientale-adro-chi-siamo.webp" alt="Team Studio Capoferri" class="section-img" />
+        <img src="assets/ingegneria-civile-e-ambientale-adro-chi-siamo.webp" alt="Team di ingegneri e architetti dello Studio Capoferri durante una riunione tecnica ad Adro, Brescia" class="section-img" loading="lazy" />
       </div>
     </section>
   </main>
-<footer class="main-footer">
+<footer class="main-footer" role="contentinfo">
   <div class="container">
     <p>© 2025 Studio Ingegneria Architettura Capoferri – Tutti i diritti riservati | <a href="privacy-policy.html" title="Leggi la nostra informativa sulla privacy">Privacy Policy</a><br><strong>INGEGNERIA | ARCHITETTURA | PROGETTAZIONE STRUTTURE IN ACCIAIO</strong><br> ADRO (BS) - via Piave 35 Italia | Tel. +39 030 7357263 | P.I. 00705160984 </p>
   </div>
@@ -101,7 +124,9 @@
  <script>
     function toggleMenu() {
       const nav = document.querySelector('.main-nav');
-      nav.classList.toggle('active');
+      const hamburger = document.querySelector('.hamburger-menu');
+      const isActive = nav.classList.toggle('active');
+      hamburger.setAttribute('aria-expanded', isActive);
     }
  </script>
 </body>

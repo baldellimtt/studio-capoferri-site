@@ -35,8 +35,44 @@ Il sito fornisce informazioni sui servizi offerti, i progetti realizzati, i cont
 
 ## ▶️ Come visualizzare localmente
 
-1. Scarica o clona il repository.
-2. Apri `index.html` con un qualsiasi browser.
-3. (Facoltativo) Per testare da server locale:
-   ```bash
-   python3 -m http.server 8080
+### Metodo 1: Server Python (Consigliato)
+
+Il modo migliore per testare il sito è usare il server Python incluso:
+
+**Su Windows:**
+```bash
+# Doppio click su start-server.bat
+# Oppure dalla riga di comando:
+python server.py
+```
+
+**Su Linux/Mac:**
+```bash
+# Rendi eseguibile lo script (solo la prima volta)
+chmod +x start-server.sh
+
+# Esegui lo script
+./start-server.sh
+
+# Oppure direttamente:
+python3 server.py
+```
+
+Il server si avvierà automaticamente su `http://localhost:8000/` (o su un'altra porta se 8000 è occupata).
+
+### Metodo 2: Server HTTP Python standard
+
+Se preferisci usare il comando standard di Python:
+```bash
+# Python 3
+python3 -m http.server 8000
+
+# Python 2 (non più supportato)
+python -m SimpleHTTPServer 8000
+```
+
+Poi apri il browser su: `http://localhost:8000/`
+
+### Metodo 3: Apertura diretta
+
+Puoi anche aprire direttamente `index.html` con un browser, ma alcune funzionalità potrebbero non funzionare correttamente (es. fetch API, routing relativo).
