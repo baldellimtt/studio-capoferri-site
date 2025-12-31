@@ -27,6 +27,3 @@ User-agent: Applebot-Extended
 Allow: /
 
 Sitemap: https://www.studiocapoferri.eu/sitemap.xml
-
-# LLMs.txt for AI/LLM crawlers
-llms.txt: https://www.studiocapoferri.eu/llms.txt
