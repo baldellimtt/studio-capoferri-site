@@ -9,10 +9,34 @@
   const COOKIE_CONSENT_NAME = 'cookie_consent_studio_capoferri';
   const COOKIE_EXPIRY_DAYS = 365;
 
-  // Verifica se l'utente ha già dato il consenso
-  function hasConsent() {
-    return localStorage.getItem(COOKIE_CONSENT_NAME) === 'accepted';
+  // Leggi un cookie
+  function getCookie(name) {
+    const nameEQ = name + '=';
+    const ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+      if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
   }
+
+  // Verifica se l'utente ha già dato il consenso
+  // Controlla sia localStorage che cookie per maggiore robustezza
+  function hasConsent() {
+    const localStorageConsent = localStorage.getItem(COOKIE_CONSENT_NAME) === 'accepted';
+    const cookieConsent = getCookie(COOKIE_CONSENT_NAME) === 'accepted';
+    const hasConsentValue = localStorageConsent || cookieConsent;
+    return hasConsentValue;
+  }
+
+  // Funzione helper per resettare il consenso (utile per test)
+  // Puoi chiamarla dalla console: window.resetCookieConsent()
+  window.resetCookieConsent = function() {
+    localStorage.removeItem(COOKIE_CONSENT_NAME);
+    document.cookie = `${COOKIE_CONSENT_NAME}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+    console.log('Consenso cookie resettato. Ricarica la pagina per vedere il banner.');
+  };
 
   // Salva il consenso
   function setConsent() {
@@ -24,8 +48,26 @@
 
   // Crea il banner cookie
   function createCookieBanner() {
+    // Debug: verifica lo stato del consenso
+    const localStorageConsent = localStorage.getItem(COOKIE_CONSENT_NAME);
+    const cookieConsent = getCookie(COOKIE_CONSENT_NAME);
+    console.log('Cookie consent check:', {
+      localStorage: localStorageConsent,
+      cookie: cookieConsent,
+      hasConsent: hasConsent()
+    });
+
     if (hasConsent()) {
+      console.log('Banner non mostrato: consenso già dato');
       return; // L'utente ha già accettato
+    }
+
+    console.log('Creazione banner cookie...');
+
+    // Verifica che il body esista
+    if (!document.body) {
+      console.error('document.body non è disponibile. Banner cookie non può essere creato.');
+      return;
     }
 
     const banner = document.createElement('div');
