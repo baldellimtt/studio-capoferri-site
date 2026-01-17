@@ -3,6 +3,15 @@
  * Conforme al GDPR per cookie tecnici e di terze parti
  */
 
+// Funzione helper globale per resettare il consenso (utile per test)
+// Puoi chiamarla dalla console: resetCookieConsent()
+function resetCookieConsent() {
+  const COOKIE_CONSENT_NAME = 'cookie_consent_studio_capoferri';
+  localStorage.removeItem(COOKIE_CONSENT_NAME);
+  document.cookie = `${COOKIE_CONSENT_NAME}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+  console.log('Consenso cookie resettato. Ricarica la pagina per vedere il banner.');
+}
+
 (function() {
   'use strict';
 
@@ -30,13 +39,6 @@
     return hasConsentValue;
   }
 
-  // Funzione helper per resettare il consenso (utile per test)
-  // Puoi chiamarla dalla console: window.resetCookieConsent()
-  window.resetCookieConsent = function() {
-    localStorage.removeItem(COOKIE_CONSENT_NAME);
-    document.cookie = `${COOKIE_CONSENT_NAME}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-    console.log('Consenso cookie resettato. Ricarica la pagina per vedere il banner.');
-  };
 
   // Salva il consenso
   function setConsent() {
