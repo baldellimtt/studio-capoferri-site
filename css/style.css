@@ -2075,19 +2075,88 @@ a {
     gap: var(--spacing-md);
   }
   
-  /* Footer su mobile */
+  /* ============================================
+     FOOTER MOBILE MODERNO - COMPATTO E SOTA
+     ============================================ */
+  .main-footer {
+    padding: var(--spacing-lg) 0 var(--spacing-md) !important;
+    margin-top: var(--spacing-lg);
+  }
+
   .footer-content {
     grid-template-columns: 1fr;
-    gap: var(--spacing-lg);
-    text-align: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .footer-column {
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .footer-column:last-of-type {
+    border-bottom: none;
   }
   
   .footer-column h3 {
-    margin-top: var(--spacing-lg);
+    font-size: var(--font-size-lg);
+    margin-top: 0;
+    margin-bottom: var(--spacing-sm);
+    padding-bottom: var(--spacing-xs);
+    letter-spacing: 1px;
   }
   
   .footer-column h3:first-child {
     margin-top: 0;
+  }
+
+  .footer-column ul {
+    margin: 0;
+  }
+
+  .footer-column ul li {
+    margin-bottom: var(--spacing-xs);
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  .footer-column a {
+    font-size: 0.875rem;
+    padding: 4px 0;
+    display: inline-block;
+  }
+
+  .footer-bottom {
+    padding-top: var(--spacing-md);
+    font-size: 0.75rem;
+    line-height: 1.6;
+  }
+
+  .footer-bottom p {
+    margin: 0;
+    padding: 0 var(--spacing-sm);
+  }
+
+  .footer-bottom br {
+    display: block;
+    margin: 0.5em 0;
+  }
+
+  /* Ottimizzazioni aggiuntive per footer mobile */
+  .footer-column strong {
+    font-size: 0.875rem;
+    display: block;
+    margin-bottom: 4px;
+    opacity: 0.9;
+  }
+
+  /* Riduci spazio tra elementi contatti */
+  .footer-column:last-child ul li {
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .footer-column:last-child ul li:last-child {
+    margin-bottom: 0;
   }
 
   .services-list {
