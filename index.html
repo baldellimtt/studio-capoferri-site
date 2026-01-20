@@ -644,11 +644,28 @@
 </footer>
 
 <script>
+// Funzione per aprire/chiudere il menu mobile (deve essere definita PRIMA di tutto)
+function toggleMenu() {
+  const nav = document.querySelector('.main-nav');
+  const hamburger = document.querySelector('.hamburger-menu');
+  const isActive = nav.classList.toggle('active');
+  if (hamburger) {
+    hamburger.setAttribute('aria-expanded', isActive);
+  }
+  
+  // Previene scroll del body quando menu è aperto
+  if (isActive) {
+    document.body.classList.add('menu-open');
+  } else {
+    document.body.classList.remove('menu-open');
+  }
+}
+
 // Hero Slider
 const slides = [
   {
     image: 'assets/superstudio-village-acciaio-pre-fabbricato.webp',
-    text: '<span class="no-break">Architettura e ingegneria</span><br>al servizio dell’innovazione'
+    text: '<span class="no-break">Architettura e ingegneria</span><br>al servizio dell\'innovazione'
   },
   {
     image: 'assets/superstudio-village-sala-proiezione.webp',
@@ -710,56 +727,6 @@ slideElems[0].classList.add('visible');
 heroTitle.innerHTML = slides[0].text;
 
 setInterval(updateHero, 4500);
-
-  // Funzione per aprire/chiudere il menu mobile
-  function toggleMenu() {
-    const nav = document.querySelector('.main-nav');
-    const hamburger = document.querySelector('.hamburger-menu');
-    
-    if (!nav || !hamburger) {
-      return;
-    }
-    
-    const isActive = nav.classList.toggle('active');
-    hamburger.setAttribute('aria-expanded', isActive);
-    
-    // Previene scroll del body quando menu è aperto
-    if (isActive) {
-      document.body.classList.add('menu-open');
-    } else {
-      document.body.classList.remove('menu-open');
-    }
-  }
-
-  // Assicurati che la funzione sia disponibile immediatamente
-  window.toggleMenu = toggleMenu;
-
-  // Aggiungi anche event listener come fallback
-  document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.querySelector('.hamburger-menu');
-    if (hamburger) {
-      hamburger.addEventListener('click', function(e) {
-        e.stopPropagation();
-        toggleMenu();
-      });
-    }
-  });
-
-  // Chiudi menu quando si clicca fuori (solo se il menu è già aperto)
-  document.addEventListener('click', function (event) {
-    const nav = document.querySelector('.main-nav');
-    const hamburger = document.querySelector('.hamburger-menu');
-    
-    // Se il menu è attivo e il clic NON è sul menu né sul pulsante hamburger
-    if (nav && hamburger && 
-        nav.classList.contains('active') &&
-        !nav.contains(event.target) &&
-        !hamburger.contains(event.target)) {
-      nav.classList.remove('active');
-      hamburger.setAttribute('aria-expanded', 'false');
-      document.body.classList.remove('menu-open');
-    }
-  });
 
   // Effetto scroll sull'header (solo su mobile)
   if (window.innerWidth <= 768) {
