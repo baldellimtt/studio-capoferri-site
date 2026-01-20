@@ -79,8 +79,28 @@ if (document.readyState === 'loading') {
 
 // Funzione globale per compatibilità con onclick nell'HTML
 function toggleMenu() {
-  if (navigationInstance) {
+  // Se l'istanza non è ancora creata, creala al volo
+  if (!navigationInstance) {
+    navigationInstance = new Navigation();
+  }
+  
+  if (navigationInstance && navigationInstance.nav && navigationInstance.hamburger) {
     navigationInstance.toggleMenu();
+  } else {
+    // Fallback: gestione diretta se l'istanza non funziona
+    const nav = document.querySelector('.main-nav');
+    const hamburger = document.querySelector('.hamburger-menu');
+    if (nav && hamburger) {
+      const isActive = nav.classList.toggle('active');
+      hamburger.setAttribute('aria-expanded', isActive);
+      
+      // Previene scroll del body quando menu è aperto
+      if (isActive) {
+        document.body.classList.add('menu-open');
+      } else {
+        document.body.classList.remove('menu-open');
+      }
+    }
   }
 }
 

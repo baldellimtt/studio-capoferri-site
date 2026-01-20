@@ -1693,6 +1693,11 @@ a {
     transition: all 0.3s ease;
   }
 
+  /* Nasconde il menu desktop su mobile - solo mostra quando è attivo (menu mobile) */
+  .main-nav {
+    margin-left: 0;
+  }
+
   /* ============================================
      HAMBURGER MENU MODERNO - ANIMATO
      ============================================ */
@@ -1745,25 +1750,25 @@ a {
   }
 
   /* Hamburger animato quando attivo */
-  .main-nav.active ~ .hamburger-menu,
-  .hamburger-menu[aria-expanded="true"] {
+  .hamburger-menu[aria-expanded="true"],
+  .main-nav.active ~ .hamburger-menu {
     gap: 0;
   }
 
-  .main-nav.active ~ .hamburger-menu::before,
-  .hamburger-menu[aria-expanded="true"]::before {
+  .hamburger-menu[aria-expanded="true"]::before,
+  .main-nav.active ~ .hamburger-menu::before {
     transform: translateY(0) rotate(45deg);
     background: #ffffff;
   }
 
-  .main-nav.active ~ .hamburger-menu::after,
-  .hamburger-menu[aria-expanded="true"]::after {
+  .hamburger-menu[aria-expanded="true"]::after,
+  .main-nav.active ~ .hamburger-menu::after {
     transform: translateY(0) rotate(-45deg);
     background: #ffffff;
   }
 
-  .main-nav.active ~ .hamburger-menu span,
-  .hamburger-menu[aria-expanded="true"] span {
+  .hamburger-menu[aria-expanded="true"] span,
+  .main-nav.active ~ .hamburger-menu span {
     opacity: 0;
     transform: scale(0);
   }
@@ -1790,6 +1795,7 @@ a {
     justify-content: center;
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
     transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
                 visibility 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     overflow-y: auto;
@@ -1799,9 +1805,11 @@ a {
   .main-nav.active {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
   }
 
   .main-nav ul {
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
