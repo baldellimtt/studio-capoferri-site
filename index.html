@@ -711,15 +711,36 @@ heroTitle.innerHTML = slides[0].text;
 
 setInterval(updateHero, 4500);
 
+  // Funzione per aprire/chiudere il menu mobile
+  function toggleMenu() {
+    const nav = document.querySelector('.main-nav');
+    const hamburger = document.querySelector('.hamburger-menu');
+    if (!nav || !hamburger) return;
+    
+    const isActive = nav.classList.toggle('active');
+    hamburger.setAttribute('aria-expanded', isActive);
+    
+    // Previene scroll del body quando menu è aperto
+    if (isActive) {
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.classList.remove('menu-open');
+    }
+  }
+
+  // Chiudi menu quando si clicca fuori (solo se il menu è già aperto)
   document.addEventListener('click', function (event) {
     const nav = document.querySelector('.main-nav');
     const hamburger = document.querySelector('.hamburger-menu');
     
     // Se il menu è attivo e il clic NON è sul menu né sul pulsante hamburger
-    if (nav.classList.contains('active') &&
+    if (nav && hamburger && 
+        nav.classList.contains('active') &&
         !nav.contains(event.target) &&
         !hamburger.contains(event.target)) {
       nav.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('menu-open');
     }
   });
 
