@@ -1,5 +1,19 @@
+# Googlebot
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Googlebot Image
+User-agent: Googlebot-Image
+Allow: /
+Crawl-delay: 0
+
+# All other crawlers
 User-agent: *
 Allow: /
+
+# Disallow private/internal directories
+Disallow: /firme/
 
 # AI/LLM Crawlers
 User-agent: GPTBot
@@ -26,4 +40,5 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
+# Sitemap
 Sitemap: https://www.studiocapoferri.eu/sitemap.xml
