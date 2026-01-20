@@ -63,7 +63,7 @@
   <link rel="stylesheet" href="css/style.css" />
   
   <!-- JavaScript Modules -->
-  <script src="js/navigation.js" defer></script>
+  <!-- navigation.js rimosso da index.html - usiamo funzione inline come nelle altre pagine -->
   <script src="js/animations.js" defer></script>
   <script src="js/cookie-consent.js" defer></script>
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.webp"> 
@@ -715,7 +715,10 @@ setInterval(updateHero, 4500);
   function toggleMenu() {
     const nav = document.querySelector('.main-nav');
     const hamburger = document.querySelector('.hamburger-menu');
-    if (!nav || !hamburger) return;
+    
+    if (!nav || !hamburger) {
+      return;
+    }
     
     const isActive = nav.classList.toggle('active');
     hamburger.setAttribute('aria-expanded', isActive);
@@ -727,6 +730,20 @@ setInterval(updateHero, 4500);
       document.body.classList.remove('menu-open');
     }
   }
+
+  // Assicurati che la funzione sia disponibile immediatamente
+  window.toggleMenu = toggleMenu;
+
+  // Aggiungi anche event listener come fallback
+  document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger-menu');
+    if (hamburger) {
+      hamburger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        toggleMenu();
+      });
+    }
+  });
 
   // Chiudi menu quando si clicca fuori (solo se il menu è già aperto)
   document.addEventListener('click', function (event) {
