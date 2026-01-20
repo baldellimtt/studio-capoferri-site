@@ -295,7 +295,9 @@
 		<li><a href="progettazione-strutture-brescia-contatti.html" title="Contatta lo Studio Capoferri">Contatti</a></li>
       </ul>
     </nav>
-    <button class="hamburger-menu" onclick="toggleMenu()" aria-label="Apri menu di navigazione" aria-expanded="false">&#9776;</button>
+    <button class="hamburger-menu" onclick="toggleMenu()" aria-label="Apri menu di navigazione" aria-expanded="false">
+      <span></span>
+    </button>
   </div>
 </header>
 
@@ -720,6 +722,24 @@ setInterval(updateHero, 4500);
       nav.classList.remove('active');
     }
   });
+
+  // Effetto scroll sull'header (solo su mobile)
+  if (window.innerWidth <= 768) {
+    let lastScroll = 0;
+    const header = document.querySelector('.main-header');
+    
+    window.addEventListener('scroll', function() {
+      const currentScroll = window.pageYOffset;
+      
+      if (currentScroll > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+      
+      lastScroll = currentScroll;
+    });
+  }
 
 </script>
 

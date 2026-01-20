@@ -73,10 +73,9 @@
 		<li><a href="progettazione-strutture-brescia-contatti.html" title="Contatta lo Studio Capoferri">Contatti</a></li>
         </ul>
       </nav>
-	      <!-- Aggiungi il pulsante hamburger per dispositivi mobili -->
-    <div class="hamburger-menu" onclick="toggleMenu()">
-      &#9776; <!-- Carattere hamburger -->
-    </div>
+    <button class="hamburger-menu" onclick="toggleMenu()" aria-label="Apri menu di navigazione" aria-expanded="false">
+      <span></span>
+    </button>
   </div>
     </div>
   </header>
@@ -151,7 +150,38 @@
 <script>
   function toggleMenu() {
     const nav = document.querySelector('.main-nav');
-    nav.classList.toggle('active');
+    const hamburger = document.querySelector('.hamburger-menu');
+    const isActive = nav.classList.toggle('active');
+    if (hamburger) {
+      hamburger.setAttribute('aria-expanded', isActive);
+    }
+    
+    // Previene scroll del body quando menu è aperto
+    if (isActive) {
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.classList.remove('menu-open');
+    }
+  }
+
+  // Effetto scroll sull'header (solo su mobile)
+  if (window.innerWidth <= 768) {
+    let lastScroll = 0;
+    const header = document.querySelector('.main-header');
+    
+    if (header) {
+      window.addEventListener('scroll', function() {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+        
+        lastScroll = currentScroll;
+      });
+    }
   }
 </script>
 </body>

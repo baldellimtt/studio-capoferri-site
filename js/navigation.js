@@ -51,21 +51,37 @@ class Navigation {
   toggleMenu() {
     const isActive = this.nav.classList.toggle('active');
     this.hamburger.setAttribute('aria-expanded', isActive);
+    
+    // Previene scroll del body quando menu è aperto
+    if (isActive) {
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.classList.remove('menu-open');
+    }
   }
 
   closeMenu() {
     this.nav.classList.remove('active');
     this.hamburger.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('menu-open');
   }
 }
 
 // Inizializza
+let navigationInstance;
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
-    new Navigation();
+    navigationInstance = new Navigation();
   });
 } else {
-  new Navigation();
+  navigationInstance = new Navigation();
+}
+
+// Funzione globale per compatibilità con onclick nell'HTML
+function toggleMenu() {
+  if (navigationInstance) {
+    navigationInstance.toggleMenu();
+  }
 }
 
 
