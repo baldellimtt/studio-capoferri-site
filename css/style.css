@@ -874,6 +874,30 @@ a {
   color: #3d5a7a;
 }
 
+.linkedin-follow {
+  margin-top: 8px;
+}
+
+.linkedin-follow .linkedin-follow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #2a3f54;
+  text-decoration: none;
+}
+
+.linkedin-follow .linkedin-follow-icon {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.linkedin-follow .linkedin-follow-link span {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .contact-grid {
   display: flex;
   flex-wrap: wrap;
