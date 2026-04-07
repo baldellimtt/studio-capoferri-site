@@ -40,6 +40,7 @@ export function HeroHome() {
               className="object-cover brightness-[1.1] saturate-[1.04]"
               sizes="100vw"
               priority={idx === 0}
+              fetchPriority={idx === 0 ? "high" : "low"}
             />
           </div>
         ))}

@@ -23,59 +23,61 @@ export function SiteHeader() {
   }, [open]);
 
   return (
-    <header
-      className={`sticky top-0 z-[1000] border-b border-[#2a3f54]/10 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/88 shadow-[0_10px_30px_rgba(0,0,0,0.05)] backdrop-blur-xl"
-          : "bg-white/72 backdrop-blur-2xl"
-      }`}
-    >
-      <div className={layoutGutterXClass}>
-        <div className={`flex h-[64px] items-center justify-between sm:h-[72px] md:h-[94px] ${layoutContentMaxClass}`}>
-          <Link href="/" className="flex shrink-0 items-center" title="Torna alla home">
-            <Image
-              src="/assets/logo-studio-ingegneria-removebg-preview.png"
-              alt="Studio Capoferri — ingegneria e progettazione strutturale"
-              width={220}
-              height={70}
-              className="h-[42px] w-auto sm:h-[50px] md:h-[70px]"
-              priority
-            />
-          </Link>
+    <>
+      <header
+        className={`sticky top-0 z-[1000] border-b border-[#2a3f54]/10 transition-all duration-300 ${
+          scrolled
+            ? "bg-white/88 shadow-[0_10px_30px_rgba(0,0,0,0.05)] backdrop-blur-xl"
+            : "bg-white/72 backdrop-blur-2xl"
+        }`}
+      >
+        <div className={layoutGutterXClass}>
+          <div className={`flex h-[64px] items-center justify-between sm:h-[72px] md:h-[94px] ${layoutContentMaxClass}`}>
+            <Link href="/" className="flex shrink-0 items-center" title="Torna alla home">
+              <Image
+                src="/assets/logo-studio-ingegneria-removebg-preview.png"
+                alt="Studio Capoferri — ingegneria e progettazione strutturale"
+                width={220}
+                height={70}
+                className="h-[42px] w-auto sm:h-[50px] md:h-[70px]"
+                priority
+              />
+            </Link>
 
-          <nav className="hidden shrink-0 md:block" aria-label="Menu principale">
-            <ul className="flex items-center gap-6 lg:gap-8">
-              {navItems.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className={`${fontDisplay.className} text-[1.05rem] uppercase tracking-[0.12em] text-[#2a2a2a] transition hover:text-[#2a3f54] lg:text-[1.24rem]`}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+            <nav className="hidden shrink-0 md:block" aria-label="Menu principale">
+              <ul className="flex items-center gap-6 lg:gap-8">
+                {navItems.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className={`${fontDisplay.className} text-[1.05rem] uppercase tracking-[0.12em] text-[#2a2a2a] transition hover:text-[#2a3f54] lg:text-[1.24rem]`}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
 
-          <button
-            type="button"
-            className="flex h-11 w-11 shrink-0 flex-col items-center justify-center gap-1.5 rounded-md border border-[#2a3f54]/15 bg-white/70 shadow-sm md:hidden"
-            aria-expanded={open}
-            aria-controls="mobile-nav"
-            aria-label={open ? "Chiudi menu" : "Apri menu"}
-            onClick={() => setOpen((v) => !v)}
-          >
-            <span
-              className={`block h-0.5 w-7 rounded bg-[#2a3f54] transition ${open ? "translate-y-2 rotate-45" : ""}`}
-            />
-            <span className={`block h-0.5 w-7 rounded bg-[#2a3f54] transition ${open ? "opacity-0" : ""}`} />
-            <span
-              className={`block h-0.5 w-7 rounded bg-[#2a3f54] transition ${open ? "-translate-y-2 -rotate-45" : ""}`}
-            />
-          </button>
+            <button
+              type="button"
+              className="flex h-11 w-11 shrink-0 flex-col items-center justify-center gap-1.5 rounded-md border border-[#2a3f54]/15 bg-white/70 shadow-sm md:hidden"
+              aria-expanded={open}
+              aria-controls="mobile-nav"
+              aria-label={open ? "Chiudi menu" : "Apri menu"}
+              onClick={() => setOpen((v) => !v)}
+            >
+              <span
+                className={`block h-0.5 w-7 rounded bg-[#2a3f54] transition ${open ? "translate-y-2 rotate-45" : ""}`}
+              />
+              <span className={`block h-0.5 w-7 rounded bg-[#2a3f54] transition ${open ? "opacity-0" : ""}`} />
+              <span
+                className={`block h-0.5 w-7 rounded bg-[#2a3f54] transition ${open ? "-translate-y-2 -rotate-45" : ""}`}
+              />
+            </button>
+          </div>
         </div>
-      </div>
+      </header>
 
       <div
         id="mobile-nav"
@@ -100,6 +102,6 @@ export function SiteHeader() {
           </ul>
         </div>
       </div>
-    </header>
+    </>
   );
 }
