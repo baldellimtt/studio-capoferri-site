@@ -1,7 +1,7 @@
 /**
  * Sincronizza contenuti statici per Next.js:
  * - assets/ → public/assets/
- * - favicon.ico, robots.txt, sitemap.xml, llms.txt se presenti
+ * - robots.txt, sitemap.xml, llms.txt se presenti
  */
 const fs = require("fs");
 const path = require("path");

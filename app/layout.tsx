@@ -36,6 +36,9 @@ export const metadata: Metadata = {
       "Studio tecnico Capoferri ad Adro: 40+ anni di esperienza in progettazione strutturale, architettura e urbanistica in Franciacorta e provincia di Brescia e Bergamo.",
     images: [{ url: "/assets/superstudio-village-acciaio-pre-fabbricato.webp", width: 1200, height: 630 }],
   },
+  icons: {
+    apple: "/assets/apple-touch-icon.webp",
+  },
   robots: { index: true, follow: true },
   verification: { google: "DMhu8zo7VvJIGjVKh3LMDhcxJs174oNCUb41rzZNTCA" },
   other: { "theme-color": "#2a3f54" },
