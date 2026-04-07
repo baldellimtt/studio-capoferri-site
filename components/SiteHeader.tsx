@@ -32,14 +32,14 @@ export function SiteHeader() {
         }`}
       >
         <div className={layoutGutterXClass}>
-          <div className={`flex h-[64px] items-center justify-between sm:h-[72px] md:h-[94px] ${layoutContentMaxClass}`}>
+          <div className={`flex h-[72px] items-center justify-between sm:h-[78px] md:h-[94px] ${layoutContentMaxClass}`}>
             <Link href="/" className="flex shrink-0 items-center" title="Torna alla home">
               <Image
                 src="/assets/logo-studio-ingegneria-removebg-preview.png"
                 alt="Studio Capoferri — ingegneria e progettazione strutturale"
                 width={220}
                 height={70}
-                className="h-[42px] w-auto sm:h-[50px] md:h-[70px]"
+                className="h-[46px] w-auto sm:h-[52px] md:h-[70px]"
                 priority
               />
             </Link>
@@ -81,18 +81,18 @@ export function SiteHeader() {
 
       <div
         id="mobile-nav"
-        className={`fixed inset-0 top-[64px] z-[999] flex flex-col bg-gradient-to-br from-[#2a3f54] to-[#1f2e3d] transition sm:top-[72px] md:hidden ${
+        className={`fixed inset-0 top-[72px] z-[999] flex flex-col bg-gradient-to-br from-[#2a3f54] to-[#1f2e3d] transition sm:top-[78px] md:hidden ${
           open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         }`}
         aria-hidden={!open}
       >
-        <div className={`flex-1 overflow-y-auto ${layoutGutterXClass}`}>
-          <ul className={`${layoutContentMaxClass} flex flex-col gap-1 py-6 sm:py-8`}>
+        <div className={`flex flex-1 items-center justify-center overflow-y-auto ${layoutGutterXClass}`}>
+          <ul className={`${layoutContentMaxClass} flex flex-col gap-3 py-8`}>
             {navItems.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className={`${fontDisplay.className} block min-h-[48px] py-4 text-center text-xl uppercase tracking-[0.12em] text-white transition hover:text-white/85 sm:text-2xl`}
+                  className={`${fontDisplay.className} block min-h-[48px] py-5 text-center text-2xl uppercase tracking-[0.14em] text-white transition hover:text-white/80 sm:text-3xl`}
                   onClick={() => setOpen(false)}
                 >
                   {item.label}
