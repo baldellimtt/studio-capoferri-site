@@ -1,0 +1,33 @@
+{
+  "name": "studio-capoferri-site",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "sync:static": "node scripts/sync-static.cjs",
+    "predev": "node scripts/sync-static.cjs",
+    "prebuild": "node scripts/sync-static.cjs",
+    "dev": "next dev --turbopack",
+    "build": "next build --turbopack",
+    "build:static": "cross-env STATIC_EXPORT=1 next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "framer-motion": "^12.23.24",
+    "next": "15.5.14",
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "cross-env": "^7.0.3",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.14",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

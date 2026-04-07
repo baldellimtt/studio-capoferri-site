@@ -47,6 +47,7 @@
   
   /* Ombre */
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 8px 24px rgba(42, 63, 84, 0.15);
   --shadow-xl: 0 12px 32px rgba(42, 63, 84, 0.2);
@@ -179,20 +180,31 @@ a {
   width: 100%;
 }
 
-/* HEADER */
+/* HEADER — glassmorphism + transizione allo scroll */
 .main-header {
-  background-color: #ffffff;
-  border-bottom: 1px solid rgba(42, 63, 84, 0.1);
+  background-color: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(42, 63, 84, 0.08);
   position: sticky;
   top: 0;
   z-index: 1000;
   padding: 0 40px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  transition: box-shadow 0.3s ease;
+  box-shadow: var(--shadow-soft);
+  transition:
+    background-color 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
 }
 
-.main-header:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+.main-header.is-scrolled {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-bottom-color: rgba(42, 63, 84, 0.12);
+  box-shadow: var(--shadow-soft), 0 1px 0 rgba(42, 63, 84, 0.06);
+}
+
+.main-header:hover:not(.is-scrolled) {
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.06);
 }
 
 .main-header .container {

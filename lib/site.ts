@@ -1,0 +1,31 @@
+/** Padding orizzontale sul contenitore esterno (stesso pattern delle `.section-shell` della home). */
+export const layoutGutterXClass = "px-4 sm:px-5 md:px-10";
+
+/**
+ * Colonna contenuto centrata nel gutter. Usare dentro un wrapper con `layoutGutterXClass`
+ * così header, footer e pagine allineano logo e menu ai bordi delle sezioni (stesso schema della home).
+ */
+export const layoutContentMaxClass = "mx-auto w-full max-w-[1140px]";
+
+/** URL pubblico (canonical, OG). In CI per GitHub Pages impostare NEXT_PUBLIC_SITE_URL al dominio reale del deploy. */
+const publicSiteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.studiocapoferri.eu";
+
+export const site = {
+  name: "Studio Capoferri",
+  legalName: "Studio Capoferri SRL STP",
+  tagline: "Ingegneria - Architettura - Urbanistica",
+  url: publicSiteUrl,
+  email: "info@studiocapoferri.eu",
+  phoneDisplay: "+39 030 7357263",
+  phoneTel: "+390307357263",
+  addressLine: "Via Piave 35 – 25030 Adro (BS), Italia",
+  piva: "04732710985",
+  formspreeId: "mqapdvrr",
+} as const;
+
+export const navItems = [
+  { href: "/chi-siamo", label: "Chi Siamo" },
+  { href: "/progetti", label: "Progetti" },
+  { href: "/servizi", label: "Servizi" },
+  { href: "/contatti", label: "Contatti" },
+] as const;
