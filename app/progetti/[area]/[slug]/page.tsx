@@ -88,7 +88,7 @@ export default async function ProjectCasePage({ params }: Props) {
 
         <div className="lazy-section">
           <article className="frost-card rounded-2xl p-5 sm:p-7 md:p-8">
-            <div className="reading-measure">{cs.body}</div>
+            <div>{cs.body}</div>
           </article>
 
           <ProjectImageLightbox images={cs.gallery} className="mt-10" />
