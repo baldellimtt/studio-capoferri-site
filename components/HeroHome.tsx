@@ -61,16 +61,14 @@ export function HeroHome() {
         />
       </div>
 
-      <div className="relative z-10 mx-auto flex min-h-[96svh] max-w-[1200px] flex-col justify-end gap-5 px-4 pb-10 pt-20 sm:min-h-[92vh] sm:gap-7 sm:px-5 sm:pb-12 sm:pt-24 md:min-h-[620px] md:flex-row md:items-end md:justify-between md:gap-10 md:px-5 md:pb-20 md:pt-28">
+      <div className="relative z-10 mx-auto flex min-h-[96svh] max-w-[1200px] flex-col justify-end gap-5 px-4 pb-10 pt-20 sm:min-h-[92vh] sm:gap-7 sm:px-5 sm:pb-12 sm:pt-24 md:min-h-[620px] md:px-5 md:pb-20 md:pt-28">
         <motion.div
-          className="max-w-[62ch] text-right md:w-[60%]"
+          className="max-w-[62ch] text-right md:ml-auto"
           initial={reduceMotion ? false : { opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.72, ease: subtleEase }}
         >
-          <p className="eyebrow mb-2 text-white/80 sm:mb-3 md:text-sm">
-            Studio tecnico · Adro (BS) · Nord Italia
-          </p>
+          <p className="eyebrow mb-2 text-white/80 sm:mb-3 md:text-sm">Studio tecnico · Adro (BS) · Nord Italia</p>
           <h1
             className={`${fontDisplay.className} section-title text-[clamp(1.75rem,5.5vw,3.75rem)] text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.5)]`}
           >
@@ -79,7 +77,7 @@ export function HeroHome() {
           </h1>
           <p className="copy-rhythm reading-measure-tight mt-3 ml-auto text-pretty text-right text-[0.92rem] text-white/88 sm:text-[0.98rem] md:mt-5 md:text-lg">
             Progettazione strutturale, architettura e urbanistica con approccio integrato. Un unico interlocutore dalla
-            fattibilità al cantiere.
+            fattibilita al cantiere.
           </p>
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 10 }}
@@ -91,24 +89,6 @@ export function HeroHome() {
             </Link>
           </motion.div>
         </motion.div>
-
-        <motion.ul
-          className="flex w-full flex-col gap-2 text-right text-white sm:gap-2.5 md:max-w-sm md:gap-3 md:pb-1"
-          initial={reduceMotion ? false : { opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: reduceMotion ? 0 : 0.16, duration: 0.58, ease: subtleEase }}
-        >
-          <li className="rounded-xl border border-white/15 bg-white/[0.08] px-4 py-3 text-sm shadow-[0_10px_30px_rgba(0,0,0,0.12)] backdrop-blur-md sm:px-5 sm:py-3.5">
-            <strong className={`${fontDisplay.className} block text-2xl tracking-[0.04em] sm:text-3xl`}>40+</strong>
-            <span className="text-[0.8rem] text-white/85 sm:text-sm">anni di esperienza nel settore</span>
-          </li>
-          <li className="rounded-xl border border-white/15 bg-white/[0.08] px-4 py-3 text-sm backdrop-blur-md sm:px-5 sm:py-3.5">
-            <strong className={`${fontDisplay.className} block text-lg tracking-[0.06em] sm:text-xl md:text-2xl`}>
-              Brescia · Bergamo · Milano
-            </strong>
-            <span className="text-[0.8rem] text-white/85 sm:text-sm">aree di intervento prioritarie</span>
-          </li>
-        </motion.ul>
       </div>
     </section>
   );
