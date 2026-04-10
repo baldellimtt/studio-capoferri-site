@@ -37,6 +37,19 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* Scroll verticale: niente barra sul bordo destro su mobile (lo scroll resta; c’è la barra lettura in header) */
+@media (max-width: 767px) {
+  html,
+  body {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 body::before {
   content: "";
   position: fixed;
