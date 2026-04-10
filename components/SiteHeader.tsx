@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { fontDisplay } from "@/lib/fonts";
+import { ReadingProgressBar } from "@/components/ReadingProgressBar";
 import { layoutContentMaxClass, layoutGutterXClass, navItems } from "@/lib/site";
 
 export function SiteHeader() {
@@ -25,7 +26,7 @@ export function SiteHeader() {
   return (
     <>
       <header
-        className={`sticky top-0 z-[1000] border-b border-[#2a3f54]/10 transition-all duration-300 ${
+        className={`sticky top-0 z-[1000] transition-all duration-300 ${
           scrolled
             ? "bg-white/88 shadow-[0_10px_30px_rgba(0,0,0,0.05)] backdrop-blur-xl"
             : "bg-white/72 backdrop-blur-2xl"
@@ -77,11 +78,12 @@ export function SiteHeader() {
             </button>
           </div>
         </div>
+        <ReadingProgressBar />
       </header>
 
       <div
         id="mobile-nav"
-        className={`fixed inset-0 top-[72px] z-[999] flex flex-col bg-gradient-to-br from-[#2a3f54] to-[#1f2e3d] transition sm:top-[78px] md:hidden ${
+        className={`fixed inset-0 top-[73px] z-[999] flex flex-col bg-gradient-to-br from-[#2a3f54] to-[#1f2e3d] transition sm:top-[79px] md:hidden ${
           open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         }`}
         aria-hidden={!open}
