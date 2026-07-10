@@ -49,7 +49,7 @@ export const projectCategories: Record<
         title: "Residenza privata in acciaio",
         caption: "Residenza privata — Veneto",
         cover: "/assets/residenza-privata-acciaio.webp",
-        alt: "Progettazione strutture residenziali in acciaio",
+        alt: "Residenza privata in acciaio nel Veneto — progettazione strutturale Studio Capoferri",
         href: "/progetti/residenziali/villa-acciaio-veneto",
       },
       {
@@ -57,7 +57,7 @@ export const projectCategories: Record<
         title: "Villa in acciaio — Salsomaggiore Terme (PR)",
         caption: "Villa in acciaio — Salsomaggiore",
         cover: "/assets/residenziale/villa-acciaio-salsomaggiore/carpenteria-metallica-villa-acciaio.webp",
-        alt: "Carpenteria metallica di una villa in acciaio a Salsomaggiore Terme",
+        alt: "Montaggio del telaio in carpenteria metallica — villa in acciaio a Salsomaggiore Terme",
         href: "/progetti/residenziali/villa-acciaio-salsomaggiore",
       },
     ],
@@ -86,7 +86,7 @@ export const projectCategories: Record<
         title: "Capannone industriale — Erbusco (BS)",
         caption: "Capannone industriale Erbusco",
         cover: "/assets/industriale/capannone-erbusco/progettazione-strutture-adro.webp",
-        alt: "Progettazione strutture industriali in acciaio",
+        alt: "Capannone industriale in acciaio a Erbusco (BS) — progettazione strutturale Studio Capoferri",
         href: "/progetti/industriali/capannone-erbusco",
       },
     ],
@@ -113,7 +113,7 @@ export const projectCategories: Record<
         title: "Superstudio Village — Milano Bovisa",
         caption: "Superstudio Village — Milano Bovisa",
         cover: "/assets/progetto-superstudio.webp",
-        alt: "Progetto Superstudio Village — progettazione strutturale a Milano Bovisa",
+        alt: "Superstudio Village a Milano Bovisa — progettazione strutturale del complesso edilizio",
         href: "/progetti/ricettivi/superstudio-village",
       },
       {
@@ -121,7 +121,7 @@ export const projectCategories: Record<
         title: "Superstudio Maxi — Famagosta",
         caption: "Superstudio Maxi — Famagosta",
         cover: "/assets/superstudio-maxi/antincendio-adro.webp",
-        alt: "Progettazione Superstudio Maxi Milano Famagosta",
+        alt: "Superstudio Maxi a Milano Famagosta — recupero strutturale di capannone industriale",
         href: "/progetti/ricettivi/superstudio-maxi",
       },
     ],
@@ -169,15 +169,42 @@ export const projectCaseStudies: Record<
       </>
     ),
     gallery: [
-      { src: "/assets/residenziale/architettura-bergamo.webp", alt: "Villa in acciaio" },
-      { src: "/assets/residenziale/ingegneria-civile-brescia.webp", alt: "Villa in acciaio in costruzione" },
-      { src: "/assets/residenziale/ingegneria-urbanistica.webp", alt: "Progettazione villa in acciaio" },
-      { src: "/assets/residenziale/progettazione-strutture-acciaio.webp", alt: "Strutture di lusso in acciaio" },
-      { src: "/assets/residenziale/progettazione-strutture-acciaio-franciacorta.webp", alt: "Ingegneria e urbanistica" },
-      { src: "/assets/residenziale/strutture-acciaio-bergamo.webp", alt: "Progettazione strutture in acciaio" },
-      { src: "/assets/residenziale/studio-ingegneria-architettura-adro.webp", alt: "Villa in acciaio in costruzione" },
-      { src: "/assets/residenziale/villa-acciaio.webp", alt: "Vista esterna della villa in acciaio in Veneto" },
-      { src: "/assets/residenziale/villa-acciaio-lusso.webp", alt: "Panoramica struttura in acciaio in Veneto" },
+      {
+        src: "/assets/residenziale/architettura-bergamo.webp",
+        alt: "Volumi architettonici della residenza privata in acciaio nel Veneto",
+      },
+      {
+        src: "/assets/residenziale/ingegneria-civile-brescia.webp",
+        alt: "Montaggio della struttura in acciaio della villa residenziale nel Veneto",
+      },
+      {
+        src: "/assets/residenziale/ingegneria-urbanistica.webp",
+        alt: "Progettazione integrata della villa in acciaio con inserimento paesaggistico nel Veneto",
+      },
+      {
+        src: "/assets/residenziale/progettazione-strutture-acciaio.webp",
+        alt: "Interni con telaio in acciaio e grandi luci della residenza privata nel Veneto",
+      },
+      {
+        src: "/assets/residenziale/progettazione-strutture-acciaio-franciacorta.webp",
+        alt: "Dettaglio costruttivo della struttura portante in acciaio — residenza nel Veneto",
+      },
+      {
+        src: "/assets/residenziale/strutture-acciaio-bergamo.webp",
+        alt: "Carpenteria metallica in fase di realizzazione della villa in acciaio nel Veneto",
+      },
+      {
+        src: "/assets/residenziale/studio-ingegneria-architettura-adro.webp",
+        alt: "Cantiere della residenza privata in acciaio durante le fasi di costruzione nel Veneto",
+      },
+      {
+        src: "/assets/residenziale/villa-acciaio.webp",
+        alt: "Vista esterna completata della villa in acciaio nel Veneto",
+      },
+      {
+        src: "/assets/residenziale/villa-acciaio-lusso.webp",
+        alt: "Panoramica della struttura in acciaio integrata nel paesaggio veneto",
+      },
     ],
   },
   "residenziali/villa-acciaio-salsomaggiore": {
@@ -194,25 +221,25 @@ export const projectCaseStudies: Record<
           struttura mista in cemento armato e acciaio prevista in elevazione.
         </p>
         <p className="copy-rhythm mb-6 text-[0.98rem] text-[#444] sm:text-[1.05rem]">
-          Sul basamento in calcestruzzo — piano seminterrato parzialmente contro terra e nucleo del vano scala — si eleva il telaio in acciaio del
+          Sul basamento in calcestruzzo, con piano seminterrato parzialmente contro terra e nucleo del vano scala, si eleva il telaio in acciaio del
           piano primo e della copertura, progettata per accogliere una superficie integrale di pannelli fotovoltaici.
         </p>
         <ul className="list-none space-y-3 text-[0.95rem] text-[#333] sm:text-[1.02rem]">
           <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
-            <strong>Fondazioni su pali</strong> — soluzione strutturale specifica per un terreno con caratteristiche scadenti.
+            <strong>Fondazioni su pali</strong>: soluzione strutturale specifica per un terreno con caratteristiche scadenti.
           </li>
           <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
-            <strong>Carpenteria metallica</strong> — travi e pilastri definiscono i volumi con precisione millimetrica, unendo solidità e leggerezza.
+            <strong>Carpenteria metallica</strong>: travi e pilastri definiscono i volumi con precisione millimetrica, unendo solidità e leggerezza.
           </li>
           <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
-            <strong>Sistemi a secco</strong> — pareti con lana minerale ad alta densità per velocità d&apos;esecuzione e prestazioni termiche
+            <strong>Sistemi a secco</strong>: pareti con lana minerale ad alta densità per velocità d&apos;esecuzione e prestazioni termiche
             d&apos;eccellenza.
           </li>
           <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
-            <strong>Efficienza energetica</strong> — copertura predisposta per l&apos;impianto fotovoltaico, cuore energetico dell&apos;abitazione.
+            <strong>Efficienza energetica</strong>: copertura predisposta per l&apos;impianto fotovoltaico, cuore energetico dell&apos;abitazione.
           </li>
           <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
-            <strong>Progettazione integrata</strong> — impianti e finiture eseguiti in parallelo, riducendo tempi morti e imprevisti di cantiere.
+            <strong>Progettazione integrata</strong>: impianti e finiture eseguiti in parallelo, riducendo tempi morti e imprevisti di cantiere.
           </li>
         </ul>
       </>
@@ -220,39 +247,39 @@ export const projectCaseStudies: Record<
     gallery: [
       {
         src: "/assets/residenziale/villa-acciaio-salsomaggiore/scavo-fondazioni-villa-acciaio-salsomaggiore.webp",
-        alt: "Scavo e preparazione delle fondazioni della villa in acciaio a Salsomaggiore Terme",
+        alt: "Scavo e preparazione del terreno per le fondazioni — villa in acciaio a Salsomaggiore Terme (PR)",
       },
       {
         src: "/assets/residenziale/villa-acciaio-salsomaggiore/fondazioni-su-pali-villa-acciaio.webp",
-        alt: "Fondazioni su pali con getto di calcestruzzo",
+        alt: "Getto di calcestruzzo delle fondazioni su pali — villa in acciaio a Salsomaggiore Terme",
       },
       {
         src: "/assets/residenziale/villa-acciaio-salsomaggiore/murature-cemento-armato-seminterrato.webp",
-        alt: "Murature in cemento armato del piano seminterrato",
+        alt: "Murature in cemento armato del piano seminterrato e nucleo scala — Salsomaggiore Terme",
       },
       {
         src: "/assets/residenziale/villa-acciaio-salsomaggiore/cantiere-villa-acciaio-salsomaggiore.webp",
-        alt: "Vista del cantiere della villa in acciaio a Salsomaggiore Terme",
+        alt: "Vista del cantiere con fondazioni in cemento armato — villa in acciaio a Salsomaggiore Terme",
       },
       {
         src: "/assets/residenziale/villa-acciaio-salsomaggiore/carpenteria-metallica-villa-acciaio.webp",
-        alt: "Carpenteria metallica: telaio portante in acciaio della villa",
+        alt: "Montaggio del telaio portante in carpenteria metallica — villa in acciaio a Salsomaggiore Terme",
       },
       {
         src: "/assets/residenziale/villa-acciaio-salsomaggiore/struttura-acciaio-copertura-fotovoltaico.webp",
-        alt: "Struttura in acciaio della copertura predisposta per i pannelli fotovoltaici",
+        alt: "Struttura in acciaio della copertura predisposta per pannelli fotovoltaici — Salsomaggiore Terme",
       },
       {
         src: "/assets/residenziale/villa-acciaio-salsomaggiore/pareti-a-secco-lana-minerale-villa.webp",
-        alt: "Interno con pareti a secco e isolamento in lana minerale",
+        alt: "Posa delle pareti a secco con isolamento in lana minerale — villa in acciaio a Salsomaggiore Terme",
       },
       {
         src: "/assets/residenziale/villa-acciaio-salsomaggiore/finiture-interne-cartongesso-villa-acciaio.webp",
-        alt: "Finiture interne con cartongesso e posa impianti nella villa in acciaio a Salsomaggiore Terme",
+        alt: "Finiture interne in cartongesso con posa impianti — villa in acciaio a Salsomaggiore Terme",
       },
       {
         src: "/assets/residenziale/villa-acciaio-salsomaggiore/finiture-esterne-terrazzo-villa-acciaio.webp",
-        alt: "Finiture esterne sul terrazzo a sbalzo della villa",
+        alt: "Finiture esterne e tracciature sul terrazzo a sbalzo — villa in acciaio a Salsomaggiore Terme",
       },
     ],
   },
@@ -294,12 +321,30 @@ export const projectCaseStudies: Record<
       </>
     ),
     gallery: [
-      { src: "/assets/industriale/capannone-erbusco/capannone-industriale-erbusco.webp", alt: "Capannone industriale Erbusco" },
-      { src: "/assets/industriale/capannone-erbusco/progettazione-strutture-adro.webp", alt: "Strutture industriali in acciaio" },
-      { src: "/assets/industriale/capannone-erbusco/strutture-industriali-erbusco.webp", alt: "Progettazione capannoni in acciaio" },
-      { src: "/assets/industriale/capannone-erbusco/vista-capannone-erbusco.webp", alt: "Vista capannone" },
-      { src: "/assets/industriale/capannone-erbusco/strutture-industriali.webp", alt: "Dettaglio capannone" },
-      { src: "/assets/industriale/capannone-erbusco/ingegneria-civile-adro.webp", alt: "Ingegneria civile — struttura industriale" },
+      {
+        src: "/assets/industriale/capannone-erbusco/capannone-industriale-erbusco.webp",
+        alt: "Vista esterna del capannone industriale in acciaio a Erbusco (Brescia)",
+      },
+      {
+        src: "/assets/industriale/capannone-erbusco/progettazione-strutture-adro.webp",
+        alt: "Progettazione strutturale del capannone con carpenteria metallica — Erbusco (BS)",
+      },
+      {
+        src: "/assets/industriale/capannone-erbusco/strutture-industriali-erbusco.webp",
+        alt: "Telaio portante in acciaio del capannone industriale a Erbusco",
+      },
+      {
+        src: "/assets/industriale/capannone-erbusco/vista-capannone-erbusco.webp",
+        alt: "Panoramica dell'ampliamento produttivo in acciaio — capannone a Erbusco (BS)",
+      },
+      {
+        src: "/assets/industriale/capannone-erbusco/strutture-industriali.webp",
+        alt: "Dettaglio delle travi e connessioni strutturali del capannone industriale a Erbusco",
+      },
+      {
+        src: "/assets/industriale/capannone-erbusco/ingegneria-civile-adro.webp",
+        alt: "Interno del capannone industriale con struttura calcolata per carroponti — Erbusco (BS)",
+      },
     ],
   },
   "ricettivi/superstudio-village": {
@@ -310,7 +355,7 @@ export const projectCaseStudies: Record<
     externalBrand: {
       href: "https://www.superstudioevents.com/it/",
       imageSrc: "/assets/superstudio_logo.svg",
-      imageAlt: "Superstudio",
+      imageAlt: "Logo Superstudio Events",
     },
     body: (
       <p className="copy-rhythm text-[0.98rem] text-[#444] sm:text-[1.05rem]">
@@ -330,15 +375,42 @@ export const projectCaseStudies: Record<
       </p>
     ),
     gallery: [
-      { src: "/assets/superstudio-village-entrata-esterno.webp", alt: "Vista esterna — Superstudio Village" },
-      { src: "/assets/superstudio-village-struttura-acciaio.webp", alt: "Dettaglio strutturale — Superstudio Village" },
-      { src: "/assets/superstudio-village-vista-della-struttura.webp", alt: "Facciata — Superstudio Village" },
-      { src: "/assets/superstudio-village-pavimentazione-interni.webp", alt: "Pavimentazione interna — Superstudio Village" },
-      { src: "/assets/superstudio-village-ricerca-innovazione.webp", alt: "Render esterno — Superstudio Village" },
-      { src: "/assets/superstudio-village-innovazione-tecnologica.webp", alt: "Sala proiezioni — Superstudio Village" },
-      { src: "/assets/superstudio-village-acciaio-pre-fabbricato.webp", alt: "Struttura interna — Superstudio Village" },
-      { src: "/assets/superstudio-village-eventi.webp", alt: "Sala eventi — Superstudio Village" },
-      { src: "/assets/superstudio-village-sala-proiezione.webp", alt: "Sala proiezione — Superstudio Village" },
+      {
+        src: "/assets/superstudio-village-entrata-esterno.webp",
+        alt: "Ingresso esterno del complesso Superstudio Village a Milano Bovisa",
+      },
+      {
+        src: "/assets/superstudio-village-struttura-acciaio.webp",
+        alt: "Dettaglio della struttura in acciaio pre-fabbricata — Superstudio Village Milano",
+      },
+      {
+        src: "/assets/superstudio-village-vista-della-struttura.webp",
+        alt: "Facciata e volumi del complesso Superstudio Village a Milano Bovisa",
+      },
+      {
+        src: "/assets/superstudio-village-pavimentazione-interni.webp",
+        alt: "Pavimentazione e finitura degli spazi interni — Superstudio Village Milano",
+      },
+      {
+        src: "/assets/superstudio-village-ricerca-innovazione.webp",
+        alt: "Render esterno del complesso Superstudio Village a Milano Bovisa",
+      },
+      {
+        src: "/assets/superstudio-village-innovazione-tecnologica.webp",
+        alt: "Sala proiezioni con struttura portante — Superstudio Village Milano",
+      },
+      {
+        src: "/assets/superstudio-village-acciaio-pre-fabbricato.webp",
+        alt: "Montaggio della struttura interna in acciaio — Superstudio Village Milano",
+      },
+      {
+        src: "/assets/superstudio-village-eventi.webp",
+        alt: "Sala eventi del complesso Superstudio Village a Milano Bovisa",
+      },
+      {
+        src: "/assets/superstudio-village-sala-proiezione.webp",
+        alt: "Sala proiezione con copertura e struttura in acciaio — Superstudio Village Milano",
+      },
     ],
   },
   "ricettivi/superstudio-maxi": {
@@ -349,7 +421,7 @@ export const projectCaseStudies: Record<
     externalBrand: {
       href: "https://www.superstudioevents.com/it/venues/superstudio-maxi/",
       imageSrc: "/assets/superstudio_logo.svg",
-      imageAlt: "Superstudio",
+      imageAlt: "Logo Superstudio Events",
     },
     body: (
       <p className="copy-rhythm text-[0.98rem] text-[#444] sm:text-[1.05rem]">
@@ -360,15 +432,42 @@ export const projectCaseStudies: Record<
       </p>
     ),
     gallery: [
-      { src: "/assets/superstudio-maxi/antincendio-adro.webp", alt: "Saletta interna — Superstudio Maxi" },
-      { src: "/assets/superstudio-maxi/strutture-acciaio-lombardia.webp", alt: "Vista esterna — Superstudio Maxi" },
-      { src: "/assets/superstudio-maxi/ingegneria-urbanistica-franciacorta.webp", alt: "Area interna — Superstudio Maxi" },
-      { src: "/assets/superstudio-maxi/progettazione-industriale-ricettivo.webp", alt: "Pavimentazione interna — Superstudio Maxi" },
-      { src: "/assets/superstudio-maxi/sicurezza-cantieri-franciacorta.webp", alt: "Render esterno — Superstudio Maxi" },
-      { src: "/assets/superstudio-maxi/strutture-acciaio-milano.webp", alt: "Sala proiezioni — Superstudio Maxi" },
-      { src: "/assets/superstudio-maxi/studio-ingegneria-brescia.webp", alt: "Struttura interna — Superstudio Maxi" },
-      { src: "/assets/superstudio-maxi/strutture-acciaio-milano-brescia.webp", alt: "Sala eventi — Superstudio Maxi" },
-      { src: "/assets/superstudio-maxi/architettura-urbanistica-brescia.webp", alt: "Sala proiezione — Superstudio Maxi" },
+      {
+        src: "/assets/superstudio-maxi/antincendio-adro.webp",
+        alt: "Saletta interna del complesso Superstudio Maxi a Milano Famagosta",
+      },
+      {
+        src: "/assets/superstudio-maxi/strutture-acciaio-lombardia.webp",
+        alt: "Vista esterna del recupero del capannone industriale — Superstudio Maxi Famagosta",
+      },
+      {
+        src: "/assets/superstudio-maxi/ingegneria-urbanistica-franciacorta.webp",
+        alt: "Area interna con strutture consolidate — Superstudio Maxi Milano",
+      },
+      {
+        src: "/assets/superstudio-maxi/progettazione-industriale-ricettivo.webp",
+        alt: "Pavimentazione degli spazi espositivi — Superstudio Maxi Famagosta",
+      },
+      {
+        src: "/assets/superstudio-maxi/sicurezza-cantieri-franciacorta.webp",
+        alt: "Render esterno del complesso Superstudio Maxi a Milano Famagosta",
+      },
+      {
+        src: "/assets/superstudio-maxi/strutture-acciaio-milano.webp",
+        alt: "Sala proiezioni con nuova struttura in acciaio — Superstudio Maxi Milano",
+      },
+      {
+        src: "/assets/superstudio-maxi/studio-ingegneria-brescia.webp",
+        alt: "Dettaglio strutturale interno del complesso Superstudio Maxi a Milano",
+      },
+      {
+        src: "/assets/superstudio-maxi/strutture-acciaio-milano-brescia.webp",
+        alt: "Sala eventi con copertura in acciaio — Superstudio Maxi Famagosta",
+      },
+      {
+        src: "/assets/superstudio-maxi/architettura-urbanistica-brescia.webp",
+        alt: "Sala proiezione del complesso Superstudio Maxi a Milano Famagosta",
+      },
     ],
   },
 };
