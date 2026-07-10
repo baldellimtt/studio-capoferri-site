@@ -47,7 +47,7 @@ export const projectCategories: Record<
       {
         slug: "villa-acciaio-veneto",
         title: "Residenza privata in acciaio",
-        caption: "Residenza privata",
+        caption: "Residenza privata — Veneto",
         cover: "/assets/residenza-privata-acciaio.webp",
         alt: "Progettazione strutture residenziali in acciaio",
         href: "/progetti/residenziali/villa-acciaio-veneto",
@@ -245,6 +245,10 @@ export const projectCaseStudies: Record<
       {
         src: "/assets/residenziale/villa-acciaio-salsomaggiore/pareti-a-secco-lana-minerale-villa.webp",
         alt: "Interno con pareti a secco e isolamento in lana minerale",
+      },
+      {
+        src: "/assets/residenziale/villa-acciaio-salsomaggiore/finiture-interne-cartongesso-villa-acciaio.webp",
+        alt: "Finiture interne con cartongesso e posa impianti nella villa in acciaio a Salsomaggiore Terme",
       },
       {
         src: "/assets/residenziale/villa-acciaio-salsomaggiore/finiture-esterne-terrazzo-villa-acciaio.webp",
