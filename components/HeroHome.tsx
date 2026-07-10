@@ -23,7 +23,10 @@ export function HeroHome() {
   const subtleEase = [0.22, 1, 0.36, 1] as const;
 
   return (
-    <section className="relative min-h-[96svh] overflow-hidden sm:min-h-[92vh] md:min-h-[620px]" aria-label="Introduzione">
+    <section
+      className="relative min-h-[calc(100svh-72px)] overflow-hidden sm:min-h-[calc(100svh-78px)] md:min-h-[calc(100svh-94px)]"
+      aria-label="Introduzione"
+    >
       <div className="absolute inset-0 bg-gradient-to-br from-[#243648] via-[#314a5e] to-[#415c72]" aria-hidden />
 
       <div className="absolute inset-0">
@@ -63,7 +66,7 @@ export function HeroHome() {
       </div>
 
       <div
-        className={`relative z-10 mx-auto flex min-h-[96svh] flex-col justify-end gap-5 px-4 pb-10 pt-20 sm:min-h-[92vh] sm:gap-7 sm:px-5 sm:pb-12 sm:pt-24 md:min-h-[620px] md:px-5 md:pb-20 md:pt-28 ${layoutContentMaxClass}`}
+        className={`relative z-10 mx-auto flex min-h-[calc(100svh-72px)] flex-col justify-end gap-5 px-4 pb-10 pt-20 sm:min-h-[calc(100svh-78px)] sm:gap-7 sm:px-5 sm:pb-12 sm:pt-24 md:min-h-[calc(100svh-94px)] md:px-5 md:pb-20 md:pt-28 ${layoutContentMaxClass}`}
       >
         <motion.div
           className="max-w-[62ch] text-left md:ml-auto md:text-right"
