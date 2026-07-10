@@ -2,15 +2,16 @@ import type { Metadata } from "next";
 import { ContactForm } from "@/components/ContactForm";
 import { MapEmbed } from "@/components/MapEmbed";
 import { fontDisplay } from "@/lib/fonts";
-import { layoutContentMaxClass, layoutGutterXClass, site } from "@/lib/site";
+import { buildPageMetadata } from "@/lib/seo";
+import { layoutContentMaxClass, layoutGutterXClass, scrollAnchorClass, site } from "@/lib/site";
 import { ui } from "@/lib/ui";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Contatti",
   description:
     "Contatta lo Studio Capoferri per richiedere un preventivo o fissare un appuntamento. Recapiti, indirizzo e orari della sede ad Adro (BS).",
-  alternates: { canonical: `${site.url}/contatti/` },
-};
+  path: "/contatti",
+});
 
 export default function ContattiPage() {
   return (
@@ -73,9 +74,9 @@ export default function ContattiPage() {
           </section>
         </div>
 
-        <section id="form-contatti" className="mt-10 scroll-mt-[120px] sm:mt-16">
+        <section id="form-contatti" className={`mt-10 sm:mt-16 ${scrollAnchorClass}`}>
           <div className="frost-card rounded-2xl p-5 sm:p-7 md:p-8">
-            <h2 className={`${fontDisplay.className} ${ui.caseStudyTitle} mb-2 sm:mb-3`}>Contattaci</h2>
+            <h2 className={`${fontDisplay.className} ${ui.cardHeading} mb-2 sm:mb-3`}>Contattaci</h2>
             <p className="copy-rhythm mb-6 w-full text-[0.95rem] leading-relaxed text-[#444] sm:mb-8 sm:text-[1.03rem]">
               Compila il form con i dettagli del tuo intervento. Riceverai un riscontro tecnico puntuale dal nostro team.
             </p>

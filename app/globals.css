@@ -12,6 +12,7 @@
   --section-space-y: clamp(4.5rem, 7vw, 6.2rem);
   --section-space-y-mobile: 4rem;
   --content-gap: clamp(1.1rem, 1.8vw, 1.5rem);
+  --scroll-offset: 100px;
 }
 
 @theme inline {
@@ -79,6 +80,15 @@ body::before {
 .skip-link:focus {
   left: 0.5rem;
   top: 0.5rem;
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid rgba(42, 63, 84, 0.45);
+  outline-offset: 2px;
+}
+
+.scroll-anchor {
+  scroll-margin-top: var(--scroll-offset);
 }
 
 /* screen-reader only (summary SEO come nel sito statico) */
@@ -264,9 +274,8 @@ body::before {
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(180deg, rgba(20, 28, 36, 0.05), rgba(20, 28, 36, 0.18)),
-    radial-gradient(120% 80% at 80% 10%, rgba(61, 90, 122, 0.12), transparent 65%);
-  mix-blend-mode: multiply;
+    linear-gradient(180deg, rgba(20, 28, 36, 0.04), rgba(20, 28, 36, 0.22)),
+    radial-gradient(120% 80% at 80% 10%, rgba(61, 90, 122, 0.14), transparent 65%);
 }
 
 /* ─── touch-target: WCAG 2.2 minimum 44×44px ─── */

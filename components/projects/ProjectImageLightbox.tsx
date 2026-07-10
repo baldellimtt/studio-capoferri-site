@@ -326,23 +326,21 @@ export function ProjectImageLightbox({ images, className = "" }: Props) {
           style={{ WebkitOverflowScrolling: "touch" }}
         >
           {images.map((img, i) => (
-            <figure key={`thumb-m-${img.src}-${i}`} className="w-[min(78vw,320px)] shrink-0 snap-start">
-              <button
-                type="button"
-                onClick={() => setOpen(i)}
-                className="group relative h-[200px] w-full cursor-zoom-in overflow-hidden rounded-2xl border border-[#2a3f54]/12 bg-white text-left shadow-[0_6px_24px_rgba(42,63,84,0.08)] ring-0 transition hover:border-[#2a3f54]/25 hover:shadow-[0_12px_32px_rgba(42,63,84,0.12)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2a3f54]"
-                aria-label={`Apri nella galleria: ${img.alt}`}
-              >
-                <Image
-                  src={img.src}
-                  alt=""
-                  fill
-                  className="object-cover transition duration-500 ease-out group-hover:scale-[1.02]"
-                  sizes="78vw"
-                />
-              </button>
-              <figcaption className={`${captionClass} mt-2 px-0.5`}>{img.alt}</figcaption>
-            </figure>
+            <button
+              key={`thumb-m-${img.src}-${i}`}
+              type="button"
+              onClick={() => setOpen(i)}
+              className="group relative aspect-[4/3] w-[min(78vw,320px)] shrink-0 snap-start cursor-zoom-in overflow-hidden rounded-2xl border border-[#2a3f54]/12 bg-white text-left shadow-[0_6px_24px_rgba(42,63,84,0.08)] ring-0 transition hover:border-[#2a3f54]/25 hover:shadow-[0_12px_32px_rgba(42,63,84,0.12)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2a3f54]"
+              aria-label={`Apri nella galleria: ${img.alt}`}
+            >
+              <Image
+                src={img.src}
+                alt=""
+                fill
+                className="object-cover transition duration-500 ease-out group-hover:scale-[1.02]"
+                sizes="78vw"
+              />
+            </button>
           ))}
         </div>
       </div>
@@ -350,27 +348,24 @@ export function ProjectImageLightbox({ images, className = "" }: Props) {
       <ul className="hidden list-none gap-4 md:grid md:grid-cols-2 lg:grid-cols-3">
         {images.map((img, i) => (
           <li key={`thumb-d-${img.src}-${i}`}>
-            <figure>
-              <button
-                type="button"
-                onClick={() => setOpen(i)}
-                className="group relative aspect-[4/3] w-full cursor-zoom-in overflow-hidden rounded-2xl border border-[#2a3f54]/10 bg-[#fafbfc] text-left shadow-[0_8px_28px_rgba(42,63,84,0.07)] transition hover:-translate-y-0.5 hover:border-[#2a3f54]/22 hover:shadow-[0_14px_40px_rgba(42,63,84,0.11)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2a3f54]"
-                aria-label={`Apri nella galleria: ${img.alt}`}
-              >
-                <Image
-                  src={img.src}
-                  alt=""
-                  fill
-                  className="object-cover transition duration-500 ease-out group-hover:scale-[1.02]"
-                  sizes="(min-width:1024px) 33vw, 50vw"
-                />
-                <div
-                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#2a3f54]/20 via-transparent to-transparent opacity-0 transition group-hover:opacity-100"
-                  aria-hidden
-                />
-              </button>
-              <figcaption className={`${captionClass} mt-2.5 px-0.5`}>{img.alt}</figcaption>
-            </figure>
+            <button
+              type="button"
+              onClick={() => setOpen(i)}
+              className="group relative aspect-[4/3] w-full cursor-zoom-in overflow-hidden rounded-2xl border border-[#2a3f54]/10 bg-[#fafbfc] text-left shadow-[0_8px_28px_rgba(42,63,84,0.07)] transition hover:-translate-y-0.5 hover:border-[#2a3f54]/22 hover:shadow-[0_14px_40px_rgba(42,63,84,0.11)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2a3f54]"
+              aria-label={`Apri nella galleria: ${img.alt}`}
+            >
+              <Image
+                src={img.src}
+                alt=""
+                fill
+                className="object-cover transition duration-500 ease-out group-hover:scale-[1.02]"
+                sizes="(min-width:1024px) 33vw, 50vw"
+              />
+              <div
+                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#2a3f54]/20 via-transparent to-transparent opacity-0 transition group-hover:opacity-100"
+                aria-hidden
+              />
+            </button>
           </li>
         ))}
       </ul>

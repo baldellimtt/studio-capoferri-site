@@ -42,14 +42,14 @@ export const projectPreview = [
     href: "/progetti/residenziali",
     title: "Strutture per il residenziale",
     caption: "Strutture per il residenziale",
-    image: "/assets/progetti-ambito-residenziale.jpg",
+    image: "/assets/progetti-ambito-residenziale.webp",
     alt: "Progetto residenziale con struttura in acciaio — Studio Capoferri, ingegneria strutturale in Lombardia",
   },
   {
     href: "/progetti/industriali",
     title: "Strutture per l'industria",
     caption: "Strutture per l'industria",
-    image: "/assets/progetto2.jpg",
+    image: "/assets/progetto2.webp",
     alt: "Capannone industriale con struttura portante in acciaio — progetti industriali Studio Capoferri, provincia di Brescia",
   },
   {

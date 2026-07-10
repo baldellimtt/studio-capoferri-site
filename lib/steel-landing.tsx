@@ -28,23 +28,16 @@ export type SteelLandingConfig = {
 const bullet =
   "relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]";
 
+import { buildPageMetadata } from "@/lib/seo";
+
 export function buildSteelLandingMetadata(config: SteelLandingConfig): Metadata {
-  const url = `${site.url}/progettazione-strutture-acciaio-${config.slug}/`;
-  return {
+  return buildPageMetadata({
     title: config.metaTitle,
     description: config.metaDescription,
-    alternates: { canonical: url },
-    keywords: config.keywords,
-    openGraph: {
-      type: "website",
-      locale: "it_IT",
-      url,
-      siteName: site.name,
-      title: `${config.metaTitle} — Studio Capoferri`,
-      description: config.metaDescription,
-      images: [{ url: config.ogImage, width: 1200, height: 630 }],
-    },
-  };
+    path: `/progettazione-strutture-acciaio-${config.slug}`,
+    image: config.ogImage,
+    keywords: [...config.keywords],
+  });
 }
 
 export function SteelLandingPage({ config }: { config: SteelLandingConfig }) {

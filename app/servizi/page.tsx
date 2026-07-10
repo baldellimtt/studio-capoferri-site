@@ -1,14 +1,19 @@
+import Link from "next/link";
 import type { Metadata } from "next";
+import { ContactCtaSection } from "@/components/ContactCtaSection";
 import { fontDisplay } from "@/lib/fonts";
-import { layoutContentMaxClass, layoutGutterXClass, site } from "@/lib/site";
+import { buildPageMetadata } from "@/lib/seo";
+import { layoutContentMaxClass, layoutGutterXClass, scrollAnchorClass, steelLandingPages } from "@/lib/site";
 import { ui } from "@/lib/ui";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Servizi di progettazione e ingegneria",
   description:
     "Progettazione strutturale, direzione lavori, consulenze tecniche, sicurezza cantieri e assistenza immobiliare a Brescia e provincia.",
-  alternates: { canonical: `${site.url}/servizi/` },
-};
+  path: "/servizi",
+});
+
+const sectionHeading = `${fontDisplay.className} ${ui.sectionHeadingAccent} mt-14 ${scrollAnchorClass}`;
 
 export default function ServiziPage() {
   return (
@@ -22,9 +27,21 @@ export default function ServiziPage() {
           Affianchiamo i clienti in ogni fase del progetto, garantendo qualità, precisione e soluzioni su misura.
         </p>
 
-        <h2 id="progettazione-strutturale" className={`${fontDisplay.className} ${ui.sectionHeadingAccent} mt-14 scroll-mt-[120px]`}>
+        <h2 id="progettazione-strutturale" className={sectionHeading}>
           Progettazione strutturale
         </h2>
+        <p className={`mb-4 ${ui.bodyMuted}`}>
+          Progettiamo strutture in acciaio, calcestruzzo e muratura per committenti in Lombardia e Nord Italia. Approfondimenti per area:{" "}
+          {steelLandingPages.map((page, index) => (
+            <span key={page.href}>
+              {index > 0 ? (index === steelLandingPages.length - 1 ? " e " : ", ") : null}
+              <Link href={page.href} className="font-semibold text-[#2a3f54] underline underline-offset-2">
+                {page.label.replace("Progettazione acciaio — ", "")}
+              </Link>
+            </span>
+          ))}
+          .
+        </p>
         <ul className="list-none space-y-3 pl-0">
           <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
             <strong>Strutture metalliche, cemento armato e muratura</strong> – Progettazione strutture NTC ed Eurocodici.
@@ -57,7 +74,7 @@ export default function ServiziPage() {
           </li>
         </ul>
 
-        <h2 id="urbanistica-architettura" className={`${fontDisplay.className} ${ui.sectionHeadingAccent} mt-14 scroll-mt-[120px]`}>
+        <h2 id="urbanistica-architettura" className={sectionHeading}>
           Urbanistica e architettura
         </h2>
         <ul className="list-none space-y-3 pl-0">
@@ -70,7 +87,7 @@ export default function ServiziPage() {
           </li>
         </ul>
 
-        <h2 id="direzione-lavori" className={`${fontDisplay.className} ${ui.sectionHeadingAccent} mt-14 scroll-mt-[120px]`}>
+        <h2 id="direzione-lavori" className={sectionHeading}>
           Direzione lavori e consulenza
         </h2>
         <ul className="list-none space-y-3 pl-0">
@@ -89,7 +106,7 @@ export default function ServiziPage() {
           </li>
         </ul>
 
-        <h2 id="servizi-tecnici" className={`${fontDisplay.className} ${ui.sectionHeadingAccent} mt-14 scroll-mt-[120px]`}>
+        <h2 id="servizi-tecnici" className={sectionHeading}>
           Servizi tecnici e catastali
         </h2>
         <ul className="list-none space-y-3 pl-0">
@@ -115,7 +132,7 @@ export default function ServiziPage() {
           </li>
         </ul>
 
-        <h2 id="sicurezza-cantieri" className={`${fontDisplay.className} ${ui.sectionHeadingAccent} mt-14 scroll-mt-[120px]`}>
+        <h2 id="sicurezza-cantieri" className={sectionHeading}>
           Sicurezza cantieri
         </h2>
         <ul className="list-none space-y-3 pl-0">
@@ -125,7 +142,7 @@ export default function ServiziPage() {
           </li>
         </ul>
 
-        <h2 id="assistenza-immobiliare" className={`${fontDisplay.className} ${ui.sectionHeadingAccent} mt-14 scroll-mt-[120px]`}>
+        <h2 id="assistenza-immobiliare" className={sectionHeading}>
           Assistenza immobiliare
         </h2>
         <ul className="list-none space-y-3 pl-0">
@@ -133,6 +150,12 @@ export default function ServiziPage() {
             <strong>Assistenza immobiliare</strong> – Supporto tecnico per compravendite, perizie, stime immobiliari e valutazione dello stato di fatto.
           </li>
         </ul>
+
+        <ContactCtaSection
+          title="Cerchi supporto tecnico per il tuo progetto?"
+          description="Contattaci per una valutazione preliminare: ti indichiamo tempi, iter autorizzativi e il percorso progettuale più adatto."
+          className="mt-14"
+        />
           </article>
         </div>
       </div>

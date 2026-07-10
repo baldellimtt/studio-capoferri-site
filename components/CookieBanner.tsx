@@ -48,7 +48,7 @@ export function CookieBanner() {
       role="dialog"
       aria-label="Informativa sui cookie"
       aria-modal="false"
-      className="fixed inset-x-0 bottom-0 z-[10000] border-t-2 border-[#3d5a7a] bg-gradient-to-r from-[#2a3f54] to-[#1f2e3d] py-4 text-white shadow-[0_-8px_32px_rgba(0,0,0,0.25)] backdrop-blur-md sm:py-5"
+      className="fixed inset-x-0 bottom-0 z-[10000] border-t-2 border-[#3d5a7a] bg-gradient-to-r from-[#2a3f54] to-[#1f2e3d] pb-[max(1rem,env(safe-area-inset-bottom))] pt-4 text-white shadow-[0_-8px_32px_rgba(0,0,0,0.25)] backdrop-blur-md sm:pt-5"
     >
       <div className={layoutGutterXClass}>
         <div className={`flex flex-col gap-3 sm:gap-4 md:flex-row md:items-center md:justify-between ${layoutContentMaxClass}`}>
@@ -62,10 +62,10 @@ export function CookieBanner() {
           </p>
         </div>
         <div className="flex flex-shrink-0 gap-2">
-          <button type="button" className={ui.cookieAccept} onClick={() => persist("accepted")}>
+          <button type="button" className={`focus-ring ${ui.cookieAccept}`} onClick={() => persist("accepted")}>
             Accetta
           </button>
-          <button type="button" className={ui.cookieReject} onClick={() => persist("rejected")}>
+          <button type="button" className={`focus-ring ${ui.cookieReject}`} onClick={() => persist("rejected")}>
             Rifiuta
           </button>
         </div>

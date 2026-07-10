@@ -2,16 +2,20 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { ContactCtaSection } from "@/components/ContactCtaSection";
 import { ProjectImageLightbox } from "@/components/projects/ProjectImageLightbox";
 import { fontDisplay } from "@/lib/fonts";
+import { caseStudyJsonLd } from "@/lib/jsonld";
 import {
   getCaseStudyKey,
   isProjectArea,
   projectCaseStudies,
   projectCategories,
   projectAreas,
+  type ProjectArea,
 } from "@/lib/projects";
-import { layoutContentMaxClass, layoutGutterXClass, site } from "@/lib/site";
+import { buildPageMetadata } from "@/lib/seo";
+import { layoutContentMaxClass, layoutGutterXClass } from "@/lib/site";
 import { ui } from "@/lib/ui";
 
 type Props = { params: Promise<{ area: string; slug: string }> };
@@ -32,11 +36,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const key = getCaseStudyKey(area, slug);
   if (!key || !projectCaseStudies[key]) return {};
   const cs = projectCaseStudies[key];
-  return {
+  return buildPageMetadata({
     title: cs.metaTitle,
     description: cs.metaDescription,
-    alternates: { canonical: `${site.url}/progetti/${area}/${slug}/` },
-  };
+    path: `/progetti/${area}/${slug}`,
+    image: cs.gallery[0]?.src,
+  });
 }
 
 export default async function ProjectCasePage({ params }: Props) {
@@ -48,9 +53,23 @@ export default async function ProjectCasePage({ params }: Props) {
 
   const cs = projectCaseStudies[key];
   const cat = projectCategories[area];
+  const jsonLd = caseStudyJsonLd({
+    area: area as ProjectArea,
+    slug,
+    metaTitle: cs.metaTitle,
+    metaDescription: cs.metaDescription,
+    gallery: cs.gallery,
+  });
 
   return (
     <main id="main-content" className="section-shell bg-[#fafbfc]">
+      {jsonLd.map((block) => (
+        <script
+          key={block["@type"]}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(block) }}
+        />
+      ))}
       <div className={layoutGutterXClass}>
         <div className={layoutContentMaxClass}>
         <div className="mx-auto w-full max-w-[900px]">
@@ -92,6 +111,7 @@ export default async function ProjectCasePage({ params }: Props) {
           </article>
 
           <ProjectImageLightbox images={cs.gallery} className="mt-10" />
+          <ContactCtaSection title="Hai un progetto simile?" />
         </div>
         </div>
         </div>

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { fontDisplay } from "@/lib/fonts";
-import { layoutContentMaxClass, layoutGutterXClass, site } from "@/lib/site";
+import { layoutContentMaxClass, layoutGutterXClass, site, steelLandingPages } from "@/lib/site";
 import { ui } from "@/lib/ui";
 
 export function SiteFooter() {
@@ -42,6 +42,14 @@ export function SiteFooter() {
                 Assistenza immobiliare
               </Link>
             </li>
+            <li className="pt-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/65">Progettazione acciaio</li>
+            {steelLandingPages.map((page) => (
+              <li key={page.href}>
+                <Link className={ui.footerLink} href={page.href}>
+                  {page.label.replace("Progettazione acciaio — ", "")}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
         <div>

@@ -110,9 +110,20 @@ export default function RootLayout({
   return (
     <html lang="it">
       <body className={`${fontSans.variable} ${fontDisplay.variable} ${fontSans.className} antialiased`}>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }} />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "@id": `${site.url}/#website`,
+              url: site.url,
+              name: site.name,
+              publisher: { "@id": `${site.url}/#organization` },
+              inLanguage: "it-IT",
+            }),
+          }}
         />
         <AppProviders>
           <a href="#main-content" className="skip-link">

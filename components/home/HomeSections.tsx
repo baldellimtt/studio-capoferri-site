@@ -16,7 +16,7 @@ import {
   zoneFooter,
 } from "@/lib/content";
 import { homeChiSiamoImages, projectPreview } from "@/lib/images";
-import { site } from "@/lib/site";
+import { layoutContentMaxClass, layoutGutterXClass, scrollAnchorClass, site } from "@/lib/site";
 import { ui } from "@/lib/ui";
 import { ServiceIcon } from "./ServiceIcons";
 import { StatsSection } from "./StatsSection";
@@ -27,8 +27,8 @@ export function HomeSections() {
   return (
     <>
       {/* ── Chi siamo ── */}
-      <section id="chi-siamo" className="lazy-section section-shell scroll-mt-[100px] bg-[#fafbfc] px-4 sm:px-5 md:px-10">
-        <div className="mx-auto max-w-[1140px]">
+      <section id="chi-siamo" className={`lazy-section section-shell ${scrollAnchorClass} bg-[#fafbfc] ${layoutGutterXClass}`}>
+        <div className={layoutContentMaxClass}>
           <div className="home-section-head">
             <h2 className={titleCls}>{homeChiSiamo.title}</h2>
             <div className="home-section-accent" aria-hidden />
@@ -69,8 +69,8 @@ export function HomeSections() {
       </section>
 
       {/* ── Servizi ── */}
-      <section id="servizi" className="lazy-section section-shell scroll-mt-[100px] bg-white px-4 sm:px-5 md:px-10">
-        <div className="mx-auto max-w-[1140px]">
+      <section id="servizi" className={`lazy-section section-shell ${scrollAnchorClass} bg-white ${layoutGutterXClass}`}>
+        <div className={layoutContentMaxClass}>
           <div className="home-split-header reveal-block">
             <div className="home-split-header__left">
               <h2 className={titleCls}>Servizi</h2>
@@ -107,8 +107,8 @@ export function HomeSections() {
       </section>
 
       {/* ── Progetti ── */}
-      <section id="progetti" className="lazy-section section-shell scroll-mt-[100px] bg-[#fafbfc] px-4 sm:px-5 md:px-10">
-        <div className="mx-auto max-w-[1140px]">
+      <section id="progetti" className={`lazy-section section-shell ${scrollAnchorClass} bg-[#fafbfc] ${layoutGutterXClass}`}>
+        <div className={layoutContentMaxClass}>
           <div className="home-split-header reveal-block">
             <div className="home-split-header__left">
               <h2 className={titleCls}>Progetti</h2>
@@ -148,8 +148,8 @@ export function HomeSections() {
       </section>
 
       {/* ── Abilitazioni professionali ── */}
-      <section id="certificazioni" className="lazy-section section-shell scroll-mt-[100px] bg-white px-4 sm:px-5 md:px-10">
-        <div className="mx-auto max-w-[1140px]">
+      <section id="certificazioni" className={`lazy-section section-shell ${scrollAnchorClass} bg-white ${layoutGutterXClass}`}>
+        <div className={layoutContentMaxClass}>
           <div className="home-split-header reveal-block">
             <div className="home-split-header__left">
               <h2 className={titleCls}>Abilitazioni professionali</h2>
@@ -157,7 +157,7 @@ export function HomeSections() {
             </div>
             <p className="home-split-header__right">{certificationsIntro}</p>
           </div>
-          <div className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
             {certifications.map((c) => (
               <article key={c.title} className="reveal-block frost-card rounded-xl p-4 text-left sm:rounded-2xl sm:p-6">
                 <h3 className={`${fontDisplay.className} mb-2 text-base uppercase tracking-[0.06em] text-[#2a3f54] sm:mb-3 sm:text-lg md:text-xl`}>
@@ -171,8 +171,8 @@ export function HomeSections() {
       </section>
 
       {/* ── Dove operiamo ── */}
-      <section id="zone-servite" className="lazy-section section-shell scroll-mt-[100px] bg-[#fafbfc] px-4 sm:px-5 md:px-10">
-        <div className="mx-auto max-w-[1140px]">
+      <section id="zone-servite" className={`lazy-section section-shell ${scrollAnchorClass} bg-[#fafbfc] ${layoutGutterXClass}`}>
+        <div className={layoutContentMaxClass}>
           <div className="home-split-header reveal-block">
             <div className="home-split-header__left">
               <h2 className={titleCls}>{zoneContent.title}</h2>
@@ -210,8 +210,8 @@ export function HomeSections() {
       <StatsSection />
 
       {/* ── Contatti ── */}
-      <section id="contatti" className="lazy-section section-shell scroll-mt-[100px] bg-white px-4 sm:px-5 md:px-10">
-        <div className="mx-auto max-w-[1140px]">
+      <section id="contatti" className={`lazy-section section-shell ${scrollAnchorClass} bg-white ${layoutGutterXClass}`}>
+        <div className={layoutContentMaxClass}>
           <div className="home-split-header reveal-block">
             <div className="home-split-header__left">
               <h2 className={titleCls}>Contatti</h2>

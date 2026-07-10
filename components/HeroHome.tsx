@@ -5,18 +5,20 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { fontDisplay } from "@/lib/fonts";
+import { layoutContentMaxClass } from "@/lib/site";
 import { ui } from "@/lib/ui";
 import { heroSlides } from "@/lib/images";
 
 export function HeroHome() {
   const reduceMotion = useReducedMotion();
   const [i, setI] = useState(0);
+  const [paused, setPaused] = useState(false);
 
   useEffect(() => {
-    if (reduceMotion) return;
+    if (reduceMotion || paused) return;
     const t = setInterval(() => setI((v) => (v + 1) % heroSlides.length), 4500);
     return () => clearInterval(t);
-  }, [reduceMotion]);
+  }, [reduceMotion, paused]);
 
   const s = heroSlides[i];
   const subtleEase = [0.22, 1, 0.36, 1] as const;
@@ -61,9 +63,11 @@ export function HeroHome() {
         />
       </div>
 
-      <div className="relative z-10 mx-auto flex min-h-[96svh] max-w-[1200px] flex-col justify-end gap-5 px-4 pb-10 pt-20 sm:min-h-[92vh] sm:gap-7 sm:px-5 sm:pb-12 sm:pt-24 md:min-h-[620px] md:px-5 md:pb-20 md:pt-28">
+      <div
+        className={`relative z-10 mx-auto flex min-h-[96svh] flex-col justify-end gap-5 px-4 pb-10 pt-20 sm:min-h-[92vh] sm:gap-7 sm:px-5 sm:pb-12 sm:pt-24 md:min-h-[620px] md:px-5 md:pb-20 md:pt-28 ${layoutContentMaxClass}`}
+      >
         <motion.div
-          className="max-w-[62ch] text-right md:ml-auto"
+          className="max-w-[62ch] text-left md:ml-auto md:text-right"
           initial={reduceMotion ? false : { opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.72, ease: subtleEase }}
@@ -72,10 +76,17 @@ export function HeroHome() {
           <h1
             className={`${fontDisplay.className} section-title text-[clamp(1.75rem,5.5vw,3.75rem)] text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.5)]`}
           >
-            <span className="block">{s.line1}</span>
-            <span className="mt-1 block text-white/95">{s.line2}</span>
+            Architettura e ingegneria
+            <span className="mt-1 block text-white/95">al servizio dell&apos;innovazione</span>
           </h1>
-          <p className="copy-rhythm reading-measure-tight mt-3 ml-auto text-pretty text-right text-[0.92rem] text-white/88 sm:text-[0.98rem] md:mt-5 md:text-lg">
+          <p
+            className="copy-rhythm reading-measure-tight mt-3 text-pretty text-[0.92rem] text-white/88 sm:text-[0.98rem] md:mt-4 md:text-lg"
+            aria-live="polite"
+          >
+            <span className="block font-medium text-white">{s.line1}</span>
+            <span className="block text-white/92">{s.line2}</span>
+          </p>
+          <p className="copy-rhythm reading-measure-tight mt-3 text-pretty text-[0.92rem] text-white/88 sm:text-[0.98rem] md:mt-5 md:ml-auto md:text-lg">
             Progettazione strutturale, architettura e urbanistica con approccio integrato. Un unico interlocutore dalla
             fattibilità al cantiere.
           </p>
@@ -84,11 +95,39 @@ export function HeroHome() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: reduceMotion ? 0 : 0.2, duration: 0.55, ease: subtleEase }}
           >
-            <Link href="/contatti" className={`mt-6 sm:mt-8 ${ui.btnOnDark}`}>
+            <Link href="/contatti" className={`focus-ring mt-6 sm:mt-8 ${ui.btnOnDark}`}>
               Richiedi una consulenza
             </Link>
           </motion.div>
         </motion.div>
+
+        {heroSlides.length > 1 ? (
+          <div className="flex items-center justify-start gap-3 md:ml-auto md:justify-end">
+            <div className="flex items-center gap-2" role="tablist" aria-label="Seleziona slide hero">
+              {heroSlides.map((slide, idx) => (
+                <button
+                  key={slide.src}
+                  type="button"
+                  role="tab"
+                  aria-selected={idx === i}
+                  aria-label={`Slide ${idx + 1}: ${slide.line1}`}
+                  className={`focus-ring h-2.5 w-2.5 rounded-full transition ${
+                    idx === i ? "bg-white" : "bg-white/40 hover:bg-white/65"
+                  }`}
+                  onClick={() => setI(idx)}
+                />
+              ))}
+            </div>
+            <button
+              type="button"
+              className="focus-ring rounded-lg border border-white/35 bg-white/15 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-white transition hover:bg-white/25"
+              onClick={() => setPaused((v) => !v)}
+              aria-pressed={paused}
+            >
+              {paused ? "Riprendi" : "Pausa"}
+            </button>
+          </div>
+        ) : null}
       </div>
     </section>
   );

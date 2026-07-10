@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import { CookiePreferencesButton } from "@/components/CookiePreferencesButton";
 import { fontDisplay } from "@/lib/fonts";
-import { layoutContentMaxClass, layoutGutterXClass, site } from "@/lib/site";
+import { buildPageMetadata } from "@/lib/seo";
+import { layoutContentMaxClass, layoutGutterXClass, scrollAnchorClass, site } from "@/lib/site";
 import { ui } from "@/lib/ui";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Privacy policy",
   description: "Informativa sul trattamento dei dati personali e cookie — Studio Capoferri SRL STP.",
-  alternates: { canonical: `${site.url}/privacy-policy/` },
-};
+  path: "/privacy-policy",
+});
 
 export default function PrivacyPolicyPage() {
   return (
@@ -64,7 +65,7 @@ export default function PrivacyPolicyPage() {
           indicate nelle policy dei rispettivi fornitori.
         </p>
 
-        <h2 id="cookie" className={`${fontDisplay.className} ${ui.sectionHeadingAccent} mb-4 mt-14 scroll-mt-[120px]`}>
+        <h2 id="cookie" className={`${fontDisplay.className} ${ui.sectionHeadingAccent} mb-4 mt-14 ${scrollAnchorClass}`}>
           Cookie
         </h2>
         <p className="mb-10 text-[1.05rem] leading-relaxed text-[#333]">

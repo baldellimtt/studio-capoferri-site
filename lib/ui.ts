@@ -26,7 +26,7 @@ export const ui = {
 
   /** Pulsante primario (gradient brand) */
   btnPrimary:
-    "inline-flex min-h-[48px] items-center justify-center rounded-md bg-gradient-to-br from-[#2a3f54] to-[#1f2e3d] px-8 py-3 text-sm font-semibold text-white shadow-md transition hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2a3f54]/40 disabled:opacity-60",
+    "inline-flex min-h-[48px] items-center justify-center rounded-xl bg-gradient-to-br from-[#2a3f54] to-[#1f2e3d] px-8 py-3 text-sm font-semibold text-white shadow-md transition hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2a3f54]/40 disabled:opacity-60",
 
   /** Pulsante outline — CTA secondari home e link “Esplora / Scopri / Scrivici” */
   btnOutline:
@@ -34,11 +34,11 @@ export const ui = {
 
   /** Pulsante trasparente su sfondo scuro (privacy / barre) */
   btnGhostOnDark:
-    "inline-flex min-h-[44px] items-center justify-center rounded-md border border-white/35 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40",
+    "inline-flex min-h-[44px] items-center justify-center rounded-xl border border-white/35 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40",
 
   /** CTA su sfondo scuro (hero) */
   btnOnDark:
-    "inline-flex min-h-[48px] w-full items-center justify-center rounded-md border border-white/25 bg-white px-8 py-3 text-sm font-semibold text-[#1f2e3d] shadow-[0_10px_30px_rgba(0,0,0,0.18)] transition hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/50 sm:w-auto",
+    "inline-flex min-h-[48px] w-full items-center justify-center rounded-xl border border-white/25 bg-white px-8 py-3 text-sm font-semibold text-[#1f2e3d] shadow-[0_10px_30px_rgba(0,0,0,0.18)] transition hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/50 sm:w-auto",
 
   /** Cookie: accetta (chiaro su barra scura) */
   cookieAccept:
@@ -53,5 +53,5 @@ export const ui = {
     "w-full rounded-md border-2 border-[#2a3f54]/12 bg-white px-4 py-3 text-base text-[#333] outline-none transition placeholder:text-neutral-400 focus:border-[#2a3f54] focus:ring-2 focus:ring-[#2a3f54]/15",
 
   /** Link colonna footer */
-  footerLink: "inline-block min-h-[44px] py-1.5 leading-relaxed transition-colors hover:text-white",
+  footerLink: "focus-ring inline-block min-h-[44px] py-1.5 leading-relaxed transition-colors hover:text-white",
 } as const;

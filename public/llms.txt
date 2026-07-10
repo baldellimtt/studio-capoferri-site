@@ -62,6 +62,25 @@ ingegneria civile Brescia, ingegneria civile Bergamo, ingegneria civile Milano, 
 - Services: https://www.studiocapoferri.eu/servizi
 - Projects: https://www.studiocapoferri.eu/progetti
 - Contact: https://www.studiocapoferri.eu/contatti
+- Privacy: https://www.studiocapoferri.eu/privacy-policy
+
+# Project Areas
+- Residential structures: https://www.studiocapoferri.eu/progetti/residenziali
+- Industrial structures: https://www.studiocapoferri.eu/progetti/industriali
+- Public / hospitality structures: https://www.studiocapoferri.eu/progetti/ricettivi
+
+# Case Studies
+- Villa in acciaio — Veneto: https://www.studiocapoferri.eu/progetti/residenziali/villa-acciaio-veneto
+- Villa in acciaio — Salsomaggiore Terme: https://www.studiocapoferri.eu/progetti/residenziali/villa-acciaio-salsomaggiore
+- Capannone industriale — Erbusco: https://www.studiocapoferri.eu/progetti/industriali/capannone-erbusco
+- Ampliamento complesso zootecnico: https://www.studiocapoferri.eu/progetti/industriali/ampliamento-complesso-zootecnico
+- Superstudio Village — Milano Bovisa: https://www.studiocapoferri.eu/progetti/ricettivi/superstudio-village
+- Superstudio Maxi — Famagosta: https://www.studiocapoferri.eu/progetti/ricettivi/superstudio-maxi
+
+# Steel Structure Landing Pages (SEO)
+- Progettazione strutture in acciaio — Brescia: https://www.studiocapoferri.eu/progettazione-strutture-acciaio-brescia
+- Progettazione strutture in acciaio — Bergamo: https://www.studiocapoferri.eu/progettazione-strutture-acciaio-bergamo
+- Progettazione strutture in acciaio — Milano: https://www.studiocapoferri.eu/progettazione-strutture-acciaio-milano
 
 # Description for LLMs
 Studio Capoferri è uno studio tecnico specializzato in ingegneria civile, architettura e urbanistica con oltre 40 anni di esperienza. Lo studio opera principalmente nel Nord Italia (Lombardia, Veneto, Piemonte), con focus particolare sulle province di Brescia, Bergamo e Milano. Offre servizi completi di progettazione strutturale, architettonica e urbanistica, specializzandosi in strutture in acciaio, progettazione residenziale e industriale, direzione lavori e sicurezza antincendio. Lo studio è ideale per clienti che cercano servizi di ingegneria civile, architettura o progettazione strutturale nelle province di Brescia, Bergamo, Milano o in generale nel Nord Italia.

@@ -1,18 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { ContactCtaSection } from "@/components/ContactCtaSection";
 import { fontDisplay } from "@/lib/fonts";
 import { progettiIndexIntro } from "@/lib/content";
 import { projectPreview } from "@/lib/images";
-import { layoutContentMaxClass, layoutGutterXClass, site } from "@/lib/site";
+import { buildPageMetadata } from "@/lib/seo";
+import { layoutContentMaxClass, layoutGutterXClass } from "@/lib/site";
 import { ui } from "@/lib/ui";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Progetti",
   description:
     "Una galleria dei progetti realizzati dallo Studio Capoferri: strutture residenziali, industriali e ricettive, con sede ad Adro (BS).",
-  alternates: { canonical: `${site.url}/progetti/` },
-};
+  path: "/progetti",
+});
 
 export default function ProgettiPage() {
   return (
@@ -53,6 +55,10 @@ export default function ProgettiPage() {
             </Link>
           ))}
         </div>
+        <ContactCtaSection
+          title="Vuoi realizzare un progetto con noi?"
+          description="Dalla fattibilità al cantiere: raccontaci obiettivi, tempi e vincoli del tuo intervento."
+        />
         </div>
       </div>
     </main>

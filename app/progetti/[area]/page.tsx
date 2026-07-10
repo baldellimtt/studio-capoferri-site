@@ -3,8 +3,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { fontDisplay } from "@/lib/fonts";
+import { buildPageMetadata } from "@/lib/seo";
 import { isProjectArea, projectCategories, projectAreas } from "@/lib/projects";
-import { layoutContentMaxClass, layoutGutterXClass, site } from "@/lib/site";
+import { layoutContentMaxClass, layoutGutterXClass } from "@/lib/site";
 import { ui } from "@/lib/ui";
 
 type Props = { params: Promise<{ area: string }> };
@@ -17,11 +18,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { area } = await params;
   if (!isProjectArea(area)) return {};
   const c = projectCategories[area];
-  return {
+  return buildPageMetadata({
     title: c.metaTitle,
     description: c.metaDescription,
-    alternates: { canonical: `${site.url}/progetti/${area}/` },
-  };
+    path: `/progetti/${area}`,
+    image: c.cases[0]?.cover,
+  });
 }
 
 export default async function ProjectAreaPage({ params }: Props) {
@@ -56,7 +58,7 @@ export default async function ProjectAreaPage({ params }: Props) {
             <Link
               key={p.slug}
               href={p.href}
-              className="group block overflow-hidden rounded-2xl border border-[#2a3f54]/10 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition hover:shadow-[0_14px_36px_rgba(42,63,84,0.14)]"
+              className="group block overflow-hidden rounded-2xl border border-[#2a3f54]/10 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition duration-500 hover:-translate-y-0.5 hover:shadow-[0_14px_36px_rgba(42,63,84,0.14)]"
             >
               <div className="relative aspect-[4/3]">
                 <Image

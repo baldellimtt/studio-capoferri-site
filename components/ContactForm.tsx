@@ -185,6 +185,7 @@ export function ContactForm() {
           onBlur={onBlur("privacy")}
           className="mt-0.5 h-5 w-5 shrink-0 accent-[#2a3f54] sm:mt-1"
           aria-invalid={!!errors.privacy}
+          aria-describedby={errors.privacy ? "err-privacy" : undefined}
         />
         <label htmlFor="privacy" className="text-[0.82rem] text-[#444] sm:text-sm">
           Ho letto e accetto la{" "}
@@ -194,7 +195,11 @@ export function ContactForm() {
           . <span className="text-red-700">*</span>
         </label>
       </div>
-      {errors.privacy ? <p className="text-sm text-red-700 md:col-span-2">{errors.privacy}</p> : null}
+      {errors.privacy ? (
+        <p id="err-privacy" className="text-sm text-red-700 md:col-span-2">
+          {errors.privacy}
+        </p>
+      ) : null}
 
       {status === "error" ? (
         <p className="text-sm text-red-700 md:col-span-2" role="alert">

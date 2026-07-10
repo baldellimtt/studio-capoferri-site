@@ -3,15 +3,16 @@ import type { Metadata } from "next";
 import { fontDisplay } from "@/lib/fonts";
 import { chiSiamoPage } from "@/lib/content";
 import { chiSiamoPageImage } from "@/lib/images";
-import { layoutContentMaxClass, layoutGutterXClass, site } from "@/lib/site";
+import { buildPageMetadata } from "@/lib/seo";
+import { layoutContentMaxClass, layoutGutterXClass } from "@/lib/site";
 import { ui } from "@/lib/ui";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Chi siamo",
   description:
     "Scopri lo Studio Capoferri, il nostro team di professionisti, la storia e la filosofia che ci guida nella progettazione ingegneristica e architettonica con sede ad Adro (BS).",
-  alternates: { canonical: `${site.url}/chi-siamo/` },
-};
+  path: "/chi-siamo",
+});
 
 export default function ChiSiamoPage() {
   return (
