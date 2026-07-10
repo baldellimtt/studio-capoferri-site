@@ -255,8 +255,8 @@ export function ProjectImageLightbox({ images, className = "" }: Props) {
                   <div
                     className="relative mx-auto w-full max-w-[1100px] overflow-hidden rounded-[1.45rem] border border-white/8 bg-transparent shadow-none backdrop-blur-0"
                     style={{
-                      height: "min(680px, calc(100dvh - 13rem))",
-                      maxHeight: "min(680px, calc(100dvh - 13rem))",
+                      height: "min(620px, calc(100dvh - 18rem))",
+                      maxHeight: "min(620px, calc(100dvh - 18rem))",
                     }}
                   >
                     <Image

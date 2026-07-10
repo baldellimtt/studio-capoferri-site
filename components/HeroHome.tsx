@@ -12,13 +12,12 @@ import { heroSlides } from "@/lib/images";
 export function HeroHome() {
   const reduceMotion = useReducedMotion();
   const [i, setI] = useState(0);
-  const [paused, setPaused] = useState(false);
 
   useEffect(() => {
-    if (reduceMotion || paused) return;
+    if (reduceMotion) return;
     const t = setInterval(() => setI((v) => (v + 1) % heroSlides.length), 4500);
     return () => clearInterval(t);
-  }, [reduceMotion, paused]);
+  }, [reduceMotion]);
 
   const s = heroSlides[i];
   const subtleEase = [0.22, 1, 0.36, 1] as const;
@@ -102,30 +101,24 @@ export function HeroHome() {
         </motion.div>
 
         {heroSlides.length > 1 ? (
-          <div className="flex items-center justify-start gap-3 md:ml-auto md:justify-end">
-            <div className="flex items-center gap-2" role="tablist" aria-label="Seleziona slide hero">
-              {heroSlides.map((slide, idx) => (
-                <button
-                  key={slide.src}
-                  type="button"
-                  role="tab"
-                  aria-selected={idx === i}
-                  aria-label={`Slide ${idx + 1}: ${slide.line1}`}
-                  className={`focus-ring h-2.5 w-2.5 rounded-full transition ${
-                    idx === i ? "bg-white" : "bg-white/40 hover:bg-white/65"
-                  }`}
-                  onClick={() => setI(idx)}
-                />
-              ))}
-            </div>
-            <button
-              type="button"
-              className="focus-ring rounded-lg border border-white/35 bg-white/15 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-white transition hover:bg-white/25"
-              onClick={() => setPaused((v) => !v)}
-              aria-pressed={paused}
-            >
-              {paused ? "Riprendi" : "Pausa"}
-            </button>
+          <div
+            className="flex items-center justify-start gap-2 md:ml-auto md:justify-end"
+            role="tablist"
+            aria-label="Seleziona slide hero"
+          >
+            {heroSlides.map((slide, idx) => (
+              <button
+                key={slide.src}
+                type="button"
+                role="tab"
+                aria-selected={idx === i}
+                aria-label={`Slide ${idx + 1}: ${slide.line1}`}
+                className={`focus-ring h-2.5 w-2.5 rounded-full transition ${
+                  idx === i ? "bg-white" : "bg-white/40 hover:bg-white/65"
+                }`}
+                onClick={() => setI(idx)}
+              />
+            ))}
           </div>
         ) : null}
       </div>
