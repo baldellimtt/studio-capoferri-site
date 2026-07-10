@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Contatti",
   description:
     "Contatta lo Studio Capoferri per richiedere un preventivo o fissare un appuntamento. Recapiti, indirizzo e orari della sede ad Adro (BS).",
-  alternates: { canonical: `${site.url}/contatti` },
+  alternates: { canonical: `${site.url}/contatti/` },
 };
 
 export default function ContattiPage() {
@@ -18,7 +18,7 @@ export default function ContattiPage() {
       <div className={layoutGutterXClass}>
         <div className={layoutContentMaxClass}>
         <div className="mb-6 max-w-[780px] sm:mb-8">
-          <h1 id="recapiti-heading" className={`${fontDisplay.className} ${ui.pageTitle} mb-3 sm:mb-4`}>
+          <h1 className={`${fontDisplay.className} ${ui.pageTitle} mb-3 sm:mb-4`}>
             Contatti
           </h1>
           <p className={ui.body}>
@@ -29,7 +29,7 @@ export default function ContattiPage() {
 
         <div className="grid gap-5 sm:gap-8 lg:grid-cols-[1.02fr_1.28fr] lg:items-stretch">
           <section aria-labelledby="recapiti-heading" className="frost-card rounded-2xl p-5 sm:p-7 md:p-8">
-            <h2 className={`${fontDisplay.className} ${ui.cardHeading} mb-4 sm:mb-5`}>Recapiti</h2>
+            <h2 id="recapiti-heading" className={`${fontDisplay.className} ${ui.cardHeading} mb-4 sm:mb-5`}>Recapiti</h2>
             <p className="mb-4 text-[0.95rem] font-semibold text-[#2a2a2a] sm:mb-6 sm:text-[1.02rem]">
             {site.name} - {site.tagline}
             </p>
@@ -49,10 +49,13 @@ export default function ContattiPage() {
                   {site.email}
                 </a>
               </li>
+              <li>
+                <strong>Orari:</strong> {site.openingHoursDisplay}
+              </li>
             </ul>
             <div className="mt-5 border-t border-[#2a3f54]/10 pt-4 sm:mt-7 sm:pt-6">
               <a
-                href="https://www.linkedin.com/company/studio-capoferri-ingegneria"
+                href={site.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex min-h-[44px] items-center gap-2 py-1 text-sm font-semibold text-[#2a3f54] underline-offset-2 hover:underline"

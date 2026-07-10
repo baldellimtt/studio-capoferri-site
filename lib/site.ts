@@ -19,6 +19,17 @@ export const site = {
   phoneDisplay: "+39 030 7357263",
   phoneTel: "+390307357263",
   addressLine: "Via Piave 35 – 25030 Adro (BS), Italia",
+  address: {
+    street: "Via Piave 35",
+    postalCode: "25030",
+    locality: "Adro",
+    province: "BS",
+    region: "Lombardia",
+    country: "IT",
+  },
+  geo: { latitude: 45.6157, longitude: 9.9989 },
+  openingHoursDisplay: "Lun – Ven: 08:30 – 18:00",
+  linkedin: "https://www.linkedin.com/company/studio-capoferri-ingegneria",
   piva: "04732710985",
   formspreeId: "mqapdvrr",
 } as const;

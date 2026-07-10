@@ -2,16 +2,6 @@ import type { ReactNode } from "react";
 
 /** Testi riportati dalle pagine HTML attuali (index, chi-siamo, progetti index). */
 
-export const homeAiSummary = {
-  title: "Studio Capoferri - Ingegneria Civile e Architettura",
-  paragraphs: [
-    "Studio tecnico di ingegneria civile, architettura e urbanistica con sede ad Adro, provincia di Brescia, Lombardia, Italia. Operiamo in tutto il Nord e Centro Nord Italia (Lombardia, Veneto, Piemonte, Emilia-Romagna, Toscana), in particolare nelle province di Brescia, Bergamo e Milano. Specializzati in progettazione strutturale, strutture in acciaio, progettazione residenziale e industriale, urbanistica, direzione lavori, sicurezza antincendio. Oltre 40 anni di esperienza nel settore. Servizi di ingegneria civile per Brescia, Bergamo, Milano e Nord e Centro Nord Italia.",
-    "Servizi offerti: Progettazione strutturale, Progettazione architettonica, Progettazione urbanistica, Direzione lavori, Consulenza sicurezza antincendio, Coordinamento sicurezza cantieri, Assistenza immobiliare.",
-    "Zone servite: Nord e Centro Nord Italia, Lombardia, Veneto, Piemonte, Emilia-Romagna, Toscana, Provincia di Brescia, Provincia di Bergamo, Provincia di Milano, Franciacorta, Adro, Erbusco.",
-    "Contatti: Telefono +39 030 7357263, Email info@studiocapoferri.eu, Indirizzo Via Piave 35, 25030 Adro (BS), Italia.",
-  ],
-} as const;
-
 export type homeChiSiamoBlock = {
   text: ReactNode;
   image: "team" | "cantiere";

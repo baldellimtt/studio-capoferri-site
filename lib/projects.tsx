@@ -224,7 +224,7 @@ export const projectCaseStudies: Record<
       "Progettazione strutturale per complesso a Milano Bovisa: consolidamenti, demolizioni e ricostruzioni in acciaio e misto — Studio Capoferri.",
     heading: "Superstudio Village — Milano Bovisa",
     externalBrand: {
-      href: "https://superstudioevents.com/",
+      href: "https://www.superstudioevents.com/it/",
       imageSrc: "/assets/superstudio_logo.svg",
       imageAlt: "Superstudio",
     },
@@ -263,7 +263,7 @@ export const projectCaseStudies: Record<
       "Recupero capannone industriale a Milano Famagosta: adeguamento sismico, strutture in acciaio e sicurezza — Studio Capoferri.",
     heading: "Superstudio Maxi — Famagosta",
     externalBrand: {
-      href: "https://superstudioevents.com/venues/superstudio-maxi/",
+      href: "https://www.superstudioevents.com/it/venues/superstudio-maxi/",
       imageSrc: "/assets/superstudio_logo.svg",
       imageAlt: "Superstudio",
     },

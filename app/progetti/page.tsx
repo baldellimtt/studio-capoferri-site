@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Progetti",
   description:
     "Una galleria dei progetti realizzati dallo Studio Capoferri: strutture residenziali, industriali e ricettive, con sede ad Adro (BS).",
-  alternates: { canonical: `${site.url}/progetti` },
+  alternates: { canonical: `${site.url}/progetti/` },
 };
 
 export default function ProgettiPage() {

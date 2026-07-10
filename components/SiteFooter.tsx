@@ -37,6 +37,11 @@ export function SiteFooter() {
                 Sicurezza cantieri
               </Link>
             </li>
+            <li>
+              <Link className={ui.footerLink} href="/servizi#assistenza-immobiliare">
+                Assistenza immobiliare
+              </Link>
+            </li>
           </ul>
         </div>
         <div>
@@ -88,8 +93,8 @@ export function SiteFooter() {
                 Privacy policy
               </Link>
             </p>
-            <p className="mt-2 text-xs font-semibold tracking-wide text-white/85">
-              INGEGNERIA - ARCHITETTURA - PROGETTAZIONE STRUTTURE IN ACCIAIO
+            <p className="mt-2 text-xs font-semibold uppercase tracking-wide text-white/85">
+              {site.tagline}
             </p>
             <p className="mt-1">P.IVA {site.piva}</p>
           </div>

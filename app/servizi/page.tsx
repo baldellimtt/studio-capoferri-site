@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Servizi di progettazione e ingegneria",
   description:
     "Progettazione strutturale, direzione lavori, consulenze tecniche, sicurezza cantieri e assistenza immobiliare a Brescia e provincia.",
-  alternates: { canonical: `${site.url}/servizi` },
+  alternates: { canonical: `${site.url}/servizi/` },
 };
 
 export default function ServiziPage() {

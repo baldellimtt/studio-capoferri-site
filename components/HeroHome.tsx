@@ -77,7 +77,7 @@ export function HeroHome() {
           </h1>
           <p className="copy-rhythm reading-measure-tight mt-3 ml-auto text-pretty text-right text-[0.92rem] text-white/88 sm:text-[0.98rem] md:mt-5 md:text-lg">
             Progettazione strutturale, architettura e urbanistica con approccio integrato. Un unico interlocutore dalla
-            fattibilita al cantiere.
+            fattibilità al cantiere.
           </p>
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 10 }}

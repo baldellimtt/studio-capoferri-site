@@ -7,7 +7,7 @@ import { ui } from "@/lib/ui";
 export const metadata: Metadata = {
   title: "Privacy policy",
   description: "Informativa sul trattamento dei dati personali e cookie — Studio Capoferri SRL STP.",
-  alternates: { canonical: `${site.url}/privacy-policy` },
+  alternates: { canonical: `${site.url}/privacy-policy/` },
 };
 
 export default function PrivacyPolicyPage() {
@@ -35,7 +35,8 @@ export default function PrivacyPolicyPage() {
 
         <h2 className={`${fontDisplay.className} ${ui.sectionHeadingAccent} mb-4 mt-12`}>Modalità di trattamento</h2>
         <p className="text-[1.05rem] leading-relaxed text-[#333]">
-          I dati vengono inviati via email e non sono salvati su database o condivisi con terze parti.
+          I dati inseriti nel modulo di contatto vengono trasmessi tramite il servizio Formspree (vedi sezione &quot;Trasferimenti e fornitori terzi&quot;) e
+          recapitati alla nostra casella email. Non vengono salvati su database dello Studio né condivisi con altre terze parti.
         </p>
 
         <h2 className={`${fontDisplay.className} ${ui.sectionHeadingAccent} mb-4 mt-12`}>Conservazione dei dati</h2>

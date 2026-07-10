@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "Chi siamo",
   description:
     "Scopri lo Studio Capoferri, il nostro team di professionisti, la storia e la filosofia che ci guida nella progettazione ingegneristica e architettonica con sede ad Adro (BS).",
-  alternates: { canonical: `${site.url}/chi-siamo` },
+  alternates: { canonical: `${site.url}/chi-siamo/` },
 };
 
 export default function ChiSiamoPage() {

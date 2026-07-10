@@ -43,20 +43,20 @@ export const projectPreview = [
     title: "Strutture per il residenziale",
     caption: "Strutture per il residenziale",
     image: "/assets/progetti-ambito-residenziale.jpg",
-    alt: "Struttura in acciaio per Superstudio Village a Milano — progetto residenziale realizzato dallo Studio Capoferri in Lombardia",
+    alt: "Progetto residenziale con struttura in acciaio — Studio Capoferri, ingegneria strutturale in Lombardia",
   },
   {
     href: "/progetti/industriali",
     title: "Strutture per l'industria",
     caption: "Strutture per l'industria",
     image: "/assets/progetto2.jpg",
-    alt: "Progetto di sopraelevazione residenziale a Bergamo, Lombardia — Studio Capoferri ingegneria strutturale Nord Italia",
+    alt: "Capannone industriale con struttura portante in acciaio — progetti industriali Studio Capoferri, provincia di Brescia",
   },
   {
     href: "/progetti/ricettivi",
     title: "Strutture per spazi pubblici",
     caption: "Strutture per spazi pubblici",
     image: "/assets/progetto-ricettivo.webp",
-    alt: "Progettazione carpenteria metallica per ambito ricettivo a Erbusco, provincia di Brescia, Franciacorta — Studio Capoferri",
+    alt: "Spazio per eventi Superstudio a Milano — progettazione strutturale per spazi pubblici e ricettivi, Studio Capoferri",
   },
 ] as const;
