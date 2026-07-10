@@ -89,6 +89,14 @@ export const projectCategories: Record<
         alt: "Capannone industriale in acciaio a Erbusco (BS) — progettazione strutturale Studio Capoferri",
         href: "/progetti/industriali/capannone-erbusco",
       },
+      {
+        slug: "ampliamento-complesso-zootecnico",
+        title: "Ampliamento complesso zootecnico",
+        caption: "Complesso zootecnico",
+        cover: "/assets/industriale/ampliamento-complesso-zootecnico/vista-aerea-ampliamento-complesso-zootecnico.webp",
+        alt: "Vista aerea delle capriate metalliche per l'ampliamento di un complesso zootecnico",
+        href: "/progetti/industriali/ampliamento-complesso-zootecnico",
+      },
     ],
   },
   ricettivi: {
@@ -344,6 +352,57 @@ export const projectCaseStudies: Record<
       {
         src: "/assets/industriale/capannone-erbusco/ingegneria-civile-adro.webp",
         alt: "Interno del capannone industriale con struttura calcolata per carroponti — Erbusco (BS)",
+      },
+    ],
+  },
+  "industriali/ampliamento-complesso-zootecnico": {
+    metaTitle: "Ampliamento complesso zootecnico",
+    metaDescription:
+      "Ampliamento con capriate metalliche a luce libera di quasi 16 metri: progettazione strutturale per complesso zootecnico — Studio Capoferri.",
+    heading: "Ampliamento complesso zootecnico",
+    body: (
+      <>
+        <p className="copy-rhythm mb-4 text-[0.98rem] text-[#444] sm:text-[1.05rem]">
+          Intervenire sull&apos;esistente richiede equilibrio tra vincoli strutturali, logistica e continuità dell&apos;attività. Nel progetto di
+          ampliamento di questo <strong>complesso zootecnico</strong>, l&apos;obiettivo era aumentare la superficie coperta e garantire la massima
+          flessibilità interna.
+        </p>
+        <p className="copy-rhythm mb-6 text-[0.98rem] text-[#444] sm:text-[1.05rem]">
+          La soluzione si concentra sullo sviluppo di <strong>nuove capriate metalliche</strong> con una luce libera di quasi{" "}
+          <strong>16 metri</strong>. L&apos;assenza di sostegni intermedi permette di ottimizzare gli spazi per le esigenze operative del settore.
+        </p>
+        <ul className="mb-6 list-none space-y-3 text-[0.95rem] text-[#333] sm:text-[1.02rem]">
+          <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
+            <strong>Efficienza</strong>: grandi luci coperte con profili ottimizzati.
+          </li>
+          <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
+            <strong>Velocità</strong>: tempi di montaggio ridotti per limitare l&apos;impatto sul sito.
+          </li>
+          <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
+            <strong>Durabilità</strong>: soluzioni idonee a un contesto ambientale aggressivo.
+          </li>
+          <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
+            <strong>Integrazione</strong>: perfetto innesto delle nuove opere sulle strutture preesistenti.
+          </li>
+        </ul>
+        <p className="copy-rhythm text-[0.98rem] text-[#444] sm:text-[1.05rem]">
+          La progettazione strutturale non è solo calcolo. È lo strumento per trasformare le necessità del committente in soluzioni costruttive
+          concrete.
+        </p>
+      </>
+    ),
+    gallery: [
+      {
+        src: "/assets/industriale/ampliamento-complesso-zootecnico/capriate-metalliche-grande-luce-complesso-zootecnico.webp",
+        alt: "Capriate metalliche a grande luce in fase di montaggio — ampliamento complesso zootecnico",
+      },
+      {
+        src: "/assets/industriale/ampliamento-complesso-zootecnico/carpenteria-metallica-basamento-cemento-zootecnico.webp",
+        alt: "Carpenteria metallica su basamento in cemento armato — ampliamento complesso zootecnico",
+      },
+      {
+        src: "/assets/industriale/ampliamento-complesso-zootecnico/vista-aerea-ampliamento-complesso-zootecnico.webp",
+        alt: "Vista aerea delle nuove capriate metalliche integrate con le strutture preesistenti — complesso zootecnico",
       },
     ],
   },

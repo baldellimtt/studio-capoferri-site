@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { fontDisplay } from "@/lib/fonts";
+import { fontSans } from "@/lib/fonts";
 
 type Img = { src: string; alt: string };
 
@@ -170,6 +170,8 @@ export function ProjectImageLightbox({ images, className = "" }: Props) {
 
   if (images.length === 0) return null;
 
+  const captionClass = `${fontSans.className} text-[0.78rem] leading-snug text-[#666] sm:text-[0.82rem]`;
+
   const lightbox =
     renderedOpen !== null ? (
       <AnimatePresence
@@ -196,16 +198,13 @@ export function ProjectImageLightbox({ images, className = "" }: Props) {
             transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.18, ease: "easeOut" }}
           >
             <motion.div
-              className="relative z-30 flex shrink-0 items-center justify-between gap-3 border-b border-white/35 bg-white/55 px-3 py-3 shadow-[0_12px_30px_rgba(42,63,84,0.08)] backdrop-blur-xl sm:px-5 sm:py-4"
+              className="relative z-30 flex shrink-0 items-center justify-end gap-3 border-b border-white/35 bg-white/55 px-3 py-3 shadow-[0_12px_30px_rgba(42,63,84,0.08)] backdrop-blur-xl sm:px-5 sm:py-4"
               onClick={(e) => e.stopPropagation()}
               initial={prefersReducedMotion ? false : { opacity: 0, y: -10 }}
               animate={prefersReducedMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
               exit={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: -8 }}
               transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.18, ease: "easeOut" }}
             >
-              <p className={`${fontDisplay.className} min-w-0 flex-1 truncate text-sm tracking-[0.06em] text-[#2a2a2a] sm:text-base`}>
-                {images[open].alt}
-              </p>
               <button
                 type="button"
                 className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#2a3f54]/15 bg-white text-xl leading-none text-[#2a3f54] shadow-sm transition hover:bg-[#fafbfc] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2a3f54]"
@@ -271,6 +270,8 @@ export function ProjectImageLightbox({ images, className = "" }: Props) {
                   </div>
                 </div>
 
+                <p className={`${captionClass} mt-3 max-w-[1100px] px-1 text-center sm:mt-4`}>{images[open].alt}</p>
+
                 <p className="sr-only">
                   Scorri col dito, usa le frecce o Maiusc piu rotellina per cambiare immagine. Esci con Esc o clic sullo sfondo.
                 </p>
@@ -325,21 +326,23 @@ export function ProjectImageLightbox({ images, className = "" }: Props) {
           style={{ WebkitOverflowScrolling: "touch" }}
         >
           {images.map((img, i) => (
-            <button
-              key={`thumb-m-${img.src}-${i}`}
-              type="button"
-              onClick={() => setOpen(i)}
-              className="group relative h-[200px] w-[min(78vw,320px)] shrink-0 snap-start cursor-zoom-in overflow-hidden rounded-2xl border border-[#2a3f54]/12 bg-white text-left shadow-[0_6px_24px_rgba(42,63,84,0.08)] ring-0 transition hover:border-[#2a3f54]/25 hover:shadow-[0_12px_32px_rgba(42,63,84,0.12)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2a3f54]"
-              aria-label={`Apri nella galleria: ${img.alt}`}
-            >
-              <Image
-                src={img.src}
-                alt=""
-                fill
-                className="object-cover transition duration-500 ease-out group-hover:scale-[1.02]"
-                sizes="78vw"
-              />
-            </button>
+            <figure key={`thumb-m-${img.src}-${i}`} className="w-[min(78vw,320px)] shrink-0 snap-start">
+              <button
+                type="button"
+                onClick={() => setOpen(i)}
+                className="group relative h-[200px] w-full cursor-zoom-in overflow-hidden rounded-2xl border border-[#2a3f54]/12 bg-white text-left shadow-[0_6px_24px_rgba(42,63,84,0.08)] ring-0 transition hover:border-[#2a3f54]/25 hover:shadow-[0_12px_32px_rgba(42,63,84,0.12)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2a3f54]"
+                aria-label={`Apri nella galleria: ${img.alt}`}
+              >
+                <Image
+                  src={img.src}
+                  alt=""
+                  fill
+                  className="object-cover transition duration-500 ease-out group-hover:scale-[1.02]"
+                  sizes="78vw"
+                />
+              </button>
+              <figcaption className={`${captionClass} mt-2 px-0.5`}>{img.alt}</figcaption>
+            </figure>
           ))}
         </div>
       </div>
@@ -347,24 +350,27 @@ export function ProjectImageLightbox({ images, className = "" }: Props) {
       <ul className="hidden list-none gap-4 md:grid md:grid-cols-2 lg:grid-cols-3">
         {images.map((img, i) => (
           <li key={`thumb-d-${img.src}-${i}`}>
-            <button
-              type="button"
-              onClick={() => setOpen(i)}
-              className="group relative aspect-[4/3] w-full cursor-zoom-in overflow-hidden rounded-2xl border border-[#2a3f54]/10 bg-[#fafbfc] text-left shadow-[0_8px_28px_rgba(42,63,84,0.07)] transition hover:-translate-y-0.5 hover:border-[#2a3f54]/22 hover:shadow-[0_14px_40px_rgba(42,63,84,0.11)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2a3f54]"
-              aria-label={`Apri nella galleria: ${img.alt}`}
-            >
-              <Image
-                src={img.src}
-                alt=""
-                fill
-                className="object-cover transition duration-500 ease-out group-hover:scale-[1.02]"
-                sizes="(min-width:1024px) 33vw, 50vw"
-              />
-              <div
-                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#2a3f54]/20 via-transparent to-transparent opacity-0 transition group-hover:opacity-100"
-                aria-hidden
-              />
-            </button>
+            <figure>
+              <button
+                type="button"
+                onClick={() => setOpen(i)}
+                className="group relative aspect-[4/3] w-full cursor-zoom-in overflow-hidden rounded-2xl border border-[#2a3f54]/10 bg-[#fafbfc] text-left shadow-[0_8px_28px_rgba(42,63,84,0.07)] transition hover:-translate-y-0.5 hover:border-[#2a3f54]/22 hover:shadow-[0_14px_40px_rgba(42,63,84,0.11)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2a3f54]"
+                aria-label={`Apri nella galleria: ${img.alt}`}
+              >
+                <Image
+                  src={img.src}
+                  alt=""
+                  fill
+                  className="object-cover transition duration-500 ease-out group-hover:scale-[1.02]"
+                  sizes="(min-width:1024px) 33vw, 50vw"
+                />
+                <div
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#2a3f54]/20 via-transparent to-transparent opacity-0 transition group-hover:opacity-100"
+                  aria-hidden
+                />
+              </button>
+              <figcaption className={`${captionClass} mt-2.5 px-0.5`}>{img.alt}</figcaption>
+            </figure>
           </li>
         ))}
       </ul>
