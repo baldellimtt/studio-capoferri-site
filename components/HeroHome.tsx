@@ -71,20 +71,17 @@ export function HeroHome() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.72, ease: subtleEase }}
         >
-          <p className="eyebrow mb-2 text-white/80 sm:mb-3 md:text-sm">Studio tecnico · Adro (BS) · Nord Italia</p>
+          <p className="eyebrow mb-1 text-white/85 sm:mb-1.5 md:text-sm">
+            Architettura e ingegneria — al servizio dell&apos;innovazione
+          </p>
+          <p className="eyebrow mb-2 text-white/65 sm:mb-3 md:text-sm">Studio tecnico · Adro (BS) · Nord Italia</p>
           <h1
             className={`${fontDisplay.className} section-title text-[clamp(1.75rem,5.5vw,3.75rem)] text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.5)]`}
-          >
-            Architettura e ingegneria
-            <span className="mt-1 block text-white/95">al servizio dell&apos;innovazione</span>
-          </h1>
-          <p
-            className="copy-rhythm reading-measure-tight mt-3 text-pretty text-[0.92rem] text-white/88 sm:text-[0.98rem] md:mt-4 md:text-lg"
             aria-live="polite"
           >
-            <span className="block font-medium text-white">{s.line1}</span>
-            <span className="block text-white/92">{s.line2}</span>
-          </p>
+            <span className="block">{s.line1}</span>
+            <span className="mt-1 block text-white/95">{s.line2}</span>
+          </h1>
           <p className="copy-rhythm reading-measure-tight mt-3 text-pretty text-[0.92rem] text-white/88 sm:text-[0.98rem] md:mt-5 md:ml-auto md:text-lg">
             Progettazione strutturale, architettura e urbanistica con approccio integrato. Un unico interlocutore dalla
             fattibilità al cantiere.

@@ -4,8 +4,8 @@ export const heroSlides = [
   {
     src: "/assets/superstudio-village-acciaio-pre-fabbricato.webp",
     alt: "Strutture in acciaio pre-fabbricate — progetti Studio Capoferri Nord Italia, Brescia, Bergamo, Milano",
-    line1: "Architettura e ingegneria",
-    line2: "al servizio dell'innovazione",
+    line1: "Progettazione integrata",
+    line2: "dalla fattibilità al cantiere",
   },
   {
     src: "/assets/superstudio-village-sala-proiezione.webp",
