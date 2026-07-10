@@ -131,8 +131,8 @@ export function HomeSections() {
                         backgroundSize: "28px 28px",
                       }}
                     />
-                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#1f2e3d]/95 to-transparent px-4 py-3 sm:py-4">
-                      <span className={`${fontDisplay.className} text-base tracking-[0.04em] text-white sm:text-lg`}>{p.caption}</span>
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#1f2e3d]/95 to-transparent px-5 py-4 sm:px-6 sm:py-5">
+                      <span className={`${fontDisplay.className} text-lg tracking-[0.04em] text-white sm:text-xl md:text-2xl`}>{p.caption}</span>
                     </div>
                   </div>
                 </Link>
