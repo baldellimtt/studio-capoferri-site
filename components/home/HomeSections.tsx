@@ -17,6 +17,7 @@ import {
 } from "@/lib/content";
 import { homeChiSiamoImages, projectPreview } from "@/lib/images";
 import { layoutContentMaxClass, layoutGutterXClass, scrollAnchorClass, site } from "@/lib/site";
+import { linkTitles } from "@/lib/link-seo";
 import { ui } from "@/lib/ui";
 import { ServiceIcon } from "./ServiceIcons";
 import { StatsSection } from "./StatsSection";
@@ -92,6 +93,7 @@ export function HomeSections() {
                 <Link
                   href={card.href}
                   className="touch-target mt-auto inline-block min-h-[44px] py-2 text-sm font-semibold text-[#2a3f54] underline-offset-4 transition group-hover:underline"
+                  title={linkTitles.scopriServizio(card.title)}
                 >
                   Scopri di più
                 </Link>
@@ -99,7 +101,7 @@ export function HomeSections() {
             ))}
           </div>
           <p className="mt-8 sm:mt-12">
-            <Link href="/servizi" className={`${ui.btnOutline} inline-flex w-full sm:w-auto`}>
+            <Link href="/servizi" className={`${ui.btnOutline} inline-flex w-full sm:w-auto`} title={linkTitles.scopriServizi}>
               Scopri tutti i nostri servizi
             </Link>
           </p>
@@ -119,7 +121,7 @@ export function HomeSections() {
           <div className="grid gap-5 sm:gap-6 md:grid-cols-3">
             {projectPreview.map((p) => (
               <div key={p.href} className="reveal-block">
-                <Link href={p.href} className="group block overflow-hidden rounded-2xl border border-[#2a3f54]/10 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition hover:shadow-[0_14px_36px_rgba(42,63,84,0.14)]">
+                <Link href={p.href} title={linkTitles.progetto(p.title)} className="group block overflow-hidden rounded-2xl border border-[#2a3f54]/10 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition hover:shadow-[0_14px_36px_rgba(42,63,84,0.14)]">
                   <div className="relative aspect-[4/3]">
                     <Image src={p.image} alt={p.alt} fill className="object-cover transition duration-500 group-hover:scale-[1.03]" sizes="(min-width:1024px) 33vw, 100vw" />
                     <div className="image-unify-overlay" aria-hidden />
@@ -140,7 +142,7 @@ export function HomeSections() {
             ))}
           </div>
           <p className="mt-8 sm:mt-12">
-            <Link href="/progetti" className={`${ui.btnOutline} inline-flex w-full sm:w-auto`}>
+            <Link href="/progetti" className={`${ui.btnOutline} inline-flex w-full sm:w-auto`} title={linkTitles.tuttiProgetti}>
               Esplora tutti i progetti realizzati
             </Link>
           </p>
@@ -228,7 +230,7 @@ export function HomeSections() {
                 </svg>
               </div>
               <h3 className={`${fontDisplay.className} mb-1.5 text-base tracking-[0.04em] text-[#2a3f54] sm:text-lg`}>Email</h3>
-              <a href={`mailto:${site.email}`} className="text-[0.88rem] text-[#555] underline-offset-2 transition hover:text-[#2a3f54] hover:underline sm:text-[0.95rem]">
+              <a href={`mailto:${site.email}`} title={linkTitles.email(site.email)} className="text-[0.88rem] text-[#555] underline-offset-2 transition hover:text-[#2a3f54] hover:underline sm:text-[0.95rem]">
                 {site.email}
               </a>
             </article>
@@ -239,7 +241,7 @@ export function HomeSections() {
                 </svg>
               </div>
               <h3 className={`${fontDisplay.className} mb-1.5 text-base tracking-[0.04em] text-[#2a3f54] sm:text-lg`}>Telefono</h3>
-              <a href={`tel:${site.phoneTel}`} className="text-[0.88rem] text-[#555] underline-offset-2 transition hover:text-[#2a3f54] hover:underline sm:text-[0.95rem]">
+              <a href={`tel:${site.phoneTel}`} title={linkTitles.telefono(site.phoneDisplay)} className="text-[0.88rem] text-[#555] underline-offset-2 transition hover:text-[#2a3f54] hover:underline sm:text-[0.95rem]">
                 {site.phoneDisplay}
               </a>
             </article>
@@ -255,7 +257,7 @@ export function HomeSections() {
             </article>
           </div>
           <p className="mt-8 sm:mt-12">
-            <Link href="/contatti#form-contatti" className={`${ui.btnOutline} inline-flex w-full sm:w-auto`}>
+            <Link href="/contatti#form-contatti" className={`${ui.btnOutline} inline-flex w-full sm:w-auto`} title={linkTitles.formContatti}>
               Scrivici direttamente
             </Link>
           </p>

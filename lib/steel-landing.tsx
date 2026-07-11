@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { fontDisplay } from "@/lib/fonts";
+import { linkTitles } from "@/lib/link-seo";
 import { layoutContentMaxClass, layoutGutterXClass, site } from "@/lib/site";
 import { ui } from "@/lib/ui";
 
@@ -113,10 +114,10 @@ export function SteelLandingPage({ config }: { config: SteelLandingConfig }) {
                 prima idea al cantiere.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row">
-                <Link href="/contatti" className={ui.btnPrimary}>
+                <Link href="/contatti" className={ui.btnPrimary} title={linkTitles.consulenza}>
                   Richiedi una consulenza
                 </Link>
-                <a href={`tel:${site.phoneTel}`} className={ui.btnOutline}>
+                <a href={`tel:${site.phoneTel}`} className={ui.btnOutline} title={linkTitles.telefono(site.phoneDisplay)}>
                   {site.phoneDisplay}
                 </a>
               </div>
@@ -161,7 +162,7 @@ export function SteelLandingPage({ config }: { config: SteelLandingConfig }) {
                   <ul className="list-none space-y-3 text-[0.95rem] text-[#333] sm:text-[1.02rem]">
                     {config.featuredProjects.map((p) => (
                       <li key={p.href} className={bullet}>
-                        <Link href={p.href} className="font-semibold text-[#2a3f54] underline underline-offset-2">
+                        <Link href={p.href} title={linkTitles.progetto(p.title)} className="font-semibold text-[#2a3f54] underline underline-offset-2">
                           {p.title}
                         </Link>{" "}
                         — {p.description}
@@ -225,10 +226,10 @@ export function SteelLandingPage({ config }: { config: SteelLandingConfig }) {
                     Raccontaci la tua idea: analizziamo fattibilità, costi e tempi e ti proponiamo la soluzione strutturale più efficiente.
                   </p>
                   <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
-                    <Link href="/contatti" className={ui.btnPrimary}>
+                    <Link href="/contatti" className={ui.btnPrimary} title={linkTitles.contatti}>
                       Contattaci ora
                     </Link>
-                    <Link href="/servizi" className={ui.btnOutline}>
+                    <Link href="/servizi" className={ui.btnOutline} title={linkTitles.scopriServizi}>
                       Scopri tutti i servizi
                     </Link>
                   </div>
@@ -260,7 +261,7 @@ export const steelLandingBrescia: SteelLandingConfig = {
     "disegni costruttivi officina acciaio",
     "NTC 2018 strutture metalliche",
   ],
-  ogImage: "/assets/residenziale/ingegneria-civile-brescia.webp",
+  ogImage: "/assets/residenziale/villa-acciaio-salsomaggiore/carpenteria-metallica-villa-acciaio.webp",
   introLead:
     "Studio Capoferri è uno studio di ingegneria strutturale specializzato nelle strutture in acciaio, con oltre 40 anni di esperienza e più di 1000 progetti realizzati. Con sede ad Adro, in provincia di Brescia, nel cuore della Franciacorta, progettiamo ville in acciaio, capannoni industriali, sopraelevazioni e carpenteria metallica in tutta la Lombardia e nel Nord Italia.",
   areaHeading: "Dove operiamo: Brescia, Bergamo, Milano e tutta la Lombardia",
@@ -274,7 +275,7 @@ export const steelLandingBrescia: SteelLandingConfig = {
     "Sì. Lo studio ha sede ad Adro (BS), in provincia di Brescia, e opera in tutta la Lombardia — Brescia, Bergamo, Milano e relative province — oltre che in Veneto, Piemonte ed Emilia-Romagna.",
   areaServedPrimary: "Provincia di Brescia",
   heroImage: {
-    src: "/assets/residenziale/ingegneria-civile-brescia.webp",
+    src: "/assets/residenziale/villa-acciaio-salsomaggiore/carpenteria-metallica-villa-acciaio.webp",
     alt: "Progettazione di strutture in acciaio a Brescia — villa residenziale con telaio metallico",
   },
   secondaryImage: {
@@ -323,7 +324,7 @@ export const steelLandingBergamo: SteelLandingConfig = {
     "disegni costruttivi officina acciaio",
     "NTC 2018 strutture metalliche",
   ],
-  ogImage: "/assets/residenziale/strutture-acciaio-bergamo.webp",
+  ogImage: "/assets/industriale/ampliamento-complesso-zootecnico/vista-aerea-ampliamento-complesso-zootecnico.webp",
   introLead:
     "Studio Capoferri è uno studio di ingegneria strutturale specializzato nelle strutture in acciaio, con oltre 40 anni di esperienza e più di 1000 progetti realizzati. Con sede ad Adro (BS), a pochi chilometri dalla provincia di Bergamo, progettiamo ville in acciaio, capannoni industriali, sopraelevazioni e carpenteria metallica su Bergamo, in Lombardia e nel Nord Italia.",
   areaHeading: "Dove operiamo: Bergamo, Brescia, Milano e tutta la Lombardia",
@@ -337,8 +338,8 @@ export const steelLandingBergamo: SteelLandingConfig = {
     "Sì. Lo studio ha sede ad Adro (BS), al confine con la provincia di Bergamo, e opera in tutta la Lombardia — Bergamo, Brescia, Milano e relative province — oltre che in Veneto, Piemonte ed Emilia-Romagna.",
   areaServedPrimary: "Provincia di Bergamo",
   heroImage: {
-    src: "/assets/residenziale/strutture-acciaio-bergamo.webp",
-    alt: "Progettazione di strutture in acciaio a Bergamo — villa residenziale con telaio metallico",
+    src: "/assets/industriale/ampliamento-complesso-zootecnico/vista-aerea-ampliamento-complesso-zootecnico.webp",
+    alt: "Progettazione di strutture in acciaio a Bergamo — struttura industriale con carpenteria metallica",
   },
   secondaryImage: {
     src: "/assets/residenziale/villa-acciaio-salsomaggiore/carpenteria-metallica-villa-acciaio.webp",
@@ -386,7 +387,7 @@ export const steelLandingMilano: SteelLandingConfig = {
     "disegni costruttivi officina acciaio",
     "NTC 2018 strutture metalliche",
   ],
-  ogImage: "/assets/superstudio-maxi/strutture-acciaio-milano.webp",
+  ogImage: "/assets/industriale/ampliamento-complesso-zootecnico/capriate-metalliche-grande-luce-complesso-zootecnico.webp",
   introLead:
     "Studio Capoferri è uno studio di ingegneria strutturale specializzato nelle strutture in acciaio, con oltre 40 anni di esperienza e più di 1000 progetti realizzati. Progettiamo ville in acciaio, capannoni industriali, sopraelevazioni e carpenteria metallica a Milano, nell'hinterland milanese e in tutta la Lombardia, con interventi su complessi ricettivi, edifici residenziali e strutture industriali.",
   areaHeading: "Dove operiamo: Milano, Brescia, Bergamo e tutta la Lombardia",
@@ -400,12 +401,12 @@ export const steelLandingMilano: SteelLandingConfig = {
     "Sì. Lo studio opera regolarmente su Milano e provincia, oltre che su Brescia, Bergamo e tutta la Lombardia. La sede ad Adro (BS) consente interventi tempestivi sull'area metropolitana milanese e su tutto il Nord Italia.",
   areaServedPrimary: "Provincia di Milano",
   heroImage: {
-    src: "/assets/superstudio-maxi/strutture-acciaio-milano.webp",
+    src: "/assets/industriale/ampliamento-complesso-zootecnico/capriate-metalliche-grande-luce-complesso-zootecnico.webp",
     alt: "Progettazione di strutture in acciaio a Milano — struttura portante in acciaio",
   },
   secondaryImage: {
-    src: "/assets/superstudio-village-struttura-acciaio.webp",
-    alt: "Struttura in acciaio per edificio a Milano — Superstudio Village Bovisa",
+    src: "/assets/residenziale/villa-acciaio-salsomaggiore/struttura-acciaio-copertura-fotovoltaico.webp",
+    alt: "Struttura in acciaio per edificio in Lombardia — copertura con pannelli fotovoltaici",
   },
   featuredProjects: [
     {

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { linkTitles } from "@/lib/link-seo";
 import { useCallback, useEffect, useState } from "react";
 import { layoutContentMaxClass, layoutGutterXClass } from "@/lib/site";
 import { ui } from "@/lib/ui";
@@ -56,7 +57,7 @@ export function CookieBanner() {
           <p className="font-semibold">Cookie e privacy</p>
           <p className="mt-0.5 text-white/95 sm:mt-1">
             Utilizziamo cookie tecnici necessari e, previo consenso, contenuti di terze parti (es. mappe).{" "}
-            <Link href="/privacy-policy#cookie" className="underline underline-offset-2 hover:text-white">
+            <Link href="/privacy-policy#cookie" title={linkTitles.cookiePolicy} className="underline underline-offset-2 hover:text-white">
               Informativa estesa
             </Link>
           </p>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { CookiePreferencesButton } from "@/components/CookiePreferencesButton";
 import { fontDisplay } from "@/lib/fonts";
 import { buildPageMetadata } from "@/lib/seo";
+import { linkTitles } from "@/lib/link-seo";
 import { layoutContentMaxClass, layoutGutterXClass, scrollAnchorClass, site } from "@/lib/site";
 import { ui } from "@/lib/ui";
 
@@ -20,7 +21,7 @@ export default function PrivacyPolicyPage() {
         <h1 className={`${fontDisplay.className} ${ui.pageTitle} mb-7 sm:mb-10`}>Privacy policy</h1>
         <p className="mb-7 text-[0.95rem] leading-relaxed text-[#333] sm:mb-10 sm:text-[1.05rem]">
           <strong>Titolare del trattamento:</strong> Studio Capoferri SRL STP – Via Piave 35, Adro (BS) – P.IVA 04732710985 - CF 04732710985 – Email:{" "}
-          <a href={`mailto:${site.email}`} className="text-[#2a3f54] underline">
+          <a href={`mailto:${site.email}`} title={linkTitles.email(site.email)} className="text-[#2a3f54] underline">
             {site.email}
           </a>
         </p>
@@ -47,7 +48,7 @@ export default function PrivacyPolicyPage() {
         <p className="text-[1.05rem] leading-relaxed text-[#333]">
           L&apos;utente può in qualsiasi momento richiedere l&apos;accesso, la rettifica o la cancellazione dei propri dati scrivendo a{" "}
           <strong>
-            <a href={`mailto:${site.email}`} className="text-[#2a3f54]">
+            <a href={`mailto:${site.email}`} title={linkTitles.email(site.email)} className="text-[#2a3f54]">
               {site.email}
             </a>
           </strong>
@@ -113,11 +114,11 @@ export default function PrivacyPolicyPage() {
             </p>
             <p className="mt-3 text-[1.05rem] leading-relaxed text-[#333]">
               Per maggiori informazioni consulta la{" "}
-              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-[#2a3f54] underline">
+              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" title={linkTitles.external("Privacy Policy di Google")} className="text-[#2a3f54] underline">
                 Privacy Policy di Google
               </a>{" "}
               e la{" "}
-              <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener noreferrer" className="text-[#2a3f54] underline">
+              <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener noreferrer" title={linkTitles.external("Cookie Policy di Google")} className="text-[#2a3f54] underline">
                 Cookie Policy di Google
               </a>
               .
@@ -137,7 +138,7 @@ export default function PrivacyPolicyPage() {
             <p className="text-[1.05rem] leading-relaxed text-[#333]">
               I dati inviati tramite il form vengono processati da Formspree in conformità con la loro privacy policy. Per maggiori informazioni consulta
               la{" "}
-              <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-[#2a3f54] underline">
+              <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener noreferrer" title={linkTitles.external("Privacy Policy di Formspree")} className="text-[#2a3f54] underline">
                 Privacy Policy di Formspree
               </a>
               .
@@ -157,7 +158,7 @@ export default function PrivacyPolicyPage() {
               Per modificare le preferenze sui cookie, è possibile cancellare i cookie del browser e ricaricare la pagina. In alternativa, è possibile
               gestire i cookie direttamente dalle impostazioni del browser utilizzato. Per maggiori informazioni sui cookie e su come gestirli, è
               possibile consultare il sito{" "}
-              <a href="https://www.allaboutcookies.org" target="_blank" rel="noopener noreferrer" className="underline">
+              <a href="https://www.allaboutcookies.org" target="_blank" rel="noopener noreferrer" title={linkTitles.external("All About Cookies")} className="underline">
                 www.allaboutcookies.org
               </a>
               .

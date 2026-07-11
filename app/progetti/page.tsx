@@ -6,6 +6,7 @@ import { fontDisplay } from "@/lib/fonts";
 import { progettiIndexIntro } from "@/lib/content";
 import { projectPreview } from "@/lib/images";
 import { buildPageMetadata } from "@/lib/seo";
+import { linkTitles } from "@/lib/link-seo";
 import { layoutContentMaxClass, layoutGutterXClass } from "@/lib/site";
 import { ui } from "@/lib/ui";
 
@@ -29,6 +30,7 @@ export default function ProgettiPage() {
             <Link
               key={p.href}
               href={p.href}
+              title={linkTitles.progetto(p.title)}
               className="group block overflow-hidden rounded-2xl border border-[#2a3f54]/10 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition duration-500 hover:-translate-y-0.5 hover:shadow-[0_14px_36px_rgba(42,63,84,0.14)]"
             >
               <div className="relative aspect-[4/3]">

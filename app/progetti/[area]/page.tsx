@@ -4,6 +4,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { fontDisplay } from "@/lib/fonts";
 import { buildPageMetadata } from "@/lib/seo";
+import { linkTitles } from "@/lib/link-seo";
 import { isProjectArea, projectCategories, projectAreas } from "@/lib/projects";
 import { layoutContentMaxClass, layoutGutterXClass } from "@/lib/site";
 import { ui } from "@/lib/ui";
@@ -37,7 +38,7 @@ export default async function ProjectAreaPage({ params }: Props) {
       <div className={layoutGutterXClass}>
         <div className={layoutContentMaxClass}>
         <nav className="reveal-faint mb-6 text-[0.82rem] text-[#666] sm:text-sm" aria-label="Percorso di navigazione">
-          <Link href="/progetti" className="font-medium text-[#2a3f54] hover:underline">
+          <Link href="/progetti" title={linkTitles.breadcrumbProgetti} className="font-medium text-[#2a3f54] hover:underline">
             Progetti
           </Link>
           <span className="mx-2 text-[#aaa]" aria-hidden>
@@ -58,6 +59,7 @@ export default async function ProjectAreaPage({ params }: Props) {
             <Link
               key={p.slug}
               href={p.href}
+              title={linkTitles.progetto(p.title)}
               className="group block overflow-hidden rounded-2xl border border-[#2a3f54]/10 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition duration-500 hover:-translate-y-0.5 hover:shadow-[0_14px_36px_rgba(42,63,84,0.14)]"
             >
               <div className="relative aspect-[4/3]">

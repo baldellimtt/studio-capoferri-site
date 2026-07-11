@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { fontDisplay } from "@/lib/fonts";
+import { linkTitles } from "@/lib/link-seo";
 import { ui } from "@/lib/ui";
 
 type Props = {
@@ -19,10 +20,10 @@ export function ContactCtaSection({
         <h2 className={`${fontDisplay.className} ${ui.sectionHeadingAccent} mb-3`}>{title}</h2>
         <p className={`copy-rhythm mx-auto mb-6 max-w-[560px] ${ui.bodyMuted}`}>{description}</p>
         <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <Link href="/contatti#form-contatti" className={ui.btnPrimary}>
+          <Link href="/contatti#form-contatti" className={ui.btnPrimary} title={linkTitles.consulenza}>
             Richiedi una consulenza
           </Link>
-          <Link href="/servizi#progettazione-strutturale" className={ui.btnOutline}>
+          <Link href="/servizi#progettazione-strutturale" className={ui.btnOutline} title={linkTitles.servizio("Progettazione strutturale")}>
             Scopri i servizi
           </Link>
         </div>

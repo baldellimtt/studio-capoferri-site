@@ -1,21 +1,34 @@
 /** Path pubblici dopo sync: cartella `assets/` → `public/assets/` (URL `/assets/...`) */
 
+const capriate =
+  "/assets/industriale/ampliamento-complesso-zootecnico/capriate-metalliche-grande-luce-complesso-zootecnico.webp";
+const carpenteriaVilla =
+  "/assets/residenziale/villa-acciaio-salsomaggiore/carpenteria-metallica-villa-acciaio.webp";
+const fotovoltaico =
+  "/assets/residenziale/villa-acciaio-salsomaggiore/struttura-acciaio-copertura-fotovoltaico.webp";
+const cantiereVilla =
+  "/assets/residenziale/villa-acciaio-salsomaggiore/cantiere-villa-acciaio-salsomaggiore.webp";
+const vistaAerea =
+  "/assets/industriale/ampliamento-complesso-zootecnico/vista-aerea-ampliamento-complesso-zootecnico.webp";
+
+export const heroFirstImageSrc = capriate;
+
 export const heroSlides = [
   {
-    src: "/assets/superstudio-village-acciaio-pre-fabbricato.webp",
-    alt: "Strutture in acciaio pre-fabbricate — progetti Studio Capoferri Nord Italia, Brescia, Bergamo, Milano",
+    src: capriate,
+    alt: "Capriate metalliche a grande luce — progettazione strutturale Studio Capoferri, Brescia, Bergamo, Milano",
     line1: "Progettazione integrata",
     line2: "dalla fattibilità al cantiere",
   },
   {
-    src: "/assets/superstudio-village-sala-proiezione.webp",
-    alt: "Strutture in acciaio per edilizia residenziale e industriale — Studio Capoferri Lombardia",
+    src: carpenteriaVilla,
+    alt: "Carpenteria metallica per strutture in acciaio — Studio Capoferri Lombardia",
     line1: "Esperienza tecnica",
     line2: "per soluzioni su misura",
   },
   {
-    src: "/assets/hero-struttura-new.webp",
-    alt: "Strutture in acciaio — efficienza e rapidità",
+    src: fotovoltaico,
+    alt: "Struttura in acciaio con copertura fotovoltaica — Studio Capoferri Nord Italia",
     line1: "Strutture in acciaio",
     line2: "efficienza e rapidità",
   },
@@ -23,18 +36,18 @@ export const heroSlides = [
 
 export const homeChiSiamoImages = {
   team: {
-    src: "/assets/ingegneria-progettazione-brescia.webp",
-    alt: "Ingegneri strutturisti dello Studio Capoferri durante una riunione tecnica — studio di ingegneria civile a Brescia, Bergamo e Milano",
+    src: carpenteriaVilla,
+    alt: "Carpenteria metallica — team Studio Capoferri, ingegneria civile a Brescia, Bergamo e Milano",
   },
   cantiere: {
-    src: "/assets/sicurezza-cantiere.webp",
-    alt: "Sicurezza in cantiere e pianificazione — Studio Capoferri Nord Italia, province di Brescia, Bergamo e Milano",
+    src: cantiereVilla,
+    alt: "Cantiere e sicurezza — Studio Capoferri Nord Italia, province di Brescia, Bergamo e Milano",
   },
 } as const;
 
 export const chiSiamoPageImage = {
-  src: "/assets/ingegneria-civile-e-ambientale-adro-chi-siamo.webp",
-  alt: "Team di ingegneri e architetti dello Studio Capoferri durante una riunione tecnica ad Adro, Brescia",
+  src: vistaAerea,
+  alt: "Progetto strutturale industriale — Studio Capoferri ad Adro, Brescia",
 } as const;
 
 export const projectPreview = [
@@ -56,7 +69,7 @@ export const projectPreview = [
     href: "/progetti/ricettivi",
     title: "Strutture per spazi pubblici",
     caption: "Strutture per spazi pubblici",
-    image: "/assets/progetto-ricettivo.webp",
-    alt: "Spazio per eventi Superstudio a Milano — progettazione strutturale per spazi pubblici e ricettivi, Studio Capoferri",
+    image: capriate,
+    alt: "Grande luce in acciaio per spazi pubblici e ricettivi — Studio Capoferri, Lombardia",
   },
 ] as const;

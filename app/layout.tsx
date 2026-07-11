@@ -4,8 +4,12 @@ import { CookieBanner } from "@/components/CookieBanner";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { fontDisplay, fontSans } from "@/lib/fonts";
+import { defaultOgImage } from "@/lib/seo";
 import { site } from "@/lib/site";
 import "./globals.css";
+
+const siteDescription =
+  "Studio Capoferri ad Adro (BS): ingegneria civile, architettura e strutture in acciaio da oltre 40 anni. Brescia, Bergamo, Milano. Richiedi un preventivo.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -13,8 +17,7 @@ export const metadata: Metadata = {
     default: "Studio Capoferri - Ingegneria Brescia, Bergamo, Milano",
     template: `%s — ${site.name}`,
   },
-  description:
-    "Studio Capoferri: ingegneria civile, architettura e urbanistica a Brescia, Bergamo, Milano. 40+ anni di esperienza. Progettazione strutturale, strutture in acciaio.",
+  description: siteDescription,
   alternates: { canonical: `${site.url}/` },
   keywords: [
     "ingegneria civile Brescia",
@@ -33,16 +36,14 @@ export const metadata: Metadata = {
     url: site.url,
     siteName: site.name,
     title: `Studio Capoferri – ${site.tagline}`,
-    description:
-      "Studio tecnico Capoferri ad Adro: 40+ anni di esperienza in progettazione strutturale, architettura e urbanistica in Franciacorta e provincia di Brescia e Bergamo.",
-    images: [{ url: "/assets/superstudio-village-acciaio-pre-fabbricato.webp", width: 1200, height: 630 }],
+    description: siteDescription,
+    images: [{ url: defaultOgImage, width: 1200, height: 630, alt: "Progettazione strutture in acciaio — Studio Capoferri" }],
   },
   twitter: {
     card: "summary_large_image",
     title: `Studio Capoferri – ${site.tagline}`,
-    description:
-      "Studio tecnico Capoferri ad Adro: 40+ anni di esperienza in progettazione strutturale, architettura e urbanistica in Franciacorta e provincia di Brescia e Bergamo.",
-    images: ["/assets/superstudio-village-acciaio-pre-fabbricato.webp"],
+    description: siteDescription,
+    images: [defaultOgImage],
   },
   icons: {
     apple: "/assets/apple-touch-icon.png",
@@ -66,8 +67,8 @@ const localBusinessJsonLd = {
   telephone: site.phoneTel,
   email: site.email,
   vatID: `IT${site.piva}`,
-  image: `${site.url}/assets/superstudio-village-acciaio-pre-fabbricato.webp`,
-  logo: `${site.url}/assets/logo-studio-ingegneria-removebg-preview.png`,
+  image: `${site.url}${defaultOgImage}`,
+  logo: `${site.url}/assets/apple-touch-icon.png`,
   address: {
     "@type": "PostalAddress",
     streetAddress: site.address.street,
@@ -109,6 +110,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="it">
+      <head>
+        <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+      </head>
       <body className={`${fontSans.variable} ${fontDisplay.variable} ${fontSans.className} antialiased`}>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }} />
         <script
@@ -126,7 +130,7 @@ export default function RootLayout({
           }}
         />
         <AppProviders>
-          <a href="#main-content" className="skip-link">
+          <a href="#main-content" className="skip-link" title="Salta al contenuto principale">
             Vai al contenuto principale
           </a>
           <SiteHeader />

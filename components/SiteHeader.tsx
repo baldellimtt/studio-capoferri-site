@@ -7,6 +7,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { fontDisplay } from "@/lib/fonts";
 import { ReadingProgressBar } from "@/components/ReadingProgressBar";
 import { layoutContentMaxClass, layoutGutterXClass, navItems } from "@/lib/site";
+import { linkTitles } from "@/lib/link-seo";
 
 function isActivePath(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
@@ -94,15 +95,19 @@ export function SiteHeader() {
       >
         <div className={layoutGutterXClass}>
           <div className={`flex h-[72px] items-center justify-between sm:h-[78px] md:h-[94px] ${layoutContentMaxClass}`}>
-            <Link href="/" className="focus-ring flex shrink-0 items-center" title="Torna alla home">
+            <Link href="/" className="focus-ring flex shrink-0 items-center" title={linkTitles.home}>
               <Image
-                src="/assets/logo-studio-ingegneria-removebg-preview.png"
+                src="/assets/apple-touch-icon.png"
                 alt="Studio Capoferri — ingegneria e progettazione strutturale"
-                width={220}
+                width={70}
                 height={70}
-                className="h-[46px] w-auto sm:h-[52px] md:h-[70px]"
+                className="h-[46px] w-[46px] sm:h-[52px] sm:w-[52px] md:h-[60px] md:w-[60px]"
                 priority
               />
+              <span className={`${fontDisplay.className} ml-3 hidden leading-none text-[#2a3f54] sm:inline`}>
+                <span className="block text-[0.65rem] tracking-[0.14em] sm:text-xs">STUDIO</span>
+                <span className="block text-lg tracking-[0.08em] sm:text-xl">CAPOFERRI</span>
+              </span>
             </Link>
 
             <nav className="hidden shrink-0 md:block" aria-label="Menu principale">
@@ -117,6 +122,7 @@ export function SiteHeader() {
                           active ? "text-[#2a3f54]" : "text-[#2a2a2a] hover:text-[#2a3f54]"
                         }`}
                         aria-current={active ? "page" : undefined}
+                        title={linkTitles.nav(item.label)}
                       >
                         {item.label}
                       </Link>
@@ -168,6 +174,7 @@ export function SiteHeader() {
                       active ? "text-white" : "text-white/90 hover:text-white/80"
                     }`}
                     aria-current={active ? "page" : undefined}
+                    title={linkTitles.nav(item.label)}
                     onClick={closeMenu}
                   >
                     {item.label}

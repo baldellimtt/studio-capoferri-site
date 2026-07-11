@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { ContactCtaSection } from "@/components/ContactCtaSection";
 import { fontDisplay } from "@/lib/fonts";
 import { buildPageMetadata } from "@/lib/seo";
+import { linkTitles } from "@/lib/link-seo";
 import { layoutContentMaxClass, layoutGutterXClass, scrollAnchorClass, steelLandingPages } from "@/lib/site";
 import { ui } from "@/lib/ui";
 
@@ -35,7 +36,7 @@ export default function ServiziPage() {
           {steelLandingPages.map((page, index) => (
             <span key={page.href}>
               {index > 0 ? (index === steelLandingPages.length - 1 ? " e " : ", ") : null}
-              <Link href={page.href} className="font-semibold text-[#2a3f54] underline underline-offset-2">
+              <Link href={page.href} title={linkTitles.acciaio(page.label.replace("Progettazione acciaio — ", ""))} className="font-semibold text-[#2a3f54] underline underline-offset-2">
                 {page.label.replace("Progettazione acciaio — ", "")}
               </Link>
             </span>

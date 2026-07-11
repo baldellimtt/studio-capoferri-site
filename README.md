@@ -11,7 +11,8 @@ Dominio ufficiale: [www.studiocapoferri.eu](https://www.studiocapoferri.eu)
 - **`app/`** — App Router: pagine, layout, metadata e route.
 - **`components/`** — Componenti React riutilizzabili (header, footer, form, ecc.).
 - **`lib/`** — Dati e utilità condivisi.
-- **`public/`** — Asset serviti staticamente (immagini, `robots.txt`, `sitemap.xml`, ecc.).
+- **`assets/`** — Immagini e media sorgente (unica cartella da versionare).
+- **`public/`** — File serviti staticamente; `public/assets/` è generata da `sync-static.cjs` e non va committata.
 - **`scripts/sync-static.cjs`** — Copia `assets/` in `public/assets/` e file di root in `public/` prima di dev/build (vedi `package.json`).
 
 Stili globali e Tailwind sono configurati nel progetto Next (vedi `app/globals.css` e `postcss.config.mjs`).

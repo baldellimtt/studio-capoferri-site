@@ -2,6 +2,7 @@
 
 import { useCallback, useMemo, useState } from "react";
 import Link from "next/link";
+import { linkTitles } from "@/lib/link-seo";
 import { site } from "@/lib/site";
 import { ui } from "@/lib/ui";
 
@@ -189,7 +190,7 @@ export function ContactForm() {
         />
         <label htmlFor="privacy" className="text-[0.82rem] text-[#444] sm:text-sm">
           Ho letto e accetto la{" "}
-          <Link href="/privacy-policy" className="font-semibold text-[#2a3f54] underline underline-offset-2">
+          <Link href="/privacy-policy" title={linkTitles.privacy} className="font-semibold text-[#2a3f54] underline underline-offset-2">
             privacy policy
           </Link>
           . <span className="text-red-700">*</span>

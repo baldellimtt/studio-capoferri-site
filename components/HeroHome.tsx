@@ -8,16 +8,23 @@ import { fontDisplay } from "@/lib/fonts";
 import { layoutContentMaxClass } from "@/lib/site";
 import { ui } from "@/lib/ui";
 import { heroSlides } from "@/lib/images";
+import { linkTitles } from "@/lib/link-seo";
 
 export function HeroHome() {
   const reduceMotion = useReducedMotion();
   const [i, setI] = useState(0);
+  const [extraSlidesReady, setExtraSlidesReady] = useState(false);
 
   useEffect(() => {
     if (reduceMotion) return;
     const t = setInterval(() => setI((v) => (v + 1) % heroSlides.length), 4500);
     return () => clearInterval(t);
   }, [reduceMotion]);
+
+  useEffect(() => {
+    const id = window.requestAnimationFrame(() => setExtraSlidesReady(true));
+    return () => window.cancelAnimationFrame(id);
+  }, []);
 
   const s = heroSlides[i];
   const subtleEase = [0.22, 1, 0.36, 1] as const;
@@ -30,24 +37,29 @@ export function HeroHome() {
       <div className="absolute inset-0 bg-gradient-to-br from-[#243648] via-[#314a5e] to-[#415c72]" aria-hidden />
 
       <div className="absolute inset-0">
-        {heroSlides.map((slide, idx) => (
-          <div
-            key={slide.src}
-            className={`absolute inset-0 transition-opacity duration-[1.4s] ease-in-out ${
-              idx === i ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            <Image
-              src={slide.src}
-              alt={slide.alt}
-              fill
-              className="object-cover brightness-[1.1] saturate-[1.04]"
-              sizes="100vw"
-              priority={idx === 0}
-              fetchPriority={idx === 0 ? "high" : "low"}
-            />
-          </div>
-        ))}
+        {heroSlides.map((slide, idx) => {
+          if (idx > 0 && !extraSlidesReady) return null;
+
+          return (
+            <div
+              key={slide.src}
+              className={`absolute inset-0 transition-opacity duration-[1.4s] ease-in-out ${
+                idx === i ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <Image
+                src={slide.src}
+                alt={slide.alt}
+                fill
+                className="object-cover brightness-[1.1] saturate-[1.04]"
+                sizes="100vw"
+                priority={idx === 0}
+                fetchPriority={idx === 0 ? "high" : "auto"}
+                loading={idx === 0 ? "eager" : "lazy"}
+              />
+            </div>
+          );
+        })}
         <div className="absolute inset-0 bg-gradient-to-t from-black/36 via-black/16 to-black/22" aria-hidden />
         <motion.div
           aria-hidden
@@ -94,7 +106,7 @@ export function HeroHome() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: reduceMotion ? 0 : 0.2, duration: 0.55, ease: subtleEase }}
           >
-            <Link href="/contatti" className={`focus-ring mt-6 sm:mt-8 ${ui.btnOnDark}`}>
+            <Link href="/contatti" className={`focus-ring mt-6 sm:mt-8 ${ui.btnOnDark}`} title={linkTitles.consulenza}>
               Richiedi una consulenza
             </Link>
           </motion.div>

@@ -3,6 +3,7 @@ import { ContactForm } from "@/components/ContactForm";
 import { MapEmbed } from "@/components/MapEmbed";
 import { fontDisplay } from "@/lib/fonts";
 import { buildPageMetadata } from "@/lib/seo";
+import { linkTitles } from "@/lib/link-seo";
 import { layoutContentMaxClass, layoutGutterXClass, scrollAnchorClass, site } from "@/lib/site";
 import { ui } from "@/lib/ui";
 
@@ -40,13 +41,13 @@ export default function ContattiPage() {
               </li>
               <li>
                 <strong>Telefono:</strong>{" "}
-                <a href={`tel:${site.phoneTel}`} className="inline-block min-h-[44px] py-1 text-[#333] underline-offset-2 hover:underline">
+                <a href={`tel:${site.phoneTel}`} title={linkTitles.telefono(site.phoneDisplay)} className="inline-block min-h-[44px] py-1 text-[#333] underline-offset-2 hover:underline">
                   {site.phoneDisplay}
                 </a>
               </li>
               <li>
                 <strong>Email:</strong>{" "}
-                <a href={`mailto:${site.email}`} className="inline-block min-h-[44px] py-1 text-[#333] underline-offset-2 hover:underline">
+                <a href={`mailto:${site.email}`} title={linkTitles.email(site.email)} className="inline-block min-h-[44px] py-1 text-[#333] underline-offset-2 hover:underline">
                   {site.email}
                 </a>
               </li>
@@ -59,6 +60,7 @@ export default function ContattiPage() {
                 href={site.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
+                title={linkTitles.linkedin}
                 className="inline-flex min-h-[44px] items-center gap-2 py-1 text-sm font-semibold text-[#2a3f54] underline-offset-2 hover:underline"
               >
                 Seguici su LinkedIn
