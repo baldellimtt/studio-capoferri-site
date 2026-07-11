@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
 
-export const defaultOgImage =
-  "/assets/industriale/ampliamento-complesso-zootecnico/capriate-metalliche-grande-luce-complesso-zootecnico.webp";
+export const defaultOgImage = "/assets/superstudio-village-acciaio-pre-fabbricato.webp";
 
 type PageMetadataInput = {
   title: string;

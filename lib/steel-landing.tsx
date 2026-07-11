@@ -261,7 +261,7 @@ export const steelLandingBrescia: SteelLandingConfig = {
     "disegni costruttivi officina acciaio",
     "NTC 2018 strutture metalliche",
   ],
-  ogImage: "/assets/residenziale/villa-acciaio-salsomaggiore/carpenteria-metallica-villa-acciaio.webp",
+  ogImage: "/assets/residenziale/ingegneria-civile-brescia.webp",
   introLead:
     "Studio Capoferri è uno studio di ingegneria strutturale specializzato nelle strutture in acciaio, con oltre 40 anni di esperienza e più di 1000 progetti realizzati. Con sede ad Adro, in provincia di Brescia, nel cuore della Franciacorta, progettiamo ville in acciaio, capannoni industriali, sopraelevazioni e carpenteria metallica in tutta la Lombardia e nel Nord Italia.",
   areaHeading: "Dove operiamo: Brescia, Bergamo, Milano e tutta la Lombardia",
@@ -275,7 +275,7 @@ export const steelLandingBrescia: SteelLandingConfig = {
     "Sì. Lo studio ha sede ad Adro (BS), in provincia di Brescia, e opera in tutta la Lombardia — Brescia, Bergamo, Milano e relative province — oltre che in Veneto, Piemonte ed Emilia-Romagna.",
   areaServedPrimary: "Provincia di Brescia",
   heroImage: {
-    src: "/assets/residenziale/villa-acciaio-salsomaggiore/carpenteria-metallica-villa-acciaio.webp",
+    src: "/assets/residenziale/ingegneria-civile-brescia.webp",
     alt: "Progettazione di strutture in acciaio a Brescia — villa residenziale con telaio metallico",
   },
   secondaryImage: {
@@ -324,7 +324,7 @@ export const steelLandingBergamo: SteelLandingConfig = {
     "disegni costruttivi officina acciaio",
     "NTC 2018 strutture metalliche",
   ],
-  ogImage: "/assets/industriale/ampliamento-complesso-zootecnico/vista-aerea-ampliamento-complesso-zootecnico.webp",
+  ogImage: "/assets/residenziale/strutture-acciaio-bergamo.webp",
   introLead:
     "Studio Capoferri è uno studio di ingegneria strutturale specializzato nelle strutture in acciaio, con oltre 40 anni di esperienza e più di 1000 progetti realizzati. Con sede ad Adro (BS), a pochi chilometri dalla provincia di Bergamo, progettiamo ville in acciaio, capannoni industriali, sopraelevazioni e carpenteria metallica su Bergamo, in Lombardia e nel Nord Italia.",
   areaHeading: "Dove operiamo: Bergamo, Brescia, Milano e tutta la Lombardia",
@@ -338,8 +338,8 @@ export const steelLandingBergamo: SteelLandingConfig = {
     "Sì. Lo studio ha sede ad Adro (BS), al confine con la provincia di Bergamo, e opera in tutta la Lombardia — Bergamo, Brescia, Milano e relative province — oltre che in Veneto, Piemonte ed Emilia-Romagna.",
   areaServedPrimary: "Provincia di Bergamo",
   heroImage: {
-    src: "/assets/industriale/ampliamento-complesso-zootecnico/vista-aerea-ampliamento-complesso-zootecnico.webp",
-    alt: "Progettazione di strutture in acciaio a Bergamo — struttura industriale con carpenteria metallica",
+    src: "/assets/residenziale/strutture-acciaio-bergamo.webp",
+    alt: "Progettazione di strutture in acciaio a Bergamo — villa residenziale con telaio metallico",
   },
   secondaryImage: {
     src: "/assets/residenziale/villa-acciaio-salsomaggiore/carpenteria-metallica-villa-acciaio.webp",
@@ -387,7 +387,7 @@ export const steelLandingMilano: SteelLandingConfig = {
     "disegni costruttivi officina acciaio",
     "NTC 2018 strutture metalliche",
   ],
-  ogImage: "/assets/industriale/ampliamento-complesso-zootecnico/capriate-metalliche-grande-luce-complesso-zootecnico.webp",
+  ogImage: "/assets/superstudio-maxi/strutture-acciaio-milano.webp",
   introLead:
     "Studio Capoferri è uno studio di ingegneria strutturale specializzato nelle strutture in acciaio, con oltre 40 anni di esperienza e più di 1000 progetti realizzati. Progettiamo ville in acciaio, capannoni industriali, sopraelevazioni e carpenteria metallica a Milano, nell'hinterland milanese e in tutta la Lombardia, con interventi su complessi ricettivi, edifici residenziali e strutture industriali.",
   areaHeading: "Dove operiamo: Milano, Brescia, Bergamo e tutta la Lombardia",
@@ -401,12 +401,12 @@ export const steelLandingMilano: SteelLandingConfig = {
     "Sì. Lo studio opera regolarmente su Milano e provincia, oltre che su Brescia, Bergamo e tutta la Lombardia. La sede ad Adro (BS) consente interventi tempestivi sull'area metropolitana milanese e su tutto il Nord Italia.",
   areaServedPrimary: "Provincia di Milano",
   heroImage: {
-    src: "/assets/industriale/ampliamento-complesso-zootecnico/capriate-metalliche-grande-luce-complesso-zootecnico.webp",
+    src: "/assets/superstudio-maxi/strutture-acciaio-milano.webp",
     alt: "Progettazione di strutture in acciaio a Milano — struttura portante in acciaio",
   },
   secondaryImage: {
-    src: "/assets/residenziale/villa-acciaio-salsomaggiore/struttura-acciaio-copertura-fotovoltaico.webp",
-    alt: "Struttura in acciaio per edificio in Lombardia — copertura con pannelli fotovoltaici",
+    src: "/assets/superstudio-village-struttura-acciaio.webp",
+    alt: "Struttura in acciaio per edificio a Milano — Superstudio Village Bovisa",
   },
   featuredProjects: [
     {

@@ -97,17 +97,13 @@ export function SiteHeader() {
           <div className={`flex h-[72px] items-center justify-between sm:h-[78px] md:h-[94px] ${layoutContentMaxClass}`}>
             <Link href="/" className="focus-ring flex shrink-0 items-center" title={linkTitles.home}>
               <Image
-                src="/assets/apple-touch-icon.png"
+                src="/assets/logo-studio-ingegneria-removebg-preview.png"
                 alt="Studio Capoferri — ingegneria e progettazione strutturale"
-                width={70}
+                width={220}
                 height={70}
-                className="h-[46px] w-[46px] sm:h-[52px] sm:w-[52px] md:h-[60px] md:w-[60px]"
+                className="h-[46px] w-auto sm:h-[52px] md:h-[70px]"
                 priority
               />
-              <span className={`${fontDisplay.className} ml-3 hidden leading-none text-[#2a3f54] sm:inline`}>
-                <span className="block text-[0.65rem] tracking-[0.14em] sm:text-xs">STUDIO</span>
-                <span className="block text-lg tracking-[0.08em] sm:text-xl">CAPOFERRI</span>
-              </span>
             </Link>
 
             <nav className="hidden shrink-0 md:block" aria-label="Menu principale">
