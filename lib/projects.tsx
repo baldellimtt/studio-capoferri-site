@@ -100,7 +100,7 @@ export const projectCategories: Record<
       {
         slug: "centro-direzionale-provaglio-diseo",
         title: "Centro direzionale — Provaglio d'Iseo",
-        caption: "Centro direzionale Provaglio d'Iseo",
+        caption: "Centro direzionale - Provaglio d'Iseo",
         cover: "/assets/industriale/centro-direzionale-provaglio-diseo/vista-generale-soppalco-centro-direzionale-provaglio-diseo.webp",
         alt: "Soppalco in carpenteria metallica in fase di montaggio — centro direzionale a Provaglio d'Iseo",
         href: "/progetti/industriali/centro-direzionale-provaglio-diseo",

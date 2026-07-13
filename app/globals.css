@@ -180,6 +180,10 @@ body::before {
   text-wrap: pretty;
 }
 
+.home-split-header__right--inverted {
+  color: rgba(255, 255, 255, 0.85);
+}
+
 @media (min-width: 640px) {
   .home-split-header__right {
     font-size: 1.05rem;

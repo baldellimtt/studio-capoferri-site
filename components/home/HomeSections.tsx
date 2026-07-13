@@ -120,7 +120,7 @@ export function HomeSections() {
               <h2 className={titleInvertedCls}>Progetti</h2>
               <div className="home-section-accent home-section-accent--light" aria-hidden />
             </div>
-            <p className="home-split-header__right text-white/85">{homeProgettiIntro}</p>
+            <p className="home-split-header__right home-split-header__right--inverted">{homeProgettiIntro}</p>
           </div>
           <div className="grid gap-5 sm:gap-6 md:grid-cols-3">
             {projectPreview.map((p) => (
