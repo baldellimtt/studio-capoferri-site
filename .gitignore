@@ -12,6 +12,7 @@
 /.next/
 /out/
 /public/assets/
+/public/llms.txt
 
 # production
 /build

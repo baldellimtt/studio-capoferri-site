@@ -23,6 +23,7 @@ import { ServiceIcon } from "./ServiceIcons";
 import { StatsSection } from "./StatsSection";
 
 const titleCls = `${fontDisplay.className} section-title home-section-title reveal-title`;
+const titleInvertedCls = `${fontDisplay.className} section-title home-section-title home-section-title--inverted reveal-title`;
 
 export function HomeSections() {
   return (
@@ -109,19 +110,26 @@ export function HomeSections() {
       </section>
 
       {/* ── Progetti ── */}
-      <section id="progetti" className={`lazy-section section-shell ${scrollAnchorClass} bg-[#fafbfc] ${layoutGutterXClass}`}>
+      <section
+        id="progetti"
+        className={`lazy-section ${scrollAnchorClass} bg-gradient-to-br from-[#2a3f54] to-[#1f2e3d] px-4 py-14 text-white sm:px-5 sm:py-20 md:px-10`}
+      >
         <div className={layoutContentMaxClass}>
           <div className="home-split-header reveal-block">
             <div className="home-split-header__left">
-              <h2 className={titleCls}>Progetti</h2>
-              <div className="home-section-accent" aria-hidden />
+              <h2 className={titleInvertedCls}>Progetti</h2>
+              <div className="home-section-accent home-section-accent--light" aria-hidden />
             </div>
-            <p className="home-split-header__right">{homeProgettiIntro}</p>
+            <p className="home-split-header__right text-white/85">{homeProgettiIntro}</p>
           </div>
           <div className="grid gap-5 sm:gap-6 md:grid-cols-3">
             {projectPreview.map((p) => (
               <div key={p.href} className="reveal-block">
-                <Link href={p.href} title={linkTitles.progetto(p.title)} className="group block overflow-hidden rounded-2xl border border-[#2a3f54]/10 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition hover:shadow-[0_14px_36px_rgba(42,63,84,0.14)]">
+                <Link
+                  href={p.href}
+                  title={linkTitles.progetto(p.title)}
+                  className="group block overflow-hidden rounded-2xl border border-white/15 bg-white/[0.07] shadow-[0_10px_30px_rgba(0,0,0,0.12)] backdrop-blur-sm transition hover:-translate-y-0.5 hover:shadow-[0_14px_36px_rgba(0,0,0,0.22)]"
+                >
                   <div className="relative aspect-[4/3]">
                     <Image src={p.image} alt={p.alt} fill className="object-cover transition duration-500 group-hover:scale-[1.03]" sizes="(min-width:1024px) 33vw, 100vw" />
                     <div className="image-unify-overlay" aria-hidden />
@@ -142,7 +150,7 @@ export function HomeSections() {
             ))}
           </div>
           <p className="mt-8 sm:mt-12">
-            <Link href="/progetti" className={`${ui.btnOutline} inline-flex w-full sm:w-auto`} title={linkTitles.tuttiProgetti}>
+            <Link href="/progetti" className={`${ui.btnOnDark} inline-flex w-full sm:w-auto`} title={linkTitles.tuttiProgetti}>
               Esplora tutti i progetti realizzati
             </Link>
           </p>

@@ -84,7 +84,7 @@ export const projectCategories: Record<
       {
         slug: "capannone-erbusco",
         title: "Capannone industriale — Erbusco (BS)",
-        caption: "Capannone industriale Erbusco",
+        caption: "Capannone industriale - Erbusco",
         cover: "/assets/industriale/capannone-erbusco/progettazione-strutture-adro.webp",
         alt: "Capannone industriale in acciaio a Erbusco (BS) — progettazione strutturale Studio Capoferri",
         href: "/progetti/industriali/capannone-erbusco",
@@ -96,6 +96,14 @@ export const projectCategories: Record<
         cover: "/assets/industriale/ampliamento-complesso-zootecnico/vista-aerea-ampliamento-complesso-zootecnico.webp",
         alt: "Vista aerea delle capriate metalliche per l'ampliamento di un complesso zootecnico",
         href: "/progetti/industriali/ampliamento-complesso-zootecnico",
+      },
+      {
+        slug: "centro-direzionale-provaglio-diseo",
+        title: "Centro direzionale — Provaglio d'Iseo",
+        caption: "Centro direzionale Provaglio d'Iseo",
+        cover: "/assets/industriale/centro-direzionale-provaglio-diseo/vista-generale-soppalco-centro-direzionale-provaglio-diseo.webp",
+        alt: "Soppalco in carpenteria metallica in fase di montaggio — centro direzionale a Provaglio d'Iseo",
+        href: "/progetti/industriali/centro-direzionale-provaglio-diseo",
       },
     ],
   },
@@ -150,10 +158,10 @@ export const projectCaseStudies: Record<
   }
 > = {
   "residenziali/villa-acciaio-veneto": {
-    metaTitle: "Villa in acciaio — Veneto",
+    metaTitle: "Residenza privata - Veneto",
     metaDescription:
       "Residenza privata in acciaio: progettazione strutturale e architettonica integrata — Studio Capoferri.",
-    heading: "Residenza privata in acciaio",
+    heading: "Residenza privata - Veneto",
     body: (
       <>
         <p className="copy-rhythm mb-4 text-[0.98rem] text-[#444] sm:text-[1.05rem]">
@@ -403,6 +411,60 @@ export const projectCaseStudies: Record<
       {
         src: "/assets/industriale/ampliamento-complesso-zootecnico/vista-aerea-ampliamento-complesso-zootecnico.webp",
         alt: "Vista aerea delle nuove capriate metalliche integrate con le strutture preesistenti — complesso zootecnico",
+      },
+    ],
+  },
+  "industriali/centro-direzionale-provaglio-diseo": {
+    metaTitle: "Centro direzionale — Provaglio d'Iseo",
+    metaDescription:
+      "Riqualificazione di edificio industriale con soppalco in carpenteria metallica di oltre 5.000 mq — progettazione strutturale Studio Capoferri.",
+    heading: "Centro direzionale — Provaglio d'Iseo",
+    body: (
+      <>
+        <p className="copy-rhythm mb-4 text-[0.98rem] text-[#444] sm:text-[1.05rem]">
+          Dopo un&apos;intensa fase di progettazione preliminare e di sviluppo tecnico, l&apos;attività si sposta finalmente sul campo.
+        </p>
+        <p className="copy-rhythm mb-4 text-[0.98rem] text-[#444] sm:text-[1.05rem]">
+          Negli ultimi mesi abbiamo affrontato lo sviluppo operativo di un importante intervento di riqualificazione: un edificio industriale che
+          diventerà un nuovo <strong>centro direzionale</strong> con uffici, laboratori e spazi di lavoro a{" "}
+          <strong>Provaglio d&apos;Iseo</strong>.
+        </p>
+        <p className="copy-rhythm mb-4 text-[0.98rem] text-[#444] sm:text-[1.05rem]">
+          Il progetto è partito da una base definitiva sviluppata dal progettista generale. Il nostro valore aggiunto si è concentrato su
+          un&apos;ottimizzazione a 360°, finalizzata ad adattare le soluzioni progettuali alle reali dinamiche costruttive del cantiere.
+        </p>
+        <p className="copy-rhythm mb-6 text-[0.98rem] text-[#444] sm:text-[1.05rem]">
+          Il cuore dell&apos;intervento è la realizzazione di un <strong>soppalco in carpenteria metallica di oltre 5.000 mq</strong>. Un elemento
+          imponente, integrato nella struttura esistente per ampliarne la superficie utile. Nello specifico, l&apos;attività ha riguardato:
+        </p>
+        <ul className="mb-6 list-none space-y-3 text-[0.95rem] text-[#333] sm:text-[1.02rem]">
+          <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
+            <strong>Ottimizzazione strutturale e geometrica</strong> delle carpenterie.
+          </li>
+          <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
+            <strong>Coordinamento</strong> con le condizioni dell&apos;edificio preesistente.
+          </li>
+          <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
+            <strong>Sviluppo dei dettagli costruttivi ed esecutivi</strong> necessari alla produzione.
+          </li>
+          <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
+            <strong>Razionalizzazione delle fasi di montaggio</strong> per garantire fluidità operativa.
+          </li>
+        </ul>
+        <p className="copy-rhythm text-[0.98rem] text-[#444] sm:text-[1.05rem]">
+          Vedere l&apos;inizio dei lavori è la conferma che un confronto costante tra progettazione e costruzione genera soluzioni più efficienti e
+          coerenti con la realtà del cantiere. Ora la parola passa alle squadre operative.
+        </p>
+      </>
+    ),
+    gallery: [
+      {
+        src: "/assets/industriale/centro-direzionale-provaglio-diseo/vista-generale-soppalco-centro-direzionale-provaglio-diseo.webp",
+        alt: "Vista generale del soppalco in carpenteria metallica integrato nell'edificio esistente — Provaglio d'Iseo",
+      },
+      {
+        src: "/assets/industriale/centro-direzionale-provaglio-diseo/carpenteria-metallica-soppalco-provaglio-diseo.webp",
+        alt: "Montaggio del soppalco in acciaio con connessioni strutturali e lamiera grecata — centro direzionale Provaglio d'Iseo",
       },
     ],
   },

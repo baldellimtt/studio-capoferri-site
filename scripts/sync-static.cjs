@@ -12,6 +12,9 @@ const assetsSrc = path.join(root, "assets");
 const assetsDest = path.join(root, "public", "assets");
 if (fs.existsSync(assetsSrc)) {
   fs.mkdirSync(path.dirname(assetsDest), { recursive: true });
+  if (fs.existsSync(assetsDest)) {
+    fs.rmSync(assetsDest, { recursive: true, force: true });
+  }
   fs.cpSync(assetsSrc, assetsDest, { recursive: true });
   console.log("[sync-static] assets/ → public/assets/");
 } else {
