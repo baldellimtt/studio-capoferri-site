@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useInView, useReducedMotion } from "framer-motion";
 import { fontDisplay } from "@/lib/fonts";
 import { stats } from "@/lib/content";
+import { ui } from "@/lib/ui";
 
 function Counter({
   target,
@@ -53,7 +54,7 @@ export function StatsSection() {
   return (
     <section
       ref={ref}
-      className="lazy-section bg-gradient-to-br from-[#2a3f54] to-[#1f2e3d] px-4 py-14 text-white sm:px-5 sm:py-20 md:px-10"
+      className={`lazy-section ${ui.brandGradient} px-4 py-14 text-white sm:px-5 sm:py-20 md:px-10`}
       aria-labelledby="stats-heading"
     >
       <div className="mx-auto max-w-[1140px]">

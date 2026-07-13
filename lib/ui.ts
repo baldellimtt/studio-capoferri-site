@@ -4,6 +4,21 @@
  * `className={\`${fontDisplay.className} ${ui.pageTitle}\`}`.
  */
 export const ui = {
+  /** Sfondo gradient brand (footer, sezioni scure, hero fallback) */
+  brandGradient: "bg-gradient-to-br from-[#2a3f54] via-[#24384b] to-[#1f2e3d]",
+  /** Gradient brand senza via (CTA, card compatte) */
+  brandGradientCompact: "bg-gradient-to-br from-[#2a3f54] to-[#1f2e3d]",
+  /** Icona decorativa in card home */
+  iconBox: "flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-[#2a3f54] to-[#3d5a7a] text-white sm:h-14 sm:w-14",
+  /** Didascalia overlay card progetto */
+  projectCardCaption: "text-base tracking-[0.04em] text-white sm:text-lg",
+  /** Card progetto su sfondo chiaro */
+  projectCardLight:
+    "group block overflow-hidden rounded-2xl border border-[#2a3f54]/10 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition duration-500 hover:-translate-y-0.5 hover:shadow-[0_14px_36px_rgba(42,63,84,0.14)]",
+  /** Card progetto su sfondo scuro */
+  projectCardDark:
+    "group block overflow-hidden rounded-2xl border border-white/15 bg-white/[0.07] shadow-[0_10px_30px_rgba(0,0,0,0.12)] backdrop-blur-sm transition duration-500 hover:-translate-y-0.5 hover:shadow-[0_14px_36px_rgba(0,0,0,0.22)]",
+
   /** Paragrafi corpo su sfondo chiaro */
   body: "copy-rhythm text-[0.98rem] text-[#333] sm:text-[1.05rem]",
   /** Testo secondario (card, intro) */
@@ -26,7 +41,7 @@ export const ui = {
 
   /** Pulsante primario (gradient brand) */
   btnPrimary:
-    "inline-flex min-h-[48px] items-center justify-center rounded-xl bg-gradient-to-br from-[#2a3f54] to-[#1f2e3d] px-8 py-3 text-sm font-semibold text-white shadow-md transition hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2a3f54]/40 disabled:opacity-60",
+    "inline-flex min-h-[48px] items-center justify-center rounded-xl bg-gradient-to-br from-[#2a3f54] via-[#24384b] to-[#1f2e3d] px-8 py-3 text-sm font-semibold text-white shadow-md transition hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2a3f54]/40 disabled:opacity-60",
 
   /** Pulsante outline — CTA secondari home e link “Esplora / Scopri / Scrivici” */
   btnOutline:

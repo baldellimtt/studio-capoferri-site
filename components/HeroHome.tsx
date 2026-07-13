@@ -34,7 +34,7 @@ export function HeroHome() {
       className="relative min-h-[calc(100svh-72px)] overflow-hidden sm:min-h-[calc(100svh-78px)] md:min-h-[calc(100svh-94px)]"
       aria-label="Introduzione"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-[#243648] via-[#314a5e] to-[#415c72]" aria-hidden />
+      <div className={`absolute inset-0 ${ui.brandGradient}`} aria-hidden />
 
       <div className="absolute inset-0">
         {heroSlides.map((slide, idx) => {

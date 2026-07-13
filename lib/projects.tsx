@@ -46,8 +46,8 @@ export const projectCategories: Record<
     cases: [
       {
         slug: "villa-acciaio-veneto",
-        title: "Residenza privata in acciaio",
-        caption: "Residenza privata — Veneto",
+        title: "Residenza privata - Veneto",
+        caption: "Residenza privata - Veneto",
         cover: "/assets/residenza-privata-acciaio.webp",
         alt: "Residenza privata in acciaio nel Veneto — progettazione strutturale Studio Capoferri",
         href: "/progetti/residenziali/villa-acciaio-veneto",
@@ -55,7 +55,7 @@ export const projectCategories: Record<
       {
         slug: "villa-acciaio-salsomaggiore",
         title: "Villa in acciaio — Salsomaggiore Terme (PR)",
-        caption: "Villa in acciaio — Salsomaggiore",
+        caption: "Villa in acciaio - Salsomaggiore",
         cover: "/assets/residenziale/villa-acciaio-salsomaggiore/carpenteria-metallica-villa-acciaio.webp",
         alt: "Montaggio del telaio in carpenteria metallica — villa in acciaio a Salsomaggiore Terme",
         href: "/progetti/residenziali/villa-acciaio-salsomaggiore",
@@ -127,7 +127,7 @@ export const projectCategories: Record<
       {
         slug: "superstudio-village",
         title: "Superstudio Village — Milano Bovisa",
-        caption: "Superstudio Village — Milano Bovisa",
+        caption: "Superstudio Village - Milano Bovisa",
         cover: "/assets/progetto-superstudio.webp",
         alt: "Superstudio Village a Milano Bovisa — progettazione strutturale del complesso edilizio",
         href: "/progetti/ricettivi/superstudio-village",
@@ -135,7 +135,7 @@ export const projectCategories: Record<
       {
         slug: "superstudio-maxi",
         title: "Superstudio Maxi — Famagosta",
-        caption: "Superstudio Maxi — Famagosta",
+        caption: "Superstudio Maxi - Famagosta",
         cover: "/assets/superstudio-maxi/antincendio-adro.webp",
         alt: "Superstudio Maxi a Milano Famagosta — recupero strutturale di capannone industriale",
         href: "/progetti/ricettivi/superstudio-maxi",
@@ -212,10 +212,6 @@ export const projectCaseStudies: Record<
       {
         src: "/assets/residenziale/studio-ingegneria-architettura-adro.webp",
         alt: "Cantiere della residenza privata in acciaio durante le fasi di costruzione nel Veneto",
-      },
-      {
-        src: "/assets/residenziale/villa-acciaio.webp",
-        alt: "Vista esterna completata della villa in acciaio nel Veneto",
       },
       {
         src: "/assets/residenziale/villa-acciaio-lusso.webp",

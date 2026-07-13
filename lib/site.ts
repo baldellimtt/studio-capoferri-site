@@ -44,7 +44,7 @@ export const site = {
 } as const;
 
 export const navItems = [
-  { href: "/chi-siamo", label: "Chi Siamo" },
+  { href: "/chi-siamo", label: "Chi siamo" },
   { href: "/progetti", label: "Progetti" },
   { href: "/servizi", label: "Servizi" },
   { href: "/contatti", label: "Contatti" },

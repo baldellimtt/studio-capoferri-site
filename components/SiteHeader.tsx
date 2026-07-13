@@ -8,6 +8,7 @@ import { fontDisplay } from "@/lib/fonts";
 import { ReadingProgressBar } from "@/components/ReadingProgressBar";
 import { layoutContentMaxClass, layoutGutterXClass, navItems } from "@/lib/site";
 import { linkTitles } from "@/lib/link-seo";
+import { ui } from "@/lib/ui";
 
 function isActivePath(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
@@ -153,7 +154,7 @@ export function SiteHeader() {
       <div
         ref={mobileNavRef}
         id="mobile-nav"
-        className={`fixed inset-0 top-[73px] z-[999] flex flex-col bg-gradient-to-br from-[#2a3f54] to-[#1f2e3d] transition sm:top-[79px] md:hidden ${
+        className={`fixed inset-0 top-[73px] z-[999] flex flex-col ${ui.brandGradient} transition sm:top-[79px] md:hidden ${
           open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         }`}
         aria-hidden={!open}

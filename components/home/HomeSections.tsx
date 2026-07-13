@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { fontDisplay } from "@/lib/fonts";
@@ -19,6 +17,7 @@ import { homeChiSiamoImages, projectPreview } from "@/lib/images";
 import { layoutContentMaxClass, layoutGutterXClass, scrollAnchorClass, site } from "@/lib/site";
 import { linkTitles } from "@/lib/link-seo";
 import { ui } from "@/lib/ui";
+import { ProjectPreviewCard } from "@/components/projects/ProjectPreviewCard";
 import { ServiceIcon } from "./ServiceIcons";
 import { StatsSection } from "./StatsSection";
 
@@ -86,7 +85,7 @@ export function HomeSections() {
                 key={card.title}
                 className="reveal-block frost-card group flex flex-col rounded-2xl p-6 transition hover:-translate-y-1 hover:border-[#2a3f54]/25 hover:shadow-[0_12px_32px_rgba(42,63,84,0.12)] sm:p-8"
               >
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-[#2a3f54] to-[#3d5a7a] text-white sm:mb-5 sm:h-14 sm:w-14">
+                <div className={`${ui.iconBox} mb-4 sm:mb-5`}>
                   <ServiceIcon index={idx} className="h-7 w-7 sm:h-9 sm:w-9" />
                 </div>
                 <h3 className={`${fontDisplay.className} mb-2 text-lg tracking-[0.04em] text-[#2a3f54] sm:mb-3 sm:text-xl`}>{card.title}</h3>
@@ -112,7 +111,7 @@ export function HomeSections() {
       {/* ── Progetti ── */}
       <section
         id="progetti"
-        className={`lazy-section ${scrollAnchorClass} bg-gradient-to-br from-[#2a3f54] to-[#1f2e3d] px-4 py-14 text-white sm:px-5 sm:py-20 md:px-10`}
+        className={`lazy-section ${scrollAnchorClass} ${ui.brandGradient} px-4 py-14 text-white sm:px-5 sm:py-20 md:px-10`}
       >
         <div className={layoutContentMaxClass}>
           <div className="home-split-header reveal-block">
@@ -125,27 +124,14 @@ export function HomeSections() {
           <div className="grid gap-5 sm:gap-6 md:grid-cols-3">
             {projectPreview.map((p) => (
               <div key={p.href} className="reveal-block">
-                <Link
+                <ProjectPreviewCard
                   href={p.href}
-                  title={linkTitles.progetto(p.title)}
-                  className="group block overflow-hidden rounded-2xl border border-white/15 bg-white/[0.07] shadow-[0_10px_30px_rgba(0,0,0,0.12)] backdrop-blur-sm transition hover:-translate-y-0.5 hover:shadow-[0_14px_36px_rgba(0,0,0,0.22)]"
-                >
-                  <div className="relative aspect-[4/3]">
-                    <Image src={p.image} alt={p.alt} fill className="object-cover transition duration-500 group-hover:scale-[1.03]" sizes="(min-width:1024px) 33vw, 100vw" />
-                    <div className="image-unify-overlay" aria-hidden />
-                    <div
-                      className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                      style={{
-                        backgroundImage:
-                          "linear-gradient(to right, rgba(255,255,255,0.12) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px)",
-                        backgroundSize: "28px 28px",
-                      }}
-                    />
-                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#1f2e3d]/95 to-transparent px-5 py-4 sm:px-6 sm:py-5">
-                      <span className={`${fontDisplay.className} text-lg tracking-[0.04em] text-white sm:text-xl md:text-2xl`}>{p.caption}</span>
-                    </div>
-                  </div>
-                </Link>
+                  title={p.title}
+                  caption={p.caption}
+                  image={p.image}
+                  alt={p.alt}
+                  variant="dark"
+                />
               </div>
             ))}
           </div>
@@ -191,7 +177,7 @@ export function HomeSections() {
             <div className="home-split-header__right">{zoneDescription}</div>
           </div>
           <div className="reveal-block frost-card flex items-start gap-5 rounded-2xl p-6 sm:gap-6 sm:p-8">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-[#2a3f54] to-[#3d5a7a] text-white sm:h-14 sm:w-14">
+            <div className={ui.iconBox}>
               <svg className="h-6 w-6 sm:h-7 sm:w-7" viewBox="0 0 24 24" fill="none" aria-hidden>
                 <path
                   d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z"
@@ -231,8 +217,8 @@ export function HomeSections() {
           </div>
           <div className="grid gap-5 sm:grid-cols-3 sm:gap-6">
             <article className="reveal-block frost-card rounded-2xl p-5 sm:p-6">
-              <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-lg bg-gradient-to-br from-[#2a3f54] to-[#3d5a7a] text-white sm:mb-4 sm:h-12 sm:w-12">
-                <svg className="h-5 w-5 sm:h-6 sm:w-6" viewBox="0 0 24 24" fill="none" aria-hidden>
+              <div className={`${ui.iconBox} mb-3 sm:mb-4`}>
+                <svg className="h-6 w-6 sm:h-7 sm:w-7" viewBox="0 0 24 24" fill="none" aria-hidden>
                   <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" strokeWidth="1.5" />
                   <path d="M2 7l10 6 10-6" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
                 </svg>
@@ -243,8 +229,8 @@ export function HomeSections() {
               </a>
             </article>
             <article className="reveal-block frost-card rounded-2xl p-5 sm:p-6">
-              <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-lg bg-gradient-to-br from-[#2a3f54] to-[#3d5a7a] text-white sm:mb-4 sm:h-12 sm:w-12">
-                <svg className="h-5 w-5 sm:h-6 sm:w-6" viewBox="0 0 24 24" fill="none" aria-hidden>
+              <div className={`${ui.iconBox} mb-3 sm:mb-4`}>
+                <svg className="h-6 w-6 sm:h-7 sm:w-7" viewBox="0 0 24 24" fill="none" aria-hidden>
                   <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke="currentColor" strokeWidth="1.5" />
                 </svg>
               </div>
@@ -254,8 +240,8 @@ export function HomeSections() {
               </a>
             </article>
             <article className="reveal-block frost-card rounded-2xl p-5 sm:p-6">
-              <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-lg bg-gradient-to-br from-[#2a3f54] to-[#3d5a7a] text-white sm:mb-4 sm:h-12 sm:w-12">
-                <svg className="h-5 w-5 sm:h-6 sm:w-6" viewBox="0 0 24 24" fill="none" aria-hidden>
+              <div className={`${ui.iconBox} mb-3 sm:mb-4`}>
+                <svg className="h-6 w-6 sm:h-7 sm:w-7" viewBox="0 0 24 24" fill="none" aria-hidden>
                   <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="currentColor" strokeWidth="1.5" />
                   <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="currentColor" strokeWidth="1.5" />
                 </svg>

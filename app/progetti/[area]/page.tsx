@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import Image from "next/image";
 import { notFound } from "next/navigation";
+import { ProjectPreviewCard } from "@/components/projects/ProjectPreviewCard";
 import { fontDisplay } from "@/lib/fonts";
 import { buildPageMetadata } from "@/lib/seo";
 import { linkTitles } from "@/lib/link-seo";
@@ -56,26 +56,15 @@ export default async function ProjectAreaPage({ params }: Props) {
         <h2 className={`${fontDisplay.className} reveal-title ${ui.gallerySectionTitle} mb-6`}>Progetti in evidenza</h2>
         <div className="lazy-section grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {c.cases.map((p) => (
-            <Link
-              key={p.slug}
-              href={p.href}
-              title={linkTitles.progetto(p.title)}
-              className="group block overflow-hidden rounded-2xl border border-[#2a3f54]/10 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition duration-500 hover:-translate-y-0.5 hover:shadow-[0_14px_36px_rgba(42,63,84,0.14)]"
-            >
-              <div className="relative aspect-[4/3]">
-                <Image
-                  src={p.cover}
-                  alt={p.alt}
-                  fill
-                  className="object-cover transition duration-500 group-hover:scale-[1.03]"
-                  sizes="(min-width:1024px) 33vw, 100vw"
-                />
-                <div className="image-unify-overlay" aria-hidden />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#1f2e3d]/95 to-transparent px-4 py-3 sm:py-4">
-                  <span className={`${fontDisplay.className} text-base tracking-[0.04em] text-white sm:text-lg`}>{p.caption}</span>
-                </div>
-              </div>
-            </Link>
+            <div key={p.slug} className="reveal-block">
+              <ProjectPreviewCard
+                href={p.href}
+                title={p.title}
+                caption={p.caption}
+                image={p.cover}
+                alt={p.alt}
+              />
+            </div>
           ))}
         </div>
         </div>

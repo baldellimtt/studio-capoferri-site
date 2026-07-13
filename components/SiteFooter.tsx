@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
 import { fontDisplay } from "@/lib/fonts";
 import { linkTitles } from "@/lib/link-seo";
 import { layoutContentMaxClass, layoutGutterXClass, site, steelLandingPages } from "@/lib/site";
@@ -15,7 +16,7 @@ const footerServices = [
 
 export function SiteFooter() {
   return (
-    <footer className="mt-12 border-t border-[#3d5a7a]/35 bg-gradient-to-br from-[#2a3f54] via-[#24384b] to-[#1f2e3d] py-10 text-white sm:mt-16 sm:py-14">
+    <footer className={`mt-12 border-t border-[#3d5a7a]/35 ${ui.brandGradient} py-10 text-white sm:mt-16 sm:py-14`}>
       <div className={layoutGutterXClass}>
         <div className={layoutContentMaxClass}>
           <div className="grid gap-8 sm:gap-10 md:grid-cols-3">
@@ -85,7 +86,19 @@ export function SiteFooter() {
           </ul>
         </div>
           </div>
-          <div className="mt-8 border-t border-white/10 pt-6 text-center text-xs text-white/75 sm:mt-12 sm:pt-8">
+          <div className="mt-8 flex justify-center sm:mt-10">
+            <a
+              href={site.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={linkTitles.linkedin}
+              aria-label="Seguici su LinkedIn — Studio Capoferri"
+              className="focus-ring inline-flex h-11 w-11 items-center justify-center rounded-lg border border-white/20 bg-white/10 text-white transition hover:border-[#0A66C2] hover:bg-[#0A66C2] hover:text-white"
+            >
+              <LinkedInIcon />
+            </a>
+          </div>
+          <div className="mt-6 border-t border-white/10 pt-6 text-center text-xs text-white/75 sm:mt-8 sm:pt-8">
             <p>
               &copy; {new Date().getFullYear()} {site.legalName} — Tutti i diritti riservati |{" "}
               <Link className={`${ui.footerLink} underline underline-offset-2`} href="/privacy-policy" title={linkTitles.privacy}>
