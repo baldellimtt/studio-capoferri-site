@@ -1,8 +1,21 @@
-import { pageUrl } from "@/lib/seo";
+import { pageUrl, type SeoLocale } from "@/lib/seo";
 import { site } from "@/lib/site";
 import type { ProjectArea } from "@/lib/projects";
 
-export function breadcrumbJsonLd(items: { name: string; path?: string }[]) {
+const areaLabels: Record<SeoLocale, Record<ProjectArea, string>> = {
+  it: {
+    residenziali: "Strutture residenziali",
+    industriali: "Strutture industriali",
+    ricettivi: "Strutture per spazi pubblici",
+  },
+  en: {
+    residenziali: "Residential structures",
+    industriali: "Industrial structures",
+    ricettivi: "Structures for public venues",
+  },
+};
+
+export function breadcrumbJsonLd(items: { name: string; path?: string }[], locale: SeoLocale = "it") {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -10,7 +23,7 @@ export function breadcrumbJsonLd(items: { name: string; path?: string }[]) {
       "@type": "ListItem",
       position: index + 1,
       name: item.name,
-      ...(item.path ? { item: pageUrl(item.path) } : {}),
+      ...(item.path ? { item: pageUrl(item.path, locale) } : {}),
     })),
   };
 }
@@ -43,24 +56,29 @@ export function caseStudyJsonLd({
   metaTitle,
   metaDescription,
   gallery,
+  locale = "it",
 }: {
   area: ProjectArea;
   slug: string;
   metaTitle: string;
   metaDescription: string;
   gallery: { src: string }[];
+  locale?: SeoLocale;
 }) {
   const path = `/progetti/${area}/${slug}`;
   return [
-    breadcrumbJsonLd([
-      { name: "Progetti", path: "/progetti" },
-      { name: area === "residenziali" ? "Strutture residenziali" : area === "industriali" ? "Strutture industriali" : "Strutture per spazi pubblici", path: `/progetti/${area}` },
-      { name: metaTitle },
-    ]),
+    breadcrumbJsonLd(
+      [
+        { name: locale === "en" ? "Projects" : "Progetti", path: "/progetti" },
+        { name: areaLabels[locale][area], path: `/progetti/${area}` },
+        { name: metaTitle },
+      ],
+      locale
+    ),
     creativeWorkJsonLd({
       name: metaTitle,
       description: metaDescription,
-      url: pageUrl(path),
+      url: pageUrl(path, locale),
       images: gallery.map((g) => g.src),
     }),
   ];

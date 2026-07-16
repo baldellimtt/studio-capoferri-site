@@ -1,9 +1,12 @@
 # Studio Capoferri
 
+Studio Capoferri is a civil engineering, architecture and urban planning practice based in Adro, in the province of Brescia (Italy). It has operated for over 40 years across Northern Italy, with a focus on Lombardy, Veneto and Piedmont, especially Brescia, Bergamo and Milan.
+
 Studio Capoferri è uno studio tecnico di ingegneria civile, architettura e urbanistica con sede ad Adro, in provincia di Brescia. Opera da oltre 40 anni nel Nord Italia, con focus particolare su Lombardia, Veneto e Piemonte, soprattutto nelle province di Brescia, Bergamo e Milano.
 
-## Sito ufficiale
+## Official website / Sito ufficiale
 
+### Italian
 - [Home](https://www.studiocapoferri.eu/)
 - [Chi siamo](https://www.studiocapoferri.eu/chi-siamo)
 - [Servizi](https://www.studiocapoferri.eu/servizi)
@@ -11,62 +14,86 @@ Studio Capoferri è uno studio tecnico di ingegneria civile, architettura e urba
 - [Contatti](https://www.studiocapoferri.eu/contatti)
 - [Privacy policy](https://www.studiocapoferri.eu/privacy-policy)
 
-## Contatti
+### English
+- [Home](https://www.studiocapoferri.eu/en)
+- [About](https://www.studiocapoferri.eu/en/about)
+- [Services](https://www.studiocapoferri.eu/en/services)
+- [Projects](https://www.studiocapoferri.eu/en/projects)
+- [Contact](https://www.studiocapoferri.eu/en/contact)
+- [Privacy policy](https://www.studiocapoferri.eu/en/privacy-policy)
 
-- Indirizzo: Via Piave 35, 25030 Adro (BS), Italia
-- Telefono: +39 030 7357263
+## Contatti / Contact
+
+- Address: Via Piave 35, 25030 Adro (BS), Italy
+- Phone: +39 030 7357263
 - Email: info@studiocapoferri.eu
-- LinkedIn: [Studio Capoferri su LinkedIn](https://www.linkedin.com/company/studio-capoferri-ingegneria)
-- Coordinate: 45.6157, 9.9989
+- LinkedIn: [Studio Capoferri on LinkedIn](https://www.linkedin.com/company/studio-capoferri-ingegneria)
+- Coordinates: 45.6157, 9.9989
 
-## Servizi
+## Services / Servizi
 
-- Progettazione strutturale
-- Progettazione architettonica
-- Progettazione urbanistica
-- Direzione lavori
-- Consulenza sicurezza antincendio
-- Coordinamento sicurezza cantieri
-- Assistenza immobiliare
-- Pratiche edilizie e catastali
+- Structural design / Progettazione strutturale
+- Architectural design / Progettazione architettonica
+- Urban planning / Progettazione urbanistica
+- Construction supervision / Direzione lavori
+- Fire-safety consultancy / Consulenza sicurezza antincendio
+- Site safety coordination / Coordinamento sicurezza cantieri
+- Property support / Assistenza immobiliare
+- Building and cadastral procedures / Pratiche edilizie e catastali
 
-## Ambiti principali
+## Focus areas / Ambiti principali
 
-- Strutture in acciaio prefabbricate
-- Progettazione residenziale
-- Progettazione industriale
-- Capannoni industriali
-- Sopraelevazioni
-- Carpenteria metallica
-- Sicurezza antincendio
-- Normativa NTC 2018
+- Prefabricated steel structures / Strutture in acciaio prefabbricate
+- Residential design / Progettazione residenziale
+- Industrial design / Progettazione industriale
+- Industrial sheds / Capannoni industriali
+- Vertical extensions / Sopraelevazioni
+- Steel fabrication engineering / Carpenteria metallica
+- Fire safety / Sicurezza antincendio
+- NTC 2018 regulations
 
-## Aree servite
+## Areas served / Aree servite
 
-- Regioni principali: Lombardia, Veneto, Piemonte
-- Province principali: Brescia, Bergamo, Milano
-- Aree frequenti: Franciacorta, Lago d'Iseo, Adro, Erbusco
+- Main regions: Lombardy, Veneto, Piedmont
+- Main provinces: Brescia, Bergamo, Milan
+- Frequent areas: Franciacorta, Lake Iseo, Adro, Erbusco
 
-## Pagine tematiche
+## Thematic pages / Pagine tematiche
 
-- [Progettazione strutture in acciaio a Brescia](https://www.studiocapoferri.eu/progettazione-strutture-acciaio-brescia)
-- [Progettazione strutture in acciaio a Bergamo](https://www.studiocapoferri.eu/progettazione-strutture-acciaio-bergamo)
-- [Progettazione strutture in acciaio a Milano](https://www.studiocapoferri.eu/progettazione-strutture-acciaio-milano)
+### Italian
+- [Steel structure design in Brescia](https://www.studiocapoferri.eu/progettazione-strutture-acciaio-brescia)
+- [Steel structure design in Bergamo](https://www.studiocapoferri.eu/progettazione-strutture-acciaio-bergamo)
+- [Steel structure design in Milan](https://www.studiocapoferri.eu/progettazione-strutture-acciaio-milano)
 
-## Casi studio
+### English
+- [Steel structure design in Brescia](https://www.studiocapoferri.eu/en/steel-structure-design-brescia)
+- [Steel structure design in Bergamo](https://www.studiocapoferri.eu/en/steel-structure-design-bergamo)
+- [Steel structure design in Milan](https://www.studiocapoferri.eu/en/steel-structure-design-milano)
 
-- [Villa in acciaio in Veneto](https://www.studiocapoferri.eu/progetti/residenziali/villa-acciaio-veneto)
-- [Villa in acciaio a Salsomaggiore Terme](https://www.studiocapoferri.eu/progetti/residenziali/villa-acciaio-salsomaggiore)
-- [Capannone industriale a Erbusco](https://www.studiocapoferri.eu/progetti/industriali/capannone-erbusco)
-- [Ampliamento complesso zootecnico](https://www.studiocapoferri.eu/progetti/industriali/ampliamento-complesso-zootecnico)
-- [Centro direzionale a Provaglio d'Iseo](https://www.studiocapoferri.eu/progetti/industriali/centro-direzionale-provaglio-diseo)
-- [Superstudio Village a Milano Bovisa](https://www.studiocapoferri.eu/progetti/ricettivi/superstudio-village)
-- [Superstudio Maxi a Famagosta](https://www.studiocapoferri.eu/progetti/ricettivi/superstudio-maxi)
+## Case studies / Casi studio
 
-## Dati sintetici
+### Italian
+- [Steel villa in Veneto](https://www.studiocapoferri.eu/progetti/residenziali/villa-acciaio-veneto)
+- [Steel villa in Salsomaggiore Terme](https://www.studiocapoferri.eu/progetti/residenziali/villa-acciaio-salsomaggiore)
+- [Industrial building in Erbusco](https://www.studiocapoferri.eu/progetti/industriali/capannone-erbusco)
+- [Livestock complex extension](https://www.studiocapoferri.eu/progetti/industriali/ampliamento-complesso-zootecnico)
+- [Office centre in Provaglio d'Iseo](https://www.studiocapoferri.eu/progetti/industriali/centro-direzionale-provaglio-diseo)
+- [Superstudio Village in Milan Bovisa](https://www.studiocapoferri.eu/progetti/ricettivi/superstudio-village)
+- [Superstudio Maxi in Famagosta](https://www.studiocapoferri.eu/progetti/ricettivi/superstudio-maxi)
 
-- Anni di attività: 40+
-- Progetti completati: 1000+
-- Clienti soddisfatti: 300+
-- Orari: lunedì-venerdì, 08:30-18:00
-- P.IVA: 04732710985
+### English
+- [Steel villa in Veneto](https://www.studiocapoferri.eu/en/projects/residential/steel-villa-veneto)
+- [Steel villa in Salsomaggiore Terme](https://www.studiocapoferri.eu/en/projects/residential/steel-villa-salsomaggiore)
+- [Industrial building in Erbusco](https://www.studiocapoferri.eu/en/projects/industrial/industrial-warehouse-erbusco)
+- [Livestock complex extension](https://www.studiocapoferri.eu/en/projects/industrial/livestock-complex-extension)
+- [Office centre in Provaglio d'Iseo](https://www.studiocapoferri.eu/en/projects/industrial/office-complex-provaglio-diseo)
+- [Superstudio Village in Milan Bovisa](https://www.studiocapoferri.eu/en/projects/public-spaces/superstudio-village)
+- [Superstudio Maxi in Famagosta](https://www.studiocapoferri.eu/en/projects/public-spaces/superstudio-maxi)
+
+## Snapshot / Dati sintetici
+
+- Years of activity: 40+
+- Completed projects: 1000+
+- Satisfied clients: 300+
+- Hours: Monday-Friday, 08:30-18:00
+- VAT: 04732710985

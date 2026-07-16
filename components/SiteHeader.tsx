@@ -118,7 +118,7 @@ export function SiteHeader() {
             <Link href={localizeHref("/", locale)} className="focus-ring flex shrink-0 items-center" title={linkTitles.home(locale)}>
               <Image
                 src="/assets/logo-studio-ingegneria-removebg-preview.png"
-                alt="Studio Capoferri - ingegneria e progettazione strutturale"
+                alt={locale === "en" ? "Studio Capoferri - structural engineering and design" : "Studio Capoferri - ingegneria e progettazione strutturale"}
                 width={220}
                 height={70}
                 className="h-[46px] w-auto sm:h-[52px] md:h-[70px]"
@@ -143,7 +143,7 @@ export function SiteHeader() {
                               : "text-[#2a2a2a] hover:-translate-y-0.5 hover:bg-[#2a3f54]/12 hover:text-[#1f2e3d] hover:shadow-[0_10px_24px_rgba(42,63,84,0.12)] focus-visible:-translate-y-0.5 focus-visible:bg-[#2a3f54]/12 focus-visible:text-[#1f2e3d] focus-visible:shadow-[0_10px_24px_rgba(42,63,84,0.12)]"
                           }`}
                           aria-current={active ? "page" : undefined}
-                          title={linkTitles.nav(label)}
+                          title={linkTitles.nav(label, locale)}
                         >
                           {label}
                         </Link>
@@ -196,7 +196,7 @@ export function SiteHeader() {
                       active ? "text-white" : "text-white/90 hover:text-white/80"
                     }`}
                     aria-current={active ? "page" : undefined}
-                    title={linkTitles.nav(label)}
+                    title={linkTitles.nav(label, locale)}
                     onClick={closeMenu}
                   >
                     {label}

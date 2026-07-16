@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useLocale } from "@/components/LocaleProvider";
 import { CookieChoice } from "./CookieBanner";
 
 const STORAGE_KEY = "cookie_consent_studio_capoferri";
@@ -16,6 +17,8 @@ function readConsent(): CookieChoice | null {
 }
 
 export function MapEmbed() {
+  const locale = useLocale();
+  const isEn = locale === "en";
   const [consent, setConsent] = useState<CookieChoice | null>(null);
 
   useEffect(() => {
@@ -36,11 +39,12 @@ export function MapEmbed() {
       <div
         className="flex min-h-[220px] items-center justify-center rounded-xl border border-[#2a3f54]/10 bg-gradient-to-br from-[#f4f7fa] to-[#eef3f8] px-4 text-center text-[0.82rem] text-[#4b5a69] sm:min-h-[300px] sm:px-5 sm:text-sm md:min-h-[400px]"
         role="region"
-        aria-label="Mappa disattivata fino al consenso cookie"
+        aria-label={isEn ? "Map disabled until cookie consent" : "Mappa disattivata fino al consenso cookie"}
       >
         <p>
-          La mappa Google Maps viene caricata solo se accetti i cookie non strettamente necessari dal banner in basso,
-          oppure da privacy policy.
+          {isEn
+            ? "The Google Maps embed loads only if you accept non-essential cookies from the banner at the bottom of the page, or from the privacy policy."
+            : "La mappa Google Maps viene caricata solo se accetti i cookie non strettamente necessari dal banner in basso, oppure da privacy policy."}
         </p>
       </div>
     );
@@ -52,7 +56,7 @@ export function MapEmbed() {
       loading="lazy"
       allowFullScreen
       referrerPolicy="no-referrer-when-downgrade"
-      title="Sede Studio Capoferri — Via Piave 35, Adro (BS)"
+      title={isEn ? "Studio Capoferri office — Via Piave 35, Adro (BS)" : "Sede Studio Capoferri — Via Piave 35, Adro (BS)"}
       src={src}
     />
   );

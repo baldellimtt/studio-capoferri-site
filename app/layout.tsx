@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { AppProviders } from "@/components/AppProviders";
 import { CookieBanner } from "@/components/CookieBanner";
+import { LocalePreferenceRedirect } from "@/components/LocalePreferenceRedirect";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
+import { SkipLink } from "@/components/SkipLink";
 import { fontDisplay, fontSans } from "@/lib/fonts";
 import { defaultOgImage } from "@/lib/seo";
 import { site } from "@/lib/site";
@@ -130,9 +132,8 @@ export default function RootLayout({
           }}
         />
         <AppProviders>
-          <a href="#main-content" className="skip-link" title="Salta al contenuto principale">
-            Vai al contenuto principale
-          </a>
+          <SkipLink />
+          <LocalePreferenceRedirect />
           <SiteHeader />
           <CookieBanner />
           {children}

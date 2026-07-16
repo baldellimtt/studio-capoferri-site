@@ -218,7 +218,7 @@ export function LocalizedHomeSections() {
                   {block.imageFirst ? (
                     <>
                       <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-[#2a3f54]/10 shadow-[0_10px_30px_rgba(0,0,0,0.08)] md:aspect-auto md:min-h-[300px] md:h-full">
-                        <Image src={img.src} alt={img.alt} fill className="object-cover" sizes="(min-width:768px) 50vw, 100vw" />
+                        <Image src={img.src} alt={locale === "en" ? img.altEn : img.alt} fill className="object-cover" sizes="(min-width:768px) 50vw, 100vw" />
                         <div className="image-unify-overlay" aria-hidden />
                       </div>
                       <div className="home-section-body copy-rhythm reading-measure text-[0.98rem] sm:text-[1.05rem]">{block.text}</div>
@@ -227,7 +227,7 @@ export function LocalizedHomeSections() {
                     <>
                       <div className="home-section-body copy-rhythm reading-measure text-[0.98rem] sm:text-[1.05rem]">{block.text}</div>
                       <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-[#2a3f54]/10 shadow-[0_10px_30px_rgba(0,0,0,0.08)] md:aspect-auto md:min-h-[300px] md:h-full">
-                        <Image src={img.src} alt={img.alt} fill className="object-cover" sizes="(min-width:768px) 50vw, 100vw" />
+                        <Image src={img.src} alt={locale === "en" ? img.altEn : img.alt} fill className="object-cover" sizes="(min-width:768px) 50vw, 100vw" />
                         <div className="image-unify-overlay" aria-hidden />
                       </div>
                     </>

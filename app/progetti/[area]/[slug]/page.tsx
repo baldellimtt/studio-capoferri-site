@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { LocalizedProjectCasePage } from "@/components/pages/LocalizedProjectRoutes";
-import { caseStudyJsonLd } from "@/lib/jsonld";
 import {
   getCaseStudyKey,
   isProjectArea,
   projectCaseStudies,
   projectCategories,
   projectAreas,
-  type ProjectArea,
 } from "@/lib/projects";
 import { buildPageMetadata } from "@/lib/seo";
 
@@ -45,25 +43,5 @@ export default async function ProjectCasePage({ params }: Props) {
   const key = getCaseStudyKey(area, slug);
   if (!key || !projectCaseStudies[key]) notFound();
 
-  const cs = projectCaseStudies[key];
-  const jsonLd = caseStudyJsonLd({
-    area: area as ProjectArea,
-    slug,
-    metaTitle: cs.metaTitle,
-    metaDescription: cs.metaDescription,
-    gallery: cs.gallery,
-  });
-
-  return (
-    <>
-      {jsonLd.map((block) => (
-        <script
-          key={block["@type"]}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(block) }}
-        />
-      ))}
-      <LocalizedProjectCasePage area={area} slug={slug} />
-    </>
-  );
+  return <LocalizedProjectCasePage area={area} slug={slug} />;
 }

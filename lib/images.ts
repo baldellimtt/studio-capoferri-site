@@ -27,10 +27,14 @@ export const homeChiSiamoImages = {
   team: {
     src: "/assets/ingegneria-progettazione-brescia.webp",
     alt: "Ingegneri strutturisti dello Studio Capoferri durante una riunione tecnica — studio di ingegneria civile a Brescia, Bergamo e Milano",
+    altEn:
+      "Studio Capoferri structural engineers during a technical meeting — civil engineering practice serving Brescia, Bergamo and Milan",
   },
   cantiere: {
     src: "/assets/sicurezza-cantiere.webp",
     alt: "Sicurezza in cantiere e pianificazione — Studio Capoferri Nord Italia, province di Brescia, Bergamo e Milano",
+    altEn:
+      "Site safety and planning — Studio Capoferri Northern Italy, provinces of Brescia, Bergamo and Milan",
   },
 } as const;
 

@@ -1,3 +1,5 @@
+import { localizedPathname, toItalianPath } from "@/lib/locale-paths";
+
 export const locales = ["it", "en"] as const;
 
 export type Locale = (typeof locales)[number];
@@ -35,15 +37,14 @@ export function localizeHref(href: string, locale: Locale): string {
   }
 
   const { pathname, hash } = splitHash(href);
-  const barePath = stripLocalePrefix(pathname.startsWith("/") ? pathname : `/${pathname}`);
-
-  if (locale === "it") return `${barePath}${hash}`;
-  if (barePath === "/") return `/en${hash}`;
-  return `/en${barePath}${hash}`;
+  const barePath = pathname.startsWith("/") ? pathname : `/${pathname}`;
+  const itPath = toItalianPath(barePath);
+  return `${localizedPathname(itPath, locale)}${hash}`;
 }
 
 export function switchLocalePath(pathname: string, locale: Locale, hash = ""): string {
-  return localizeHref(`${stripLocalePrefix(pathname)}${hash}`, locale);
+  const itPath = toItalianPath(pathname || "/");
+  return `${localizedPathname(itPath, locale)}${hash}`;
 }
 
 export const chromeCopy = {

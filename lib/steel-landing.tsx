@@ -17,8 +17,8 @@ export type SteelLandingConfig = {
   faqCostQuestion: string;
   faqAreaAnswer: string;
   areaServedPrimary: string;
-  heroImage: { src: string; alt: string };
-  secondaryImage: { src: string; alt: string };
+  heroImage: { src: string; alt: string; altEn: string };
+  secondaryImage: { src: string; alt: string; altEn: string };
   featuredProjects: { href: string; title: string; description: string }[];
 };
 
@@ -69,11 +69,13 @@ export const steelLandingBrescia: SteelLandingConfig = {
   areaServedPrimary: "Provincia di Brescia",
   heroImage: {
     src: "/assets/residenziale/ingegneria-civile-brescia.webp",
-    alt: "Progettazione di strutture in acciaio a Brescia â€” villa residenziale con telaio metallico",
+    alt: "Progettazione di strutture in acciaio a Brescia — villa residenziale con telaio metallico",
+    altEn: "Steel structure design in Brescia — residential villa with steel frame",
   },
   secondaryImage: {
     src: "/assets/residenziale/villa-acciaio-salsomaggiore/carpenteria-metallica-villa-acciaio.webp",
-    alt: "Carpenteria metallica per strutture in acciaio in provincia di Brescia â€” travi e pilastri",
+    alt: "Carpenteria metallica per strutture in acciaio in provincia di Brescia — travi e pilastri",
+    altEn: "Steel fabrication for structures in the Brescia province — beams and columns",
   },
   featuredProjects: [
     {
@@ -132,11 +134,13 @@ export const steelLandingBergamo: SteelLandingConfig = {
   areaServedPrimary: "Provincia di Bergamo",
   heroImage: {
     src: "/assets/residenziale/strutture-acciaio-bergamo.webp",
-    alt: "Progettazione di strutture in acciaio a Bergamo â€” villa residenziale con telaio metallico",
+    alt: "Progettazione di strutture in acciaio a Bergamo — villa residenziale con telaio metallico",
+    altEn: "Steel structure design in Bergamo — residential villa with steel frame",
   },
   secondaryImage: {
     src: "/assets/residenziale/villa-acciaio-salsomaggiore/carpenteria-metallica-villa-acciaio.webp",
-    alt: "Carpenteria metallica per strutture in acciaio in provincia di Bergamo â€” travi e pilastri",
+    alt: "Carpenteria metallica per strutture in acciaio in provincia di Bergamo — travi e pilastri",
+    altEn: "Steel fabrication for structures in the Bergamo province — beams and columns",
   },
   featuredProjects: [
     {
@@ -195,11 +199,13 @@ export const steelLandingMilano: SteelLandingConfig = {
   areaServedPrimary: "Provincia di Milano",
   heroImage: {
     src: "/assets/superstudio-maxi/strutture-acciaio-milano.webp",
-    alt: "Progettazione di strutture in acciaio a Milano â€” struttura portante in acciaio",
+    alt: "Progettazione di strutture in acciaio a Milano — struttura portante in acciaio",
+    altEn: "Steel structure design in Milan — load-bearing steel structure",
   },
   secondaryImage: {
     src: "/assets/superstudio-village-struttura-acciaio.webp",
-    alt: "Struttura in acciaio per edificio a Milano â€” Superstudio Village Bovisa",
+    alt: "Struttura in acciaio per edificio a Milano — Superstudio Village Bovisa",
+    altEn: "Steel structure for a building in Milan — Superstudio Village Bovisa",
   },
   featuredProjects: [
     {

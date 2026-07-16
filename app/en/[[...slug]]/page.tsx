@@ -11,7 +11,7 @@ import ProgettazioneStruttureAcciaioBergamoPage from "@/app/progettazione-strutt
 import ProgettazioneStruttureAcciaioBresciaPage from "@/app/progettazione-strutture-acciaio-brescia/page";
 import ProgettazioneStruttureAcciaioMilanoPage from "@/app/progettazione-strutture-acciaio-milano/page";
 import ServiziPage from "@/app/servizi/page";
-import { projectAreas, projectCategories } from "@/lib/projects";
+import { englishStaticParams, resolveEnglishSlug } from "@/lib/locale-paths";
 import { getEnglishMetadataForSlug } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug?: string[] }> };
@@ -19,25 +19,7 @@ type Props = { params: Promise<{ slug?: string[] }> };
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  const staticPaths = [
-    [],
-    ["chi-siamo"],
-    ["servizi"],
-    ["contatti"],
-    ["privacy-policy"],
-    ["progetti"],
-    ["progettazione-strutture-acciaio-brescia"],
-    ["progettazione-strutture-acciaio-bergamo"],
-    ["progettazione-strutture-acciaio-milano"],
-  ];
-
-  const projectPaths = projectAreas.flatMap((area) => {
-    const categoryPaths = [["progetti", area]];
-    const casePaths = projectCategories[area].cases.map((item) => ["progetti", area, item.slug]);
-    return [...categoryPaths, ...casePaths];
-  });
-
-  return [...staticPaths, ...projectPaths].map((slug) => ({ slug }));
+  return englishStaticParams();
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -47,39 +29,36 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function EnglishMirrorPage({ params }: Props) {
   const { slug = [] } = await params;
+  const route = resolveEnglishSlug(slug);
+  if (!route) notFound();
 
-  if (slug.length === 0) return <HomePage />;
-
-  if (slug.length === 1) {
-    switch (slug[0]) {
-      case "chi-siamo":
-        return <ChiSiamoPage />;
-      case "servizi":
-        return <ServiziPage />;
-      case "contatti":
-        return <ContattiPage />;
-      case "privacy-policy":
-        return <PrivacyPolicyPage />;
-      case "progetti":
-        return <ProgettiPage />;
-      case "progettazione-strutture-acciaio-brescia":
-        return <ProgettazioneStruttureAcciaioBresciaPage />;
-      case "progettazione-strutture-acciaio-bergamo":
-        return <ProgettazioneStruttureAcciaioBergamoPage />;
-      case "progettazione-strutture-acciaio-milano":
-        return <ProgettazioneStruttureAcciaioMilanoPage />;
-      default:
-        notFound();
-    }
+  switch (route.kind) {
+    case "home":
+      return <HomePage />;
+    case "static":
+      switch (route.key) {
+        case "chi-siamo":
+          return <ChiSiamoPage />;
+        case "servizi":
+          return <ServiziPage />;
+        case "contatti":
+          return <ContattiPage />;
+        case "privacy-policy":
+          return <PrivacyPolicyPage />;
+        default:
+          notFound();
+      }
+    case "projects":
+      return <ProgettiPage />;
+    case "steel":
+      if (route.city === "brescia") return <ProgettazioneStruttureAcciaioBresciaPage />;
+      if (route.city === "bergamo") return <ProgettazioneStruttureAcciaioBergamoPage />;
+      return <ProgettazioneStruttureAcciaioMilanoPage />;
+    case "project-area":
+      return <ProjectAreaPage params={Promise.resolve({ area: route.area })} />;
+    case "project-case":
+      return <ProjectCasePage params={Promise.resolve({ area: route.area, slug: route.slug })} />;
+    default:
+      notFound();
   }
-
-  if (slug[0] === "progetti" && slug.length === 2) {
-    return <ProjectAreaPage params={Promise.resolve({ area: slug[1] })} />;
-  }
-
-  if (slug[0] === "progetti" && slug.length === 3) {
-    return <ProjectCasePage params={Promise.resolve({ area: slug[1], slug: slug[2] })} />;
-  }
-
-  notFound();
 }

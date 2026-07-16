@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useLocale } from "@/components/LocaleProvider";
 import { fontSans } from "@/lib/fonts";
 
 type Img = { src: string; alt: string };
@@ -14,6 +15,29 @@ type Props = {
 };
 
 export function ProjectImageLightbox({ images, className = "" }: Props) {
+  const locale = useLocale();
+  const isEn = locale === "en";
+  const copy = isEn
+    ? {
+        gallery: "Photo gallery",
+        fullscreen: "Fullscreen gallery",
+        close: "Close gallery",
+        prev: "Previous image",
+        next: "Next image",
+        select: "Select image",
+        open: "Open in gallery",
+        help: "Swipe, use the arrow keys or Shift plus mouse wheel to change image. Exit with Esc or by clicking the background.",
+      }
+    : {
+        gallery: "Galleria fotografica",
+        fullscreen: "Galleria a schermo intero",
+        close: "Chiudi galleria",
+        prev: "Immagine precedente",
+        next: "Immagine successiva",
+        select: "Seleziona immagine",
+        open: "Apri nella galleria",
+        help: "Scorri col dito, usa le frecce o Maiusc piu rotellina per cambiare immagine. Esci con Esc o clic sullo sfondo.",
+      };
   const [open, setOpen] = useState<number | null>(null);
   const [portalNode, setPortalNode] = useState<HTMLElement | null>(null);
   const [renderedOpen, setRenderedOpen] = useState<number | null>(null);
@@ -187,7 +211,7 @@ export function ProjectImageLightbox({ images, className = "" }: Props) {
             className="fixed inset-0 z-[10050] flex h-dvh w-screen cursor-zoom-out flex-col overflow-hidden bg-gradient-to-b from-[#e8ecf1]/[0.92] via-[#eef2f6]/[0.94] to-[#e2e8ee]/[0.92] backdrop-blur-xl"
             role="dialog"
             aria-modal="true"
-            aria-label="Galleria a schermo intero"
+            aria-label={copy.fullscreen}
             tabIndex={-1}
             onClick={close}
             onTouchStart={onLightboxTouchStart}
@@ -209,7 +233,7 @@ export function ProjectImageLightbox({ images, className = "" }: Props) {
                 type="button"
                 className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#2a3f54]/15 bg-white text-xl leading-none text-[#2a3f54] shadow-sm transition hover:bg-[#fafbfc] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2a3f54]"
                 onClick={close}
-                aria-label="Chiudi galleria"
+                aria-label={copy.close}
               >
                 &times;
               </button>
@@ -234,7 +258,7 @@ export function ProjectImageLightbox({ images, className = "" }: Props) {
                           e.stopPropagation();
                           go(-1);
                         }}
-                        aria-label="Immagine precedente"
+                        aria-label={copy.prev}
                       >
                         &lsaquo;
                       </button>
@@ -245,7 +269,7 @@ export function ProjectImageLightbox({ images, className = "" }: Props) {
                           e.stopPropagation();
                           go(1);
                         }}
-                        aria-label="Immagine successiva"
+                        aria-label={copy.next}
                       >
                         &rsaquo;
                       </button>
@@ -273,7 +297,7 @@ export function ProjectImageLightbox({ images, className = "" }: Props) {
                 <p className={`${captionClass} mt-3 max-w-[1100px] px-1 text-center sm:mt-4`}>{images[open].alt}</p>
 
                 <p className="sr-only">
-                  Scorri col dito, usa le frecce o Maiusc piu rotellina per cambiare immagine. Esci con Esc o clic sullo sfondo.
+                  {copy.help}
                 </p>
               </motion.div>
             </div>
@@ -302,7 +326,7 @@ export function ProjectImageLightbox({ images, className = "" }: Props) {
                           ? "border-[#2a3f54] ring-2 ring-[#2a3f54]/25"
                           : "border-transparent opacity-75 hover:opacity-100"
                       }`}
-                      aria-label={img.alt || "Seleziona immagine"}
+                      aria-label={img.alt || copy.select}
                       aria-current={i === open ? "true" : undefined}
                     >
                       <Image src={img.src} alt="" fill className="object-cover" sizes="112px" />
@@ -317,7 +341,7 @@ export function ProjectImageLightbox({ images, className = "" }: Props) {
     ) : null;
 
   return (
-    <section className={className} aria-label="Galleria fotografica">
+    <section className={className} aria-label={copy.gallery}>
       <div className="fine-divider mb-6" />
 
       <div className="md:hidden">
@@ -331,7 +355,7 @@ export function ProjectImageLightbox({ images, className = "" }: Props) {
               type="button"
               onClick={() => setOpen(i)}
               className="group relative aspect-[4/3] w-[min(78vw,320px)] shrink-0 snap-start cursor-zoom-in overflow-hidden rounded-2xl border border-[#2a3f54]/12 bg-white text-left shadow-[0_6px_24px_rgba(42,63,84,0.08)] ring-0 transition hover:border-[#2a3f54]/25 hover:shadow-[0_12px_32px_rgba(42,63,84,0.12)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2a3f54]"
-              aria-label={`Apri nella galleria: ${img.alt}`}
+              aria-label={`${copy.open}: ${img.alt}`}
             >
               <Image
                 src={img.src}
@@ -352,7 +376,7 @@ export function ProjectImageLightbox({ images, className = "" }: Props) {
               type="button"
               onClick={() => setOpen(i)}
               className="group relative aspect-[4/3] w-full cursor-zoom-in overflow-hidden rounded-2xl border border-[#2a3f54]/10 bg-[#fafbfc] text-left shadow-[0_8px_28px_rgba(42,63,84,0.07)] transition hover:-translate-y-0.5 hover:border-[#2a3f54]/22 hover:shadow-[0_14px_40px_rgba(42,63,84,0.11)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2a3f54]"
-              aria-label={`Apri nella galleria: ${img.alt}`}
+              aria-label={`${copy.open}: ${img.alt}`}
             >
               <Image
                 src={img.src}

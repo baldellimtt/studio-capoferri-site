@@ -8,8 +8,10 @@ import { ProjectImageLightbox } from "@/components/projects/ProjectImageLightbox
 import { ProjectPreviewCard } from "@/components/projects/ProjectPreviewCard";
 import { fontDisplay } from "@/lib/fonts";
 import { localizeHref } from "@/lib/i18n";
+import { caseStudyJsonLd } from "@/lib/jsonld";
 import { linkTitles } from "@/lib/link-seo";
 import { projectCaseStudies, projectCategories, type ProjectArea } from "@/lib/projects";
+import { getEnglishCaseMetadata, getEnglishSteelDescription, pageUrl as seoPageUrl } from "@/lib/seo";
 import { layoutContentMaxClass, layoutGutterXClass, site } from "@/lib/site";
 import type { SteelLandingConfig } from "@/lib/steel-landing";
 import { ui } from "@/lib/ui";
@@ -334,11 +336,21 @@ export function LocalizedProjectAreaPage({ area }: { area: ProjectArea }) {
           </div>
           <h2 className={`${fontDisplay.className} reveal-title ${ui.gallerySectionTitle} mb-6`}>{shared.featured}</h2>
           <div className="lazy-section grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {cases.map((p) => (
+            {cases.map((p) => {
+              const caseKey = `${area}/${p.slug}` as keyof typeof caseCopy.en;
+              const enTitle = caseKey in caseCopy.en ? caseCopy.en[caseKey].heading : p.title;
+              return (
               <div key={p.slug} className="reveal-block">
-                <ProjectPreviewCard href={localizeHref(p.href, locale)} title={locale === "en" ? p.title.replace("Residenza privata", "Private residence").replace("Villa in acciaio", "Steel villa").replace("Capannone industriale", "Industrial building").replace("Ampliamento complesso zootecnico", "Livestock complex extension").replace("Centro direzionale", "Office centre") : p.title} caption={locale === "en" ? p.caption.replace("Residenza privata", "Private residence").replace("Villa in acciaio", "Steel villa").replace("Capannone industriale", "Industrial building").replace("Complesso zootecnico", "Livestock complex").replace("Centro direzionale", "Office centre") : p.caption} image={p.cover} alt={p.alt} />
+                <ProjectPreviewCard
+                  href={localizeHref(p.href, locale)}
+                  title={enTitle}
+                  caption={enTitle}
+                  image={p.cover}
+                  alt={locale === "en" ? enTitle : p.alt}
+                />
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
@@ -350,13 +362,38 @@ export function LocalizedProjectCasePage({ area, slug }: { area: ProjectArea; sl
   const locale = useLocale();
   const key = `${area}/${slug}` as keyof typeof caseCopy.en;
   const cs = projectCaseStudies[`${area}/${slug}` as keyof typeof projectCaseStudies];
+  const enMeta = getEnglishCaseMetadata(area, slug);
   const heading = locale === "en" && key in caseCopy.en ? caseCopy.en[key].heading : cs.heading;
   const catHeading = locale === "en" ? areaCopy.en[area].heading : projectCategories[area].heading;
   const body = locale === "en" && key in caseCopy.en ? caseCopy.en[key] : null;
+  const gallery =
+    locale === "en"
+      ? cs.gallery.map((img, index) => ({
+          ...img,
+          alt: `${heading} - photo ${index + 1}`,
+        }))
+      : cs.gallery;
+
+  const jsonLd = caseStudyJsonLd({
+    area,
+    slug,
+    metaTitle: locale === "en" ? (enMeta?.title ?? heading) : cs.metaTitle,
+    metaDescription: locale === "en" ? (enMeta?.description ?? cs.metaDescription) : cs.metaDescription,
+    gallery: cs.gallery,
+    locale,
+  });
 
   if (locale === "it") {
     const cat = projectCategories[area];
     return (
+      <>
+        {jsonLd.map((block) => (
+          <script
+            key={block["@type"]}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(block) }}
+          />
+        ))}
       <main id="main-content" className="section-shell bg-[#fafbfc]">
         <div className={layoutGutterXClass}>
           <div className={layoutContentMaxClass}>
@@ -395,10 +432,19 @@ export function LocalizedProjectCasePage({ area, slug }: { area: ProjectArea; sl
           </div>
         </div>
       </main>
+      </>
     );
   }
 
   return (
+    <>
+      {jsonLd.map((block) => (
+        <script
+          key={block["@type"]}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(block) }}
+        />
+      ))}
     <main id="main-content" className="section-shell bg-[#fafbfc]">
       <div className={layoutGutterXClass}>
         <div className={layoutContentMaxClass}>
@@ -441,20 +487,22 @@ export function LocalizedProjectCasePage({ area, slug }: { area: ProjectArea; sl
                   <div>{cs.body}</div>
                 )}
               </article>
-              <ProjectImageLightbox images={cs.gallery} className="mt-10" />
+              <ProjectImageLightbox images={gallery} className="mt-10" />
               <ContactCtaSection title={locale === "en" ? "Do you have a similar project?" : "Hai un progetto simile?"} />
             </div>
           </div>
         </div>
       </div>
     </main>
+    </>
   );
 }
 
 export function LocalizedSteelLandingPage({ config }: { config: SteelLandingConfig }) {
   const locale = useLocale();
   const isEn = locale === "en";
-  const pageUrl = `${site.url}/progettazione-strutture-acciaio-${config.slug}/`;
+  const steelPath = `/progettazione-strutture-acciaio-${config.slug}`;
+  const absolutePageUrl = seoPageUrl(steelPath, locale);
   const cityCopy = isEn ? landingCopy.en.cities[config.slug as keyof typeof landingCopy.en.cities] : null;
   const faq = isEn
     ? [
@@ -475,29 +523,29 @@ export function LocalizedSteelLandingPage({ config }: { config: SteelLandingConf
   const serviceJsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": `${pageUrl}#service`,
+    "@id": `${absolutePageUrl}#service`,
     name: isEn ? "Steel structure design" : "Progettazione strutture in acciaio",
     serviceType: isEn ? "Structural design of steel structures" : "Progettazione strutturale di strutture in acciaio",
-    description: config.metaDescription,
+    description: isEn ? (getEnglishSteelDescription(config.slug) ?? config.metaDescription) : config.metaDescription,
     provider: { "@id": `${site.url}/#organization` },
     areaServed: [
       { "@type": "AdministrativeArea", name: config.areaServedPrimary },
       { "@type": "AdministrativeArea", name: "Lombardy" },
     ],
-    url: pageUrl,
+    url: absolutePageUrl,
+  };
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map(([q, a]) => ({
+      "@type": "Question",
+      name: q,
+      acceptedAnswer: { "@type": "Answer", text: a },
+    })),
   };
 
   if (!isEn) {
-    const faqJsonLd = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: faq.map(([q, a]) => ({
-        "@type": "Question",
-        name: q,
-        acceptedAnswer: { "@type": "Answer", text: a },
-      })),
-    };
-
     return (
       <main id="main-content" className="section-shell bg-[#fafbfc]">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
@@ -596,43 +644,38 @@ export function LocalizedSteelLandingPage({ config }: { config: SteelLandingConf
   return (
     <main id="main-content" className="section-shell bg-[#fafbfc]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <div className={layoutGutterXClass}>
         <div className={layoutContentMaxClass}>
           <div className="mx-auto w-full max-w-[900px]">
             <h1 className={`${fontDisplay.className} reveal-title ${ui.pageTitle} mb-6 sm:mb-8`}>
-              {isEn ? landingCopy.en.heroTitle(config.city) : `Progettazione di strutture in acciaio a ${config.city} e in Lombardia`}
+              {landingCopy.en.heroTitle(config.city)}
             </h1>
             <article className="reveal-block frost-card rounded-2xl p-5 sm:p-7 md:p-8">
-              <p className={`copy-rhythm mb-4 ${ui.bodyMuted}`}>{isEn ? cityCopy?.introLead : config.introLead}</p>
-              <p className={`copy-rhythm mb-6 ${ui.bodyMuted}`}>{isEn ? landingCopy.en.process : "Dal calcolo strutturale secondo NTC 2018 ed Eurocodici ai disegni costruttivi d'officina, fino alla direzione lavori e al collaudo: seguiamo ogni fase del progetto."}</p>
+              <p className={`copy-rhythm mb-4 ${ui.bodyMuted}`}>{cityCopy?.introLead}</p>
+              <p className={`copy-rhythm mb-6 ${ui.bodyMuted}`}>{landingCopy.en.process}</p>
               <div className="flex flex-col gap-3 sm:flex-row">
-                <Link href={localizeHref("/contatti#form-contatti", locale)} className={ui.btnPrimary} title={linkTitles.consulenza(locale)}>{isEn ? landingCopy.en.consultation : "Richiedi una consulenza"}</Link>
+                <Link href={localizeHref("/contatti#form-contatti", locale)} className={ui.btnPrimary} title={linkTitles.consulenza(locale)}>{landingCopy.en.consultation}</Link>
                 <a href={`tel:${site.phoneTel}`} className={ui.btnOutline} title={linkTitles.telefono(site.phoneDisplay, locale)}>{site.phoneDisplay}</a>
               </div>
             </article>
             <div className="lazy-section">
               <section className="mt-10">
-                <h2 className={`${fontDisplay.className} ${ui.sectionHeadingAccent} mb-5`}>{isEn ? landingCopy.en.whyTitle : "Perché scegliere una struttura in acciaio"}</h2>
+                <h2 className={`${fontDisplay.className} ${ui.sectionHeadingAccent} mb-5`}>{landingCopy.en.whyTitle}</h2>
                 <div className="frost-card rounded-2xl p-5 sm:p-7 md:p-8">
                   <ul className="list-none space-y-3 text-[0.95rem] text-[#333] sm:text-[1.02rem]">
-                    {(isEn ? landingCopy.en.whyBullets : [
-                      ["Resistenza sismica", "leggerezza e duttilita rendono l'acciaio ideale nelle zone sismiche della Lombardia."],
-                      ["Tempi di cantiere ridotti", "la carpenteria metallica viene prefabbricata in officina e montata a secco in cantiere."],
-                      ["Liberta architettonica", "grandi luci, sbalzi e volumi aperti senza pilastri intermedi."],
-                      ["Sopraelevazioni", "il peso contenuto consente di ampliare in altezza edifici esistenti."],
-                      ["Sostenibilita", "materiale riciclabile al 100%, perfetto per involucri ad alta efficienza energetica e coperture fotovoltaiche."],
-                    ]).map(([title, text]) => (
+                    {landingCopy.en.whyBullets.map(([title, text]) => (
                       <li key={title} className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>{title}</strong> - {text}</li>
                     ))}
                   </ul>
                 </div>
               </section>
               <section className="mt-10">
-                <h2 className={`${fontDisplay.className} ${ui.sectionHeadingAccent} mb-5`}>{isEn ? landingCopy.en.scopeTitle : "Cosa progettiamo: dal residenziale all'industriale"}</h2>
+                <h2 className={`${fontDisplay.className} ${ui.sectionHeadingAccent} mb-5`}>{landingCopy.en.scopeTitle}</h2>
                 <div className="frost-card rounded-2xl p-5 sm:p-7 md:p-8">
-                  <p className={`copy-rhythm mb-4 ${ui.bodyMuted}`}>{isEn ? landingCopy.en.scopeLead : "Progettiamo strutture in acciaio per ogni destinazione d'uso: ville, edifici multipiano, capannoni industriali, edifici commerciali e spazi per eventi. Alcuni progetti recenti:"}</p>
+                  <p className={`copy-rhythm mb-4 ${ui.bodyMuted}`}>{landingCopy.en.scopeLead}</p>
                   <ul className="list-none space-y-3 text-[0.95rem] text-[#333] sm:text-[1.02rem]">
-                    {(isEn && cityCopy
+                    {(cityCopy
                       ? config.featuredProjects.map((p, index) => ({
                           ...p,
                           title: cityCopy.featuredProjects[index]?.[0] ?? p.title,
@@ -648,19 +691,19 @@ export function LocalizedSteelLandingPage({ config }: { config: SteelLandingConf
               </section>
               <section className="mt-10">
                 <div className="grid gap-6 sm:grid-cols-2">
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[#2a3f54]/10 shadow-[0_10px_30px_rgba(0,0,0,0.06)]"><Image src={config.heroImage.src} alt={config.heroImage.alt} fill className="object-cover" sizes="(min-width:640px) 50vw, 100vw" /></div>
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[#2a3f54]/10 shadow-[0_10px_30px_rgba(0,0,0,0.06)]"><Image src={config.secondaryImage.src} alt={config.secondaryImage.alt} fill className="object-cover" sizes="(min-width:640px) 50vw, 100vw" /></div>
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[#2a3f54]/10 shadow-[0_10px_30px_rgba(0,0,0,0.06)]"><Image src={config.heroImage.src} alt={config.heroImage.altEn} fill className="object-cover" sizes="(min-width:640px) 50vw, 100vw" /></div>
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[#2a3f54]/10 shadow-[0_10px_30px_rgba(0,0,0,0.06)]"><Image src={config.secondaryImage.src} alt={config.secondaryImage.altEn} fill className="object-cover" sizes="(min-width:640px) 50vw, 100vw" /></div>
                 </div>
               </section>
               <section className="mt-10">
-                <h2 className={`${fontDisplay.className} ${ui.sectionHeadingAccent} mb-5`}>{isEn ? cityCopy?.areaHeading : config.areaHeading}</h2>
+                <h2 className={`${fontDisplay.className} ${ui.sectionHeadingAccent} mb-5`}>{cityCopy?.areaHeading}</h2>
                 <div className="frost-card rounded-2xl p-5 sm:p-7 md:p-8">
-                  <p className={`copy-rhythm mb-4 ${ui.bodyMuted}`}>{isEn ? cityCopy?.areaBody : config.areaBody}</p>
-                  {(isEn ? cityCopy?.areaBodySecondary : config.areaBodySecondary) ? <p className={`copy-rhythm ${ui.bodyMuted}`}>{isEn ? cityCopy?.areaBodySecondary : config.areaBodySecondary}</p> : null}
+                  <p className={`copy-rhythm mb-4 ${ui.bodyMuted}`}>{cityCopy?.areaBody}</p>
+                  {cityCopy?.areaBodySecondary ? <p className={`copy-rhythm ${ui.bodyMuted}`}>{cityCopy.areaBodySecondary}</p> : null}
                 </div>
               </section>
               <section className="mt-10">
-                <h2 className={`${fontDisplay.className} ${ui.sectionHeadingAccent} mb-5`}>{isEn ? landingCopy.en.faqTitle : "Domande frequenti sulla progettazione di strutture in acciaio"}</h2>
+                <h2 className={`${fontDisplay.className} ${ui.sectionHeadingAccent} mb-5`}>{landingCopy.en.faqTitle}</h2>
                 <div className="space-y-4">
                   {faq.map(([q, a]) => (
                     <div key={q} className="frost-card rounded-2xl p-5 sm:p-6">
@@ -672,11 +715,11 @@ export function LocalizedSteelLandingPage({ config }: { config: SteelLandingConf
               </section>
               <section className="mt-10">
                 <div className="frost-card rounded-2xl p-5 text-center sm:p-7 md:p-8">
-                  <h2 className={`${fontDisplay.className} ${ui.sectionHeadingAccent} mb-3`}>{isEn ? cityCopy?.ctaHeading : config.ctaHeading}</h2>
-                  <p className={`copy-rhythm mx-auto mb-6 max-w-[560px] ${ui.bodyMuted}`}>{isEn ? landingCopy.en.ctaText : "Raccontaci la tua idea: analizziamo fattibilità, costi e tempi e ti proponiamo la soluzione strutturale più efficiente."}</p>
+                  <h2 className={`${fontDisplay.className} ${ui.sectionHeadingAccent} mb-3`}>{cityCopy?.ctaHeading}</h2>
+                  <p className={`copy-rhythm mx-auto mb-6 max-w-[560px] ${ui.bodyMuted}`}>{landingCopy.en.ctaText}</p>
                   <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
-                    <Link href={localizeHref("/contatti#form-contatti", locale)} className={ui.btnPrimary} title={linkTitles.contatti(locale)}>{isEn ? landingCopy.en.contactNow : "Contattaci ora"}</Link>
-                    <Link href={localizeHref("/servizi", locale)} className={ui.btnOutline} title={linkTitles.scopriServizi(locale)}>{isEn ? landingCopy.en.allServices : "Scopri tutti i servizi"}</Link>
+                    <Link href={localizeHref("/contatti#form-contatti", locale)} className={ui.btnPrimary} title={linkTitles.contatti(locale)}>{landingCopy.en.contactNow}</Link>
+                    <Link href={localizeHref("/servizi", locale)} className={ui.btnOutline} title={linkTitles.scopriServizi(locale)}>{landingCopy.en.allServices}</Link>
                   </div>
                 </div>
               </section>

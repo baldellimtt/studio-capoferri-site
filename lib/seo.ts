@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
+import { localizedPathname } from "@/lib/locale-paths";
 
 export const defaultOgImage = "/assets/superstudio-village-acciaio-pre-fabbricato.webp";
 export const steelLandingSlugs = ["brescia", "bergamo", "milano"] as const;
@@ -8,6 +9,7 @@ export type SeoLocale = "it" | "en";
 type PageMetadataInput = {
   title: string;
   description: string;
+  /** Italian canonical path (e.g. `/chi-siamo`). */
   path: string;
   image?: string;
   keywords?: string[];
@@ -16,14 +18,8 @@ type PageMetadataInput = {
 
 type BaseMetadataInput = Omit<PageMetadataInput, "locale">;
 
-function localizedPath(path: string, locale: SeoLocale = "it"): string {
-  const normalized = path.startsWith("/") ? path : `/${path}`;
-  if (locale === "it") return normalized;
-  return normalized === "/" ? "/en" : `/en${normalized}`;
-}
-
 export function pageUrl(path: string, locale: SeoLocale = "it"): string {
-  const localized = localizedPath(path, locale);
+  const localized = localizedPathname(path, locale);
   const withSlash = localized.endsWith("/") ? localized : `${localized}/`;
   return `${site.url}${withSlash}`;
 }
@@ -196,23 +192,70 @@ const englishProjectCaseMetadata: Record<string, BaseMetadataInput> = {
   },
 };
 
+export function getEnglishCaseMetadata(area: string, slug: string): BaseMetadataInput | undefined {
+  return englishProjectCaseMetadata[`${area}/${slug}`];
+}
+
+export function getEnglishSteelDescription(city: string): string | undefined {
+  return englishStaticMetadata[`progettazione-strutture-acciaio-${city}`]?.description;
+}
+
 export function getEnglishMetadataForSlug(slug: string[]): Metadata {
   if (slug.length === 0) {
     return buildPageMetadata({ ...englishStaticMetadata[""], locale: "en" });
   }
 
-  if (slug.length === 1 && slug[0] in englishStaticMetadata) {
-    return buildPageMetadata({ ...englishStaticMetadata[slug[0]], locale: "en" });
+  if (slug.length === 1) {
+    const byEnKey: Record<string, string> = {
+      about: "chi-siamo",
+      services: "servizi",
+      contact: "contatti",
+      "privacy-policy": "privacy-policy",
+      projects: "progetti",
+      "steel-structure-design-brescia": "progettazione-strutture-acciaio-brescia",
+      "steel-structure-design-bergamo": "progettazione-strutture-acciaio-bergamo",
+      "steel-structure-design-milano": "progettazione-strutture-acciaio-milano",
+    };
+    const itKey = byEnKey[slug[0]];
+    if (itKey && itKey in englishStaticMetadata) {
+      return buildPageMetadata({ ...englishStaticMetadata[itKey], locale: "en" });
+    }
   }
 
-  if (slug[0] === "progetti" && slug.length === 2 && slug[1] in englishProjectAreaMetadata) {
-    return buildPageMetadata({ ...englishProjectAreaMetadata[slug[1]], locale: "en" });
+  if (slug[0] === "projects" && slug.length === 2) {
+    const areaByEn: Record<string, string> = {
+      residential: "residenziali",
+      industrial: "industriali",
+      "public-spaces": "ricettivi",
+    };
+    const area = areaByEn[slug[1]];
+    if (area && area in englishProjectAreaMetadata) {
+      return buildPageMetadata({ ...englishProjectAreaMetadata[area], locale: "en" });
+    }
   }
 
-  if (slug[0] === "progetti" && slug.length === 3) {
-    const key = `${slug[1]}/${slug[2]}`;
-    if (key in englishProjectCaseMetadata) {
-      return buildPageMetadata({ ...englishProjectCaseMetadata[key], locale: "en" });
+  if (slug[0] === "projects" && slug.length === 3) {
+    const areaByEn: Record<string, string> = {
+      residential: "residenziali",
+      industrial: "industriali",
+      "public-spaces": "ricettivi",
+    };
+    const caseByEn: Record<string, string> = {
+      "steel-villa-veneto": "villa-acciaio-veneto",
+      "steel-villa-salsomaggiore": "villa-acciaio-salsomaggiore",
+      "industrial-warehouse-erbusco": "capannone-erbusco",
+      "livestock-complex-extension": "ampliamento-complesso-zootecnico",
+      "office-complex-provaglio-diseo": "centro-direzionale-provaglio-diseo",
+      "superstudio-village": "superstudio-village",
+      "superstudio-maxi": "superstudio-maxi",
+    };
+    const area = areaByEn[slug[1]];
+    const itSlug = caseByEn[slug[2]];
+    if (area && itSlug) {
+      const key = `${area}/${itSlug}`;
+      if (key in englishProjectCaseMetadata) {
+        return buildPageMetadata({ ...englishProjectCaseMetadata[key], locale: "en" });
+      }
     }
   }
 
