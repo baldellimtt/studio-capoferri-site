@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useLocale } from "@/components/LocaleProvider";
 import { ContactForm } from "@/components/ContactForm";
 import { CookiePreferencesButton } from "@/components/CookiePreferencesButton";
@@ -8,25 +9,19 @@ import { ContactCtaSection } from "@/components/ContactCtaSection";
 import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
 import { MapEmbed } from "@/components/MapEmbed";
 import { ProjectPreviewCard } from "@/components/projects/ProjectPreviewCard";
+import { chiSiamoPage, progettiIndexIntro } from "@/lib/content";
 import { fontDisplay } from "@/lib/fonts";
-import { chiSiamoPageImage } from "@/lib/images";
+import { chiSiamoPageImage, projectPreview } from "@/lib/images";
 import { localizeHref } from "@/lib/i18n";
 import { linkTitles } from "@/lib/link-seo";
-import { layoutContentMaxClass, layoutGutterXClass, scrollAnchorClass, site } from "@/lib/site";
+import { layoutContentMaxClass, layoutGutterXClass, scrollAnchorClass, site, steelLandingPages } from "@/lib/site";
 import { ui } from "@/lib/ui";
 
-const projectCards = {
-  it: [
-    ["Strutture per il residenziale", "Strutture per il residenziale", "/assets/progetti-ambito-residenziale.webp", "Progetto residenziale con struttura in acciaio", "/progetti/residenziali"],
-    ["Strutture per l'industria", "Strutture per l'industria", "/assets/progetto2.webp", "Capannone industriale con struttura portante in acciaio", "/progetti/industriali"],
-    ["Strutture per spazi pubblici", "Strutture per spazi pubblici", "/assets/progetto-ricettivo.webp", "Spazio per eventi con progettazione strutturale", "/progetti/ricettivi"],
-  ],
-  en: [
-    ["Residential structures", "Residential structures", "/assets/progetti-ambito-residenziale.webp", "Residential steel structure project", "/progetti/residenziali"],
-    ["Industrial structures", "Industrial structures", "/assets/progetto2.webp", "Industrial building with steel structure", "/progetti/industriali"],
-    ["Public-space structures", "Public-space structures", "/assets/progetto-ricettivo.webp", "Event venue structural design project", "/progetti/ricettivi"],
-  ],
-} as const;
+const englishProjectCards = [
+  ["Residential structures", "Residential structures", "/assets/progetti-ambito-residenziale.webp", "Residential steel structure project", "/progetti/residenziali"],
+  ["Industrial structures", "Industrial structures", "/assets/progetto2.webp", "Industrial building with steel structure", "/progetti/industriali"],
+  ["Public-space structures", "Public-space structures", "/assets/progetto-ricettivo.webp", "Event venue structural design project", "/progetti/ricettivi"],
+] as const;
 
 const englishServices = {
   intro:
@@ -59,25 +54,44 @@ const englishServices = {
 
 export function LocalizedAboutPageContent() {
   const isEn = useLocale() === "en";
-  const paragraphs = isEn
-    ? [
-        "Studio Capoferri is an independent technical practice with solid experience in structural engineering, architecture and technical coordination.",
-        "Our method is based on precision, efficiency and buildability, combining multidisciplinary expertise to solve complex projects.",
-        "From smaller local works to larger industrial interventions, we apply the same level of care to deliver reliable, compliant and safe projects.",
-      ]
-    : [
-        "Studio Capoferri è una realtà tecnica indipendente nata dalla passione per l'edilizia in ogni sua forma e sfaccettatura.",
-        "La nostra metodologia si basa su precisione, efficienza e cura del dettaglio, integrando competenze multidisciplinari per affrontare ogni sfida strutturale.",
-        "Dal piccolo intervento locale ai grandi impianti industriali, mettiamo la stessa dedizione per garantire qualità e sicurezza in ogni progetto.",
-      ];
+
+  if (!isEn) {
+    return (
+      <main id="main-content" className="section-shell bg-[#fafbfc]">
+        <div className={layoutGutterXClass}>
+          <div className={layoutContentMaxClass}>
+            <div className="frost-card rounded-2xl p-5 sm:p-7 md:p-10">
+              <h1 className={`${fontDisplay.className} ${ui.pageTitle} mb-7 sm:mb-10`}>{chiSiamoPage.title}</h1>
+              <div className={`space-y-5 sm:space-y-6 ${ui.body}`}>
+                {chiSiamoPage.paragraphs.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
+              <div className="relative mt-8 aspect-[16/9] w-full overflow-hidden rounded-xl border border-[#2a3f54]/10 shadow-[0_10px_30px_rgba(0,0,0,0.08)] sm:mt-12 sm:rounded-2xl">
+                <Image src={chiSiamoPageImage.src} alt={chiSiamoPageImage.alt} fill className="object-cover" sizes="(min-width:800px) 800px, 100vw" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main id="main-content" className="section-shell bg-[#fafbfc]">
       <div className={layoutGutterXClass}>
         <div className={layoutContentMaxClass}>
           <div className="frost-card rounded-2xl p-5 sm:p-7 md:p-10">
-            <h1 className={`${fontDisplay.className} ${ui.pageTitle} mb-7 sm:mb-10`}>{isEn ? "About" : "Chi siamo"}</h1>
-            <div className={`space-y-5 sm:space-y-6 ${ui.body}`}>{paragraphs.map((p) => <p key={p}>{p}</p>)}</div>
+            <h1 className={`${fontDisplay.className} ${ui.pageTitle} mb-7 sm:mb-10`}>{isEn ? "About" : chiSiamoPage.title}</h1>
+            <div className={`space-y-5 sm:space-y-6 ${ui.body}`}>
+              {isEn
+                ? [
+                    "Studio Capoferri is an independent technical practice with solid experience in structural engineering, architecture and technical coordination.",
+                    "Our method is based on precision, efficiency and buildability, combining multidisciplinary expertise to solve complex projects.",
+                    "From smaller local works to larger industrial interventions, we apply the same level of care to deliver reliable, compliant and safe projects.",
+                  ].map((p, i) => <p key={i}>{p}</p>)
+                : chiSiamoPage.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+            </div>
             <div className="relative mt-8 aspect-[16/9] w-full overflow-hidden rounded-xl border border-[#2a3f54]/10 shadow-[0_10px_30px_rgba(0,0,0,0.08)] sm:mt-12 sm:rounded-2xl">
               <Image
                 src={chiSiamoPageImage.src}
@@ -95,8 +109,91 @@ export function LocalizedAboutPageContent() {
 }
 
 export function LocalizedServicesPageContent() {
-  const isEn = useLocale() === "en";
+  const locale = useLocale();
+  const isEn = locale === "en";
   const sectionHeading = `${fontDisplay.className} ${ui.sectionHeadingAccent} mt-14 ${scrollAnchorClass}`;
+
+  if (!isEn) {
+    return (
+      <main id="main-content" className="section-shell bg-[#fafbfc]">
+        <div className={layoutGutterXClass}>
+          <div className={layoutContentMaxClass}>
+            <article className="frost-card rounded-2xl p-5 sm:p-7 md:p-10">
+              <h1 className={`${fontDisplay.className} ${ui.pageTitle} mb-6 sm:mb-8`}>Servizi</h1>
+              <p className={ui.body}>
+                <strong>Studio Capoferri</strong> offre una gamma completa di servizi di ingegneria, architettura e consulenza tecnica a 360 gradi.
+                Affianchiamo i clienti in ogni fase del progetto, garantendo qualità, precisione e soluzioni su misura.
+              </p>
+
+              <h2 id="progettazione-strutturale" className={sectionHeading}>Progettazione strutturale</h2>
+              <p className={`mb-4 ${ui.bodyMuted}`}>
+                Progettiamo strutture in acciaio, calcestruzzo e muratura per committenti in Lombardia e Nord Italia. Approfondimenti per area:{" "}
+                {steelLandingPages.map((page, index) => (
+                  <span key={page.href}>
+                    {index > 0 ? (index === steelLandingPages.length - 1 ? " e " : ", ") : null}
+                    <Link href={localizeHref(page.href, locale)} className="font-semibold text-[#2a3f54] underline underline-offset-2">
+                      {page.label.replace("Progettazione acciaio — ", "")}
+                    </Link>
+                  </span>
+                ))}
+                .
+              </p>
+              <ul className="list-none space-y-3 pl-0">
+                <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Strutture metalliche, cemento armato e muratura</strong> - Progettazione strutture NTC ed Eurocodici.</li>
+                <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Modellazione FEM</strong> - Analisi agli elementi finiti per valutazioni statiche e dinamiche di strutture complesse.</li>
+                <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Progettazione in condizioni di incendio</strong> - Verifiche di resistenza al fuoco per strutture portanti secondo normativa vigente.</li>
+                <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Rinforzo e miglioramento sismico</strong> - Opere di rinforzo strutturale e miglioramento sismico per edifici esistenti. Interventi studiati per aumentare la sicurezza, la resistenza sismica e prolungare la vita utile delle strutture, in conformità con le normative tecniche vigenti.</li>
+                <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Strutture civili e industriali</strong> - Sviluppo di soluzioni strutturali per edifici residenziali, commerciali, industriali e infrastrutture.</li>
+                <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Disegni costruttivi d'officina</strong> - Produzione di tavole esecutive per la fabbricazione e il montaggio delle strutture metalliche.</li>
+                <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Collaudi strutturali</strong> - Verifica di conformità statica per opere nuove o esistenti.</li>
+                <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Certificazioni strutture in ambienti di lavoro</strong> - Analisi e validazione di sicurezza per strutture soggette a normative su ambienti lavorativi.</li>
+              </ul>
+
+              <h2 id="urbanistica-architettura" className={sectionHeading}>Urbanistica e architettura</h2>
+              <ul className="list-none space-y-3 pl-0">
+                <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Progettazione architettonica</strong> - Sviluppo di soluzioni estetico-funzionali per nuove costruzioni, ristrutturazioni e riqualificazioni.</li>
+                <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Urbanistica</strong> - Piani attuativi, varianti urbanistiche, analisi di conformità agli strumenti di pianificazione.</li>
+              </ul>
+
+              <h2 id="direzione-lavori" className={sectionHeading}>Direzione lavori e consulenza</h2>
+              <ul className="list-none space-y-3 pl-0">
+                <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Direzione lavori strutturali</strong> - Supervisione tecnica delle fasi di costruzione per garantire qualità e rispetto dei progetti.</li>
+                <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Assistenza in cantiere</strong> - Supporto continuo alle imprese durante montaggi, modifiche e verifiche tecniche.</li>
+                <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Verifiche strutturali su edifici esistenti</strong> - Diagnostica e valutazione della sicurezza e idoneità statica di costruzioni esistenti.</li>
+                <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Relazioni tecniche e perizie</strong> - Redazione di relazioni asseverate, perizie giurate e consulenze tecniche di parte (CTP).</li>
+              </ul>
+
+              <h2 id="servizi-tecnici" className={sectionHeading}>Servizi tecnici e catastali</h2>
+              <ul className="list-none space-y-3 pl-0">
+                <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Pratiche edilizie</strong> - Redazione pratiche edilizie di permessi di costruire, SCIA, CILA e sanatorie.</li>
+                <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Pratiche catastali</strong> - Volture, frazionamenti, accatastamenti, variazioni catastali e correzioni dati.</li>
+                <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Pratiche per la Sovrintendenza ai Beni Culturali</strong> - Redazione di documentazione tecnica e supporto nelle richieste di autorizzazione per immobili vincolati.</li>
+                <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Collaudi amministrativi</strong> - Verifica della regolarità tecnico-amministrativa di opere pubbliche e private.</li>
+                <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Successioni e divisioni</strong> - Assistenza tecnica e documentale in pratiche di successione ereditaria e divisione patrimoniale.</li>
+                <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Certificazioni energetiche (APE)</strong> - Redazione dell'Attestato di Prestazione Energetica degli edifici, valutazione delle prestazioni energetiche e classificazione energetica secondo la normativa vigente.</li>
+              </ul>
+
+              <h2 id="sicurezza-cantieri" className={sectionHeading}>Sicurezza cantieri</h2>
+              <ul className="list-none space-y-3 pl-0">
+                <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Sicurezza cantieri</strong> - Coordinamento della sicurezza in fase di progettazione ed esecuzione (CSP e CSE), piani di sicurezza e gestione rischi.</li>
+              </ul>
+
+              <h2 id="assistenza-immobiliare" className={sectionHeading}>Assistenza immobiliare</h2>
+              <ul className="list-none space-y-3 pl-0">
+                <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Assistenza immobiliare</strong> - Supporto tecnico per compravendite, perizie, stime immobiliari e valutazione dello stato di fatto.</li>
+              </ul>
+
+              <ContactCtaSection
+                title="Cerchi supporto tecnico per il tuo progetto?"
+                description="Contattaci per una valutazione preliminare: ti indichiamo tempi, iter autorizzativi e il percorso progettuale più adatto."
+                className="mt-14"
+              />
+            </article>
+          </div>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main id="main-content" className="section-shell bg-[#fafbfc]">
@@ -104,81 +201,169 @@ export function LocalizedServicesPageContent() {
         <div className={layoutContentMaxClass}>
           <article className="frost-card rounded-2xl p-5 sm:p-7 md:p-10">
             <h1 className={`${fontDisplay.className} ${ui.pageTitle} mb-6 sm:mb-8`}>{isEn ? "Services" : "Servizi"}</h1>
-            <p className={ui.body}>
-              {isEn
-                ? englishServices.intro
-                : "Studio Capoferri offre una gamma completa di servizi di ingegneria, architettura e consulenza tecnica a 360 gradi."}
-            </p>
 
-            <h2 id="progettazione-strutturale" className={sectionHeading}>{isEn ? "Structural design" : "Progettazione strutturale"}</h2>
             {isEn ? (
               <>
+                <p className={ui.body}>{englishServices.intro}</p>
+
+                <h2 id="progettazione-strutturale" className={sectionHeading}>Structural design</h2>
                 <p className={ui.bodyMuted}>{englishServices.structural[0]}</p>
                 <p className={ui.bodyMuted}>{englishServices.structural[1]}</p>
-              </>
-            ) : (
-              <p className={ui.bodyMuted}>Strutture in acciaio, calcestruzzo e muratura, analisi FEM, verifiche sismiche e progettazione antincendio.</p>
-            )}
 
-            <h2 id="urbanistica-architettura" className={sectionHeading}>{isEn ? "Planning and architecture" : "Urbanistica e architettura"}</h2>
-            {isEn ? (
-              <>
+                <h2 id="urbanistica-architettura" className={sectionHeading}>Planning and architecture</h2>
                 <p className={ui.bodyMuted}>{englishServices.planning[0]}</p>
                 <p className={ui.bodyMuted}>{englishServices.planning[1]}</p>
-              </>
-            ) : (
-              <p className={ui.bodyMuted}>Progettazione architettonica, piani attuativi, varianti urbanistiche e analisi di conformità.</p>
-            )}
 
-            <h2 id="direzione-lavori" className={sectionHeading}>{isEn ? "Construction supervision and consultancy" : "Direzione lavori e consulenza"}</h2>
-            {isEn ? (
-              <>
+                <h2 id="direzione-lavori" className={sectionHeading}>Construction supervision and consultancy</h2>
                 <p className={ui.bodyMuted}>{englishServices.supervision[0]}</p>
                 <p className={ui.bodyMuted}>{englishServices.supervision[1]}</p>
-              </>
-            ) : (
-              <p className={ui.bodyMuted}>Supervisione tecnica, assistenza in cantiere, verifiche su edifici esistenti e relazioni tecniche.</p>
-            )}
 
-            <h2 id="servizi-tecnici" className={sectionHeading}>{isEn ? "Technical and cadastral services" : "Servizi tecnici e catastali"}</h2>
-            {isEn ? (
-              <>
+                <h2 id="servizi-tecnici" className={sectionHeading}>Technical and cadastral services</h2>
                 <p className={ui.bodyMuted}>{englishServices.technical[0]}</p>
                 <p className={ui.bodyMuted}>{englishServices.technical[1]}</p>
-              </>
-            ) : (
-              <p className={ui.bodyMuted}>Pratiche edilizie, catastali, pratiche per la Sovrintendenza, collaudi amministrativi e certificazioni energetiche.</p>
-            )}
 
-            <h2 id="sicurezza-cantieri" className={sectionHeading}>{isEn ? "Site safety" : "Sicurezza cantieri"}</h2>
-            {isEn ? (
-              <>
+                <h2 id="sicurezza-cantieri" className={sectionHeading}>Site safety</h2>
                 <p className={ui.bodyMuted}>{englishServices.safety[0]}</p>
                 <p className={ui.bodyMuted}>{englishServices.safety[1]}</p>
-              </>
-            ) : (
-              <p className={ui.bodyMuted}>Coordinamento della sicurezza in fase di progettazione ed esecuzione, piani di sicurezza e gestione rischi.</p>
-            )}
 
-            <h2 id="assistenza-immobiliare" className={sectionHeading}>{isEn ? "Property support" : "Assistenza immobiliare"}</h2>
-            {isEn ? (
-              <>
+                <h2 id="assistenza-immobiliare" className={sectionHeading}>Property support</h2>
                 <p className={ui.bodyMuted}>{englishServices.property[0]}</p>
                 <p className={ui.bodyMuted}>{englishServices.property[1]}</p>
+
+                <ContactCtaSection
+                  title="Need technical support for your project?"
+                  description="Contact us for an initial assessment: we can outline timing, approvals and the most suitable design path."
+                  className="mt-14"
+                />
               </>
             ) : (
-              <p className={ui.bodyMuted}>Supporto tecnico per compravendite, perizie, stime immobiliari e valutazione dello stato di fatto.</p>
-            )}
+              <>
+                <p className={ui.body}>
+                  <strong>Studio Capoferri</strong> offre una gamma completa di servizi di ingegneria, architettura e consulenza tecnica a 360 gradi.
+                  Affianchiamo i clienti in ogni fase del progetto, garantendo qualità, precisione e soluzioni su misura.
+                </p>
 
-            <ContactCtaSection
-              title={isEn ? "Need technical support for your project?" : "Cerchi supporto tecnico per il tuo progetto?"}
-              description={
-                isEn
-                  ? "Contact us for an initial assessment: we can outline timing, approvals and the most suitable design path."
-                  : "Contattaci per una valutazione preliminare: ti indichiamo tempi, iter autorizzativi e il percorso progettuale più adatto."
-              }
-              className="mt-14"
-            />
+                <h2 id="progettazione-strutturale" className={sectionHeading}>
+                  Progettazione strutturale
+                </h2>
+                <p className={`mb-4 ${ui.bodyMuted}`}>
+                  Progettiamo strutture in acciaio, calcestruzzo e muratura per committenti in Lombardia e Nord Italia. Approfondimenti per area:{" "}
+                  {steelLandingPages.map((page, index) => (
+                    <span key={page.href}>
+                      {index > 0 ? (index === steelLandingPages.length - 1 ? " e " : ", ") : null}
+                      <Link href={localizeHref(page.href, locale)} className="font-semibold text-[#2a3f54] underline underline-offset-2">
+                        {page.label.replace("Progettazione acciaio — ", "")}
+                      </Link>
+                    </span>
+                  ))}
+                  .
+                </p>
+                <ul className="list-none space-y-3 pl-0">
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
+                    <strong>Strutture metalliche, cemento armato e muratura</strong> - Progettazione strutture NTC ed Eurocodici.
+                  </li>
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
+                    <strong>Modellazione FEM</strong> - Analisi agli elementi finiti per valutazioni statiche e dinamiche di strutture complesse.
+                  </li>
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
+                    <strong>Progettazione in condizioni di incendio</strong> - Verifiche di resistenza al fuoco per strutture portanti secondo normativa vigente.
+                  </li>
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
+                    <strong>Rinforzo e miglioramento sismico</strong> - Opere di rinforzo strutturale e miglioramento sismico per edifici esistenti. Interventi studiati per aumentare la sicurezza, la resistenza sismica e prolungare la vita utile delle strutture, in conformità con le normative tecniche vigenti.
+                  </li>
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
+                    <strong>Strutture civili e industriali</strong> - Sviluppo di soluzioni strutturali per edifici residenziali, commerciali, industriali e infrastrutture.
+                  </li>
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
+                    <strong>Disegni costruttivi d'officina</strong> - Produzione di tavole esecutive per la fabbricazione e il montaggio delle strutture metalliche.
+                  </li>
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
+                    <strong>Collaudi strutturali</strong> - Verifica di conformità statica per opere nuove o esistenti.
+                  </li>
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
+                    <strong>Certificazioni strutture in ambienti di lavoro</strong> - Analisi e validazione di sicurezza per strutture soggette a normative su ambienti lavorativi.
+                  </li>
+                </ul>
+
+                <h2 id="urbanistica-architettura" className={sectionHeading}>
+                  Urbanistica e architettura
+                </h2>
+                <ul className="list-none space-y-3 pl-0">
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
+                    <strong>Progettazione architettonica</strong> - Sviluppo di soluzioni estetico-funzionali per nuove costruzioni, ristrutturazioni e riqualificazioni.
+                  </li>
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
+                    <strong>Urbanistica</strong> - Piani attuativi, varianti urbanistiche, analisi di conformità agli strumenti di pianificazione.
+                  </li>
+                </ul>
+
+                <h2 id="direzione-lavori" className={sectionHeading}>
+                  Direzione lavori e consulenza
+                </h2>
+                <ul className="list-none space-y-3 pl-0">
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
+                    <strong>Direzione lavori strutturali</strong> - Supervisione tecnica delle fasi di costruzione per garantire qualità e rispetto dei progetti.
+                  </li>
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
+                    <strong>Assistenza in cantiere</strong> - Supporto continuo alle imprese durante montaggi, modifiche e verifiche tecniche.
+                  </li>
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
+                    <strong>Verifiche strutturali su edifici esistenti</strong> - Diagnostica e valutazione della sicurezza e idoneità statica di costruzioni esistenti.
+                  </li>
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
+                    <strong>Relazioni tecniche e perizie</strong> - Redazione di relazioni asseverate, perizie giurate e consulenze tecniche di parte (CTP).
+                  </li>
+                </ul>
+
+                <h2 id="servizi-tecnici" className={sectionHeading}>
+                  Servizi tecnici e catastali
+                </h2>
+                <ul className="list-none space-y-3 pl-0">
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
+                    <strong>Pratiche edilizie</strong> - Redazione pratiche edilizie di permessi di costruire, SCIA, CILA e sanatorie.
+                  </li>
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
+                    <strong>Pratiche catastali</strong> - Volture, frazionamenti, accatastamenti, variazioni catastali e correzioni dati.
+                  </li>
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
+                    <strong>Pratiche per la Sovrintendenza ai Beni Culturali</strong> - Redazione di documentazione tecnica e supporto nelle richieste di autorizzazione per immobili vincolati.
+                  </li>
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
+                    <strong>Collaudi amministrativi</strong> - Verifica della regolarità tecnico-amministrativa di opere pubbliche e private.
+                  </li>
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
+                    <strong>Successioni e divisioni</strong> - Assistenza tecnica e documentale in pratiche di successione ereditaria e divisione patrimoniale.
+                  </li>
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
+                    <strong>Certificazioni energetiche (APE)</strong> - Redazione dell'Attestato di Prestazione Energetica degli edifici, valutazione delle prestazioni energetiche e classificazione energetica secondo la normativa vigente.
+                  </li>
+                </ul>
+
+                <h2 id="sicurezza-cantieri" className={sectionHeading}>
+                  Sicurezza cantieri
+                </h2>
+                <ul className="list-none space-y-3 pl-0">
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
+                    <strong>Sicurezza cantieri</strong> - Coordinamento della sicurezza in fase di progettazione ed esecuzione (CSP e CSE), piani di sicurezza e gestione rischi.
+                  </li>
+                </ul>
+
+                <h2 id="assistenza-immobiliare" className={sectionHeading}>
+                  Assistenza immobiliare
+                </h2>
+                <ul className="list-none space-y-3 pl-0">
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
+                    <strong>Assistenza immobiliare</strong> - Supporto tecnico per compravendite, perizie, stime immobiliari e valutazione dello stato di fatto.
+                  </li>
+                </ul>
+
+                <ContactCtaSection
+                  title="Cerchi supporto tecnico per il tuo progetto?"
+                  description="Contattaci per una valutazione preliminare: ti indichiamo tempi, iter autorizzativi e il percorso progettuale più adatto."
+                  className="mt-14"
+                />
+              </>
+            )}
           </article>
         </div>
       </div>
@@ -190,6 +375,61 @@ export function LocalizedContactsPageContent() {
   const isEn = useLocale() === "en";
   const contactTagline = isEn ? "Engineering - Architecture - Urban Planning" : site.tagline;
   const openingHours = isEn ? "Mon - Fri: 08:30 - 18:00" : site.openingHoursDisplay;
+
+  if (!isEn) {
+    return (
+      <main id="main-content" className="section-shell bg-[#fafbfc]">
+        <div className={layoutGutterXClass}>
+          <div className={layoutContentMaxClass}>
+            <div className="mb-6 max-w-[780px] sm:mb-8">
+              <h1 className={`${fontDisplay.className} ${ui.pageTitle} mb-3 sm:mb-4`}>Contatti</h1>
+              <p className={ui.body}>
+                Siamo disponibili per valutazioni preliminari, preventivi e supporto tecnico su progettazione strutturale in acciaio,
+                direzione lavori e consulenza specialistica.
+              </p>
+            </div>
+
+            <div className="grid gap-5 sm:gap-8 lg:grid-cols-[1.02fr_1.28fr] lg:items-stretch">
+              <section aria-labelledby="recapiti-heading" className="frost-card rounded-2xl p-5 sm:p-7 md:p-8">
+                <h2 id="recapiti-heading" className={`${fontDisplay.className} ${ui.cardHeading} mb-4 sm:mb-5`}>Recapiti</h2>
+                <p className="mb-4 text-[0.95rem] font-semibold text-[#2a2a2a] sm:mb-6 sm:text-[1.02rem]">
+                  {site.name} - {site.tagline}
+                </p>
+                <ul className="space-y-2 text-[0.95rem] text-[#333] sm:space-y-3 sm:text-[1.03rem]">
+                  <li><strong>Indirizzo:</strong> {site.addressLine}</li>
+                  <li><strong>Telefono:</strong> <a href={`tel:${site.phoneTel}`} title={linkTitles.telefono(site.phoneDisplay, "it")} className="inline-block min-h-[44px] py-1 text-[#333] underline-offset-2 hover:underline">{site.phoneDisplay}</a></li>
+                  <li><strong>Email:</strong> <a href={`mailto:${site.email}`} title={linkTitles.email(site.email, "it")} className="inline-block min-h-[44px] py-1 text-[#333] underline-offset-2 hover:underline">{site.email}</a></li>
+                  <li><strong>Orari:</strong> {site.openingHoursDisplay}</li>
+                </ul>
+                <div className="mt-5 border-t border-[#2a3f54]/10 pt-4 sm:mt-7 sm:pt-6">
+                  <a href={site.linkedin} target="_blank" rel="noopener noreferrer" title={linkTitles.linkedin("it")} className="inline-flex min-h-[44px] items-center gap-2 py-1 text-sm font-semibold text-[#2a3f54] underline-offset-2 hover:underline">
+                    Seguici su LinkedIn
+                  </a>
+                </div>
+              </section>
+
+              <section aria-labelledby="mappa-heading" className="frost-card rounded-2xl p-3 sm:p-4 md:p-5">
+                <h2 id="mappa-heading" className={`${fontDisplay.className} ${ui.cardHeading} mb-3 px-1 sm:mb-4 sm:px-2`}>
+                  Dove siamo
+                </h2>
+                <MapEmbed />
+              </section>
+            </div>
+
+            <section id="form-contatti" className={`mt-10 sm:mt-16 ${scrollAnchorClass}`}>
+              <div className="frost-card rounded-2xl p-5 sm:p-7 md:p-8">
+                <h2 className={`${fontDisplay.className} ${ui.cardHeading} mb-2 sm:mb-3`}>Contattaci</h2>
+                <p className="copy-rhythm mb-6 w-full text-[0.95rem] leading-relaxed text-[#444] sm:mb-8 sm:text-[1.03rem]">
+                  Compila il form con i dettagli del tuo intervento. Riceverai un riscontro tecnico puntuale dal nostro team.
+                </p>
+                <ContactForm />
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main id="main-content" className="section-shell bg-[#fafbfc]">
@@ -207,12 +447,28 @@ export function LocalizedContactsPageContent() {
           <div className="grid gap-5 sm:gap-8 lg:grid-cols-[1.02fr_1.28fr] lg:items-stretch">
             <section aria-labelledby="recapiti-heading" className="frost-card rounded-2xl p-5 sm:p-7 md:p-8">
               <h2 id="recapiti-heading" className={`${fontDisplay.className} ${ui.cardHeading} mb-4 sm:mb-5`}>{isEn ? "Details" : "Recapiti"}</h2>
-              <p className={`mb-4 font-semibold text-[#2a2a2a] sm:mb-6 ${ui.body}`}>{site.name} - {contactTagline}</p>
-              <ul className={`space-y-2 sm:space-y-3 ${ui.body}`}>
-                <li><strong>{isEn ? "Address" : "Indirizzo"}:</strong> {site.addressLine}</li>
-                <li><strong>{isEn ? "Phone" : "Telefono"}:</strong> <a href={`tel:${site.phoneTel}`} title={linkTitles.telefono(site.phoneDisplay, isEn ? "en" : "it")} className="inline-block min-h-[44px] py-1 text-[#333] underline-offset-2 hover:text-[#2a3f54] hover:underline">{site.phoneDisplay}</a></li>
-                <li><strong>Email:</strong> <a href={`mailto:${site.email}`} title={linkTitles.email(site.email, isEn ? "en" : "it")} className="inline-block min-h-[44px] py-1 text-[#333] underline-offset-2 hover:text-[#2a3f54] hover:underline">{site.email}</a></li>
-                <li><strong>{isEn ? "Hours" : "Orari"}:</strong> {openingHours}</li>
+              <p className="mb-4 text-[0.95rem] font-semibold text-[#2a2a2a] sm:mb-6 sm:text-[1.02rem]">
+                {site.name} - {contactTagline}
+              </p>
+              <ul className="space-y-2 text-[0.95rem] text-[#333] sm:space-y-3 sm:text-[1.03rem]">
+                <li>
+                  <strong>{isEn ? "Address" : "Indirizzo"}:</strong> {site.addressLine}
+                </li>
+                <li>
+                  <strong>{isEn ? "Phone" : "Telefono"}:</strong>{" "}
+                  <a href={`tel:${site.phoneTel}`} title={linkTitles.telefono(site.phoneDisplay, isEn ? "en" : "it")} className="inline-block min-h-[44px] py-1 text-[#333] underline-offset-2 hover:underline">
+                    {site.phoneDisplay}
+                  </a>
+                </li>
+                <li>
+                  <strong>Email:</strong>{" "}
+                  <a href={`mailto:${site.email}`} title={linkTitles.email(site.email, isEn ? "en" : "it")} className="inline-block min-h-[44px] py-1 text-[#333] underline-offset-2 hover:underline">
+                    {site.email}
+                  </a>
+                </li>
+                <li>
+                  <strong>{isEn ? "Hours" : "Orari"}:</strong> {openingHours}
+                </li>
               </ul>
               <div className="mt-5 border-t border-[#2a3f54]/10 pt-4 sm:mt-7 sm:pt-6">
                 <a
@@ -221,18 +477,26 @@ export function LocalizedContactsPageContent() {
                   rel="noopener noreferrer"
                   title={linkTitles.linkedin(isEn ? "en" : "it")}
                   aria-label={isEn ? "Follow us on LinkedIn - Studio Capoferri" : "Seguici su LinkedIn - Studio Capoferri"}
-                  className="group focus-ring inline-flex min-h-[44px] items-center gap-3 py-1 text-sm font-semibold text-[#2a3f54] transition hover:text-[#0A66C2]"
+                  className="inline-flex min-h-[44px] items-center gap-2 py-1 text-sm font-semibold text-[#2a3f54] underline-offset-2 hover:underline"
                 >
-                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-[#2a3f54]/15 bg-[#2a3f54]/5 text-[#2a3f54] transition group-hover:border-[#0A66C2] group-hover:bg-[#0A66C2] group-hover:text-white">
-                    <LinkedInIcon className="h-4 w-4" />
-                  </span>
-                  {isEn ? "Follow us on LinkedIn" : "Seguici su LinkedIn"}
+                  {isEn ? (
+                    <>
+                      <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-[#2a3f54]/15 bg-[#2a3f54]/5 text-[#2a3f54]">
+                        <LinkedInIcon className="h-4 w-4" />
+                      </span>
+                      Follow us on LinkedIn
+                    </>
+                  ) : (
+                    "Seguici su LinkedIn"
+                  )}
                 </a>
               </div>
             </section>
 
             <section aria-labelledby="mappa-heading" className="frost-card rounded-2xl p-3 sm:p-4 md:p-5">
-              <h2 id="mappa-heading" className={`${fontDisplay.className} ${ui.cardHeading} mb-3 px-1 sm:mb-4 sm:px-2`}>{isEn ? "Where we are" : "Dove siamo"}</h2>
+              <h2 id="mappa-heading" className={`${fontDisplay.className} ${ui.cardHeading} mb-3 px-1 sm:mb-4 sm:px-2`}>
+                {isEn ? "Where we are" : "Dove siamo"}
+              </h2>
               <MapEmbed />
             </section>
           </div>
@@ -240,7 +504,7 @@ export function LocalizedContactsPageContent() {
           <section id="form-contatti" className={`mt-10 sm:mt-16 ${scrollAnchorClass}`}>
             <div className="frost-card rounded-2xl p-5 sm:p-7 md:p-8">
               <h2 className={`${fontDisplay.className} ${ui.cardHeading} mb-2 sm:mb-3`}>{isEn ? "Contact us" : "Contattaci"}</h2>
-              <p className={`copy-rhythm mb-6 w-full sm:mb-8 ${ui.bodyMuted}`}>
+              <p className="copy-rhythm mb-6 w-full text-[0.95rem] leading-relaxed text-[#444] sm:mb-8 sm:text-[1.03rem]">
                 {isEn
                   ? "Fill in the form with the details of your project. Our team will reply with a focused technical response."
                   : "Compila il form con i dettagli del tuo intervento. Riceverai un riscontro tecnico puntuale dal nostro team."}
@@ -257,16 +521,62 @@ export function LocalizedContactsPageContent() {
 export function LocalizedProjectsPageContent() {
   const locale = useLocale();
   const isEn = locale === "en";
+  const italianCards = projectPreview.map((p) => [p.title, p.caption, p.image, p.alt, p.href]) as [string, string, string, string, string][];
+  const cards = isEn ? englishProjectCards : italianCards;
+
+  if (!isEn) {
+    return (
+      <main id="main-content" className="section-shell bg-[#fafbfc]">
+        <div className={layoutGutterXClass}>
+          <div className={layoutContentMaxClass}>
+            <h1 className={`${fontDisplay.className} reveal-title ${ui.pageTitle} mb-4 sm:mb-6`}>Progetti realizzati</h1>
+            <p className={`reveal-block copy-rhythm mb-8 max-w-none text-pretty sm:mb-14 ${ui.bodyMuted}`}>{progettiIndexIntro}</p>
+            <div className="fine-divider mb-6 sm:mb-10" />
+            <div className="lazy-section grid gap-6 sm:gap-10 md:grid-cols-3">
+              {projectPreview.map((p) => (
+                <Link
+                  key={p.href}
+                  href={localizeHref(p.href, locale)}
+                  className="group block overflow-hidden rounded-2xl border border-[#2a3f54]/10 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition duration-500 hover:-translate-y-0.5 hover:shadow-[0_14px_36px_rgba(42,63,84,0.14)]"
+                >
+                  <div className="relative aspect-[4/3]">
+                    <Image src={p.image} alt={p.alt} fill className="object-cover transition duration-500 group-hover:scale-[1.03]" sizes="(min-width:1024px) 33vw, 100vw" />
+                    <div className="image-unify-overlay" aria-hidden />
+                    <div
+                      className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(to right, rgba(255,255,255,0.12) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px)",
+                        backgroundSize: "28px 28px",
+                      }}
+                    />
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#1f2e3d]/95 to-transparent px-4 py-3 sm:py-4">
+                      <span className={`${fontDisplay.className} text-base tracking-[0.04em] text-white sm:text-lg`}>{p.caption}</span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+            <ContactCtaSection title="Vuoi realizzare un progetto con noi?" description="Dalla fattibilità al cantiere: raccontaci obiettivi, tempi e vincoli del tuo intervento." />
+          </div>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main id="main-content" className="section-shell bg-[#fafbfc]">
       <div className={layoutGutterXClass}>
         <div className={layoutContentMaxClass}>
           <h1 className={`${fontDisplay.className} reveal-title ${ui.pageTitle} mb-4 sm:mb-6`}>{isEn ? "Completed projects" : "Progetti realizzati"}</h1>
-          <p className={`reveal-block copy-rhythm mb-8 max-w-none text-pretty sm:mb-14 ${ui.bodyMuted}`}>{isEn ? "A curated selection of our work across residential, industrial and public-space projects." : "Una selezione dei nostri lavori più significativi suddivisi per ambito di intervento."}</p>
+          <p className={`reveal-block copy-rhythm mb-8 max-w-none text-pretty sm:mb-14 ${ui.bodyMuted}`}>
+            {isEn
+              ? "A curated selection of our work across residential, industrial and public-space projects."
+              : progettiIndexIntro}
+          </p>
           <div className="fine-divider mb-6 sm:mb-10" />
           <div className="lazy-section grid gap-6 sm:gap-10 md:grid-cols-3">
-            {projectCards[locale].map(([title, caption, image, alt, href]) => (
+            {cards.map(([title, caption, image, alt, href]) => (
               <div key={href} className="reveal-block">
                 <ProjectPreviewCard href={localizeHref(href, locale)} title={title} caption={caption} image={image} alt={alt} />
               </div>

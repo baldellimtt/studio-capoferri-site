@@ -268,6 +268,51 @@ export function LocalizedProjectAreaPage({ area }: { area: ProjectArea }) {
   const shared = areaCopy[locale];
   const cases = projectCategories[area].cases;
 
+  if (locale === "it") {
+    const c = projectCategories[area];
+    return (
+      <main id="main-content" className="section-shell bg-[#fafbfc]">
+        <div className={layoutGutterXClass}>
+          <div className={layoutContentMaxClass}>
+            <nav className="reveal-faint mb-6 text-[0.82rem] text-[#666] sm:text-sm" aria-label="Percorso di navigazione">
+              <Link href="/progetti" title={linkTitles.breadcrumbProgetti("it")} className="font-medium text-[#2a3f54] hover:underline">
+                Progetti
+              </Link>
+              <span className="mx-2 text-[#aaa]" aria-hidden>/</span>
+              <span className="text-[#444]">{c.heading}</span>
+            </nav>
+
+            <h1 className={`${fontDisplay.className} reveal-title ${ui.pageTitle} mb-6 sm:mb-8`}>{c.heading}</h1>
+
+            <div className="reveal-block frost-card mb-12 rounded-2xl p-5 sm:p-6 md:p-8">
+              <div className="copy-rhythm text-pretty text-left text-[0.98rem] text-[#444] sm:text-[1.05rem]">{c.intro}</div>
+            </div>
+
+            <h2 className={`${fontDisplay.className} reveal-title ${ui.gallerySectionTitle} mb-6`}>Progetti in evidenza</h2>
+            <div className="lazy-section grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {c.cases.map((p) => (
+                <Link
+                  key={p.slug}
+                  href={p.href}
+                  title={linkTitles.progetto(p.title, "it")}
+                  className="group block overflow-hidden rounded-2xl border border-[#2a3f54]/10 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition duration-500 hover:-translate-y-0.5 hover:shadow-[0_14px_36px_rgba(42,63,84,0.14)]"
+                >
+                  <div className="relative aspect-[4/3]">
+                    <Image src={p.cover} alt={p.alt} fill className="object-cover transition duration-500 group-hover:scale-[1.03]" sizes="(min-width:1024px) 33vw, 100vw" />
+                    <div className="image-unify-overlay" aria-hidden />
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#1f2e3d]/95 to-transparent px-4 py-3 sm:py-4">
+                      <span className={`${fontDisplay.className} text-base tracking-[0.04em] text-white sm:text-lg`}>{p.caption}</span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </main>
+    );
+  }
+
   return (
     <main id="main-content" className="section-shell bg-[#fafbfc]">
       <div className={layoutGutterXClass}>
@@ -306,6 +351,50 @@ export function LocalizedProjectCasePage({ area, slug }: { area: ProjectArea; sl
   const heading = locale === "en" && key in caseCopy.en ? caseCopy.en[key].heading : cs.heading;
   const catHeading = locale === "en" ? areaCopy.en[area].heading : projectCategories[area].heading;
   const body = locale === "en" && key in caseCopy.en ? caseCopy.en[key] : null;
+
+  if (locale === "it") {
+    const cat = projectCategories[area];
+    return (
+      <main id="main-content" className="section-shell bg-[#fafbfc]">
+        <div className={layoutGutterXClass}>
+          <div className={layoutContentMaxClass}>
+            <div className="mx-auto w-full max-w-[900px]">
+              <nav className="reveal-faint mb-6 text-[0.82rem] text-[#666] sm:text-sm" aria-label="Percorso di navigazione">
+                <Link href="/progetti" title={linkTitles.breadcrumbProgetti("it")} className="font-medium text-[#2a3f54] hover:underline">
+                  Progetti
+                </Link>
+                <span className="mx-2 text-[#aaa]" aria-hidden>/</span>
+                <Link href={`/progetti/${area}`} title={linkTitles.breadcrumbArea(cat.heading, "it")} className="font-medium text-[#2a3f54] hover:underline">
+                  {cat.heading}
+                </Link>
+                <span className="mx-2 text-[#aaa]" aria-hidden>/</span>
+                <span className="text-[#444]">{cs.metaTitle}</span>
+              </nav>
+
+              <h1 className={`${fontDisplay.className} reveal-title ${ui.caseStudyTitle} mb-6 sm:mb-8`}>{cs.heading}</h1>
+
+              {cs.externalBrand ? (
+                <div className="reveal-block mb-8 rounded-xl bg-[#2a2a2a] px-4 py-4 text-center">
+                  <a href={cs.externalBrand.href} target="_blank" rel="noopener noreferrer" title={linkTitles.external(cs.externalBrand.imageAlt, "it")} className="inline-block">
+                    <Image src={cs.externalBrand.imageSrc} alt={cs.externalBrand.imageAlt} width={280} height={80} className="mx-auto h-auto max-h-14 w-auto" />
+                  </a>
+                </div>
+              ) : null}
+
+              <div className="lazy-section">
+                <article className="frost-card rounded-2xl p-5 sm:p-7 md:p-8">
+                  <div>{cs.body}</div>
+                </article>
+
+                <ProjectImageLightbox images={cs.gallery} className="mt-10" />
+                <ContactCtaSection title="Hai un progetto simile?" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main id="main-content" className="section-shell bg-[#fafbfc]">
@@ -395,6 +484,112 @@ export function LocalizedSteelLandingPage({ config }: { config: SteelLandingConf
     ],
     url: pageUrl,
   };
+
+  if (!isEn) {
+    const faqJsonLd = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faq.map(([q, a]) => ({
+        "@type": "Question",
+        name: q,
+        acceptedAnswer: { "@type": "Answer", text: a },
+      })),
+    };
+
+    return (
+      <main id="main-content" className="section-shell bg-[#fafbfc]">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+        <div className={layoutGutterXClass}>
+          <div className={layoutContentMaxClass}>
+            <div className="mx-auto w-full max-w-[900px]">
+              <h1 className={`${fontDisplay.className} reveal-title ${ui.pageTitle} mb-6 sm:mb-8`}>
+                Progettazione di strutture in acciaio a {config.city} e in Lombardia
+              </h1>
+
+              <article className="reveal-block frost-card rounded-2xl p-5 sm:p-7 md:p-8">
+                <p className={`copy-rhythm mb-4 ${ui.bodyMuted}`}>{config.introLead}</p>
+                <p className={`copy-rhythm mb-6 ${ui.bodyMuted}`}>
+                  Dal <strong>calcolo strutturale secondo NTC 2018 ed Eurocodici</strong> ai <strong>disegni costruttivi d&apos;officina</strong>, fino alla direzione lavori e al collaudo: seguiamo ogni fase del progetto, dalla prima idea al cantiere.
+                </p>
+                <div className="flex flex-col gap-3 sm:flex-row">
+                  <Link href="/contatti" className={ui.btnPrimary} title={linkTitles.consulenza("it")}>Richiedi una consulenza</Link>
+                  <a href={`tel:${site.phoneTel}`} className={ui.btnOutline} title={linkTitles.telefono(site.phoneDisplay, "it")}>{site.phoneDisplay}</a>
+                </div>
+              </article>
+
+              <div className="lazy-section">
+                <section className="mt-10">
+                  <h2 className={`${fontDisplay.className} ${ui.sectionHeadingAccent} mb-5`}>Perché scegliere una struttura in acciaio</h2>
+                  <div className="frost-card rounded-2xl p-5 sm:p-7 md:p-8">
+                    <ul className="list-none space-y-3 text-[0.95rem] text-[#333] sm:text-[1.02rem]">
+                      <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Resistenza sismica</strong> — leggerezza e duttilità rendono l&apos;acciaio ideale nelle zone sismiche della Lombardia.</li>
+                      <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Tempi di cantiere ridotti</strong> — la carpenteria metallica viene prefabbricata in officina e montata a secco in cantiere.</li>
+                      <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Libertà architettonica</strong> — grandi luci, sbalzi e volumi aperti senza pilastri intermedi.</li>
+                      <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Sopraelevazioni</strong> — il peso contenuto consente di ampliare in altezza edifici esistenti.</li>
+                      <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Sostenibilità</strong> — materiale riciclabile al 100%, perfetto per involucri ad alta efficienza energetica e coperture fotovoltaiche.</li>
+                    </ul>
+                  </div>
+                </section>
+
+                <section className="mt-10">
+                  <h2 className={`${fontDisplay.className} ${ui.sectionHeadingAccent} mb-5`}>Cosa progettiamo: dal residenziale all&apos;industriale</h2>
+                  <div className="frost-card rounded-2xl p-5 sm:p-7 md:p-8">
+                    <p className={`copy-rhythm mb-4 ${ui.bodyMuted}`}>Progettiamo <strong>strutture in acciaio per ogni destinazione d&apos;uso</strong>: ville e residenze private, edifici multipiano, capannoni industriali con carroponte, edifici commerciali e spazi per eventi. Alcuni progetti recenti:</p>
+                    <ul className="list-none space-y-3 text-[0.95rem] text-[#333] sm:text-[1.02rem]">
+                      {config.featuredProjects.map((p) => (
+                        <li key={p.href} className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
+                          <Link href={p.href} title={linkTitles.progetto(p.title, "it")} className="font-semibold text-[#2a3f54] underline underline-offset-2">{p.title}</Link> — {p.description}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </section>
+
+                <section className="mt-10">
+                  <div className="grid gap-6 sm:grid-cols-2">
+                    <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[#2a3f54]/10 shadow-[0_10px_30px_rgba(0,0,0,0.06)]"><Image src={config.heroImage.src} alt={config.heroImage.alt} fill className="object-cover" sizes="(min-width:640px) 50vw, 100vw" /></div>
+                    <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[#2a3f54]/10 shadow-[0_10px_30px_rgba(0,0,0,0.06)]"><Image src={config.secondaryImage.src} alt={config.secondaryImage.alt} fill className="object-cover" sizes="(min-width:640px) 50vw, 100vw" /></div>
+                  </div>
+                </section>
+
+                <section className="mt-10">
+                  <h2 className={`${fontDisplay.className} ${ui.sectionHeadingAccent} mb-5`}>{config.areaHeading}</h2>
+                  <div className="frost-card rounded-2xl p-5 sm:p-7 md:p-8">
+                    <p className={`copy-rhythm mb-4 ${ui.bodyMuted}`}>{config.areaBody}</p>
+                    {config.areaBodySecondary ? <p className={`copy-rhythm ${ui.bodyMuted}`}>{config.areaBodySecondary}</p> : null}
+                  </div>
+                </section>
+
+                <section className="mt-10">
+                  <h2 className={`${fontDisplay.className} ${ui.sectionHeadingAccent} mb-5`}>Domande frequenti sulla progettazione di strutture in acciaio</h2>
+                  <div className="space-y-4">
+                    {faq.map(([q, a]) => (
+                      <div key={q} className="frost-card rounded-2xl p-5 sm:p-6">
+                        <h3 className={`${fontDisplay.className} mb-2 text-lg tracking-[0.04em] text-[#2a2a2a]`}>{q}</h3>
+                        <p className={`copy-rhythm ${ui.bodyMuted}`}>{a}</p>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+
+                <section className="mt-10">
+                  <div className="frost-card rounded-2xl p-5 text-center sm:p-7 md:p-8">
+                    <h2 className={`${fontDisplay.className} ${ui.sectionHeadingAccent} mb-3`}>{config.ctaHeading}</h2>
+                    <p className={`copy-rhythm mx-auto mb-6 max-w-[560px] ${ui.bodyMuted}`}>Raccontaci la tua idea: analizziamo fattibilità, costi e tempi e ti proponiamo la soluzione strutturale più efficiente.</p>
+                    <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
+                      <Link href="/contatti" className={ui.btnPrimary} title={linkTitles.contatti("it")}>Contattaci ora</Link>
+                      <Link href="/servizi" className={ui.btnOutline} title={linkTitles.scopriServizi("it")}>Scopri tutti i servizi</Link>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main id="main-content" className="section-shell bg-[#fafbfc]">

@@ -2,56 +2,64 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { useLocale } from "@/components/LocaleProvider";
 import { ProjectPreviewCard } from "@/components/projects/ProjectPreviewCard";
 import { StatsSection } from "@/components/home/StatsSection";
 import { ServiceIcon } from "@/components/home/ServiceIcons";
+import {
+  certifications as originalCertifications,
+  certificationsIntro as originalCertificationsIntro,
+  contattiIntro as originalContattiIntro,
+  homeChiSiamo,
+  homeProgettiIntro,
+  homeServiceCards,
+  homeServiziIntro,
+  zoneContent,
+  zoneDescription as originalZoneDescription,
+  zoneFooter as originalZoneFooter,
+} from "@/lib/content";
 import { fontDisplay } from "@/lib/fonts";
-import { linkTitles } from "@/lib/link-seo";
-import { localizeHref } from "@/lib/i18n";
 import { homeChiSiamoImages } from "@/lib/images";
+import { localizeHref } from "@/lib/i18n";
+import { linkTitles } from "@/lib/link-seo";
 import { layoutContentMaxClass, layoutGutterXClass, scrollAnchorClass, site } from "@/lib/site";
 import { ui } from "@/lib/ui";
 
 const titleCls = `${fontDisplay.className} section-title home-section-title reveal-title`;
 const titleInvertedCls = `${fontDisplay.className} section-title home-section-title home-section-title--inverted reveal-title`;
 
+type AboutBlock = {
+  text: ReactNode;
+  image: keyof typeof homeChiSiamoImages;
+  imageFirst: boolean;
+};
+
 const copy = {
   it: {
-    aboutTitle: "Chi siamo",
-    aboutBlocks: [
-      "Studio Capoferri è uno studio tecnico ad Adro (Brescia) con oltre quarant'anni di esperienza nella progettazione strutturale, architettonica e urbanistica in Franciacorta e nel Nord Italia.",
-      "Operiamo soprattutto in ambito residenziale e industriale, offrendo soluzioni tecniche avanzate in Lombardia, Veneto, Piemonte, Emilia-Romagna e Toscana, con forte presenza nelle province di Brescia, Bergamo e Milano.",
-    ],
+    aboutTitle: homeChiSiamo.title,
+    aboutBlocks: homeChiSiamo.blocks.map((block, index) => ({
+      text: block.text,
+      image: block.image,
+      imageFirst: index === 0,
+    })) as AboutBlock[],
     servicesTitle: "Servizi",
-    servicesIntro: "Offriamo una gamma completa di servizi di ingegneria, architettura e consulenza tecnica, con soluzioni innovative e conformi alle normative vigenti.",
-    serviceCards: [
-      ["Progettazione strutturale", "Strutture in acciaio, cemento armato e muratura. Analisi FEM, verifiche sismiche e progettazione antincendio.", "/servizi#progettazione-strutturale"],
-      ["Urbanistica e architettura", "Progettazione architettonica, piani attuativi, varianti urbanistiche e analisi di conformità.", "/servizi#urbanistica-architettura"],
-      ["Direzione lavori", "Supervisione tecnica, assistenza in cantiere, verifiche strutturali e relazioni tecniche.", "/servizi#direzione-lavori"],
-      ["Servizi tecnici", "Pratiche edilizie, catastali, Sovrintendenza, collaudi amministrativi e successioni.", "/servizi#servizi-tecnici"],
-      ["Sicurezza cantieri", "Coordinamento sicurezza (CSP/CSE), piani di sicurezza e gestione rischi.", "/servizi#sicurezza-cantieri"],
-      ["Assistenza immobiliare", "Supporto tecnico per compravendite, perizie, stime immobiliari e valutazioni.", "/servizi#assistenza-immobiliare"],
-    ],
+    servicesIntro: homeServiziIntro,
+    serviceCards: homeServiceCards.map((card) => [card.title, card.description, card.href]) as [string, string, string][],
     learnMore: "Scopri di più",
     allServices: "Scopri tutti i nostri servizi",
     projectsTitle: "Progetti",
-    projectsIntro: "Una selezione dei nostri lavori più significativi tra residenziale, industriale e spazi pubblici, con un approccio tecnico calibrato sulle esigenze specifiche di ogni intervento.",
+    projectsIntro: homeProgettiIntro,
     projectsCta: "Esplora tutti i progetti realizzati",
     certificationsTitle: "Abilitazioni professionali",
-    certificationsIntro: "Tutte le attività sono svolte da professionisti in possesso delle abilitazioni richieste dalla normativa di settore.",
-    certifications: [
-      ["Sicurezza cantieri", "Professionisti abilitati per il ruolo di CSP e CSE"],
-      ["Pratiche di prevenzione incendi", "Professionisti iscritti agli elenchi del Ministero dell'Interno ai sensi dell'articolo 16 del decreto legislativo 8 marzo 2006, n. 139"],
-      ["Certificazioni energetiche", "Certificazioni energetiche per redigere l'Attestato di Prestazione Energetica (APE) degli edifici"],
-      ["Software professionali", "Utilizziamo software specialistici per CAD, analisi FEM, calcolo strutturale, modellazione 3D e rendering."],
-    ],
-    zoneTitle: "Dove operiamo",
-    zoneHeading: "Nord e Centro Nord Italia",
-    zoneDescription: "Operiamo in Lombardia, Veneto, Piemonte, Emilia-Romagna e Toscana, con particolare presenza nelle province di Brescia, Bergamo e Milano.",
-    zoneFooter: "Accettiamo commesse in tutta Italia e all'estero. Contattaci per verificare la copertura nella tua zona.",
+    certificationsIntro: originalCertificationsIntro,
+    certifications: originalCertifications.map((item) => [item.title, item.text]) as [string, string][],
+    zoneTitle: zoneContent.title,
+    zoneHeading: zoneContent.heading,
+    zoneDescription: originalZoneDescription,
+    zoneFooter: originalZoneFooter,
     contactsTitle: "Contatti",
-    contactsIntro: "Per informazioni, preventivi o consulenze tecniche, il nostro team è a disposizione per rispondere a ogni vostra esigenza.",
+    contactsIntro: originalContattiIntro,
     office: "Sede",
     phone: "Telefono",
     writeUs: "Scrivici direttamente",
@@ -59,9 +67,17 @@ const copy = {
   en: {
     aboutTitle: "About",
     aboutBlocks: [
-      "Studio Capoferri is a technical practice based in Adro, near Brescia, with more than forty years of experience in structural engineering, architecture and urban planning across Franciacorta and Northern Italy.",
-      "We mainly work in the residential and industrial sectors, delivering advanced technical solutions across Lombardy, Veneto, Piedmont, Emilia-Romagna and Tuscany, with a strong presence in the provinces of Brescia, Bergamo and Milan.",
-    ],
+      {
+        text: "Studio Capoferri is a technical practice based in Adro, near Brescia, with more than forty years of experience in structural engineering, architecture and urban planning across Franciacorta and Northern Italy.",
+        image: "team",
+        imageFirst: false,
+      },
+      {
+        text: "We mainly work in the residential and industrial sectors, delivering advanced technical solutions across Lombardy, Veneto, Piedmont, Emilia-Romagna and Tuscany, with a strong presence in the provinces of Brescia, Bergamo and Milan.",
+        image: "cantiere",
+        imageFirst: true,
+      },
+    ] as AboutBlock[],
     servicesTitle: "Services",
     servicesIntro: "We provide a complete range of engineering, architecture and technical consultancy services, with solutions that are innovative and compliant.",
     serviceCards: [
@@ -71,7 +87,7 @@ const copy = {
       ["Technical services", "Building permits, cadastral filings, heritage authority procedures, administrative testing and inheritance matters.", "/servizi#servizi-tecnici"],
       ["Site safety", "Safety coordination (CSP/CSE), safety plans and risk management.", "/servizi#sicurezza-cantieri"],
       ["Property support", "Technical support for transactions, appraisals, valuations and due diligence.", "/servizi#assistenza-immobiliare"],
-    ],
+    ] as [string, string, string][],
     learnMore: "Learn more",
     allServices: "Explore all services",
     projectsTitle: "Projects",
@@ -84,7 +100,7 @@ const copy = {
       ["Fire prevention", "Professionals listed by the Italian Ministry of the Interior under article 16 of Legislative Decree no. 139 of March 8, 2006"],
       ["Energy certification", "Energy certification services for issuing Building Energy Performance Certificates (APE)"],
       ["Professional software", "We use specialist tools for CAD, FEM analysis, structural design, 3D modelling and rendering."],
-    ],
+    ] as [string, string][],
     zoneTitle: "Where we work",
     zoneHeading: "Northern Italy",
     zoneDescription: "We work across Lombardy, Veneto, Piedmont, Emilia-Romagna and Tuscany, with a particular focus on the provinces of Brescia, Bergamo and Milan.",
@@ -123,22 +139,21 @@ export function LocalizedHomeSections() {
             <div className="home-section-accent" aria-hidden />
           </div>
           <div className="space-y-12 sm:space-y-16 md:space-y-20">
-            {t.aboutBlocks.map((text, idx) => {
-              const img = idx === 0 ? homeChiSiamoImages.team : homeChiSiamoImages.cantiere;
-              const reverse = idx % 2 === 1;
+            {t.aboutBlocks.map((block, idx) => {
+              const img = homeChiSiamoImages[block.image];
               return (
                 <div key={idx} className="reveal-block grid gap-6 sm:gap-10 md:grid-cols-2 md:items-stretch">
-                  {reverse ? (
+                  {block.imageFirst ? (
                     <>
                       <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-[#2a3f54]/10 shadow-[0_10px_30px_rgba(0,0,0,0.08)] md:aspect-auto md:min-h-[300px] md:h-full">
                         <Image src={img.src} alt={img.alt} fill className="object-cover" sizes="(min-width:768px) 50vw, 100vw" />
                         <div className="image-unify-overlay" aria-hidden />
                       </div>
-                      <div className="home-section-body copy-rhythm reading-measure text-[0.98rem] sm:text-[1.05rem]">{text}</div>
+                      <div className="home-section-body copy-rhythm reading-measure text-[0.98rem] sm:text-[1.05rem]">{block.text}</div>
                     </>
                   ) : (
                     <>
-                      <div className="home-section-body copy-rhythm reading-measure text-[0.98rem] sm:text-[1.05rem]">{text}</div>
+                      <div className="home-section-body copy-rhythm reading-measure text-[0.98rem] sm:text-[1.05rem]">{block.text}</div>
                       <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-[#2a3f54]/10 shadow-[0_10px_30px_rgba(0,0,0,0.08)] md:aspect-auto md:min-h-[300px] md:h-full">
                         <Image src={img.src} alt={img.alt} fill className="object-cover" sizes="(min-width:768px) 50vw, 100vw" />
                         <div className="image-unify-overlay" aria-hidden />
@@ -240,7 +255,7 @@ export function LocalizedHomeSections() {
             <div className={ui.iconBox} />
             <div className="min-w-0">
               <h3 className={`${fontDisplay.className} text-lg tracking-[0.04em] text-[#2a3f54] sm:text-xl`}>{t.zoneHeading}</h3>
-              <p className="mt-2 text-[0.88rem] leading-relaxed text-[#555] sm:text-[0.95rem]">{t.zoneFooter}</p>
+              <div className="mt-2 text-[0.88rem] leading-relaxed text-[#555] sm:text-[0.95rem]">{t.zoneFooter}</div>
             </div>
           </div>
         </div>
