@@ -4,13 +4,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import { useLocale } from "@/components/LocaleProvider";
 import { fontDisplay } from "@/lib/fonts";
+import { heroSlides } from "@/lib/images";
+import { chromeCopy, localizeHref } from "@/lib/i18n";
+import { linkTitles } from "@/lib/link-seo";
 import { layoutContentMaxClass } from "@/lib/site";
 import { ui } from "@/lib/ui";
-import { heroSlides } from "@/lib/images";
-import { linkTitles } from "@/lib/link-seo";
 
 export function HeroHome() {
+  const locale = useLocale();
+  const copy = chromeCopy[locale].hero;
   const reduceMotion = useReducedMotion();
   const [i, setI] = useState(0);
   const [extraSlidesReady, setExtraSlidesReady] = useState(false);
@@ -32,7 +36,7 @@ export function HeroHome() {
   return (
     <section
       className="relative min-h-[calc(100svh-72px)] overflow-hidden sm:min-h-[calc(100svh-78px)] md:min-h-[calc(100svh-94px)]"
-      aria-label="Introduzione"
+      aria-label={copy.introLabel}
     >
       <div className={`absolute inset-0 ${ui.brandGradient}`} aria-hidden />
 
@@ -43,9 +47,7 @@ export function HeroHome() {
           return (
             <div
               key={slide.src}
-              className={`absolute inset-0 transition-opacity duration-[1.4s] ease-in-out ${
-                idx === i ? "opacity-100" : "opacity-0"
-              }`}
+              className={`absolute inset-0 transition-opacity duration-[1.4s] ease-in-out ${idx === i ? "opacity-100" : "opacity-0"}`}
             >
               <Image
                 src={slide.src}
@@ -86,10 +88,8 @@ export function HeroHome() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.72, ease: subtleEase }}
         >
-          <p className="eyebrow mb-1 text-white/85 sm:mb-1.5 md:text-sm">
-            Architettura e ingegneria — al servizio dell&apos;innovazione
-          </p>
-          <p className="eyebrow mb-2 text-white/65 sm:mb-3 md:text-sm">Studio tecnico · Adro (BS) · Nord Italia</p>
+          <p className="eyebrow mb-1 text-white/85 sm:mb-1.5 md:text-sm">{copy.eyebrow}</p>
+          <p className="eyebrow mb-2 text-white/65 sm:mb-3 md:text-sm">{copy.location}</p>
           <h1
             className={`${fontDisplay.className} section-title text-[clamp(1.75rem,5.5vw,3.75rem)] text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.5)]`}
             aria-live="polite"
@@ -98,26 +98,21 @@ export function HeroHome() {
             <span className="mt-1 block text-white/95">{s.line2}</span>
           </h1>
           <p className="copy-rhythm reading-measure-tight mt-3 text-pretty text-[0.92rem] text-white/88 sm:text-[0.98rem] md:mt-5 md:ml-auto md:text-lg">
-            Progettazione strutturale, architettura e urbanistica con approccio integrato. Un unico interlocutore dalla
-            fattibilità al cantiere.
+            {copy.body}
           </p>
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: reduceMotion ? 0 : 0.2, duration: 0.55, ease: subtleEase }}
           >
-            <Link href="/contatti#form-contatti" className={`focus-ring mt-6 sm:mt-8 ${ui.btnOnDark}`} title={linkTitles.consulenza}>
-              Richiedi una consulenza
+            <Link href={localizeHref("/contatti#form-contatti", locale)} className={`focus-ring mt-6 sm:mt-8 ${ui.btnOnDark}`} title={linkTitles.consulenza}>
+              {copy.cta}
             </Link>
           </motion.div>
         </motion.div>
 
         {heroSlides.length > 1 ? (
-          <div
-            className="flex items-center justify-start gap-1 md:ml-auto md:justify-end"
-            role="tablist"
-            aria-label="Seleziona slide hero"
-          >
+          <div className="flex items-center justify-start gap-1 md:ml-auto md:justify-end" role="tablist" aria-label={copy.slidePicker}>
             {heroSlides.map((slide, idx) => (
               <button
                 key={slide.src}
@@ -130,11 +125,7 @@ export function HeroHome() {
                 }`}
                 onClick={() => setI(idx)}
               >
-                <span
-                  className={`block h-2.5 w-2.5 rounded-full transition ${
-                    idx === i ? "bg-white" : "bg-white/48 hover:bg-white/70"
-                  }`}
-                />
+                <span className={`block h-2.5 w-2.5 rounded-full transition ${idx === i ? "bg-white" : "bg-white/48 hover:bg-white/70"}`} />
               </button>
             ))}
           </div>

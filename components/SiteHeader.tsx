@@ -4,10 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { fontDisplay } from "@/lib/fonts";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { useLocale } from "@/components/LocaleProvider";
 import { ReadingProgressBar } from "@/components/ReadingProgressBar";
-import { layoutContentMaxClass, layoutGutterXClass, navItems } from "@/lib/site";
+import { fontDisplay } from "@/lib/fonts";
+import { chromeCopy, getNavLabel, localizeHref } from "@/lib/i18n";
 import { linkTitles } from "@/lib/link-seo";
+import { layoutContentMaxClass, layoutGutterXClass, navItems } from "@/lib/site";
 import { ui } from "@/lib/ui";
 
 function isActivePath(pathname: string, href: string) {
@@ -16,7 +19,9 @@ function isActivePath(pathname: string, href: string) {
 }
 
 export function SiteHeader() {
-  const pathname = usePathname();
+  const pathname = usePathname() || "/";
+  const locale = useLocale();
+  const copy = chromeCopy[locale].header;
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const mobileNavRef = useRef<HTMLDivElement>(null);
@@ -67,9 +72,7 @@ export function SiteHeader() {
       if (!root) return;
 
       const focusable = Array.from(
-        root.querySelectorAll<HTMLElement>(
-          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
-        )
+        root.querySelectorAll<HTMLElement>('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')
       ).filter((el) => el.getClientRects().length > 0);
 
       if (focusable.length === 0) return;
@@ -112,10 +115,10 @@ export function SiteHeader() {
       >
         <div className={layoutGutterXClass}>
           <div className={`flex h-[72px] items-center justify-between sm:h-[78px] md:h-[94px] ${layoutContentMaxClass}`}>
-            <Link href="/" className="focus-ring flex shrink-0 items-center" title={linkTitles.home}>
+            <Link href={localizeHref("/", locale)} className="focus-ring flex shrink-0 items-center" title={linkTitles.home}>
               <Image
                 src="/assets/logo-studio-ingegneria-removebg-preview.png"
-                alt="Studio Capoferri — ingegneria e progettazione strutturale"
+                alt="Studio Capoferri - ingegneria e progettazione strutturale"
                 width={220}
                 height={70}
                 className="h-[46px] w-auto sm:h-[52px] md:h-[70px]"
@@ -123,29 +126,34 @@ export function SiteHeader() {
               />
             </Link>
 
-            <nav className="hidden shrink-0 md:block" aria-label="Menu principale">
-              <ul className="flex items-center gap-6 lg:gap-8">
-                {navItems.map((item) => {
-                  const active = isActivePath(pathname, item.href);
-                  return (
-                    <li key={item.href}>
-                      <Link
-                        href={item.href}
-                        className={`focus-ring ${fontDisplay.className} rounded-full px-3 py-2 text-[1.05rem] uppercase tracking-[0.12em] transition-all duration-250 lg:text-[1.24rem] ${
-                          active
-                            ? "bg-[#2a3f54]/10 text-[#2a3f54]"
-                            : "text-[#2a2a2a] hover:-translate-y-0.5 hover:bg-[#2a3f54]/12 hover:text-[#1f2e3d] hover:shadow-[0_10px_24px_rgba(42,63,84,0.12)] focus-visible:-translate-y-0.5 focus-visible:bg-[#2a3f54]/12 focus-visible:text-[#1f2e3d] focus-visible:shadow-[0_10px_24px_rgba(42,63,84,0.12)]"
-                        }`}
-                        aria-current={active ? "page" : undefined}
-                        title={linkTitles.nav(item.label)}
-                      >
-                        {item.label}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </nav>
+            <div className="hidden items-center gap-4 md:flex">
+              <nav className="shrink-0" aria-label={copy.mainMenu}>
+                <ul className="flex items-center gap-6 lg:gap-8">
+                  {navItems.map((item) => {
+                    const active = isActivePath(pathname, localizeHref(item.href, locale));
+                    const label = getNavLabel(locale, item.key);
+
+                    return (
+                      <li key={item.href}>
+                        <Link
+                          href={localizeHref(item.href, locale)}
+                          className={`focus-ring ${fontDisplay.className} rounded-full px-3 py-2 text-[1.05rem] uppercase tracking-[0.12em] transition-all duration-250 lg:text-[1.24rem] ${
+                            active
+                              ? "bg-[#2a3f54]/10 text-[#2a3f54]"
+                              : "text-[#2a2a2a] hover:-translate-y-0.5 hover:bg-[#2a3f54]/12 hover:text-[#1f2e3d] hover:shadow-[0_10px_24px_rgba(42,63,84,0.12)] focus-visible:-translate-y-0.5 focus-visible:bg-[#2a3f54]/12 focus-visible:text-[#1f2e3d] focus-visible:shadow-[0_10px_24px_rgba(42,63,84,0.12)]"
+                          }`}
+                          aria-current={active ? "page" : undefined}
+                          title={linkTitles.nav(label)}
+                        >
+                          {label}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </nav>
+              <LanguageSwitcher />
+            </div>
 
             <button
               ref={menuButtonRef}
@@ -153,16 +161,12 @@ export function SiteHeader() {
               className="focus-ring flex h-11 w-11 shrink-0 flex-col items-center justify-center gap-1.5 rounded-md border border-[#2a3f54]/15 bg-white/70 shadow-sm md:hidden"
               aria-expanded={open}
               aria-controls="mobile-nav"
-              aria-label={open ? "Chiudi menu" : "Apri menu"}
+              aria-label={open ? copy.closeMenu : copy.openMenu}
               onClick={() => setOpen((v) => !v)}
             >
-              <span
-                className={`block h-0.5 w-7 rounded bg-[#2a3f54] transition ${open ? "translate-y-2 rotate-45" : ""}`}
-              />
+              <span className={`block h-0.5 w-7 rounded bg-[#2a3f54] transition ${open ? "translate-y-2 rotate-45" : ""}`} />
               <span className={`block h-0.5 w-7 rounded bg-[#2a3f54] transition ${open ? "opacity-0" : ""}`} />
-              <span
-                className={`block h-0.5 w-7 rounded bg-[#2a3f54] transition ${open ? "-translate-y-2 -rotate-45" : ""}`}
-              />
+              <span className={`block h-0.5 w-7 rounded bg-[#2a3f54] transition ${open ? "-translate-y-2 -rotate-45" : ""}`} />
             </button>
           </div>
         </div>
@@ -180,24 +184,32 @@ export function SiteHeader() {
         <div className={`flex flex-1 items-center justify-center overflow-y-auto ${layoutGutterXClass}`}>
           <ul className={`${layoutContentMaxClass} flex flex-col gap-3 py-8`}>
             {navItems.map((item) => {
-              const active = isActivePath(pathname, item.href);
+              const label = getNavLabel(locale, item.key);
+              const href = localizeHref(item.href, locale);
+              const active = isActivePath(pathname, href);
+
               return (
                 <li key={item.href}>
                   <Link
-                    href={item.href}
+                    href={href}
                     className={`focus-ring ${fontDisplay.className} block min-h-[48px] py-5 text-center text-2xl uppercase tracking-[0.14em] transition sm:text-3xl ${
                       active ? "text-white" : "text-white/90 hover:text-white/80"
                     }`}
                     aria-current={active ? "page" : undefined}
-                    title={linkTitles.nav(item.label)}
+                    title={linkTitles.nav(label)}
                     onClick={closeMenu}
                   >
-                    {item.label}
+                    {label}
                   </Link>
                 </li>
               );
             })}
           </ul>
+        </div>
+        <div className="px-4 pb-8 sm:px-5">
+          <div className={`${layoutContentMaxClass} flex justify-center`}>
+            <LanguageSwitcher onNavigate={closeMenu} />
+          </div>
         </div>
       </div>
     </>

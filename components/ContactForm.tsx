@@ -1,7 +1,9 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
 import Link from "next/link";
+import { useCallback, useMemo, useState } from "react";
+import { useLocale } from "@/components/LocaleProvider";
+import { chromeCopy, localizeHref } from "@/lib/i18n";
 import { linkTitles } from "@/lib/link-seo";
 import { site } from "@/lib/site";
 import { ui } from "@/lib/ui";
@@ -9,6 +11,8 @@ import { ui } from "@/lib/ui";
 type FieldErrors = Partial<Record<"name" | "email" | "message" | "privacy", string>>;
 
 export function ContactForm() {
+  const locale = useLocale();
+  const copy = chromeCopy[locale].contactForm;
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
@@ -20,12 +24,12 @@ export function ContactForm() {
 
   const errors: FieldErrors = useMemo(() => {
     const e: FieldErrors = {};
-    if (touched.name && name.trim().length < 2) e.name = "Inserisci nome e cognome.";
-    if (touched.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) e.email = "Email non valida.";
-    if (touched.message && message.trim().length < 10) e.message = "Messaggio troppo breve (min. 10 caratteri).";
-    if (touched.privacy && !privacy) e.privacy = "Accetta la privacy per inviare.";
+    if (touched.name && name.trim().length < 2) e.name = copy.errors.name;
+    if (touched.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) e.email = copy.errors.email;
+    if (touched.message && message.trim().length < 10) e.message = copy.errors.message;
+    if (touched.privacy && !privacy) e.privacy = copy.errors.privacy;
     return e;
-  }, [name, email, message, privacy, touched]);
+  }, [copy.errors.email, copy.errors.message, copy.errors.name, copy.errors.privacy, email, message, name, privacy, touched]);
 
   const valid =
     name.trim().length >= 2 &&
@@ -50,7 +54,7 @@ export function ContactForm() {
             name,
             _replyto: email,
             email,
-            subject: subject || "(nessun oggetto)",
+            subject: subject || copy.noSubject,
             city: city || "",
             message,
           }),
@@ -64,18 +68,20 @@ export function ContactForm() {
           setMessage("");
           setPrivacy(false);
           setTouched({});
-        } else setStatus("error");
+        } else {
+          setStatus("error");
+        }
       } catch {
         setStatus("error");
       }
     },
-    [valid, name, email, subject, city, message]
+    [city, copy.noSubject, email, message, name, subject, valid]
   );
 
   if (status === "success") {
     return (
       <p className="w-full rounded-lg border border-[#2a3f54]/20 bg-white/60 px-4 py-6 text-[#2a3f54]" role="status">
-        Messaggio inviato. Ti risponderemo al più presto.
+        {copy.success}
       </p>
     );
   }
@@ -84,7 +90,7 @@ export function ContactForm() {
     <form onSubmit={onSubmit} className="grid w-full gap-3 sm:gap-4 md:grid-cols-2" noValidate>
       <div>
         <label htmlFor="name" className="mb-1 block text-sm font-medium text-[#333]">
-          Nome e cognome <span className="text-red-700">*</span>
+          {copy.name} <span className="text-red-700">*</span>
         </label>
         <input
           id="name"
@@ -97,16 +103,12 @@ export function ContactForm() {
           aria-invalid={!!errors.name}
           aria-describedby={errors.name ? "err-name" : undefined}
         />
-        {errors.name ? (
-          <p id="err-name" className="mt-1 text-sm text-red-700">
-            {errors.name}
-          </p>
-        ) : null}
+        {errors.name ? <p id="err-name" className="mt-1 text-sm text-red-700">{errors.name}</p> : null}
       </div>
 
       <div>
         <label htmlFor="email" className="mb-1 block text-sm font-medium text-[#333]">
-          Email <span className="text-red-700">*</span>
+          {copy.email} <span className="text-red-700">*</span>
         </label>
         <input
           id="email"
@@ -120,34 +122,24 @@ export function ContactForm() {
           aria-invalid={!!errors.email}
           aria-describedby={errors.email ? "err-email" : undefined}
         />
-        {errors.email ? (
-          <p id="err-email" className="mt-1 text-sm text-red-700">
-            {errors.email}
-          </p>
-        ) : null}
+        {errors.email ? <p id="err-email" className="mt-1 text-sm text-red-700">{errors.email}</p> : null}
       </div>
 
       <div>
         <label htmlFor="subject" className="mb-1 block text-sm font-medium text-[#333]">
-          Oggetto
+          {copy.subject}
         </label>
-        <input
-          id="subject"
-          name="subject"
-          value={subject}
-          onChange={(e) => setSubject(e.target.value)}
-          className={ui.inputField}
-        />
+        <input id="subject" name="subject" value={subject} onChange={(e) => setSubject(e.target.value)} className={ui.inputField} />
       </div>
 
       <div>
         <label htmlFor="city" className="mb-1 block text-sm font-medium text-[#333]">
-          Città / zona di interesse
+          {copy.city}
         </label>
         <input
           id="city"
           name="city"
-          placeholder="Es. Brescia, Bergamo, Milano"
+          placeholder={copy.cityPlaceholder}
           value={city}
           onChange={(e) => setCity(e.target.value)}
           className={ui.inputField}
@@ -156,7 +148,7 @@ export function ContactForm() {
 
       <div className="md:col-span-2">
         <label htmlFor="message" className="mb-1 block text-sm font-medium text-[#333]">
-          Messaggio <span className="text-red-700">*</span>
+          {copy.message} <span className="text-red-700">*</span>
         </label>
         <textarea
           id="message"
@@ -169,11 +161,7 @@ export function ContactForm() {
           aria-invalid={!!errors.message}
           aria-describedby={errors.message ? "err-msg" : undefined}
         />
-        {errors.message ? (
-          <p id="err-msg" className="mt-1 text-sm text-red-700">
-            {errors.message}
-          </p>
-        ) : null}
+        {errors.message ? <p id="err-msg" className="mt-1 text-sm text-red-700">{errors.message}</p> : null}
       </div>
 
       <div className="flex items-start gap-3 md:col-span-2">
@@ -189,31 +177,23 @@ export function ContactForm() {
           aria-describedby={errors.privacy ? "err-privacy" : undefined}
         />
         <label htmlFor="privacy" className="text-[0.82rem] text-[#444] sm:text-sm">
-          Ho letto e accetto la{" "}
-          <Link href="/privacy-policy" title={linkTitles.privacy} className="font-semibold text-[#2a3f54] underline underline-offset-2">
-            privacy policy
+          {copy.privacyLead}{" "}
+          <Link href={localizeHref("/privacy-policy", locale)} title={linkTitles.privacy} className="font-semibold text-[#2a3f54] underline underline-offset-2">
+            {copy.privacyLink}
           </Link>
           . <span className="text-red-700">*</span>
         </label>
       </div>
-      {errors.privacy ? (
-        <p id="err-privacy" className="text-sm text-red-700 md:col-span-2">
-          {errors.privacy}
-        </p>
-      ) : null}
+      {errors.privacy ? <p id="err-privacy" className="text-sm text-red-700 md:col-span-2">{errors.privacy}</p> : null}
 
       {status === "error" ? (
         <p className="text-sm text-red-700 md:col-span-2" role="alert">
-          Invio non riuscito. Riprova o scrivi a {site.email}.
+          {copy.error} {site.email}.
         </p>
       ) : null}
 
-      <button
-        type="submit"
-        disabled={status === "submitting"}
-        className={`${ui.btnPrimary} w-full sm:w-fit md:col-span-2`}
-      >
-        {status === "submitting" ? "Invio in corso…" : "Invia messaggio"}
+      <button type="submit" disabled={status === "submitting"} className={`${ui.btnPrimary} w-full sm:w-fit md:col-span-2`}>
+        {status === "submitting" ? copy.submitting : copy.submit}
       </button>
     </form>
   );
