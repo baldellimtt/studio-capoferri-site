@@ -115,8 +115,10 @@ export function SiteHeader() {
                     <li key={item.href}>
                       <Link
                         href={item.href}
-                        className={`focus-ring ${fontDisplay.className} text-[1.05rem] uppercase tracking-[0.12em] transition lg:text-[1.24rem] ${
-                          active ? "text-[#2a3f54]" : "text-[#2a2a2a] hover:text-[#2a3f54]"
+                        className={`focus-ring ${fontDisplay.className} rounded-full px-3 py-2 text-[1.05rem] uppercase tracking-[0.12em] transition-all duration-250 lg:text-[1.24rem] ${
+                          active
+                            ? "bg-[#2a3f54]/10 text-[#2a3f54]"
+                            : "text-[#2a2a2a] hover:-translate-y-0.5 hover:bg-[#2a3f54]/12 hover:text-[#1f2e3d] hover:shadow-[0_10px_24px_rgba(42,63,84,0.12)]"
                         }`}
                         aria-current={active ? "page" : undefined}
                         title={linkTitles.nav(item.label)}
