@@ -114,7 +114,7 @@ export function HeroHome() {
 
         {heroSlides.length > 1 ? (
           <div
-            className="flex items-center justify-start gap-2 md:ml-auto md:justify-end"
+            className="flex items-center justify-start gap-1 md:ml-auto md:justify-end"
             role="tablist"
             aria-label="Seleziona slide hero"
           >
@@ -125,11 +125,17 @@ export function HeroHome() {
                 role="tab"
                 aria-selected={idx === i}
                 aria-label={`Slide ${idx + 1}: ${slide.line1}`}
-                className={`focus-ring h-2.5 w-2.5 rounded-full transition ${
-                  idx === i ? "bg-white" : "bg-white/40 hover:bg-white/65"
+                className={`focus-ring inline-flex h-11 w-11 items-center justify-center rounded-full transition ${
+                  idx === i ? "bg-white/16" : "bg-white/6 hover:bg-white/12"
                 }`}
                 onClick={() => setI(idx)}
-              />
+              >
+                <span
+                  className={`block h-2.5 w-2.5 rounded-full transition ${
+                    idx === i ? "bg-white" : "bg-white/48 hover:bg-white/70"
+                  }`}
+                />
+              </button>
             ))}
           </div>
         ) : null}

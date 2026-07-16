@@ -8,7 +8,7 @@
   --accent: #3d5a7a;
   --muted: #fafbfc;
   /* Corpo testo sezioni home / intro (unificato con blocchi Chi siamo) */
-  --copy-body: #333333;
+  --copy-body: #262626;
   --section-space-y: clamp(4.5rem, 7vw, 6.2rem);
   --section-space-y-mobile: 4rem;
   --content-gap: clamp(1.1rem, 1.8vw, 1.5rem);
@@ -177,6 +177,7 @@ body::before {
   line-height: 1.75;
   letter-spacing: 0.008em;
   color: var(--copy-body);
+  font-weight: 450;
   text-wrap: pretty;
 }
 
@@ -209,7 +210,7 @@ body::before {
   font-size: clamp(1.65rem, 1.15rem + 1.35vw, 2.35rem);
   line-height: 1.07;
   letter-spacing: 0.042em;
-  color: #2a2a2a;
+  color: #1f252b;
   text-wrap: balance;
 }
 
@@ -227,6 +228,12 @@ body::before {
 
 .home-section-body {
   color: var(--copy-body);
+}
+
+.home-section-body strong,
+.home-split-header__right strong,
+.home-section-prose strong {
+  color: #161c22;
 }
 
 .home-section-prose {
@@ -410,7 +417,7 @@ body::before {
 
 @keyframes reveal-soft {
   from {
-    opacity: 0.65;
+    opacity: 1;
     transform: translateY(10px);
   }
   to {
@@ -421,7 +428,7 @@ body::before {
 
 @keyframes reveal-faint {
   from {
-    opacity: 0.82;
+    opacity: 1;
   }
   to {
     opacity: 1;

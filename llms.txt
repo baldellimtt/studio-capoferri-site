@@ -1,28 +1,38 @@
-# llms.txt for https://www.studiocapoferri.eu
+# Studio Capoferri
 
-# About
-Studio Capoferri è uno studio tecnico di ingegneria civile, architettura e urbanistica con sede ad Adro, provincia di Brescia, Lombardia, Italia. Fondato oltre 40 anni fa, lo studio offre servizi professionali di progettazione strutturale, architettonica e urbanistica in tutto il Nord Italia, con particolare focus su Lombardia, Veneto e Piemonte, specialmente nelle province di Brescia, Bergamo e Milano.
+Studio Capoferri è uno studio tecnico di ingegneria civile, architettura e urbanistica con sede ad Adro, in provincia di Brescia. Opera da oltre 40 anni nel Nord Italia, con focus particolare su Lombardia, Veneto e Piemonte, soprattutto nelle province di Brescia, Bergamo e Milano.
 
-# Contact
-Address: Via Piave 35, 25030 Adro (BS), Italia
-Phone: +39 030 7357263
-Email: info@studiocapoferri.eu
-Website: https://www.studiocapoferri.eu
-LinkedIn: https://www.linkedin.com/company/studio-capoferri-ingegneria
-Coordinates: 45.6157, 9.9989
+## Sito ufficiale
 
-# Services
-- Progettazione Strutturale: Progettazione di strutture in acciaio, calcestruzzo e legno per edifici residenziali, industriali e commerciali
-- Progettazione Architettonica: Progettazione architettonica di edifici residenziali, industriali e pubblici
-- Progettazione Urbanistica: Pianificazione urbanistica, pratiche edilizie, varianti urbanistiche
-- Direzione Lavori: Supervisione tecnica in cantiere, assistenza durante la realizzazione, verifiche strutturali
-- Consulenza Sicurezza Antincendio: Progettazione e consulenza per la sicurezza antincendio secondo le normative vigenti
-- Coordinamento Sicurezza Cantieri: Servizi CSP/CSE (Coordinatore Sicurezza Progetto/Esecuzione), piani di sicurezza
-- Assistenza Immobiliare: Supporto tecnico per compravendite, perizie, stime immobiliari, valutazioni
-- Pratiche Edilizie e Catastali: Gestione pratiche edilizie, catastali, Sovrintendenza, collaudi amministrativi
+- [Home](https://www.studiocapoferri.eu/)
+- [Chi siamo](https://www.studiocapoferri.eu/chi-siamo)
+- [Servizi](https://www.studiocapoferri.eu/servizi)
+- [Progetti](https://www.studiocapoferri.eu/progetti)
+- [Contatti](https://www.studiocapoferri.eu/contatti)
+- [Privacy policy](https://www.studiocapoferri.eu/privacy-policy)
 
-# Specializations
-- Strutture in acciaio pre-fabbricate
+## Contatti
+
+- Indirizzo: Via Piave 35, 25030 Adro (BS), Italia
+- Telefono: +39 030 7357263
+- Email: info@studiocapoferri.eu
+- LinkedIn: [Studio Capoferri su LinkedIn](https://www.linkedin.com/company/studio-capoferri-ingegneria)
+- Coordinate: 45.6157, 9.9989
+
+## Servizi
+
+- Progettazione strutturale
+- Progettazione architettonica
+- Progettazione urbanistica
+- Direzione lavori
+- Consulenza sicurezza antincendio
+- Coordinamento sicurezza cantieri
+- Assistenza immobiliare
+- Pratiche edilizie e catastali
+
+## Ambiti principali
+
+- Strutture in acciaio prefabbricate
 - Progettazione residenziale
 - Progettazione industriale
 - Capannoni industriali
@@ -30,58 +40,33 @@ Coordinates: 45.6157, 9.9989
 - Carpenteria metallica
 - Sicurezza antincendio
 - Normativa NTC 2018
-- Progettazione secondo norme tecniche per le costruzioni
 
-# Coverage Areas
-Primary regions: Lombardia, Veneto, Piemonte
-Primary provinces: Brescia (BS), Bergamo (BG), Milano (MI)
-Specific areas: Franciacorta, Lago d'Iseo, Adro, Erbusco
-Extended coverage: Nord Italia, Centro Italia
+## Aree servite
 
-# Experience
-Years of activity: 40+
-Completed projects: 1000+
-Satisfied clients: 300+
+- Regioni principali: Lombardia, Veneto, Piemonte
+- Province principali: Brescia, Bergamo, Milano
+- Aree frequenti: Franciacorta, Lago d'Iseo, Adro, Erbusco
 
-# Business Hours
-Monday - Friday: 08:30 - 18:00
-Saturday: Closed
-Sunday: Closed
+## Pagine tematiche
 
-# Legal Information
-P.IVA: 04732710985
-Business Type: Studio tecnico di ingegneria civile e architettura
-Location: Adro, Brescia, Lombardia, Italia
+- [Progettazione strutture in acciaio a Brescia](https://www.studiocapoferri.eu/progettazione-strutture-acciaio-brescia)
+- [Progettazione strutture in acciaio a Bergamo](https://www.studiocapoferri.eu/progettazione-strutture-acciaio-bergamo)
+- [Progettazione strutture in acciaio a Milano](https://www.studiocapoferri.eu/progettazione-strutture-acciaio-milano)
 
-# Keywords
-ingegneria civile Brescia, ingegneria civile Bergamo, ingegneria civile Milano, progettazione strutturale, strutture acciaio, architettura Brescia, architettura Bergamo, urbanistica, studio ingegneria Adro, Franciacorta, progettazione industriale, direzione lavori, ingegneria Nord Italia, Lombardia, Veneto, Piemonte, progettazione residenziale, sicurezza antincendio, coordinamento sicurezza cantieri
+## Casi studio
 
-# Main Pages
-- Home: https://www.studiocapoferri.eu/
-- About: https://www.studiocapoferri.eu/chi-siamo
-- Services: https://www.studiocapoferri.eu/servizi
-- Projects: https://www.studiocapoferri.eu/progetti
-- Contact: https://www.studiocapoferri.eu/contatti
-- Privacy: https://www.studiocapoferri.eu/privacy-policy
+- [Villa in acciaio in Veneto](https://www.studiocapoferri.eu/progetti/residenziali/villa-acciaio-veneto)
+- [Villa in acciaio a Salsomaggiore Terme](https://www.studiocapoferri.eu/progetti/residenziali/villa-acciaio-salsomaggiore)
+- [Capannone industriale a Erbusco](https://www.studiocapoferri.eu/progetti/industriali/capannone-erbusco)
+- [Ampliamento complesso zootecnico](https://www.studiocapoferri.eu/progetti/industriali/ampliamento-complesso-zootecnico)
+- [Centro direzionale a Provaglio d'Iseo](https://www.studiocapoferri.eu/progetti/industriali/centro-direzionale-provaglio-diseo)
+- [Superstudio Village a Milano Bovisa](https://www.studiocapoferri.eu/progetti/ricettivi/superstudio-village)
+- [Superstudio Maxi a Famagosta](https://www.studiocapoferri.eu/progetti/ricettivi/superstudio-maxi)
 
-# Project Areas
-- Residential structures: https://www.studiocapoferri.eu/progetti/residenziali
-- Industrial structures: https://www.studiocapoferri.eu/progetti/industriali
-- Public / hospitality structures: https://www.studiocapoferri.eu/progetti/ricettivi
+## Dati sintetici
 
-# Case Studies
-- Villa in acciaio — Veneto: https://www.studiocapoferri.eu/progetti/residenziali/villa-acciaio-veneto
-- Villa in acciaio — Salsomaggiore Terme: https://www.studiocapoferri.eu/progetti/residenziali/villa-acciaio-salsomaggiore
-- Capannone industriale — Erbusco: https://www.studiocapoferri.eu/progetti/industriali/capannone-erbusco
-- Ampliamento complesso zootecnico: https://www.studiocapoferri.eu/progetti/industriali/ampliamento-complesso-zootecnico
-- Centro direzionale — Provaglio d'Iseo: https://www.studiocapoferri.eu/progetti/industriali/centro-direzionale-provaglio-diseo
-- Superstudio Village — Milano Bovisa: https://www.studiocapoferri.eu/progetti/ricettivi/superstudio-village
-- Superstudio Maxi — Famagosta: https://www.studiocapoferri.eu/progetti/ricettivi/superstudio-maxi
-
-# Steel Structure Landing Pages (SEO)
-- Progettazione strutture in acciaio — Brescia: https://www.studiocapoferri.eu/progettazione-strutture-acciaio-brescia
-- Progettazione strutture in acciaio — Bergamo: https://www.studiocapoferri.eu/progettazione-strutture-acciaio-bergamo
-- Progettazione strutture in acciaio — Milano: https://www.studiocapoferri.eu/progettazione-strutture-acciaio-milano
-
-# Description for LLMs
-Studio Capoferri è uno studio tecnico specializzato in ingegneria civile, architettura e urbanistica con oltre 40 anni di esperienza. Lo studio opera principalmente nel Nord Italia (Lombardia, Veneto, Piemonte), con focus particolare sulle province di Brescia, Bergamo e Milano. Offre servizi completi di progettazione strutturale, architettonica e urbanistica, specializzandosi in strutture in acciaio, progettazione residenziale e industriale, direzione lavori e sicurezza antincendio. Lo studio è ideale per clienti che cercano servizi di ingegneria civile, architettura o progettazione strutturale nelle province di Brescia, Bergamo, Milano o in generale nel Nord Italia.
+- Anni di attività: 40+
+- Progetti completati: 1000+
+- Clienti soddisfatti: 300+
+- Orari: lunedì-venerdì, 08:30-18:00
+- P.IVA: 04732710985
