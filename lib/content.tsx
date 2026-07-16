@@ -143,7 +143,7 @@ export const zoneDescription = (
 export const zoneFooter = (
   <>
     Accettiamo commesse in tutta Italia e all&apos;estero. Serviamo anche altre province del Nord e Centro Nord Italia.{" "}
-    <Link href="/#form-contatti" title="Contattaci — Studio Capoferri" className="font-semibold text-[#2a3f54] underline underline-offset-2">
+    <Link href="/contatti#form-contatti" title="Contattaci — Studio Capoferri" className="font-semibold text-[#2a3f54] underline underline-offset-2">
       Contattaci
     </Link>{" "}
     per verificare la copertura nella tua zona, oppure consulta le nostre pagine dedicate alla{" "}

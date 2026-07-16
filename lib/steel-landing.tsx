@@ -114,7 +114,7 @@ export function SteelLandingPage({ config }: { config: SteelLandingConfig }) {
                 prima idea al cantiere.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row">
-                <Link href="/#form-contatti" className={ui.btnPrimary} title={linkTitles.consulenza}>
+                <Link href="/contatti#form-contatti" className={ui.btnPrimary} title={linkTitles.consulenza}>
                   Richiedi una consulenza
                 </Link>
                 <a href={`tel:${site.phoneTel}`} className={ui.btnOutline} title={linkTitles.telefono(site.phoneDisplay)}>
@@ -226,7 +226,7 @@ export function SteelLandingPage({ config }: { config: SteelLandingConfig }) {
                     Raccontaci la tua idea: analizziamo fattibilità, costi e tempi e ti proponiamo la soluzione strutturale più efficiente.
                   </p>
                   <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
-                    <Link href="/#form-contatti" className={ui.btnPrimary} title={linkTitles.contatti}>
+                    <Link href="/contatti#form-contatti" className={ui.btnPrimary} title={linkTitles.contatti}>
                       Contattaci ora
                     </Link>
                     <Link href="/servizi" className={ui.btnOutline} title={linkTitles.scopriServizi}>

@@ -17,7 +17,6 @@ import { homeChiSiamoImages, projectPreview } from "@/lib/images";
 import { layoutContentMaxClass, layoutGutterXClass, scrollAnchorClass, site } from "@/lib/site";
 import { linkTitles } from "@/lib/link-seo";
 import { ui } from "@/lib/ui";
-import { ContactForm } from "@/components/ContactForm";
 import { ProjectPreviewCard } from "@/components/projects/ProjectPreviewCard";
 import { ServiceIcon } from "./ServiceIcons";
 import { StatsSection } from "./StatsSection";
@@ -251,15 +250,11 @@ export function HomeSections() {
               <p className="text-[0.88rem] leading-relaxed text-[#555] sm:text-[0.95rem]">{site.addressLine}</p>
             </article>
           </div>
-          <section id="form-contatti" className={`reveal-block mt-8 sm:mt-12 ${scrollAnchorClass}`}>
-            <div className="frost-card rounded-2xl p-5 sm:p-7 md:p-8">
-              <h3 className={`${fontDisplay.className} ${ui.cardHeading} mb-2 sm:mb-3`}>Scrivici direttamente</h3>
-              <p className={`copy-rhythm mb-6 w-full sm:mb-8 ${ui.bodyMuted}`}>
-                Compila il form con i dettagli del tuo intervento. Riceverai un riscontro tecnico puntuale dal nostro team.
-              </p>
-              <ContactForm />
-            </div>
-          </section>
+          <p className="mt-8 sm:mt-12">
+            <Link href="/contatti#form-contatti" className={`${ui.btnOutline} inline-flex w-full sm:w-auto`} title={linkTitles.formContatti}>
+              Scrivici direttamente
+            </Link>
+          </p>
         </div>
       </section>
     </>
