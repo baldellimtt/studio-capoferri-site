@@ -33,10 +33,10 @@ export function ContactCtaSection({
         <h2 className={`${fontDisplay.className} ${ui.sectionHeadingAccent} mb-3`}>{resolvedTitle}</h2>
         <p className={`copy-rhythm mx-auto mb-6 max-w-[560px] ${ui.bodyMuted}`}>{resolvedDescription}</p>
         <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <Link href={localizeHref("/contatti#form-contatti", locale)} className={ui.btnPrimary} title={linkTitles.consulenza}>
+          <Link href={localizeHref("/contatti#form-contatti", locale)} className={ui.btnPrimary} title={linkTitles.consulenza(locale)}>
             {copy.requestConsultation}
           </Link>
-          <Link href={localizeHref("/servizi#progettazione-strutturale", locale)} className={ui.btnOutline} title={linkTitles.servizio("Progettazione strutturale")}>
+          <Link href={localizeHref("/servizi#progettazione-strutturale", locale)} className={ui.btnOutline} title={linkTitles.servizio(locale === "en" ? "Structural design" : "Progettazione strutturale", locale)}>
             {copy.discoverServices}
           </Link>
         </div>

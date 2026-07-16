@@ -23,35 +23,6 @@ const englishProjectCards = [
   ["Public-space structures", "Public-space structures", "/assets/progetto-ricettivo.webp", "Event venue structural design project", "/progetti/ricettivi"],
 ] as const;
 
-const englishServices = {
-  intro:
-    "Studio Capoferri provides integrated engineering, architecture and technical consultancy services across every project phase, from feasibility and approvals to site execution and final verification.",
-  structural: [
-    "We design steel, reinforced-concrete and masonry structures for residential, industrial and public-space projects, with FEM modelling, seismic verification and fire engineering support.",
-    "Our scope includes preliminary studies, executive structural calculations, fabrication detailing and coordination with the architectural and MEP design team.",
-  ],
-  planning: [
-    "We handle architectural design, planning studies, implementation plans, planning amendments and compliance reviews for new buildings, refurbishments and extensions.",
-    "Each proposal is developed to balance buildability, regulatory compliance and the intended identity of the project.",
-  ],
-  supervision: [
-    "We provide construction supervision, site assistance and technical coordination during execution, helping clients and contractors manage decisions, timing and quality control.",
-    "This also includes assessments on existing buildings, technical reports and support during critical site phases.",
-  ],
-  technical: [
-    "We assist with building permits, cadastral filings, heritage authority procedures, administrative testing, energy certificates and technical documentation required for approvals.",
-    "The objective is to keep the administrative path aligned with the real construction programme and reduce procedural friction.",
-  ],
-  safety: [
-    "We manage site safety during both design and execution, including CSP/CSE roles, safety plans, coordination meetings and risk-management procedures.",
-    "Our approach integrates safety requirements with the actual organisation of the site, not as a separate afterthought.",
-  ],
-  property: [
-    "We support property transactions with appraisals, technical due diligence, valuations, building-condition reviews and documentary checks.",
-    "This service is designed for owners, buyers, investors and professionals who need a clear technical picture before making decisions.",
-  ],
-} as const;
-
 export function LocalizedAboutPageContent() {
   const isEn = useLocale() === "en";
 

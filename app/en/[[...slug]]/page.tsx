@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import HomePage from "@/app/page";
 import ChiSiamoPage from "@/app/chi-siamo/page";
@@ -11,6 +12,7 @@ import ProgettazioneStruttureAcciaioBresciaPage from "@/app/progettazione-strutt
 import ProgettazioneStruttureAcciaioMilanoPage from "@/app/progettazione-strutture-acciaio-milano/page";
 import ServiziPage from "@/app/servizi/page";
 import { projectAreas, projectCategories } from "@/lib/projects";
+import { getEnglishMetadataForSlug } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug?: string[] }> };
 
@@ -36,6 +38,11 @@ export function generateStaticParams() {
   });
 
   return [...staticPaths, ...projectPaths].map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug = [] } = await params;
+  return getEnglishMetadataForSlug(slug);
 }
 
 export default async function EnglishMirrorPage({ params }: Props) {
