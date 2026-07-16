@@ -106,7 +106,7 @@ export function HeroHome() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: reduceMotion ? 0 : 0.2, duration: 0.55, ease: subtleEase }}
           >
-            <Link href="/contatti" className={`focus-ring mt-6 sm:mt-8 ${ui.btnOnDark}`} title={linkTitles.consulenza}>
+            <Link href="/#form-contatti" className={`focus-ring mt-6 sm:mt-8 ${ui.btnOnDark}`} title={linkTitles.consulenza}>
               Richiedi una consulenza
             </Link>
           </motion.div>

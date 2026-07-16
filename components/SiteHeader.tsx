@@ -26,11 +26,27 @@ export function SiteHeader() {
   const closeMenu = useCallback(() => setOpen(false), []);
 
   useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    const media = window.matchMedia("(min-width: 768px)");
+    const onChange = (e: MediaQueryListEvent) => {
+      if (e.matches) closeMenu();
+    };
+
+    if (media.matches) closeMenu();
+    media.addEventListener("change", onChange);
+
+    return () => media.removeEventListener("change", onChange);
+  }, [closeMenu]);
 
   useEffect(() => {
     document.body.classList.toggle("overflow-hidden", open);
@@ -118,7 +134,7 @@ export function SiteHeader() {
                         className={`focus-ring ${fontDisplay.className} rounded-full px-3 py-2 text-[1.05rem] uppercase tracking-[0.12em] transition-all duration-250 lg:text-[1.24rem] ${
                           active
                             ? "bg-[#2a3f54]/10 text-[#2a3f54]"
-                            : "text-[#2a2a2a] hover:-translate-y-0.5 hover:bg-[#2a3f54]/12 hover:text-[#1f2e3d] hover:shadow-[0_10px_24px_rgba(42,63,84,0.12)]"
+                            : "text-[#2a2a2a] hover:-translate-y-0.5 hover:bg-[#2a3f54]/12 hover:text-[#1f2e3d] hover:shadow-[0_10px_24px_rgba(42,63,84,0.12)] focus-visible:-translate-y-0.5 focus-visible:bg-[#2a3f54]/12 focus-visible:text-[#1f2e3d] focus-visible:shadow-[0_10px_24px_rgba(42,63,84,0.12)]"
                         }`}
                         aria-current={active ? "page" : undefined}
                         title={linkTitles.nav(item.label)}

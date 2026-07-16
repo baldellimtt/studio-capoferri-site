@@ -20,7 +20,7 @@ export function ContactCtaSection({
         <h2 className={`${fontDisplay.className} ${ui.sectionHeadingAccent} mb-3`}>{title}</h2>
         <p className={`copy-rhythm mx-auto mb-6 max-w-[560px] ${ui.bodyMuted}`}>{description}</p>
         <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <Link href="/contatti#form-contatti" className={ui.btnPrimary} title={linkTitles.consulenza}>
+          <Link href="/#form-contatti" className={ui.btnPrimary} title={linkTitles.consulenza}>
             Richiedi una consulenza
           </Link>
           <Link href="/servizi#progettazione-strutturale" className={ui.btnOutline} title={linkTitles.servizio("Progettazione strutturale")}>
