@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useLocale } from "@/components/LocaleProvider";
 import { fontDisplay } from "@/lib/fonts";
 import { linkTitles } from "@/lib/link-seo";
 import { ui } from "@/lib/ui";
@@ -29,10 +32,12 @@ export function ProjectPreviewCard({
   variant = "light",
   className = "",
 }: Props) {
+  const locale = useLocale();
+
   return (
     <Link
       href={href}
-      title={linkTitles.progetto(title)}
+      title={linkTitles.progetto(title, locale)}
       className={`${variant === "dark" ? ui.projectCardDark : ui.projectCardLight} ${className}`}
     >
       <div className="relative aspect-[4/3]">

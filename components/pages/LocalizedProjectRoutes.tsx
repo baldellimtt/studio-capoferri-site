@@ -273,7 +273,7 @@ export function LocalizedProjectAreaPage({ area }: { area: ProjectArea }) {
       <div className={layoutGutterXClass}>
         <div className={layoutContentMaxClass}>
           <nav className="reveal-faint mb-6 text-[0.82rem] text-[#666] sm:text-sm" aria-label="Breadcrumb">
-            <Link href={localizeHref("/progetti", locale)} title={linkTitles.breadcrumbProgetti} className="font-medium text-[#2a3f54] hover:underline">
+            <Link href={localizeHref("/progetti", locale)} title={linkTitles.breadcrumbProgetti(locale)} className="font-medium text-[#2a3f54] hover:underline">
               {shared.breadcrumbProjects}
             </Link>
             <span className="mx-2 text-[#aaa]" aria-hidden>/</span>
@@ -313,11 +313,11 @@ export function LocalizedProjectCasePage({ area, slug }: { area: ProjectArea; sl
         <div className={layoutContentMaxClass}>
           <div className="mx-auto w-full max-w-[900px]">
             <nav className="reveal-faint mb-6 text-[0.82rem] text-[#666] sm:text-sm" aria-label="Breadcrumb">
-              <Link href={localizeHref("/progetti", locale)} title={linkTitles.breadcrumbProgetti} className="font-medium text-[#2a3f54] hover:underline">
+              <Link href={localizeHref("/progetti", locale)} title={linkTitles.breadcrumbProgetti(locale)} className="font-medium text-[#2a3f54] hover:underline">
                 {locale === "en" ? "Projects" : "Progetti"}
               </Link>
               <span className="mx-2 text-[#aaa]" aria-hidden>/</span>
-              <Link href={localizeHref(`/progetti/${area}`, locale)} title={linkTitles.breadcrumbArea(catHeading)} className="font-medium text-[#2a3f54] hover:underline">
+              <Link href={localizeHref(`/progetti/${area}`, locale)} title={linkTitles.breadcrumbArea(catHeading, locale)} className="font-medium text-[#2a3f54] hover:underline">
                 {catHeading}
               </Link>
               <span className="mx-2 text-[#aaa]" aria-hidden>/</span>
@@ -326,7 +326,7 @@ export function LocalizedProjectCasePage({ area, slug }: { area: ProjectArea; sl
             <h1 className={`${fontDisplay.className} reveal-title ${ui.caseStudyTitle} mb-6 sm:mb-8`}>{heading}</h1>
             {cs.externalBrand ? (
               <div className="reveal-block mb-8 rounded-xl bg-[#2a2a2a] px-4 py-4 text-center">
-                <a href={cs.externalBrand.href} target="_blank" rel="noopener noreferrer" title={linkTitles.external(cs.externalBrand.imageAlt)} className="inline-block">
+                <a href={cs.externalBrand.href} target="_blank" rel="noopener noreferrer" title={linkTitles.external(cs.externalBrand.imageAlt, locale)} className="inline-block">
                   <Image src={cs.externalBrand.imageSrc} alt={cs.externalBrand.imageAlt} width={280} height={80} className="mx-auto h-auto max-h-14 w-auto" />
                 </a>
               </div>
@@ -409,8 +409,8 @@ export function LocalizedSteelLandingPage({ config }: { config: SteelLandingConf
               <p className={`copy-rhythm mb-4 ${ui.bodyMuted}`}>{isEn ? cityCopy?.introLead : config.introLead}</p>
               <p className={`copy-rhythm mb-6 ${ui.bodyMuted}`}>{isEn ? landingCopy.en.process : "Dal calcolo strutturale secondo NTC 2018 ed Eurocodici ai disegni costruttivi d'officina, fino alla direzione lavori e al collaudo: seguiamo ogni fase del progetto."}</p>
               <div className="flex flex-col gap-3 sm:flex-row">
-                <Link href={localizeHref("/contatti#form-contatti", locale)} className={ui.btnPrimary} title={linkTitles.consulenza}>{isEn ? landingCopy.en.consultation : "Richiedi una consulenza"}</Link>
-                <a href={`tel:${site.phoneTel}`} className={ui.btnOutline} title={linkTitles.telefono(site.phoneDisplay)}>{site.phoneDisplay}</a>
+                <Link href={localizeHref("/contatti#form-contatti", locale)} className={ui.btnPrimary} title={linkTitles.consulenza(locale)}>{isEn ? landingCopy.en.consultation : "Richiedi una consulenza"}</Link>
+                <a href={`tel:${site.phoneTel}`} className={ui.btnOutline} title={linkTitles.telefono(site.phoneDisplay, locale)}>{site.phoneDisplay}</a>
               </div>
             </article>
             <div className="lazy-section">
@@ -443,7 +443,7 @@ export function LocalizedSteelLandingPage({ config }: { config: SteelLandingConf
                         }))
                       : config.featuredProjects).map((p) => (
                       <li key={p.href} className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
-                        <Link href={localizeHref(p.href, locale)} title={linkTitles.progetto(p.title)} className="font-semibold text-[#2a3f54] underline underline-offset-2">{p.title}</Link> - {p.description}
+                        <Link href={localizeHref(p.href, locale)} title={linkTitles.progetto(p.title, locale)} className="font-semibold text-[#2a3f54] underline underline-offset-2">{p.title}</Link> - {p.description}
                       </li>
                     ))}
                   </ul>
@@ -478,8 +478,8 @@ export function LocalizedSteelLandingPage({ config }: { config: SteelLandingConf
                   <h2 className={`${fontDisplay.className} ${ui.sectionHeadingAccent} mb-3`}>{isEn ? cityCopy?.ctaHeading : config.ctaHeading}</h2>
                   <p className={`copy-rhythm mx-auto mb-6 max-w-[560px] ${ui.bodyMuted}`}>{isEn ? landingCopy.en.ctaText : "Raccontaci la tua idea: analizziamo fattibilità, costi e tempi e ti proponiamo la soluzione strutturale più efficiente."}</p>
                   <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
-                    <Link href={localizeHref("/contatti#form-contatti", locale)} className={ui.btnPrimary} title={linkTitles.contatti}>{isEn ? landingCopy.en.contactNow : "Contattaci ora"}</Link>
-                    <Link href={localizeHref("/servizi", locale)} className={ui.btnOutline} title={linkTitles.scopriServizi}>{isEn ? landingCopy.en.allServices : "Scopri tutti i servizi"}</Link>
+                    <Link href={localizeHref("/contatti#form-contatti", locale)} className={ui.btnPrimary} title={linkTitles.contatti(locale)}>{isEn ? landingCopy.en.contactNow : "Contattaci ora"}</Link>
+                    <Link href={localizeHref("/servizi", locale)} className={ui.btnOutline} title={linkTitles.scopriServizi(locale)}>{isEn ? landingCopy.en.allServices : "Scopri tutti i servizi"}</Link>
                   </div>
                 </div>
               </section>

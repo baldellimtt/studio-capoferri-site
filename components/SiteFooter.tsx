@@ -37,6 +37,7 @@ export function SiteFooter() {
   const locale = useLocale();
   const copy = chromeCopy[locale].footer;
   const localizedFooterServices = footerServices[locale];
+  const footerTagline = locale === "en" ? "Engineering - Architecture - Urban Planning" : site.tagline;
 
   return (
     <footer className={`mt-12 border-t border-[#3d5a7a]/35 ${ui.brandGradient} py-10 text-white sm:mt-16 sm:py-14`}>
@@ -48,7 +49,7 @@ export function SiteFooter() {
               <ul className="space-y-0.5 text-sm text-white/82">
                 {localizedFooterServices.map((item) => (
                   <li key={item.href}>
-                    <Link className={ui.footerLink} href={localizeHref(item.href, locale)} title={linkTitles.servizio(item.label)}>
+                    <Link className={ui.footerLink} href={localizeHref(item.href, locale)} title={linkTitles.servizio(item.label, locale)}>
                       {item.label}
                     </Link>
                   </li>
@@ -56,7 +57,7 @@ export function SiteFooter() {
                 <li className="pt-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/65">{copy.steelDesign}</li>
                 {steelLandingPages.map((page, index) => (
                   <li key={page.href}>
-                    <Link className={ui.footerLink} href={localizeHref(page.href, locale)} title={linkTitles.acciaio(steelLabels[locale][index])}>
+                    <Link className={ui.footerLink} href={localizeHref(page.href, locale)} title={linkTitles.acciaio(steelLabels[locale][index], locale)}>
                       {steelLabels[locale][index]}
                     </Link>
                   </li>
@@ -95,12 +96,12 @@ export function SiteFooter() {
               <ul className="space-y-0.5 text-sm text-white/82">
                 <li className="py-1.5">{site.addressLine}</li>
                 <li>
-                  <a className={ui.footerLink} href={`tel:${site.phoneTel}`} title={linkTitles.telefono(site.phoneDisplay)}>
+                  <a className={ui.footerLink} href={`tel:${site.phoneTel}`} title={linkTitles.telefono(site.phoneDisplay, locale)}>
                     {site.phoneDisplay}
                   </a>
                 </li>
                 <li>
-                  <a className={ui.footerLink} href={`mailto:${site.email}`} title={linkTitles.email(site.email)}>
+                  <a className={ui.footerLink} href={`mailto:${site.email}`} title={linkTitles.email(site.email, locale)}>
                     {site.email}
                   </a>
                 </li>
@@ -113,7 +114,7 @@ export function SiteFooter() {
               href={site.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              title={linkTitles.linkedin}
+              title={linkTitles.linkedin(locale)}
               aria-label={copy.followLinkedin}
               className="focus-ring inline-flex h-11 w-11 items-center justify-center rounded-lg border border-white/20 bg-white/10 text-white transition hover:border-[#0A66C2] hover:bg-[#0A66C2] hover:text-white"
             >
@@ -128,7 +129,7 @@ export function SiteFooter() {
                 Privacy policy
               </Link>
             </p>
-            <p className="mt-2 text-xs font-semibold uppercase tracking-wide text-white/85">{site.tagline}</p>
+            <p className="mt-2 text-xs font-semibold uppercase tracking-wide text-white/85">{footerTagline}</p>
             <p className="mt-1">P.IVA {site.piva}</p>
           </div>
         </div>

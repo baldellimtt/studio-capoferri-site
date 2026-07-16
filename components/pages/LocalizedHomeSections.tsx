@@ -169,14 +169,14 @@ export function LocalizedHomeSections() {
                 </div>
                 <h3 className={`${fontDisplay.className} mb-2 text-lg tracking-[0.04em] text-[#2a3f54] sm:mb-3 sm:text-xl`}>{title}</h3>
                 <p className="copy-rhythm mb-5 flex-1 text-sm text-[#555] sm:mb-6">{description}</p>
-                <Link href={localizeHref(href, locale)} className="touch-target mt-auto inline-block min-h-[44px] py-2 text-sm font-semibold text-[#2a3f54] underline-offset-4 transition group-hover:underline" title={linkTitles.scopriServizio(title)}>
+                <Link href={localizeHref(href, locale)} className="touch-target mt-auto inline-block min-h-[44px] py-2 text-sm font-semibold text-[#2a3f54] underline-offset-4 transition group-hover:underline" title={linkTitles.scopriServizio(title, locale)}>
                   {t.learnMore}
                 </Link>
               </article>
             ))}
           </div>
           <p className="mt-8 sm:mt-12">
-            <Link href={localizeHref("/servizi", locale)} className={`${ui.btnOutline} inline-flex w-full sm:w-auto`} title={linkTitles.scopriServizi}>
+            <Link href={localizeHref("/servizi", locale)} className={`${ui.btnOutline} inline-flex w-full sm:w-auto`} title={linkTitles.scopriServizi(locale)}>
               {t.allServices}
             </Link>
           </p>
@@ -200,7 +200,7 @@ export function LocalizedHomeSections() {
             ))}
           </div>
           <p className="mt-8 sm:mt-12">
-            <Link href={localizeHref("/progetti", locale)} className={`${ui.btnOnDark} inline-flex w-full sm:w-auto`} title={linkTitles.tuttiProgetti}>
+            <Link href={localizeHref("/progetti", locale)} className={`${ui.btnOnDark} inline-flex w-full sm:w-auto`} title={linkTitles.tuttiProgetti(locale)}>
               {t.projectsCta}
             </Link>
           </p>
@@ -258,12 +258,12 @@ export function LocalizedHomeSections() {
             <p className="home-split-header__right">{t.contactsIntro}</p>
           </div>
           <div className="grid gap-5 sm:grid-cols-3 sm:gap-6">
-            <article className="reveal-block frost-card rounded-2xl p-5 sm:p-6"><h3 className={`${fontDisplay.className} mb-1.5 text-base tracking-[0.04em] text-[#2a3f54] sm:text-lg`}>Email</h3><a href={`mailto:${site.email}`} title={linkTitles.email(site.email)} className="text-[0.88rem] text-[#555] underline-offset-2 transition hover:text-[#2a3f54] hover:underline sm:text-[0.95rem]">{site.email}</a></article>
-            <article className="reveal-block frost-card rounded-2xl p-5 sm:p-6"><h3 className={`${fontDisplay.className} mb-1.5 text-base tracking-[0.04em] text-[#2a3f54] sm:text-lg`}>{t.phone}</h3><a href={`tel:${site.phoneTel}`} title={linkTitles.telefono(site.phoneDisplay)} className="text-[0.88rem] text-[#555] underline-offset-2 transition hover:text-[#2a3f54] hover:underline sm:text-[0.95rem]">{site.phoneDisplay}</a></article>
+            <article className="reveal-block frost-card rounded-2xl p-5 sm:p-6"><h3 className={`${fontDisplay.className} mb-1.5 text-base tracking-[0.04em] text-[#2a3f54] sm:text-lg`}>Email</h3><a href={`mailto:${site.email}`} title={linkTitles.email(site.email, locale)} className="text-[0.88rem] text-[#555] underline-offset-2 transition hover:text-[#2a3f54] hover:underline sm:text-[0.95rem]">{site.email}</a></article>
+            <article className="reveal-block frost-card rounded-2xl p-5 sm:p-6"><h3 className={`${fontDisplay.className} mb-1.5 text-base tracking-[0.04em] text-[#2a3f54] sm:text-lg`}>{t.phone}</h3><a href={`tel:${site.phoneTel}`} title={linkTitles.telefono(site.phoneDisplay, locale)} className="text-[0.88rem] text-[#555] underline-offset-2 transition hover:text-[#2a3f54] hover:underline sm:text-[0.95rem]">{site.phoneDisplay}</a></article>
             <article className="reveal-block frost-card rounded-2xl p-5 sm:p-6"><h3 className={`${fontDisplay.className} mb-1.5 text-base tracking-[0.04em] text-[#2a3f54] sm:text-lg`}>{t.office}</h3><p className="text-[0.88rem] leading-relaxed text-[#555] sm:text-[0.95rem]">{site.addressLine}</p></article>
           </div>
           <p className="mt-8 sm:mt-12">
-            <Link href={localizeHref("/contatti#form-contatti", locale)} className={`${ui.btnOutline} inline-flex w-full sm:w-auto`} title={linkTitles.formContatti}>
+            <Link href={localizeHref("/contatti#form-contatti", locale)} className={`${ui.btnOutline} inline-flex w-full sm:w-auto`} title={linkTitles.formContatti(locale)}>
               {t.writeUs}
             </Link>
           </p>
