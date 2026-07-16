@@ -66,7 +66,7 @@ export function HeroHome() {
     if (reduceMotion) return;
     const t = setInterval(() => setI((v) => (v + 1) % heroSlides.length), 4500);
     return () => clearInterval(t);
-  }, [reduceMotion]);
+  }, [reduceMotion, heroSlides.length]);
 
   useEffect(() => {
     const id = window.requestAnimationFrame(() => setExtraSlidesReady(true));

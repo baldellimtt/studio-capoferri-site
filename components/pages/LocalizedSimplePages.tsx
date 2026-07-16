@@ -86,9 +86,9 @@ export function LocalizedAboutPageContent() {
             <div className={`space-y-5 sm:space-y-6 ${ui.body}`}>
               {isEn
                 ? [
-                    "Studio Capoferri is an independent technical practice with solid experience in structural engineering, architecture and technical coordination.",
-                    "Our method is based on precision, efficiency and buildability, combining multidisciplinary expertise to solve complex projects.",
-                    "From smaller local works to larger industrial interventions, we apply the same level of care to deliver reliable, compliant and safe projects.",
+                    "Studio Capoferri is an independent technical practice born from a passion for construction in all its forms and facets. With solid experience developed directly in the field, we work alongside contractors, architects and technical practices to deliver structural solutions that are reliable, innovative and always fully compliant with regulations.",
+                    "Our method is based on precision, efficiency and attention to detail. We believe collaboration is a key factor in project success, combining multidisciplinary expertise to address every structural challenge with a practical and tailored approach.",
+                    "From small local interventions to major industrial facilities, we apply the same level of dedication to guarantee quality and safety in every project.",
                   ].map((p, i) => <p key={i}>{p}</p>)
                 : chiSiamoPage.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
             </div>
@@ -144,7 +144,7 @@ export function LocalizedServicesPageContent() {
                 <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Progettazione in condizioni di incendio</strong> - Verifiche di resistenza al fuoco per strutture portanti secondo normativa vigente.</li>
                 <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Rinforzo e miglioramento sismico</strong> - Opere di rinforzo strutturale e miglioramento sismico per edifici esistenti. Interventi studiati per aumentare la sicurezza, la resistenza sismica e prolungare la vita utile delle strutture, in conformità con le normative tecniche vigenti.</li>
                 <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Strutture civili e industriali</strong> - Sviluppo di soluzioni strutturali per edifici residenziali, commerciali, industriali e infrastrutture.</li>
-                <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Disegni costruttivi d'officina</strong> - Produzione di tavole esecutive per la fabbricazione e il montaggio delle strutture metalliche.</li>
+                <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Disegni costruttivi d&apos;officina</strong> - Produzione di tavole esecutive per la fabbricazione e il montaggio delle strutture metalliche.</li>
                 <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Collaudi strutturali</strong> - Verifica di conformità statica per opere nuove o esistenti.</li>
                 <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Certificazioni strutture in ambienti di lavoro</strong> - Analisi e validazione di sicurezza per strutture soggette a normative su ambienti lavorativi.</li>
               </ul>
@@ -170,7 +170,7 @@ export function LocalizedServicesPageContent() {
                 <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Pratiche per la Sovrintendenza ai Beni Culturali</strong> - Redazione di documentazione tecnica e supporto nelle richieste di autorizzazione per immobili vincolati.</li>
                 <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Collaudi amministrativi</strong> - Verifica della regolarità tecnico-amministrativa di opere pubbliche e private.</li>
                 <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Successioni e divisioni</strong> - Assistenza tecnica e documentale in pratiche di successione ereditaria e divisione patrimoniale.</li>
-                <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Certificazioni energetiche (APE)</strong> - Redazione dell'Attestato di Prestazione Energetica degli edifici, valutazione delle prestazioni energetiche e classificazione energetica secondo la normativa vigente.</li>
+                <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Certificazioni energetiche (APE)</strong> - Redazione dell&apos;Attestato di Prestazione Energetica degli edifici, valutazione delle prestazioni energetiche e classificazione energetica secondo la normativa vigente.</li>
               </ul>
 
               <h2 id="sicurezza-cantieri" className={sectionHeading}>Sicurezza cantieri</h2>
@@ -204,31 +204,69 @@ export function LocalizedServicesPageContent() {
 
             {isEn ? (
               <>
-                <p className={ui.body}>{englishServices.intro}</p>
+                <p className={ui.body}>
+                  <strong>Studio Capoferri</strong> provides a complete range of engineering, architecture and technical consultancy services on a
+                  full-spectrum basis. We support clients through every phase of a project, ensuring quality, precision and tailored solutions.
+                </p>
 
                 <h2 id="progettazione-strutturale" className={sectionHeading}>Structural design</h2>
-                <p className={ui.bodyMuted}>{englishServices.structural[0]}</p>
-                <p className={ui.bodyMuted}>{englishServices.structural[1]}</p>
+                <p className={`mb-4 ${ui.bodyMuted}`}>
+                  We design steel, reinforced-concrete and masonry structures for clients across Lombardy and Northern Italy. Area-specific insights:
+                  {" "}
+                  {steelLandingPages.map((page, index) => (
+                    <span key={page.href}>
+                      {index > 0 ? (index === steelLandingPages.length - 1 ? " and " : ", ") : null}
+                      <Link href={localizeHref(page.href, locale)} className="font-semibold text-[#2a3f54] underline underline-offset-2">
+                        {page.label.replace("Progettazione acciaio — ", "").replace("Milano", "Milan")}
+                      </Link>
+                    </span>
+                  ))}
+                  .
+                </p>
+                <ul className="list-none space-y-3 pl-0">
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Steel, reinforced-concrete and masonry structures</strong> - Structural design to NTC standards and Eurocodes.</li>
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>FEM modelling</strong> - Finite-element analysis for static and dynamic assessment of complex structures.</li>
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Design in fire conditions</strong> - Fire-resistance verification for load-bearing structures in accordance with current regulations.</li>
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Seismic strengthening and upgrading</strong> - Structural strengthening and seismic-improvement works for existing buildings, designed to increase safety, seismic resistance and service life in accordance with current technical regulations.</li>
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Civil and industrial structures</strong> - Development of structural solutions for residential, commercial and industrial buildings, as well as infrastructure works.</li>
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Fabrication shop drawings</strong> - Production of executive drawings for the fabrication and erection of steel structures.</li>
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Structural testing and certification</strong> - Verification of structural compliance for new and existing works.</li>
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Structural certification for workplaces</strong> - Safety analysis and validation for structures subject to workplace regulations.</li>
+                </ul>
 
                 <h2 id="urbanistica-architettura" className={sectionHeading}>Planning and architecture</h2>
-                <p className={ui.bodyMuted}>{englishServices.planning[0]}</p>
-                <p className={ui.bodyMuted}>{englishServices.planning[1]}</p>
+                <ul className="list-none space-y-3 pl-0">
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Architectural design</strong> - Development of aesthetic and functional solutions for new buildings, refurbishments and redevelopment works.</li>
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Urban planning</strong> - Implementation plans, planning variations and compliance analysis against local planning instruments.</li>
+                </ul>
 
                 <h2 id="direzione-lavori" className={sectionHeading}>Construction supervision and consultancy</h2>
-                <p className={ui.bodyMuted}>{englishServices.supervision[0]}</p>
-                <p className={ui.bodyMuted}>{englishServices.supervision[1]}</p>
+                <ul className="list-none space-y-3 pl-0">
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Structural site supervision</strong> - Technical supervision of construction phases to ensure quality and compliance with the design.</li>
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>On-site assistance</strong> - Continuous support to contractors during erection, changes and technical checks.</li>
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Structural checks on existing buildings</strong> - Diagnostics and assessment of the safety and structural suitability of existing constructions.</li>
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Technical reports and expert assessments</strong> - Preparation of certified reports, sworn expert opinions and party-appointed technical consultancy.</li>
+                </ul>
 
                 <h2 id="servizi-tecnici" className={sectionHeading}>Technical and cadastral services</h2>
-                <p className={ui.bodyMuted}>{englishServices.technical[0]}</p>
-                <p className={ui.bodyMuted}>{englishServices.technical[1]}</p>
+                <ul className="list-none space-y-3 pl-0">
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Building applications</strong> - Preparation of permit applications, SCIA, CILA and retrospective regularisation files.</li>
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Cadastral procedures</strong> - Transfers, subdivisions, registrations, cadastral updates and data corrections.</li>
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Heritage authority procedures</strong> - Preparation of technical documentation and support for authorisation requests concerning protected properties.</li>
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Administrative testing</strong> - Verification of the technical and administrative regularity of public and private works.</li>
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Inheritance and division procedures</strong> - Technical and documentary support for inheritance and property-division matters.</li>
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Energy performance certificates (APE)</strong> - Preparation of building energy performance certificates, assessment of energy performance and energy classification in accordance with current regulations.</li>
+                </ul>
 
                 <h2 id="sicurezza-cantieri" className={sectionHeading}>Site safety</h2>
-                <p className={ui.bodyMuted}>{englishServices.safety[0]}</p>
-                <p className={ui.bodyMuted}>{englishServices.safety[1]}</p>
+                <ul className="list-none space-y-3 pl-0">
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Site safety</strong> - Safety coordination during both design and construction phases (CSP and CSE), safety plans and risk management.</li>
+                </ul>
 
                 <h2 id="assistenza-immobiliare" className={sectionHeading}>Property support</h2>
-                <p className={ui.bodyMuted}>{englishServices.property[0]}</p>
-                <p className={ui.bodyMuted}>{englishServices.property[1]}</p>
+                <ul className="list-none space-y-3 pl-0">
+                  <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]"><strong>Property support</strong> - Technical assistance for transactions, expert valuations, property appraisals and assessment of the existing condition.</li>
+                </ul>
 
                 <ContactCtaSection
                   title="Need technical support for your project?"
@@ -275,7 +313,7 @@ export function LocalizedServicesPageContent() {
                     <strong>Strutture civili e industriali</strong> - Sviluppo di soluzioni strutturali per edifici residenziali, commerciali, industriali e infrastrutture.
                   </li>
                   <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
-                    <strong>Disegni costruttivi d'officina</strong> - Produzione di tavole esecutive per la fabbricazione e il montaggio delle strutture metalliche.
+                    <strong>Disegni costruttivi d&apos;officina</strong> - Produzione di tavole esecutive per la fabbricazione e il montaggio delle strutture metalliche.
                   </li>
                   <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
                     <strong>Collaudi strutturali</strong> - Verifica di conformità statica per opere nuove o esistenti.
@@ -335,7 +373,7 @@ export function LocalizedServicesPageContent() {
                     <strong>Successioni e divisioni</strong> - Assistenza tecnica e documentale in pratiche di successione ereditaria e divisione patrimoniale.
                   </li>
                   <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
-                    <strong>Certificazioni energetiche (APE)</strong> - Redazione dell'Attestato di Prestazione Energetica degli edifici, valutazione delle prestazioni energetiche e classificazione energetica secondo la normativa vigente.
+                    <strong>Certificazioni energetiche (APE)</strong> - Redazione dell&apos;Attestato di Prestazione Energetica degli edifici, valutazione delle prestazioni energetiche e classificazione energetica secondo la normativa vigente.
                   </li>
                 </ul>
 
@@ -439,7 +477,7 @@ export function LocalizedContactsPageContent() {
             <h1 className={`${fontDisplay.className} ${ui.pageTitle} mb-3 sm:mb-4`}>{isEn ? "Contact" : "Contatti"}</h1>
             <p className={ui.body}>
               {isEn
-                ? "We are available for preliminary assessments, quotations and technical support on structural design, site supervision and specialist consultancy."
+                ? "We are available for preliminary assessments, quotations and technical support on steel structural design, site supervision and specialist consultancy."
                 : "Siamo disponibili per valutazioni preliminari, preventivi e supporto tecnico su progettazione strutturale in acciaio, direzione lavori e consulenza specialistica."}
             </p>
           </div>
@@ -506,7 +544,7 @@ export function LocalizedContactsPageContent() {
               <h2 className={`${fontDisplay.className} ${ui.cardHeading} mb-2 sm:mb-3`}>{isEn ? "Contact us" : "Contattaci"}</h2>
               <p className="copy-rhythm mb-6 w-full text-[0.95rem] leading-relaxed text-[#444] sm:mb-8 sm:text-[1.03rem]">
                 {isEn
-                  ? "Fill in the form with the details of your project. Our team will reply with a focused technical response."
+                  ? "Complete the form with the details of your project. You will receive a focused technical response from our team."
                   : "Compila il form con i dettagli del tuo intervento. Riceverai un riscontro tecnico puntuale dal nostro team."}
               </p>
               <ContactForm />
@@ -571,7 +609,7 @@ export function LocalizedProjectsPageContent() {
           <h1 className={`${fontDisplay.className} reveal-title ${ui.pageTitle} mb-4 sm:mb-6`}>{isEn ? "Completed projects" : "Progetti realizzati"}</h1>
           <p className={`reveal-block copy-rhythm mb-8 max-w-none text-pretty sm:mb-14 ${ui.bodyMuted}`}>
             {isEn
-              ? "A curated selection of our work across residential, industrial and public-space projects."
+              ? "A selection of our most significant work, organised by area of intervention. This classification offers a clearer and more targeted reading of our activity, making it easier to identify projects by intended use."
               : progettiIndexIntro}
           </p>
           <div className="fine-divider mb-6 sm:mb-10" />
@@ -584,7 +622,7 @@ export function LocalizedProjectsPageContent() {
           </div>
           <ContactCtaSection
             title={isEn ? "Would you like to develop a project with us?" : "Vuoi realizzare un progetto con noi?"}
-            description={isEn ? "From feasibility to construction: tell us your objectives, timing and constraints." : "Dalla fattibilità al cantiere: raccontaci obiettivi, tempi e vincoli del tuo intervento."}
+            description={isEn ? "From feasibility to construction: tell us about the objectives, timing and constraints of your intervention." : "Dalla fattibilità al cantiere: raccontaci obiettivi, tempi e vincoli del tuo intervento."}
           />
         </div>
       </div>

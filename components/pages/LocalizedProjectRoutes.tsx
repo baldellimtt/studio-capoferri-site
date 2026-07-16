@@ -44,22 +44,24 @@ const areaCopy = {
     residenziali: {
       heading: "Residential structures",
       intro: [
-        "Structural design for residential buildings requires balance between comfort, functionality and architectural integration.",
-        "We develop structures for private homes, residential complexes and multi-storey buildings with a tailored approach to each context.",
+        "Structural design for residential buildings requires a balance between comfort, functionality and architectural integration.",
+        "We develop structures for private homes, residential complexes and multi-storey buildings, with careful attention to quality of life as well as to regulations governing safety, sustainability and energy efficiency.",
+        "Each intervention is shaped around its context and the desired architectural identity, with a tailored approach to every project.",
       ],
     },
     industriali: {
       heading: "Industrial structures",
       intro: [
-        "Industrial projects require robust, high-performance solutions with careful attention to logistics, construction time and operational use.",
-        "Each assignment starts from the client's real production needs and develops into a durable, purpose-built structural solution.",
+        "Industrial projects require robust, high-performance solutions. We work on buildings for production, storage and logistics, with fast execution times and careful optimisation of space.",
+        "Steel is often the strategic material for this type of intervention because it combines strength, speed of assembly and adaptability to complex operational requirements.",
+        "Each project starts from the client's real operating needs and develops into a tailored solution designed to last and support the growth of the business.",
       ],
     },
     ricettivi: {
       heading: "Structures for public venues",
       intro: [
-        "For venues open to the public, we look for a balance between aesthetics, functionality and user comfort.",
-        "We design flexible, innovative structural solutions shaped around the use of space and the identity of the place.",
+        "For places open to the public, we seek a balance between aesthetics, functionality and comfort. The structures we design pay close attention to user experience as well as to safety and accessibility regulations.",
+        "We develop flexible, innovative solutions shaped around the use of space and the identity of the venue.",
       ],
     },
     breadcrumbProjects: "Projects",
@@ -72,8 +74,8 @@ const caseCopy = {
     "residenziali/villa-acciaio-veneto": {
       heading: "Private residence - Veneto",
       body: [
-        "We designed a villa that combines innovation, efficiency and contemporary design. The steel structure provides strength, durability and sustainability, bringing advanced engineering into a high-quality residential setting.",
-        "The project shows how the structural concept can work in direct dialogue with the architectural design to create a functional building that sits naturally within its landscape.",
+        "We designed a villa that combines innovation, efficiency and contemporary design. The steel structure ensures strength, durability and sustainability, applying advanced engineering to residential architecture.",
+        "The project shows how the structure can be integrated with the architectural design to create a functional building that sits naturally within its landscape.",
       ],
       bullets: [
         ["Steel structure", "strength, lightness and controlled construction time."],
@@ -84,9 +86,9 @@ const caseCopy = {
     "residenziali/villa-acciaio-salsomaggiore": {
       heading: "Steel villa - Salsomaggiore Terme (PR)",
       body: [
-        "Studio Capoferri developed the structural design for a steel residential building in Salsomaggiore Terme, following the project from the design phase through construction.",
-        "Poor ground conditions required a dedicated solution from the outset: piled foundations coordinated with a mixed reinforced-concrete and steel superstructure.",
-        "Above the concrete base, with a partially buried lower level and the stair core, the steel frame defines the first floor and the roof, which was designed to host a full photovoltaic surface.",
+        "Studio Capoferri handled the structural side of a steel residential building in Salsomaggiore Terme, from the design stage through construction.",
+        "Poor ground conditions required a dedicated solution from the very beginning: a system of piled foundations defined from the early stages in line with the mixed reinforced-concrete and steel structure planned above ground.",
+        "Above the concrete base, with a partially buried lower floor and the stair core, rises the steel frame of the first floor and the roof, designed to accommodate a complete surface of photovoltaic panels.",
       ],
       bullets: [
         ["Piled foundations", "a targeted solution for poor soil conditions."],
@@ -100,8 +102,8 @@ const caseCopy = {
       heading: "Industrial building - Erbusco (BS)",
       body: [
         "Studio Capoferri handled the structural, architectural and planning design for the extension of the production area of a major heavy steel fabrication company in Erbusco, near Brescia.",
-        "This was an advanced industrial engineering project developed to maximise operational efficiency and safety in an intensive production environment. The building was conceived for heavy loads and complex workflows.",
-        "The intervention delivers a more efficient and durable production area, fully aligned with the needs of the industrial context.",
+        "This was an advanced industrial engineering project aimed at maximising operational efficiency and safety in an intensive production environment. The building was conceived for heavy loads and complex workflows.",
+        "The extension delivers a more efficient and durable production area, in line with the requirements of the local industrial context.",
       ],
       bullets: [
         ["Steel primary structure", "strength and reliability for heavy industrial use."],
@@ -114,9 +116,9 @@ const caseCopy = {
     "industriali/ampliamento-complesso-zootecnico": {
       heading: "Livestock complex extension",
       body: [
-        "Intervening on existing buildings requires a careful balance between structural constraints, logistics and business continuity. In this livestock complex extension, the objective was to increase the covered area while preserving maximum internal flexibility.",
-        "The solution focused on new steel trusses with a clear span of almost 16 metres. Removing intermediate supports allowed the internal space to be organised more efficiently for operational needs.",
-        "Structural design here is not only about calculations; it is the tool that turns the client's practical requirements into a concrete, buildable solution.",
+        "Working on existing structures requires a balance between structural constraints, logistics and continuity of operations. In the extension of this livestock complex, the objective was to increase the covered area while ensuring maximum internal flexibility.",
+        "The solution focuses on the development of new steel trusses with a clear span of almost 16 metres. The absence of intermediate supports makes it possible to optimise the space for the operational needs of the sector.",
+        "Structural design is not only calculation. It is the tool that transforms the client's requirements into practical construction solutions.",
       ],
       bullets: [
         ["Efficiency", "large clear spans covered with optimised profiles."],
@@ -128,11 +130,11 @@ const caseCopy = {
     "industriali/centro-direzionale-provaglio-diseo": {
       heading: "Office centre - Provaglio d'Iseo",
       body: [
-        "After an extensive preliminary design and technical development phase, the work finally moved on site.",
-        "The intervention transforms an industrial building into a new office centre with offices, laboratories and workspaces in Provaglio d'Iseo.",
-        "Starting from the general designer's approved scheme, our contribution focused on a full optimisation of the solution, adapting it to the real construction dynamics of the site.",
-        "The core of the intervention is a steel mezzanine of more than 5,000 square metres, integrated into the existing structure to expand the usable floor area.",
-        "Seeing the construction phase start confirms the value of constant dialogue between design and execution: it produces solutions that are more efficient and more consistent with site reality.",
+        "After an intense phase of preliminary design and technical development, the work finally moved on site.",
+        "In recent months we have dealt with the operational development of a major redevelopment project: an industrial building that will become a new office centre with offices, laboratories and workspaces in Provaglio d'Iseo.",
+        "The project started from an approved base scheme developed by the lead designer. Our added value focused on full optimisation, aimed at adapting the design solutions to the real construction dynamics of the site.",
+        "The core of the intervention is the construction of a steel mezzanine of more than 5,000 square metres, integrated into the existing structure in order to expand the usable floor area.",
+        "Seeing the work begin confirms that constant dialogue between design and construction generates solutions that are more efficient and more consistent with site reality.",
       ],
       bullets: [
         ["Structural and geometric optimisation", "of the steelwork package."],
@@ -144,19 +146,19 @@ const caseCopy = {
     "ricettivi/superstudio-village": {
       heading: "Superstudio Village - Milan Bovisa",
       body: [
-        "The structural design work concerned a building complex in Milan Bovisa for Superstudio Events, composed of six buildings with different types of intervention.",
-        "Works started in 2023. Two buildings required structural strengthening of vaults and roofs. One building was demolished and rebuilt with a new steel structure reaching approximately 16 metres in height.",
-        "Another building was reconstructed with a mixed reinforced-concrete and load-bearing masonry structure; a further block combined load-bearing masonry with a composite roof system; and one existing building underwent seismic upgrading.",
+        "The structural design work concerned a building complex in Milan Bovisa for Superstudio Events, made up of six buildings with different types of intervention.",
+        "Works began in 2023. Two buildings required structural strengthening of vaults and roofs. One building was demolished and rebuilt with a new steel structure reaching a maximum height of about 16 metres.",
+        "Another building was reconstructed with a mixed reinforced-concrete and load-bearing masonry structure; a further building with load-bearing masonry and a composite roof system; and finally one existing building underwent seismic upgrading.",
       ],
       bullets: [],
     },
     "ricettivi/superstudio-maxi": {
       heading: "Superstudio Maxi - Famagosta",
       body: [
-        "This structural intervention concerned the recovery of a disused industrial shed in the Famagosta area of Milan, formerly used for steel fabrication.",
-        "The building was converted into an event venue, covering about 7,200 square metres indoors plus roughly 3,000 square metres of yard space.",
-        "The project included seismic upgrading and strengthening of the existing steel structures, together with new steel additions for congress, exhibition and multimedia functions.",
-        "The intervention was developed to preserve and enhance the site's industrial-archaeology identity while adapting it to a new public use.",
+        "The structural intervention concerned the recovery of a disused industrial shed, once used for steel fabrication, in the Famagosta district of Milan.",
+        "The building, converted into an event venue with about 7,200 square metres of covered space and 3,000 square metres of yard, underwent seismic upgrading and strengthening of the existing steel structures.",
+        "New steel structures were created for congress, exhibition and multimedia functions.",
+        "The intervention enhanced the site's industrial-archaeology identity while adapting it to its new use.",
       ],
       bullets: [],
     },
@@ -167,7 +169,7 @@ const landingCopy = {
   en: {
     heroTitle: (city: string) => `Steel structure design in ${city} and across Lombardy`,
     process:
-      "From structural calculations in accordance with NTC 2018 and Eurocodes to fabrication drawings, site supervision and final testing, we support every phase from concept to construction.",
+      "From structural calculations in accordance with NTC 2018 and Eurocodes to fabrication shop drawings, site supervision and final testing, we follow every phase of the project, from the initial idea through to the construction site.",
     consultation: "Request a consultation",
     whyTitle: "Why choose a steel structure",
     whyBullets: [
@@ -179,24 +181,24 @@ const landingCopy = {
     ],
     scopeTitle: "What we design: from residential to industrial",
     scopeLead:
-      "We design steel structures for every building type: private homes, multi-storey buildings, industrial sheds with overhead cranes, commercial buildings and event spaces. Recent projects include:",
+      "We design steel structures for every intended use: villas and private residences, multi-storey buildings, industrial sheds with overhead cranes, commercial buildings and event spaces. Some recent projects include:",
     faqTitle: "Frequently asked questions about steel structure design",
     ctaText:
-      "Tell us about your project: we assess feasibility, costs and timing, then propose the most efficient structural solution.",
+      "Tell us about your idea: we analyse feasibility, costs and timing, then propose the most efficient structural solution.",
     contactNow: "Contact us now",
     allServices: "Explore all services",
     cities: {
       brescia: {
         introLead:
-          "Studio Capoferri is a structural engineering practice specialised in steel structures, with more than 40 years of experience and over 1,000 completed projects. From our base in Adro, near Brescia in the Franciacorta area, we design steel homes, industrial buildings, vertical extensions and steelwork projects across Lombardy and Northern Italy.",
+          "Studio Capoferri is a structural engineering practice specialised in steel structures, with more than 40 years of experience and over 1,000 completed projects. From our base in Adro, in the province of Brescia and in the heart of Franciacorta, we design steel villas, industrial buildings, vertical extensions and steelwork structures throughout Lombardy and Northern Italy.",
         areaHeading: "Where we work: Brescia, Bergamo, Milan and all of Lombardy",
         areaBody:
-          "The practice is based in Adro, in the province of Brescia, strategically positioned between Franciacorta, Val Calepio and Lake Iseo. We operate quickly across Brescia and its province and throughout Lombardy, including Bergamo, Milan, Monza, Cremona, Mantua, Lecco and Como.",
+          "The practice is based in Adro, in the province of Brescia, in a strategic position between Franciacorta, Val Calepio and Lake Iseo. We can respond quickly across Brescia and its province, including Franciacorta, Val Trompia, the Brescia side of Lake Garda and the Brescia plain, and throughout Lombardy: Bergamo, Milan, Monza, Cremona, Mantua, Lecco and Como.",
         areaBodySecondary:
           "For projects outside the region, we also work regularly in Veneto, Piedmont and Emilia-Romagna.",
         ctaHeading: "Do you have a steel project in Brescia or Lombardy?",
         faqAreaAnswer:
-          "Yes. Our office is based in Adro, in the province of Brescia, and we operate throughout Lombardy, including Brescia, Bergamo and Milan, as well as in Veneto, Piedmont and Emilia-Romagna.",
+          "Yes. Our office is based in Adro, in the province of Brescia, and we operate throughout Lombardy, including Brescia, Bergamo and Milan and their respective provinces, as well as in Veneto, Piedmont and Emilia-Romagna.",
         featuredProjects: [
           ["Industrial building in Erbusco (BS)", "structure designed for two overhead cranes, sandwich panels and fabrication drawings"],
           ["Steel villa in Salsomaggiore Terme", "piled foundations, steel frame and full photovoltaic roof"],
@@ -206,15 +208,15 @@ const landingCopy = {
       },
       bergamo: {
         introLead:
-          "Studio Capoferri is a structural engineering practice specialised in steel structures, with more than 40 years of experience and over 1,000 completed projects. From our base in Adro, close to the Bergamo area, we design steel homes, industrial buildings, vertical extensions and steelwork projects across Bergamo, Lombardy and Northern Italy.",
+          "Studio Capoferri is a structural engineering practice specialised in steel structures, with more than 40 years of experience and over 1,000 completed projects. From our base in Adro (Brescia), just a short distance from the province of Bergamo, we design steel villas, industrial buildings, vertical extensions and steelwork structures across Bergamo, Lombardy and Northern Italy.",
         areaHeading: "Where we work: Bergamo, Brescia, Milan and all of Lombardy",
         areaBody:
-          "The practice is located in Adro, close to the Bergamo province, in a strategic position between Franciacorta and Val Calepio. We operate quickly across Bergamo and its province, and throughout Lombardy, including Brescia, Milan, Monza, Cremona, Mantua, Lecco and Como.",
+          "The practice is located in Adro (Brescia), on the border with the province of Bergamo, in a strategic position between Franciacorta and Val Calepio. We can respond quickly across Bergamo and its province, including Val Seriana, Val Brembana, Isola Bergamasca and the Bergamo plain, and throughout Lombardy: Brescia, Milan, Monza, Cremona, Mantua, Lecco and Como.",
         areaBodySecondary:
           "For projects outside the region, we also work regularly in Veneto, Piedmont and Emilia-Romagna.",
         ctaHeading: "Do you have a steel project in Bergamo or Lombardy?",
         faqAreaAnswer:
-          "Yes. Our office is based in Adro, close to the Bergamo province, and we work throughout Lombardy, including Bergamo, Brescia and Milan, as well as in Veneto, Piedmont and Emilia-Romagna.",
+          "Yes. Our office is based in Adro (Brescia), on the border with the province of Bergamo, and we operate throughout Lombardy, including Bergamo, Brescia and Milan and their respective provinces, as well as in Veneto, Piedmont and Emilia-Romagna.",
         featuredProjects: [
           ["Industrial building in Erbusco (BS)", "structure designed for two overhead cranes, sandwich panels and fabrication drawings"],
           ["Steel villa in Salsomaggiore Terme", "piled foundations, steel frame and full photovoltaic roof"],
@@ -224,15 +226,15 @@ const landingCopy = {
       },
       milano: {
         introLead:
-          "Studio Capoferri is a structural engineering practice specialised in steel structures, with more than 40 years of experience and over 1,000 completed projects. We design steel homes, industrial buildings, vertical extensions and steelwork projects in Milan, across its metropolitan area and throughout Lombardy.",
+          "Studio Capoferri is a structural engineering practice specialised in steel structures, with more than 40 years of experience and over 1,000 completed projects. We design steel villas, industrial buildings, vertical extensions and steelwork structures in Milan, across the wider Milan hinterland and throughout Lombardy, with work on public venues, residential buildings and industrial facilities.",
         areaHeading: "Where we work: Milan, Brescia, Bergamo and all of Lombardy",
         areaBody:
-          "We operate throughout Milan and its province, including Bovisa, Famagosta and the wider metropolitan area, as well as Monza Brianza and the rest of Lombardy. Our office in Adro provides fast access to Milanese construction sites and to projects across Brescia, Bergamo, Cremona, Mantua, Lecco and Como.",
+          "We operate across the city of Milan and its province, including Bovisa, Famagosta and the northern and southern hinterland, as well as Monza Brianza and the wider metropolitan area. Our office in Adro (Brescia) is strategically positioned for quick access to Milanese construction sites and also supports projects across Brescia, Bergamo, Cremona, Mantua, Lecco and Como.",
         areaBodySecondary:
-          "Key projects in Milan include Superstudio Village in Bovisa and Superstudio Maxi in Famagosta, with steel structures, strengthening works and seismic upgrades.",
+          "Among the most significant projects in Milan are Superstudio Village in Bovisa and Superstudio Maxi in Famagosta, involving steel structures, strengthening works and seismic upgrading.",
         ctaHeading: "Do you have a steel project in Milan or Lombardy?",
         faqAreaAnswer:
-          "Yes. We work regularly across Milan and its province, as well as Brescia, Bergamo and the whole of Lombardy. Our office in Adro allows rapid intervention across the wider Milan area and Northern Italy.",
+          "Yes. We work regularly across Milan and its province, as well as Brescia, Bergamo and the whole of Lombardy. Our base in Adro (Brescia) allows rapid intervention across the wider Milan metropolitan area and throughout Northern Italy.",
         featuredProjects: [
           ["Superstudio Village in Milan Bovisa", "new steel structure around 16 metres high, strengthening and reconstruction works"],
           ["Superstudio Maxi in Famagosta", "conversion of an industrial shed with seismic upgrading and new steel structures"],

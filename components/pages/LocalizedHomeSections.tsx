@@ -68,18 +68,39 @@ const copy = {
     aboutTitle: "About",
     aboutBlocks: [
       {
-        text: "Studio Capoferri is a technical practice based in Adro, near Brescia, with more than forty years of experience in structural engineering, architecture and urban planning across Franciacorta and Northern Italy.",
+        text: (
+          <>
+            <strong>Studio Capoferri</strong> is a technical practice based in Adro, near Brescia, with more than forty years of experience in{" "}
+            <strong>structural engineering, architecture and urban planning</strong> across Franciacorta and, more broadly, Northern and Central
+            Italy. Our team is made up of qualified professionals, each with specific multidisciplinary expertise, able to guarantee quality and
+            precision in every aspect of the design process. Thanks to the synergy between different areas of knowledge and the consolidated
+            experience built up over the years, we provide innovative, tailored solutions for every type of intervention, ensuring an integrated and
+            comprehensive approach for all projects entrusted to our practice.
+          </>
+        ),
         image: "team",
         imageFirst: false,
       },
       {
-        text: "We mainly work in the residential and industrial sectors, delivering advanced technical solutions across Lombardy, Veneto, Piedmont, Emilia-Romagna and Tuscany, with a strong presence in the provinces of Brescia, Bergamo and Milan.",
+        text: (
+          <>
+            We work across several sectors, especially <strong>residential and industrial projects</strong>, providing advanced technical solutions
+            that respond to functional, aesthetic and regulatory requirements. Our presence throughout{" "}
+            <strong>Northern and North-Central Italy (Lombardy, Veneto, Piedmont, Emilia-Romagna and Tuscany)</strong>, particularly in the
+            provinces of <strong>Brescia, Bergamo and Milan</strong> as well as neighbouring areas, allows us to fully understand the regulatory
+            and planning specificities of each location. In addition, we have developed specialised expertise in fire-safety design, offering
+            consultancy and technical design in line with the most recent legislative and technical provisions. This breadth of competence enables us
+            to approach every project with a broad, fully informed perspective, delivering high-quality results that meet both client expectations and
+            current regulations.
+          </>
+        ),
         image: "cantiere",
         imageFirst: true,
       },
     ] as AboutBlock[],
     servicesTitle: "Services",
-    servicesIntro: "We provide a complete range of engineering, architecture and technical consultancy services, with solutions that are innovative and compliant.",
+    servicesIntro:
+      "We provide a complete range of engineering, architecture and technical consultancy services, ensuring innovative solutions that comply with current regulations.",
     serviceCards: [
       ["Structural design", "Steel, reinforced concrete and masonry structures. FEM analysis, seismic checks and fire design.", "/servizi#progettazione-strutturale"],
       ["Planning and architecture", "Architectural design, implementation plans, planning amendments and compliance analysis.", "/servizi#urbanistica-architettura"],
@@ -91,22 +112,73 @@ const copy = {
     learnMore: "Learn more",
     allServices: "Explore all services",
     projectsTitle: "Projects",
-    projectsIntro: "A selection of our most relevant work across residential, industrial and public-space projects, each developed around specific technical requirements.",
+    projectsIntro:
+      "We have solid experience in delivering structures for a wide range of applications, including industrial buildings, residential developments, vertical extensions and specialist steelwork. Every intervention is approached through a tailored process, developing technical solutions specifically designed to answer the exact requirements of the project.",
     projectsCta: "Explore all completed projects",
     certificationsTitle: "Professional qualifications",
-    certificationsIntro: "All services are delivered by professionals holding the qualifications required by current regulations.",
+    certificationsIntro: "All activities are carried out by professionals holding the qualifications required by sector regulations.",
     certifications: [
       ["Site safety", "Qualified professionals for the CSP and CSE safety coordination roles"],
       ["Fire prevention", "Professionals listed by the Italian Ministry of the Interior under article 16 of Legislative Decree no. 139 of March 8, 2006"],
       ["Energy certification", "Energy certification services for issuing Building Energy Performance Certificates (APE)"],
-      ["Professional software", "We use specialist tools for CAD, FEM analysis, structural design, 3D modelling and rendering."],
+      ["Professional software", "We use specialist and dedicated software for every type of design requirement: CAD, FEM structural analysis, structural calculation, 3D modelling and rendering, ensuring precision and regulatory compliance."],
     ] as [string, string][],
     zoneTitle: "Where we work",
     zoneHeading: "Northern Italy",
-    zoneDescription: "We work across Lombardy, Veneto, Piedmont, Emilia-Romagna and Tuscany, with a particular focus on the provinces of Brescia, Bergamo and Milan.",
-    zoneFooter: "We also accept commissions throughout Italy and abroad. Contact us to confirm coverage for your area.",
+    zoneDescription: (
+      <>
+        We operate throughout <strong>Northern and North-Central Italy (Lombardy, Veneto, Piedmont, Emilia-Romagna and Tuscany)</strong>, with a
+        particular focus on the provinces of{" "}
+        <Link
+          href={localizeHref("/progettazione-strutture-acciaio-brescia", "en")}
+          title={linkTitles.acciaio("Brescia", "en")}
+          className="font-semibold text-[#2a3f54] underline underline-offset-2"
+        >
+          Brescia
+        </Link>
+        ,{" "}
+        <Link
+          href={localizeHref("/progettazione-strutture-acciaio-bergamo", "en")}
+          title={linkTitles.acciaio("Bergamo", "en")}
+          className="font-semibold text-[#2a3f54] underline underline-offset-2"
+        >
+          Bergamo
+        </Link>{" "}
+        and{" "}
+        <Link
+          href={localizeHref("/progettazione-strutture-acciaio-milano", "en")}
+          title={linkTitles.acciaio("Milan", "en")}
+          className="font-semibold text-[#2a3f54] underline underline-offset-2"
+        >
+          Milan
+        </Link>
+        . Our office in Adro, near Brescia, allows us to serve these areas and the surrounding territories effectively, ensuring rapid response times
+        and in-depth knowledge of local regulations.
+      </>
+    ),
+    zoneFooter: (
+      <>
+        We also accept commissions throughout Italy and abroad. We serve additional provinces across Northern and North-Central Italy as well.{" "}
+        <Link href={localizeHref("/contatti#form-contatti", "en")} title={linkTitles.contatti("en")} className="font-semibold text-[#2a3f54] underline underline-offset-2">
+          Contact us
+        </Link>{" "}
+        to confirm coverage for your area, or consult our dedicated pages for{" "}
+        <Link href={localizeHref("/progettazione-strutture-acciaio-brescia", "en")} title={linkTitles.acciaio("Brescia", "en")} className="font-semibold text-[#2a3f54] underline underline-offset-2">
+          steel design in Brescia
+        </Link>
+        ,{" "}
+        <Link href={localizeHref("/progettazione-strutture-acciaio-bergamo", "en")} title={linkTitles.acciaio("Bergamo", "en")} className="font-semibold text-[#2a3f54] underline underline-offset-2">
+          Bergamo
+        </Link>{" "}
+        and{" "}
+        <Link href={localizeHref("/progettazione-strutture-acciaio-milano", "en")} title={linkTitles.acciaio("Milan", "en")} className="font-semibold text-[#2a3f54] underline underline-offset-2">
+          Milan
+        </Link>
+        .
+      </>
+    ),
     contactsTitle: "Contact",
-    contactsIntro: "For information, quotations or technical consultancy, our team is available to discuss your needs.",
+    contactsIntro: "For information, quotations or technical consultancy, our team is available to respond to every requirement.",
     office: "Office",
     phone: "Phone",
     writeUs: "Write to us directly",
