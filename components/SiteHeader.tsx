@@ -115,7 +115,7 @@ export function SiteHeader() {
       >
         <div className={layoutGutterXClass}>
           <div className={`flex h-[72px] items-center justify-between sm:h-[78px] md:h-[94px] ${layoutContentMaxClass}`}>
-            <Link href={localizeHref("/", locale)} className="focus-ring flex shrink-0 items-center" title={linkTitles.home}>
+            <Link href={localizeHref("/", locale)} className="focus-ring flex shrink-0 items-center" title={linkTitles.home(locale)}>
               <Image
                 src="/assets/logo-studio-ingegneria-removebg-preview.png"
                 alt="Studio Capoferri - ingegneria e progettazione strutturale"

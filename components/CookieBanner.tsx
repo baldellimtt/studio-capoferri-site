@@ -61,7 +61,7 @@ export function CookieBanner() {
             <p className="font-semibold">{copy.title}</p>
             <p className="mt-0.5 text-white/95 sm:mt-1">
               {copy.body}{" "}
-              <Link href={localizeHref("/privacy-policy#cookie", locale)} title={linkTitles.cookiePolicy} className="underline underline-offset-2 hover:text-white">
+              <Link href={localizeHref("/privacy-policy#cookie", locale)} title={linkTitles.cookiePolicy(locale)} className="underline underline-offset-2 hover:text-white">
                 {copy.more}
               </Link>
             </p>
