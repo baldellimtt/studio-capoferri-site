@@ -125,13 +125,26 @@ export function LocalizedHomeSections() {
           <div className="space-y-12 sm:space-y-16 md:space-y-20">
             {t.aboutBlocks.map((text, idx) => {
               const img = idx === 0 ? homeChiSiamoImages.team : homeChiSiamoImages.cantiere;
+              const reverse = idx % 2 === 1;
               return (
                 <div key={idx} className="reveal-block grid gap-6 sm:gap-10 md:grid-cols-2 md:items-stretch">
-                  <div className="home-section-body copy-rhythm reading-measure text-[0.98rem] sm:text-[1.05rem]">{text}</div>
-                  <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-[#2a3f54]/10 shadow-[0_10px_30px_rgba(0,0,0,0.08)] md:aspect-auto md:min-h-[300px] md:h-full">
-                    <Image src={img.src} alt={img.alt} fill className="object-cover" sizes="(min-width:768px) 50vw, 100vw" />
-                    <div className="image-unify-overlay" aria-hidden />
-                  </div>
+                  {reverse ? (
+                    <>
+                      <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-[#2a3f54]/10 shadow-[0_10px_30px_rgba(0,0,0,0.08)] md:aspect-auto md:min-h-[300px] md:h-full">
+                        <Image src={img.src} alt={img.alt} fill className="object-cover" sizes="(min-width:768px) 50vw, 100vw" />
+                        <div className="image-unify-overlay" aria-hidden />
+                      </div>
+                      <div className="home-section-body copy-rhythm reading-measure text-[0.98rem] sm:text-[1.05rem]">{text}</div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="home-section-body copy-rhythm reading-measure text-[0.98rem] sm:text-[1.05rem]">{text}</div>
+                      <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-[#2a3f54]/10 shadow-[0_10px_30px_rgba(0,0,0,0.08)] md:aspect-auto md:min-h-[300px] md:h-full">
+                        <Image src={img.src} alt={img.alt} fill className="object-cover" sizes="(min-width:768px) 50vw, 100vw" />
+                        <div className="image-unify-overlay" aria-hidden />
+                      </div>
+                    </>
+                  )}
                 </div>
               );
             })}

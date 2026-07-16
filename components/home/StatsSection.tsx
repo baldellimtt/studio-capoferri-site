@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useInView, useReducedMotion } from "framer-motion";
+import { useLocale } from "@/components/LocaleProvider";
 import { fontDisplay } from "@/lib/fonts";
 import { stats } from "@/lib/content";
 import { ui } from "@/lib/ui";
@@ -47,9 +48,20 @@ function Counter({
 }
 
 export function StatsSection() {
+  const locale = useLocale();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const reduced = !!useReducedMotion();
+  const copy =
+    locale === "en"
+      ? {
+          heading: "Statistics",
+          labels: ["Years of experience", "Completed projects", "Satisfied clients"],
+        }
+      : {
+          heading: "Statistiche",
+          labels: ["Anni di esperienza", "Progetti completati", "Clienti soddisfatti"],
+        };
 
   return (
     <section
@@ -63,18 +75,20 @@ export function StatsSection() {
             id="stats-heading"
             className={`${fontDisplay.className} section-title home-section-title home-section-title--inverted reveal-title`}
           >
-            Statistiche
+            {copy.heading}
           </h2>
           <div className="home-section-accent home-section-accent--light" aria-hidden />
         </div>
         <div className="grid grid-cols-3 gap-3 sm:gap-8">
-          {stats.map((s) => (
+          {stats.map((s, index) => (
             <div
               key={s.label}
               className="reveal-block rounded-xl border border-white/15 bg-white/[0.07] px-3 py-5 text-center shadow-[0_10px_30px_rgba(0,0,0,0.12)] backdrop-blur-sm sm:px-6 sm:py-8"
             >
               <Counter target={s.value} suffix={s.suffix} reduced={reduced} active={inView} />
-              <p className="mt-2 text-[0.72rem] font-medium uppercase tracking-[0.08em] text-white/85 sm:mt-3 sm:text-sm sm:tracking-[0.12em]">{s.label}</p>
+              <p className="mt-2 text-[0.72rem] font-medium uppercase tracking-[0.08em] text-white/85 sm:mt-3 sm:text-sm sm:tracking-[0.12em]">
+                {copy.labels[index] ?? s.label}
+              </p>
             </div>
           ))}
         </div>
