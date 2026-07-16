@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { ReactNode } from "react";
 
 /** Testi riportati dalle pagine HTML attuali (index, chi-siamo, progetti index). */
@@ -112,17 +113,29 @@ export const zoneContent = {
 export const zoneDescription = (
   <>
     Operiamo in tutto il <strong>Nord e Centro Nord Italia (Lombardia, Veneto, Piemonte, Emilia-Romagna, Toscana)</strong>, in particolare nelle province di{" "}
-    <a href="/progettazione-strutture-acciaio-brescia" title="Progettazione strutture in acciaio a Brescia — Studio Capoferri" className="font-semibold text-[#2a3f54] underline underline-offset-2">
+    <Link
+      href="/progettazione-strutture-acciaio-brescia"
+      title="Progettazione strutture in acciaio a Brescia — Studio Capoferri"
+      className="font-semibold text-[#2a3f54] underline underline-offset-2"
+    >
       Brescia
-    </a>
+    </Link>
     ,{" "}
-    <a href="/progettazione-strutture-acciaio-bergamo" title="Progettazione strutture in acciaio a Bergamo — Studio Capoferri" className="font-semibold text-[#2a3f54] underline underline-offset-2">
+    <Link
+      href="/progettazione-strutture-acciaio-bergamo"
+      title="Progettazione strutture in acciaio a Bergamo — Studio Capoferri"
+      className="font-semibold text-[#2a3f54] underline underline-offset-2"
+    >
       Bergamo
-    </a>{" "}
+    </Link>{" "}
     e{" "}
-    <a href="/progettazione-strutture-acciaio-milano" title="Progettazione strutture in acciaio a Milano — Studio Capoferri" className="font-semibold text-[#2a3f54] underline underline-offset-2">
+    <Link
+      href="/progettazione-strutture-acciaio-milano"
+      title="Progettazione strutture in acciaio a Milano — Studio Capoferri"
+      className="font-semibold text-[#2a3f54] underline underline-offset-2"
+    >
       Milano
-    </a>
+    </Link>
     . La nostra sede ad Adro (BS) ci permette di servire efficacemente queste aree e le zone limitrofe, garantendo interventi tempestivi e una conoscenza approfondita delle normative locali.
   </>
 );
@@ -130,21 +143,33 @@ export const zoneDescription = (
 export const zoneFooter = (
   <>
     Accettiamo commesse in tutta Italia e all&apos;estero. Serviamo anche altre province del Nord e Centro Nord Italia.{" "}
-    <a href="/#form-contatti" title="Contattaci — Studio Capoferri" className="font-semibold text-[#2a3f54] underline underline-offset-2">
+    <Link href="/#form-contatti" title="Contattaci — Studio Capoferri" className="font-semibold text-[#2a3f54] underline underline-offset-2">
       Contattaci
-    </a>{" "}
+    </Link>{" "}
     per verificare la copertura nella tua zona, oppure consulta le nostre pagine dedicate alla{" "}
-    <a href="/progettazione-strutture-acciaio-brescia" title="Progettazione strutture in acciaio a Brescia — Studio Capoferri" className="font-semibold text-[#2a3f54] underline underline-offset-2">
+    <Link
+      href="/progettazione-strutture-acciaio-brescia"
+      title="Progettazione strutture in acciaio a Brescia — Studio Capoferri"
+      className="font-semibold text-[#2a3f54] underline underline-offset-2"
+    >
       progettazione in acciaio a Brescia
-    </a>
+    </Link>
     ,{" "}
-    <a href="/progettazione-strutture-acciaio-bergamo" title="Progettazione strutture in acciaio a Bergamo — Studio Capoferri" className="font-semibold text-[#2a3f54] underline underline-offset-2">
+    <Link
+      href="/progettazione-strutture-acciaio-bergamo"
+      title="Progettazione strutture in acciaio a Bergamo — Studio Capoferri"
+      className="font-semibold text-[#2a3f54] underline underline-offset-2"
+    >
       Bergamo
-    </a>{" "}
+    </Link>{" "}
     e{" "}
-    <a href="/progettazione-strutture-acciaio-milano" title="Progettazione strutture in acciaio a Milano — Studio Capoferri" className="font-semibold text-[#2a3f54] underline underline-offset-2">
+    <Link
+      href="/progettazione-strutture-acciaio-milano"
+      title="Progettazione strutture in acciaio a Milano — Studio Capoferri"
+      className="font-semibold text-[#2a3f54] underline underline-offset-2"
+    >
       Milano
-    </a>
+    </Link>
     .
   </>
 );
