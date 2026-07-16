@@ -137,7 +137,7 @@ export function SiteHeader() {
                       <li key={item.href}>
                         <Link
                           href={localizeHref(item.href, locale)}
-                          className={`focus-ring ${fontDisplay.className} rounded-full px-3 py-2 text-[1.05rem] uppercase tracking-[0.12em] transition-all duration-250 lg:text-[1.24rem] ${
+                          className={`focus-ring ${fontDisplay.className} inline-flex min-h-[44px] items-center justify-center rounded-full px-3 py-2 leading-[0.92] text-[1.05rem] uppercase tracking-[0.09em] transition-all duration-250 lg:text-[1.24rem] ${
                             active
                               ? "bg-[#2a3f54]/10 text-[#2a3f54]"
                               : "text-[#2a2a2a] hover:-translate-y-0.5 hover:bg-[#2a3f54]/12 hover:text-[#1f2e3d] hover:shadow-[0_10px_24px_rgba(42,63,84,0.12)] focus-visible:-translate-y-0.5 focus-visible:bg-[#2a3f54]/12 focus-visible:text-[#1f2e3d] focus-visible:shadow-[0_10px_24px_rgba(42,63,84,0.12)]"
@@ -192,7 +192,7 @@ export function SiteHeader() {
                 <li key={item.href}>
                   <Link
                     href={href}
-                    className={`focus-ring ${fontDisplay.className} block min-h-[48px] py-5 text-center text-2xl uppercase tracking-[0.14em] transition sm:text-3xl ${
+                    className={`focus-ring ${fontDisplay.className} flex min-h-[48px] items-center justify-center py-5 text-center leading-[0.92] text-2xl uppercase tracking-[0.1em] transition sm:text-3xl ${
                       active ? "text-white" : "text-white/90 hover:text-white/80"
                     }`}
                     aria-current={active ? "page" : undefined}

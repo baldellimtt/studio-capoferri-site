@@ -6,15 +6,58 @@ import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { useLocale } from "@/components/LocaleProvider";
 import { fontDisplay } from "@/lib/fonts";
-import { heroSlides } from "@/lib/images";
 import { chromeCopy, localizeHref } from "@/lib/i18n";
 import { linkTitles } from "@/lib/link-seo";
 import { layoutContentMaxClass } from "@/lib/site";
 import { ui } from "@/lib/ui";
 
+const heroSlidesByLocale = {
+  it: [
+    {
+      src: "/assets/superstudio-village-acciaio-pre-fabbricato.webp",
+      alt: "Strutture in acciaio pre-fabbricate - progetti Studio Capoferri Nord Italia, Brescia, Bergamo, Milano",
+      line1: "Progettazione integrata",
+      line2: "dalla fattibilita al cantiere",
+    },
+    {
+      src: "/assets/superstudio-village-sala-proiezione.webp",
+      alt: "Strutture in acciaio per edilizia residenziale e industriale - Studio Capoferri Lombardia",
+      line1: "Esperienza tecnica",
+      line2: "per soluzioni su misura",
+    },
+    {
+      src: "/assets/hero-struttura-new.webp",
+      alt: "Strutture in acciaio - efficienza e rapidita",
+      line1: "Strutture in acciaio",
+      line2: "efficienza e rapidita",
+    },
+  ],
+  en: [
+    {
+      src: "/assets/superstudio-village-acciaio-pre-fabbricato.webp",
+      alt: "Prefabricated steel structures - Studio Capoferri projects in Northern Italy",
+      line1: "Integrated design",
+      line2: "from feasibility to construction",
+    },
+    {
+      src: "/assets/superstudio-village-sala-proiezione.webp",
+      alt: "Steel structures for residential and industrial buildings - Studio Capoferri Lombardy",
+      line1: "Technical expertise",
+      line2: "for tailored solutions",
+    },
+    {
+      src: "/assets/hero-struttura-new.webp",
+      alt: "Steel structures - efficiency and speed",
+      line1: "Steel structures",
+      line2: "efficiency and speed",
+    },
+  ],
+} as const;
+
 export function HeroHome() {
   const locale = useLocale();
   const copy = chromeCopy[locale].hero;
+  const heroSlides = heroSlidesByLocale[locale];
   const reduceMotion = useReducedMotion();
   const [i, setI] = useState(0);
   const [extraSlidesReady, setExtraSlidesReady] = useState(false);

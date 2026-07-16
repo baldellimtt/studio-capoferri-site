@@ -9,22 +9,34 @@ import { linkTitles } from "@/lib/link-seo";
 import { layoutContentMaxClass, layoutGutterXClass, site, steelLandingPages } from "@/lib/site";
 import { ui } from "@/lib/ui";
 
-const footerServices = [
-  { href: "/servizi#progettazione-strutturale", label: "Progettazione strutturale" },
-  { href: "/servizi#urbanistica-architettura", label: "Urbanistica e architettura" },
-  { href: "/servizi#direzione-lavori", label: "Direzione lavori" },
-  { href: "/servizi#servizi-tecnici", label: "Servizi tecnici" },
-  { href: "/servizi#sicurezza-cantieri", label: "Sicurezza cantieri" },
-  { href: "/servizi#assistenza-immobiliare", label: "Assistenza immobiliare" },
-] as const;
+const footerServices = {
+  it: [
+    { href: "/servizi#progettazione-strutturale", label: "Progettazione strutturale" },
+    { href: "/servizi#urbanistica-architettura", label: "Urbanistica e architettura" },
+    { href: "/servizi#direzione-lavori", label: "Direzione lavori" },
+    { href: "/servizi#servizi-tecnici", label: "Servizi tecnici" },
+    { href: "/servizi#sicurezza-cantieri", label: "Sicurezza cantieri" },
+    { href: "/servizi#assistenza-immobiliare", label: "Assistenza immobiliare" },
+  ],
+  en: [
+    { href: "/servizi#progettazione-strutturale", label: "Structural design" },
+    { href: "/servizi#urbanistica-architettura", label: "Planning and architecture" },
+    { href: "/servizi#direzione-lavori", label: "Construction supervision" },
+    { href: "/servizi#servizi-tecnici", label: "Technical services" },
+    { href: "/servizi#sicurezza-cantieri", label: "Site safety" },
+    { href: "/servizi#assistenza-immobiliare", label: "Property support" },
+  ],
+} as const;
 
-function getSteelCityLabel(label: string) {
-  return label.split(" ").at(-1) ?? label;
-}
+const steelLabels = {
+  it: ["Brescia", "Bergamo", "Milano"],
+  en: ["Brescia", "Bergamo", "Milan"],
+} as const;
 
 export function SiteFooter() {
   const locale = useLocale();
   const copy = chromeCopy[locale].footer;
+  const localizedFooterServices = footerServices[locale];
 
   return (
     <footer className={`mt-12 border-t border-[#3d5a7a]/35 ${ui.brandGradient} py-10 text-white sm:mt-16 sm:py-14`}>
@@ -34,7 +46,7 @@ export function SiteFooter() {
             <div>
               <h3 className={`${fontDisplay.className} mb-3 text-lg tracking-[0.06em] sm:mb-4 sm:text-xl`}>{copy.services}</h3>
               <ul className="space-y-0.5 text-sm text-white/82">
-                {footerServices.map((item) => (
+                {localizedFooterServices.map((item) => (
                   <li key={item.href}>
                     <Link className={ui.footerLink} href={localizeHref(item.href, locale)} title={linkTitles.servizio(item.label)}>
                       {item.label}
@@ -42,10 +54,10 @@ export function SiteFooter() {
                   </li>
                 ))}
                 <li className="pt-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/65">{copy.steelDesign}</li>
-                {steelLandingPages.map((page) => (
+                {steelLandingPages.map((page, index) => (
                   <li key={page.href}>
-                    <Link className={ui.footerLink} href={localizeHref(page.href, locale)} title={linkTitles.acciaio(getSteelCityLabel(page.label))}>
-                      {getSteelCityLabel(page.label)}
+                    <Link className={ui.footerLink} href={localizeHref(page.href, locale)} title={linkTitles.acciaio(steelLabels[locale][index])}>
+                      {steelLabels[locale][index]}
                     </Link>
                   </li>
                 ))}
