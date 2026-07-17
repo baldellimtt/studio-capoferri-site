@@ -114,14 +114,18 @@ export function SiteHeader() {
         }`}
       >
         <div className={layoutGutterXClass}>
-          <div className={`flex h-[72px] items-center justify-between sm:h-[78px] md:h-[94px] ${layoutContentMaxClass}`}>
-            <Link href={localizeHref("/", locale)} className="focus-ring flex shrink-0 items-center" title={linkTitles.home(locale)}>
+          <div className={`relative flex h-[72px] items-center sm:h-[78px] md:h-[94px] md:justify-between ${layoutContentMaxClass}`}>
+            <Link
+              href={localizeHref("/", locale)}
+              className="focus-ring absolute left-1/2 top-1/2 flex shrink-0 -translate-x-1/2 -translate-y-1/2 items-center md:static md:translate-x-0 md:translate-y-0"
+              title={linkTitles.home(locale)}
+            >
               <Image
                 src="/assets/logo-studio-ingegneria-removebg-preview.png"
                 alt={locale === "en" ? "Studio Capoferri - structural engineering and design" : "Studio Capoferri - ingegneria e progettazione strutturale"}
                 width={220}
                 height={70}
-                className="h-[46px] w-auto sm:h-[52px] md:h-[70px]"
+                className="h-[54px] w-auto sm:h-[58px] md:h-[70px]"
                 priority
               />
             </Link>
@@ -158,7 +162,7 @@ export function SiteHeader() {
             <button
               ref={menuButtonRef}
               type="button"
-              className="focus-ring flex h-11 w-11 shrink-0 flex-col items-center justify-center gap-1.5 rounded-md border border-[#2a3f54]/15 bg-white/70 shadow-sm md:hidden"
+              className="focus-ring relative z-10 ml-auto flex h-11 w-11 shrink-0 flex-col items-center justify-center gap-1.5 rounded-md border border-[#2a3f54]/15 bg-white/70 shadow-sm md:hidden"
               aria-expanded={open}
               aria-controls="mobile-nav"
               aria-label={open ? copy.closeMenu : copy.openMenu}
