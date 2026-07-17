@@ -10,13 +10,29 @@ import { ui } from "@/lib/ui";
 
 type FieldErrors = Partial<Record<"name" | "email" | "message" | "privacy", string>>;
 
-export function ContactForm() {
+type Props = {
+  formId?: string;
+  defaultCity?: string;
+  defaultSubject?: string;
+  messagePlaceholder?: string;
+  submitLabel?: string;
+  successMessage?: string;
+};
+
+export function ContactForm({
+  formId,
+  defaultCity = "",
+  defaultSubject = "",
+  messagePlaceholder,
+  submitLabel,
+  successMessage,
+}: Props) {
   const locale = useLocale();
   const copy = chromeCopy[locale].contactForm;
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [subject, setSubject] = useState("");
-  const [city, setCity] = useState("");
+  const [subject, setSubject] = useState(defaultSubject);
+  const [city, setCity] = useState(defaultCity);
   const [message, setMessage] = useState("");
   const [privacy, setPrivacy] = useState(false);
   const [touched, setTouched] = useState<Record<string, boolean>>({});
@@ -63,8 +79,8 @@ export function ContactForm() {
           setStatus("success");
           setName("");
           setEmail("");
-          setSubject("");
-          setCity("");
+          setSubject(defaultSubject);
+          setCity(defaultCity);
           setMessage("");
           setPrivacy(false);
           setTouched({});
@@ -75,19 +91,19 @@ export function ContactForm() {
         setStatus("error");
       }
     },
-    [city, copy.noSubject, email, message, name, subject, valid]
+    [city, copy.noSubject, defaultCity, defaultSubject, email, message, name, subject, valid]
   );
 
   if (status === "success") {
     return (
       <p className="w-full rounded-lg border border-[#2a3f54]/20 bg-white/60 px-4 py-6 text-[#2a3f54]" role="status">
-        {copy.success}
+        {successMessage ?? copy.success}
       </p>
     );
   }
 
   return (
-    <form onSubmit={onSubmit} className="grid w-full gap-3 sm:gap-4 md:grid-cols-2" noValidate>
+    <form id={formId} onSubmit={onSubmit} className="grid w-full gap-3 sm:gap-4 md:grid-cols-2" noValidate>
       <div>
         <label htmlFor="name" className="mb-1 block text-sm font-medium text-[#333]">
           {copy.name} <span className="text-red-700">*</span>
@@ -157,6 +173,7 @@ export function ContactForm() {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           onBlur={onBlur("message")}
+          placeholder={messagePlaceholder}
           className={ui.inputField}
           aria-invalid={!!errors.message}
           aria-describedby={errors.message ? "err-msg" : undefined}
@@ -193,7 +210,7 @@ export function ContactForm() {
       ) : null}
 
       <button type="submit" disabled={status === "submitting"} className={`${ui.btnPrimary} w-full sm:w-fit md:col-span-2`}>
-        {status === "submitting" ? copy.submitting : copy.submit}
+        {status === "submitting" ? copy.submitting : (submitLabel ?? copy.submit)}
       </button>
     </form>
   );

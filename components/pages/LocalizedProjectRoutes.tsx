@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useLocale } from "@/components/LocaleProvider";
 import { ContactCtaSection } from "@/components/ContactCtaSection";
+import { ContactForm } from "@/components/ContactForm";
 import { ProjectImageLightbox } from "@/components/projects/ProjectImageLightbox";
 import { ProjectPreviewCard } from "@/components/projects/ProjectPreviewCard";
 import { fontDisplay } from "@/lib/fonts";
@@ -12,7 +13,7 @@ import { caseStudyJsonLd } from "@/lib/jsonld";
 import { linkTitles } from "@/lib/link-seo";
 import { projectCaseStudies, projectCategories, type ProjectArea } from "@/lib/projects";
 import { getEnglishCaseMetadata, getEnglishSteelDescription, pageUrl as seoPageUrl } from "@/lib/seo";
-import { layoutContentMaxClass, layoutGutterXClass, site } from "@/lib/site";
+import { layoutContentMaxClass, layoutGutterXClass, scrollAnchorClass, site } from "@/lib/site";
 import type { SteelLandingConfig } from "@/lib/steel-landing";
 import { ui } from "@/lib/ui";
 
@@ -563,7 +564,9 @@ export function LocalizedSteelLandingPage({ config }: { config: SteelLandingConf
                   Dal <strong>calcolo strutturale secondo NTC 2018 ed Eurocodici</strong> ai <strong>disegni costruttivi d&apos;officina</strong>, fino alla direzione lavori e al collaudo: seguiamo ogni fase del progetto, dalla prima idea al cantiere.
                 </p>
                 <div className="flex flex-col gap-3 sm:flex-row">
-                  <Link href="/contatti" className={ui.btnPrimary} title={linkTitles.consulenza("it")}>Richiedi una consulenza</Link>
+                  <a href="#richiesta-preventivo" className={ui.btnPrimary} title="Richiedi preventivo senza impegno — Studio Capoferri">
+                    Richiedi preventivo senza impegno
+                  </a>
                   <a href={`tel:${site.phoneTel}`} className={ui.btnOutline} title={linkTitles.telefono(site.phoneDisplay, "it")}>{site.phoneDisplay}</a>
                 </div>
               </article>
@@ -623,14 +626,27 @@ export function LocalizedSteelLandingPage({ config }: { config: SteelLandingConf
                   </div>
                 </section>
 
-                <section className="mt-10">
-                  <div className="frost-card rounded-2xl p-5 text-center sm:p-7 md:p-8">
+                <section id="richiesta-preventivo" className={`mt-10 ${scrollAnchorClass}`}>
+                  <div className="frost-card rounded-2xl p-5 sm:p-7 md:p-8">
                     <h2 className={`${fontDisplay.className} ${ui.sectionHeadingAccent} mb-3`}>{config.ctaHeading}</h2>
-                    <p className={`copy-rhythm mx-auto mb-6 max-w-[560px] ${ui.bodyMuted}`}>Raccontaci la tua idea: analizziamo fattibilità, costi e tempi e ti proponiamo la soluzione strutturale più efficiente.</p>
-                    <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
-                      <Link href="/contatti" className={ui.btnPrimary} title={linkTitles.contatti("it")}>Contattaci ora</Link>
-                      <Link href="/servizi" className={ui.btnOutline} title={linkTitles.scopriServizi("it")}>Scopri tutti i servizi</Link>
-                    </div>
+                    <p className={`copy-rhythm mb-6 max-w-[640px] ${ui.bodyMuted}`}>
+                      Richiedi un <strong>preventivo senza impegno</strong> per la progettazione strutturale a {config.city}.
+                      Indica tipologia, dimensioni indicative e tempi: ti rispondiamo entro 1–2 giorni lavorativi.
+                    </p>
+                    <ContactForm
+                      formId="form-preventivo-acciaio"
+                      defaultCity={config.city}
+                      defaultSubject={`Preventivo strutture in acciaio — ${config.city}`}
+                      messagePlaceholder="Es. villa / capannone / sopraelevazione, mq indicativi, comune, tempi desiderati…"
+                      submitLabel="Richiedi preventivo"
+                      successMessage="Richiesta inviata. Ti rispondiamo entro 1–2 giorni lavorativi con i prossimi passi."
+                    />
+                    <p className={`mt-5 text-center text-sm ${ui.bodyMuted}`}>
+                      Preferisci parlare subito?{" "}
+                      <a href={`tel:${site.phoneTel}`} className="font-semibold text-[#2a3f54] underline underline-offset-2" title={linkTitles.telefono(site.phoneDisplay, "it")}>
+                        {site.phoneDisplay}
+                      </a>
+                    </p>
                   </div>
                 </section>
               </div>
@@ -655,7 +671,9 @@ export function LocalizedSteelLandingPage({ config }: { config: SteelLandingConf
               <p className={`copy-rhythm mb-4 ${ui.bodyMuted}`}>{cityCopy?.introLead}</p>
               <p className={`copy-rhythm mb-6 ${ui.bodyMuted}`}>{landingCopy.en.process}</p>
               <div className="flex flex-col gap-3 sm:flex-row">
-                <Link href={localizeHref("/contatti#form-contatti", locale)} className={ui.btnPrimary} title={linkTitles.consulenza(locale)}>{landingCopy.en.consultation}</Link>
+                <a href="#richiesta-preventivo" className={ui.btnPrimary} title="Request a free quote — Studio Capoferri">
+                  Request a free quote
+                </a>
                 <a href={`tel:${site.phoneTel}`} className={ui.btnOutline} title={linkTitles.telefono(site.phoneDisplay, locale)}>{site.phoneDisplay}</a>
               </div>
             </article>
@@ -713,14 +731,27 @@ export function LocalizedSteelLandingPage({ config }: { config: SteelLandingConf
                   ))}
                 </div>
               </section>
-              <section className="mt-10">
-                <div className="frost-card rounded-2xl p-5 text-center sm:p-7 md:p-8">
+              <section id="richiesta-preventivo" className={`mt-10 ${scrollAnchorClass}`}>
+                <div className="frost-card rounded-2xl p-5 sm:p-7 md:p-8">
                   <h2 className={`${fontDisplay.className} ${ui.sectionHeadingAccent} mb-3`}>{cityCopy?.ctaHeading}</h2>
-                  <p className={`copy-rhythm mx-auto mb-6 max-w-[560px] ${ui.bodyMuted}`}>{landingCopy.en.ctaText}</p>
-                  <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
-                    <Link href={localizeHref("/contatti#form-contatti", locale)} className={ui.btnPrimary} title={linkTitles.contatti(locale)}>{landingCopy.en.contactNow}</Link>
-                    <Link href={localizeHref("/servizi", locale)} className={ui.btnOutline} title={linkTitles.scopriServizi(locale)}>{landingCopy.en.allServices}</Link>
-                  </div>
+                  <p className={`copy-rhythm mb-6 max-w-[640px] ${ui.bodyMuted}`}>
+                    Request a <strong>no-obligation quote</strong> for structural design in {config.city}.
+                    Share building type, approximate size and timeline — we reply within 1–2 working days.
+                  </p>
+                  <ContactForm
+                    formId="form-preventivo-acciaio"
+                    defaultCity={config.city === "Milano" ? "Milan" : config.city}
+                    defaultSubject={`Steel structure design quote — ${config.city === "Milano" ? "Milan" : config.city}`}
+                    messagePlaceholder="E.g. villa / warehouse / vertical extension, approx. sqm, municipality, preferred timeline…"
+                    submitLabel="Request quote"
+                    successMessage="Request sent. We will reply within 1–2 working days with the next steps."
+                  />
+                  <p className={`mt-5 text-center text-sm ${ui.bodyMuted}`}>
+                    Prefer to call?{" "}
+                    <a href={`tel:${site.phoneTel}`} className="font-semibold text-[#2a3f54] underline underline-offset-2" title={linkTitles.telefono(site.phoneDisplay, locale)}>
+                      {site.phoneDisplay}
+                    </a>
+                  </p>
                 </div>
               </section>
             </div>
