@@ -111,8 +111,9 @@ export const chromeCopy = {
       introLabel: "Introduzione",
       eyebrow: "Architettura e ingegneria - al servizio dell'innovazione",
       location: "Studio tecnico · Adro (BS) · Nord Italia",
+      headline: "Ingegneria civile, architettura e strutture in acciaio",
       body:
-        "Progettazione strutturale, architettura e urbanistica con approccio integrato. Un unico interlocutore dalla fattibilita al cantiere.",
+        "Studio di ingegneria civile ad Adro (BS): progettazione strutturale, architettura e strutture in acciaio con approccio integrato. Un unico interlocutore dalla fattibilità al cantiere.",
       cta: "Richiedi una consulenza",
       slidePicker: "Seleziona slide hero",
     },
@@ -180,8 +181,9 @@ export const chromeCopy = {
       introLabel: "Introduction",
       eyebrow: "Architecture and engineering - in service of innovation",
       location: "Technical studio · Adro (BS) · Northern Italy",
+      headline: "Civil engineering, architecture and steel structures",
       body:
-        "Structural design, architecture and planning with an integrated approach. One partner from feasibility to construction.",
+        "Civil engineering practice in Adro near Brescia: structural design, architecture and steel structures with an integrated approach. One partner from feasibility to construction.",
       cta: "Request a consultation",
       slidePicker: "Select hero slide",
     },

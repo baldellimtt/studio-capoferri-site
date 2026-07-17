@@ -39,7 +39,7 @@ const copy = {
   it: {
     aboutTitle: homeChiSiamo.title,
     aboutIntro:
-      "Studio tecnico ad Adro (BS): progettazione strutturale, architettura e urbanistica con oltre quarant'anni di esperienza.",
+      "Studio di ingegneria civile ad Adro (BS): architettura, progettazione strutturale e strutture in acciaio con oltre quarant'anni di esperienza.",
     aboutBlocks: homeChiSiamo.blocks.map((block, index) => ({
       text: block.text,
       image: block.image,
@@ -48,7 +48,6 @@ const copy = {
     servicesTitle: "Servizi",
     servicesIntro: homeServiziIntro,
     serviceCards: homeServiceCards.map((card) => [card.title, card.description, card.href]) as [string, string, string][],
-    learnMore: "Scopri di più",
     allServices: "Scopri tutti i nostri servizi",
     projectsTitle: "Progetti",
     projectsIntro: homeProgettiIntro,
@@ -69,17 +68,17 @@ const copy = {
   en: {
     aboutTitle: "About",
     aboutIntro:
-      "A technical practice in Adro near Brescia: structural engineering, architecture and urban planning with more than forty years of experience.",
+      "A civil engineering practice in Adro near Brescia: architecture, structural design and steel structures with more than forty years of experience.",
     aboutBlocks: [
       {
         text: (
           <>
-            <strong>Studio Capoferri</strong> is a technical practice based in Adro, near Brescia, with more than forty years of experience in{" "}
-            <strong>structural engineering, architecture and urban planning</strong> across Franciacorta and, more broadly, Northern and Central
-            Italy. Our team is made up of qualified professionals, each with specific multidisciplinary expertise, able to guarantee quality and
-            precision in every aspect of the design process. Thanks to the synergy between different areas of knowledge and the consolidated
-            experience built up over the years, we provide innovative, tailored solutions for every type of intervention, ensuring an integrated and
-            comprehensive approach for all projects entrusted to our practice.
+            <strong>Studio Capoferri</strong> is a <strong>civil engineering</strong> practice based in Adro, near Brescia, with more than forty years of
+            experience in <strong>structural engineering, architecture and urban planning</strong> and in <strong>steel structures</strong> across
+            Franciacorta and, more broadly, Northern and Central Italy. Our team is made up of qualified professionals, each with specific
+            multidisciplinary expertise, able to guarantee quality and precision in every aspect of the design process. Thanks to the synergy between
+            different areas of knowledge and the consolidated experience built up over the years, we provide innovative, tailored solutions for every
+            type of intervention, ensuring an integrated and comprehensive approach for all projects entrusted to our practice.
           </>
         ),
         image: "team",
@@ -89,9 +88,9 @@ const copy = {
         text: (
           <>
             We work across several sectors, especially <strong>residential and industrial projects</strong>, providing advanced technical solutions
-            that respond to functional, aesthetic and regulatory requirements. Our presence throughout{" "}
-            <strong>Northern and North-Central Italy (Lombardy, Veneto, Piedmont, Emilia-Romagna and Tuscany)</strong>, particularly in the
-            provinces of <strong>Brescia, Bergamo and Milan</strong> as well as neighbouring areas, allows us to fully understand the regulatory
+            that respond to functional, aesthetic and regulatory requirements. Our presence throughout Northern and North-Central Italy
+            (Lombardy, Veneto, Piedmont, Emilia-Romagna and Tuscany), particularly in the provinces of Brescia, Bergamo and Milan as well as
+            neighbouring areas, allows us to fully understand the regulatory
             and planning specificities of each location. In addition, we have developed specialised expertise in fire-safety design, offering
             consultancy and technical design in line with the most recent legislative and technical provisions. This breadth of competence enables us
             to approach every project with a broad, fully informed perspective, delivering high-quality results that meet both client expectations and
@@ -113,7 +112,6 @@ const copy = {
       ["Site safety", "Safety coordination (CSP/CSE), safety plans and risk management.", "/servizi#sicurezza-cantieri"],
       ["Property support", "Technical support for transactions, appraisals, valuations and due diligence.", "/servizi#assistenza-immobiliare"],
     ] as [string, string, string][],
-    learnMore: "Learn more",
     allServices: "Explore all services",
     projectsTitle: "Projects",
     projectsIntro:
@@ -122,7 +120,7 @@ const copy = {
     certificationsTitle: "Professional qualifications",
     certificationsIntro: "All activities are carried out by professionals holding the qualifications required by sector regulations.",
     certifications: [
-      ["Site safety", "Qualified professionals for the CSP and CSE safety coordination roles"],
+      ["CSP/CSE qualification", "Qualified professionals for the CSP and CSE safety coordination roles on site"],
       ["Fire prevention", "Professionals listed by the Italian Ministry of the Interior under article 16 of Legislative Decree no. 139 of March 8, 2006"],
       ["Energy certification", "Energy certification services for issuing Building Energy Performance Certificates (APE)"],
       ["Professional software", "We use specialist and dedicated software for every type of design requirement: CAD, FEM structural analysis, structural calculation, 3D modelling and rendering, ensuring precision and regulatory compliance."],
@@ -131,7 +129,7 @@ const copy = {
     zoneHeading: "Northern Italy",
     zoneDescription: (
       <>
-        We operate throughout <strong>Northern and North-Central Italy (Lombardy, Veneto, Piedmont, Emilia-Romagna and Tuscany)</strong>, with a
+        We operate throughout <strong>Northern and North-Central Italy</strong> (Lombardy, Veneto, Piedmont, Emilia-Romagna and Tuscany), with a
         particular focus on the provinces of{" "}
         <Link
           href={localizeHref("/progettazione-strutture-acciaio-brescia", "en")}
@@ -172,11 +170,11 @@ const copy = {
         </Link>
         ,{" "}
         <Link href={localizeHref("/progettazione-strutture-acciaio-bergamo", "en")} title={linkTitles.acciaio("Bergamo", "en")} className="font-semibold text-[#2a3f54] underline underline-offset-2">
-          Bergamo
+          steel design in Bergamo
         </Link>{" "}
         and{" "}
         <Link href={localizeHref("/progettazione-strutture-acciaio-milano", "en")} title={linkTitles.acciaio("Milan", "en")} className="font-semibold text-[#2a3f54] underline underline-offset-2">
-          Milan
+          steel design in Milan
         </Link>
         .
       </>
@@ -264,7 +262,7 @@ export function LocalizedHomeSections() {
                 <h3 className={`${fontDisplay.className} mb-2 text-lg tracking-[0.04em] text-[#2a3f54] sm:mb-3 sm:text-xl`}>{title}</h3>
                 <p className="copy-rhythm mb-5 flex-1 text-sm text-[#555] sm:mb-6">{description}</p>
                 <Link href={localizeHref(href, locale)} className="touch-target mt-auto inline-block min-h-[44px] py-2 text-sm font-semibold text-[#2a3f54] underline-offset-4 transition group-hover:underline" title={linkTitles.scopriServizio(title, locale)}>
-                  {t.learnMore}
+                  {locale === "en" ? `Explore ${title}` : `Scopri ${title.toLowerCase()}`}
                 </Link>
               </article>
             ))}

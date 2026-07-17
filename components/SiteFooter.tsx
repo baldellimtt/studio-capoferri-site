@@ -29,8 +29,8 @@ const footerServices = {
 } as const;
 
 const steelLabels = {
-  it: ["Brescia", "Bergamo", "Milano"],
-  en: ["Brescia", "Bergamo", "Milan"],
+  it: ["Acciaio a Brescia", "Acciaio a Bergamo", "Acciaio a Milano"],
+  en: ["Steel design in Brescia", "Steel design in Bergamo", "Steel design in Milan"],
 } as const;
 
 export function SiteFooter() {
@@ -45,7 +45,7 @@ export function SiteFooter() {
         <div className={layoutContentMaxClass}>
           <div className="grid gap-8 sm:gap-10 md:grid-cols-3">
             <div>
-              <h3 className={`${fontDisplay.className} mb-3 text-lg tracking-[0.06em] sm:mb-4 sm:text-xl`}>{copy.services}</h3>
+              <p className={`${fontDisplay.className} mb-3 text-lg tracking-[0.06em] sm:mb-4 sm:text-xl`}>{copy.services}</p>
               <ul className="space-y-0.5 text-sm text-white/82">
                 {localizedFooterServices.map((item) => (
                   <li key={item.href}>
@@ -66,7 +66,7 @@ export function SiteFooter() {
             </div>
 
             <div>
-              <h3 className={`${fontDisplay.className} mb-3 text-lg tracking-[0.06em] sm:mb-4 sm:text-xl`}>{copy.company}</h3>
+              <p className={`${fontDisplay.className} mb-3 text-lg tracking-[0.06em] sm:mb-4 sm:text-xl`}>{copy.company}</p>
               <ul className="space-y-0.5 text-sm text-white/82">
                 <li>
                   <Link className={ui.footerLink} href={localizeHref("/chi-siamo", locale)} title={linkTitles.pagina(getNavLabel(locale, "about"))}>
@@ -92,7 +92,7 @@ export function SiteFooter() {
             </div>
 
             <div>
-              <h3 className={`${fontDisplay.className} mb-3 text-lg tracking-[0.06em] sm:mb-4 sm:text-xl`}>{copy.contacts}</h3>
+              <p className={`${fontDisplay.className} mb-3 text-lg tracking-[0.06em] sm:mb-4 sm:text-xl`}>{copy.contacts}</p>
               <ul className="space-y-0.5 text-sm text-white/82">
                 <li className="py-1.5">{site.addressLine}</li>
                 <li>

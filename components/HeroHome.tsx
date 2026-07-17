@@ -17,7 +17,7 @@ const heroSlidesByLocale = {
       src: "/assets/superstudio-village-acciaio-pre-fabbricato.webp",
       alt: "Strutture in acciaio pre-fabbricate - progetti Studio Capoferri Nord Italia, Brescia, Bergamo, Milano",
       line1: "Progettazione integrata",
-      line2: "dalla fattibilita al cantiere",
+      line2: "dalla fattibilità al cantiere",
     },
     {
       src: "/assets/superstudio-village-sala-proiezione.webp",
@@ -27,9 +27,9 @@ const heroSlidesByLocale = {
     },
     {
       src: "/assets/hero-struttura-new.webp",
-      alt: "Strutture in acciaio - efficienza e rapidita",
+      alt: "Strutture in acciaio - efficienza e rapidità",
       line1: "Strutture in acciaio",
-      line2: "efficienza e rapidita",
+      line2: "efficienza e rapidità",
     },
   ],
   en: [
@@ -135,11 +135,16 @@ export function HeroHome() {
           <p className="eyebrow mb-2 text-white/65 sm:mb-3 md:text-sm">{copy.location}</p>
           <h1
             className={`${fontDisplay.className} section-title text-[clamp(1.75rem,5.5vw,3.75rem)] text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.5)]`}
+          >
+            {copy.headline}
+          </h1>
+          <p
+            className={`${fontDisplay.className} mt-2 text-[clamp(1.05rem,0.9rem+0.8vw,1.45rem)] tracking-[0.04em] text-white/92 drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]`}
             aria-live="polite"
           >
             <span className="block">{s.line1}</span>
-            <span className="mt-1 block text-white/95">{s.line2}</span>
-          </h1>
+            <span className="mt-0.5 block text-white/88">{s.line2}</span>
+          </p>
           <p className="copy-rhythm reading-measure-tight mt-3 text-pretty text-[0.92rem] text-white/88 sm:text-[0.98rem] md:mt-5 md:ml-auto md:text-lg">
             {copy.body}
           </p>

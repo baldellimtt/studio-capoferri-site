@@ -14,8 +14,9 @@ export const homeChiSiamo: { title: string; blocks: homeChiSiamoBlock[] } = {
     {
       text: (
         <>
-          <strong>Studio Capoferri</strong> è uno studio tecnico ad Adro (Brescia) con oltre quarant&apos;anni di esperienza nel settore della{" "}
-          <strong>progettazione strutturale, architettonica e urbanistica</strong> in Franciacorta e in generale nel Nord e Centro Italia. Il nostro team è
+          <strong>Studio Capoferri</strong> è uno studio di <strong>ingegneria civile</strong> ad Adro (Brescia) con oltre quarant&apos;anni di esperienza
+          nella <strong>progettazione strutturale, architettonica e urbanistica</strong> e nelle <strong>strutture in acciaio</strong> in Franciacorta e in
+          generale nel Nord e Centro Italia. Il nostro team è
           composto da professionisti qualificati, ognuno con competenze multidisciplinari specifiche, in grado di garantire un servizio di qualità e precisione
           sotto ogni aspetto progettuale. Grazie alla sinergia tra diverse expertise e alla consolidata esperienza maturata nel settore, offriamo soluzioni
           innovative e personalizzate per ogni tipo di intervento assicurando un approccio integrato e completo per tutti i progetti affidati al nostro studio.
@@ -27,9 +28,9 @@ export const homeChiSiamo: { title: string; blocks: homeChiSiamoBlock[] } = {
       text: (
         <>
           Operiamo in diversi ambiti, in particolar modo quello <strong>residenziale e industriale</strong>, offrendo soluzioni tecniche all&apos;avanguardia che
-          rispondono a esigenze funzionali, estetiche e normative. La nostra presenza sul territorio del{" "}
-          <strong>Nord e Centro Nord Italia (Lombardia, Veneto, Piemonte, Emilia-Romagna, Toscana)</strong>, in particolare delle province di{" "}
-          <strong>Brescia, Bergamo, Milano</strong> e altre zone limitrofe, ci permette di comprendere appieno le specificità normative e urbanistiche di ciascuna
+          rispondono a esigenze funzionali, estetiche e normative. La nostra presenza sul territorio del Nord e Centro Nord Italia
+          (Lombardia, Veneto, Piemonte, Emilia-Romagna, Toscana), in particolare delle province di Brescia, Bergamo, Milano e altre zone
+          limitrofe, ci permette di comprendere appieno le specificità normative e urbanistiche di ciascuna
           zona. Inoltre, abbiamo sviluppato competenze specifiche nell&apos;ambito della sicurezza antincendio, fornendo consulenza e progettazione secondo le più
           recenti disposizioni legislative e tecniche. Questa diversificazione ci consente di affrontare ogni progetto con una visione trasversale e consapevole,
           garantendo risultati di elevata qualità, pienamente conformi alle aspettative del cliente e alle normative vigenti.
@@ -88,8 +89,8 @@ export const certificationsIntro =
 
 export const certifications = [
   {
-    title: "Sicurezza cantieri",
-    text: "Professionisti abilitati per il ruolo di CSP e CSE",
+    title: "Abilitazione CSP/CSE",
+    text: "Professionisti abilitati per il ruolo di CSP e CSE nei cantieri",
   },
   {
     title: "Pratiche di prevenzione incendi",
@@ -112,7 +113,7 @@ export const zoneContent = {
 
 export const zoneDescription = (
   <>
-    Operiamo in tutto il <strong>Nord e Centro Nord Italia (Lombardia, Veneto, Piemonte, Emilia-Romagna, Toscana)</strong>, in particolare nelle province di{" "}
+    Operiamo in tutto il <strong>Nord e Centro Nord Italia</strong> (Lombardia, Veneto, Piemonte, Emilia-Romagna, Toscana), in particolare nelle province di{" "}
     <Link
       href="/progettazione-strutture-acciaio-brescia"
       title="Progettazione strutture in acciaio a Brescia — Studio Capoferri"
@@ -160,7 +161,7 @@ export const zoneFooter = (
       title="Progettazione strutture in acciaio a Bergamo — Studio Capoferri"
       className="font-semibold text-[#2a3f54] underline underline-offset-2"
     >
-      Bergamo
+      progettazione in acciaio a Bergamo
     </Link>{" "}
     e{" "}
     <Link
@@ -168,7 +169,7 @@ export const zoneFooter = (
       title="Progettazione strutture in acciaio a Milano — Studio Capoferri"
       className="font-semibold text-[#2a3f54] underline underline-offset-2"
     >
-      Milano
+      progettazione in acciaio a Milano
     </Link>
     .
   </>
