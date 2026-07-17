@@ -6,7 +6,7 @@ import type { ReactNode } from "react";
 import { useLocale } from "@/components/LocaleProvider";
 import { ProjectPreviewCard } from "@/components/projects/ProjectPreviewCard";
 import { StatsSection } from "@/components/home/StatsSection";
-import { ServiceIcon } from "@/components/home/ServiceIcons";
+import { IconUrban, ServiceIcon } from "@/components/home/ServiceIcons";
 import {
   certifications as originalCertifications,
   certificationsIntro as originalCertificationsIntro,
@@ -331,7 +331,9 @@ export function LocalizedHomeSections() {
             <div className="home-split-header__right">{t.zoneDescription}</div>
           </div>
           <div className="reveal-block frost-card flex items-start gap-5 rounded-2xl p-6 sm:gap-6 sm:p-8">
-            <div className={ui.iconBox} />
+            <div className={ui.iconBox} aria-hidden>
+              <IconUrban className="h-7 w-7 sm:h-9 sm:w-9" />
+            </div>
             <div className="min-w-0">
               <h3 className={`${fontDisplay.className} text-lg tracking-[0.04em] text-[#2a3f54] sm:text-xl`}>{t.zoneHeading}</h3>
               <div className="mt-2 text-[0.88rem] leading-relaxed text-[#555] sm:text-[0.95rem]">{t.zoneFooter}</div>
