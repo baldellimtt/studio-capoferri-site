@@ -30,14 +30,19 @@ export const ui = {
   /** H1 case study / progetto singolo */
   caseStudyTitle: "section-title text-[1.65rem] tracking-[0.06em] text-[#2a2a2a] sm:text-3xl md:text-4xl",
 
-  /** H2 sezione lunga (servizi, privacy, anchor) — stesso tono degli H1 */
-  sectionHeadingAccent: "text-2xl tracking-[0.06em] text-[#2a2a2a]",
+  /** H2 sezioni home (Chi siamo, Servizi, Contatti, …) — comporre con fontDisplay */
+  homeSectionTitle: "section-title home-section-title reveal-title",
+  /** H2 sezioni home su sfondo scuro (Progetti, Statistiche) */
+  homeSectionTitleInverted: "section-title home-section-title home-section-title--inverted reveal-title",
+
+  /** H2 sezione lunga (servizi, privacy, landing) */
+  sectionHeadingAccent: "section-title text-2xl tracking-[0.06em] text-[#2a2a2a]",
 
   /** H2 galleria, “Progetti in evidenza” */
-  gallerySectionTitle: "text-xl tracking-[0.06em] text-[#2a2a2a] sm:text-2xl",
+  gallerySectionTitle: "section-title text-xl tracking-[0.06em] text-[#2a2a2a] sm:text-2xl",
 
   /** H2 in card chiare (Recapiti, Dove siamo) */
-  cardHeading: "text-xl tracking-[0.06em] text-[#2a2a2a] sm:text-2xl",
+  cardHeading: "section-title text-xl tracking-[0.06em] text-[#2a2a2a] sm:text-2xl",
 
   /** Pulsante primario (gradient brand) */
   btnPrimary:

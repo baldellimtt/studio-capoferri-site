@@ -5,6 +5,7 @@ import { useInView, useReducedMotion } from "framer-motion";
 import { useLocale } from "@/components/LocaleProvider";
 import { fontDisplay } from "@/lib/fonts";
 import { stats } from "@/lib/content";
+import { layoutContentMaxClass } from "@/lib/site";
 import { ui } from "@/lib/ui";
 
 function Counter({
@@ -56,10 +57,12 @@ export function StatsSection() {
     locale === "en"
       ? {
           heading: "Statistics",
+          intro: "Figures that reflect the practice's experience, delivery capacity and client trust over time.",
           labels: ["Years of experience", "Completed projects", "Satisfied clients"],
         }
       : {
           heading: "Statistiche",
+          intro: "Numeri che raccontano esperienza, capacità di realizzazione e fiducia dei clienti nel tempo.",
           labels: ["Anni di esperienza", "Progetti completati", "Clienti soddisfatti"],
         };
 
@@ -69,15 +72,15 @@ export function StatsSection() {
       className={`lazy-section ${ui.brandGradient} px-4 py-14 text-white sm:px-5 sm:py-20 md:px-10`}
       aria-labelledby="stats-heading"
     >
-      <div className="mx-auto max-w-[1140px]">
-        <div className="home-section-head mb-8 sm:mb-12">
-          <h2
-            id="stats-heading"
-            className={`${fontDisplay.className} section-title home-section-title home-section-title--inverted reveal-title`}
-          >
-            {copy.heading}
-          </h2>
-          <div className="home-section-accent home-section-accent--light" aria-hidden />
+      <div className={layoutContentMaxClass}>
+        <div className="home-split-header reveal-block">
+          <div className="home-split-header__left">
+            <h2 id="stats-heading" className={`${fontDisplay.className} ${ui.homeSectionTitleInverted}`}>
+              {copy.heading}
+            </h2>
+            <div className="home-section-accent home-section-accent--light" aria-hidden />
+          </div>
+          <p className="home-split-header__right home-split-header__right--inverted">{copy.intro}</p>
         </div>
         <div className="grid grid-cols-3 gap-3 sm:gap-8">
           {stats.map((s, index) => (

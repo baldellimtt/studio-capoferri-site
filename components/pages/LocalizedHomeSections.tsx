@@ -26,8 +26,8 @@ import { linkTitles } from "@/lib/link-seo";
 import { layoutContentMaxClass, layoutGutterXClass, scrollAnchorClass, site } from "@/lib/site";
 import { ui } from "@/lib/ui";
 
-const titleCls = `${fontDisplay.className} section-title home-section-title reveal-title`;
-const titleInvertedCls = `${fontDisplay.className} section-title home-section-title home-section-title--inverted reveal-title`;
+const titleCls = `${fontDisplay.className} ${ui.homeSectionTitle}`;
+const titleInvertedCls = `${fontDisplay.className} ${ui.homeSectionTitleInverted}`;
 
 type AboutBlock = {
   text: ReactNode;
@@ -38,6 +38,8 @@ type AboutBlock = {
 const copy = {
   it: {
     aboutTitle: homeChiSiamo.title,
+    aboutIntro:
+      "Studio tecnico ad Adro (BS): progettazione strutturale, architettura e urbanistica con oltre quarant'anni di esperienza.",
     aboutBlocks: homeChiSiamo.blocks.map((block, index) => ({
       text: block.text,
       image: block.image,
@@ -66,6 +68,8 @@ const copy = {
   },
   en: {
     aboutTitle: "About",
+    aboutIntro:
+      "A technical practice in Adro near Brescia: structural engineering, architecture and urban planning with more than forty years of experience.",
     aboutBlocks: [
       {
         text: (
@@ -206,9 +210,12 @@ export function LocalizedHomeSections() {
     <>
       <section id="chi-siamo" className={`lazy-section section-shell ${scrollAnchorClass} bg-[#fafbfc] ${layoutGutterXClass}`}>
         <div className={layoutContentMaxClass}>
-          <div className="home-section-head">
-            <h2 className={titleCls}>{t.aboutTitle}</h2>
-            <div className="home-section-accent" aria-hidden />
+          <div className="home-split-header reveal-block">
+            <div className="home-split-header__left">
+              <h2 className={titleCls}>{t.aboutTitle}</h2>
+              <div className="home-section-accent" aria-hidden />
+            </div>
+            <p className="home-split-header__right">{t.aboutIntro}</p>
           </div>
           <div className="space-y-12 sm:space-y-16 md:space-y-20">
             {t.aboutBlocks.map((block, idx) => {

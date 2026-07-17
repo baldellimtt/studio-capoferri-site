@@ -201,16 +201,11 @@ body::before {
   }
 }
 
-/* Titolo senza descrizione affiancata (Chi siamo, Statistiche) */
-.home-section-head {
-  margin-bottom: clamp(2rem, 3.5vw, 3rem);
-}
-
 .home-section-title {
   font-size: clamp(1.65rem, 1.15rem + 1.35vw, 2.35rem);
   line-height: 1.07;
   letter-spacing: 0.042em;
-  color: #1f252b;
+  color: #2a2a2a;
   text-wrap: balance;
 }
 
