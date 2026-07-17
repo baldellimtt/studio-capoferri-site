@@ -56,16 +56,16 @@ export const steelLandingBrescia: SteelLandingConfig = {
   ],
   ogImage: "/assets/residenziale/ingegneria-civile-brescia.webp",
   introLead:
-    "Studio Capoferri Ã¨ uno studio di ingegneria strutturale specializzato nelle strutture in acciaio, con oltre 40 anni di esperienza e piÃ¹ di 1000 progetti realizzati. Con sede ad Adro, in provincia di Brescia, nel cuore della Franciacorta, progettiamo ville in acciaio, capannoni industriali, sopraelevazioni e carpenteria metallica in tutta la Lombardia e nel Nord Italia.",
+    "Studio Capoferri è uno studio di ingegneria strutturale specializzato nelle strutture in acciaio, con oltre 40 anni di esperienza e più di 1000 progetti realizzati. Con sede ad Adro, in provincia di Brescia, nel cuore della Franciacorta, progettiamo ville in acciaio, capannoni industriali, sopraelevazioni e carpenteria metallica in tutta la Lombardia e nel Nord Italia.",
   areaHeading: "Dove operiamo: Brescia, Bergamo, Milano e tutta la Lombardia",
   areaBody:
-    "Lo studio ha sede ad Adro (BS), in provincia di Brescia, in posizione strategica tra Franciacorta, Val Calepio e Lago d'Iseo. Interveniamo rapidamente su Brescia e provincia â€” Franciacorta, Val Trompia, Garda bresciano, pianura bresciana â€” e in tutta la Lombardia: Bergamo, Milano, Monza, Cremona, Mantova, Lecco e Como.",
+    "Lo studio ha sede ad Adro (BS), in provincia di Brescia, in posizione strategica tra Franciacorta, Val Calepio e Lago d'Iseo. Interveniamo rapidamente su Brescia e provincia — Franciacorta, Val Trompia, Garda bresciano, pianura bresciana — e in tutta la Lombardia: Bergamo, Milano, Monza, Cremona, Mantova, Lecco e Como.",
   areaBodySecondary:
     "Per i cantieri fuori regione operiamo regolarmente anche in Veneto, Piemonte ed Emilia-Romagna.",
   ctaHeading: "Hai un progetto in acciaio a Brescia o in Lombardia?",
   faqCostQuestion: "Quanto costa la progettazione di una struttura in acciaio a Brescia?",
   faqAreaAnswer:
-    "SÃ¬. Lo studio ha sede ad Adro (BS), in provincia di Brescia, e opera in tutta la Lombardia â€” Brescia, Bergamo, Milano e relative province â€” oltre che in Veneto, Piemonte ed Emilia-Romagna.",
+    "Sì. Lo studio ha sede ad Adro (BS), in provincia di Brescia, e opera in tutta la Lombardia — Brescia, Bergamo, Milano e relative province — oltre che in Veneto, Piemonte ed Emilia-Romagna.",
   areaServedPrimary: "Provincia di Brescia",
   heroImage: {
     src: "/assets/residenziale/ingegneria-civile-brescia.webp",
@@ -121,16 +121,16 @@ export const steelLandingBergamo: SteelLandingConfig = {
   ],
   ogImage: "/assets/residenziale/strutture-acciaio-bergamo.webp",
   introLead:
-    "Studio Capoferri Ã¨ uno studio di ingegneria strutturale specializzato nelle strutture in acciaio, con oltre 40 anni di esperienza e piÃ¹ di 1000 progetti realizzati. Con sede ad Adro (BS), a pochi chilometri dalla provincia di Bergamo, progettiamo ville in acciaio, capannoni industriali, sopraelevazioni e carpenteria metallica su Bergamo, in Lombardia e nel Nord Italia.",
+    "Studio Capoferri è uno studio di ingegneria strutturale specializzato nelle strutture in acciaio, con oltre 40 anni di esperienza e più di 1000 progetti realizzati. Con sede ad Adro (BS), a pochi chilometri dalla provincia di Bergamo, progettiamo ville in acciaio, capannoni industriali, sopraelevazioni e carpenteria metallica su Bergamo, in Lombardia e nel Nord Italia.",
   areaHeading: "Dove operiamo: Bergamo, Brescia, Milano e tutta la Lombardia",
   areaBody:
-    "Lo studio si trova ad Adro (BS), al confine con la provincia di Bergamo, in posizione strategica tra Franciacorta e Val Calepio. Interveniamo rapidamente su Bergamo e provincia â€” Val Seriana, Val Brembana, Isola Bergamasca, pianura bergamasca â€” e in tutta la Lombardia: Brescia, Milano, Monza, Cremona, Mantova, Lecco e Como.",
+    "Lo studio si trova ad Adro (BS), al confine con la provincia di Bergamo, in posizione strategica tra Franciacorta e Val Calepio. Interveniamo rapidamente su Bergamo e provincia — Val Seriana, Val Brembana, Isola Bergamasca, pianura bergamasca — e in tutta la Lombardia: Brescia, Milano, Monza, Cremona, Mantova, Lecco e Como.",
   areaBodySecondary:
     "Per i cantieri fuori regione operiamo regolarmente anche in Veneto, Piemonte ed Emilia-Romagna.",
   ctaHeading: "Hai un progetto in acciaio a Bergamo o in Lombardia?",
   faqCostQuestion: "Quanto costa la progettazione di una struttura in acciaio a Bergamo?",
   faqAreaAnswer:
-    "SÃ¬. Lo studio ha sede ad Adro (BS), al confine con la provincia di Bergamo, e opera in tutta la Lombardia â€” Bergamo, Brescia, Milano e relative province â€” oltre che in Veneto, Piemonte ed Emilia-Romagna.",
+    "Sì. Lo studio ha sede ad Adro (BS), al confine con la provincia di Bergamo, e opera in tutta la Lombardia — Bergamo, Brescia, Milano e relative province — oltre che in Veneto, Piemonte ed Emilia-Romagna.",
   areaServedPrimary: "Provincia di Bergamo",
   heroImage: {
     src: "/assets/residenziale/strutture-acciaio-bergamo.webp",
@@ -186,16 +186,16 @@ export const steelLandingMilano: SteelLandingConfig = {
   ],
   ogImage: "/assets/superstudio-maxi/strutture-acciaio-milano.webp",
   introLead:
-    "Studio Capoferri Ã¨ uno studio di ingegneria strutturale specializzato nelle strutture in acciaio, con oltre 40 anni di esperienza e piÃ¹ di 1000 progetti realizzati. Progettiamo ville in acciaio, capannoni industriali, sopraelevazioni e carpenteria metallica a Milano, nell'hinterland milanese e in tutta la Lombardia, con interventi su complessi ricettivi, edifici residenziali e strutture industriali.",
+    "Studio Capoferri è uno studio di ingegneria strutturale specializzato nelle strutture in acciaio, con oltre 40 anni di esperienza e più di 1000 progetti realizzati. Progettiamo ville in acciaio, capannoni industriali, sopraelevazioni e carpenteria metallica a Milano, nell'hinterland milanese e in tutta la Lombardia, con interventi su complessi ricettivi, edifici residenziali e strutture industriali.",
   areaHeading: "Dove operiamo: Milano, Brescia, Bergamo e tutta la Lombardia",
   areaBody:
-    "Operiamo su Milano cittÃ  e provincia â€” Bovisa, Famagosta, hinterland nord e sud â€” oltre che su Monza, Brianza e tutta l'area metropolitana. Lo studio ha sede ad Adro (BS), in posizione strategica per raggiungere rapidamente i cantieri milanesi, e interviene anche su Brescia, Bergamo, Cremona, Mantova, Lecco e Como.",
+    "Operiamo su Milano città e provincia — Bovisa, Famagosta, hinterland nord e sud — oltre che su Monza, Brianza e tutta l'area metropolitana. Lo studio ha sede ad Adro (BS), in posizione strategica per raggiungere rapidamente i cantieri milanesi, e interviene anche su Brescia, Bergamo, Cremona, Mantova, Lecco e Como.",
   areaBodySecondary:
-    "Tra i progetti milanesi piÃ¹ significativi: Superstudio Village a Bovisa e Superstudio Maxi a Famagosta, con strutture in acciaio, consolidamenti e adeguamenti sismici.",
+    "Tra i progetti milanesi più significativi: Superstudio Village a Bovisa e Superstudio Maxi a Famagosta, con strutture in acciaio, consolidamenti e adeguamenti sismici.",
   ctaHeading: "Hai un progetto in acciaio a Milano o in Lombardia?",
   faqCostQuestion: "Quanto costa la progettazione di una struttura in acciaio a Milano?",
   faqAreaAnswer:
-    "SÃ¬. Lo studio opera regolarmente su Milano e provincia, oltre che su Brescia, Bergamo e tutta la Lombardia. La sede ad Adro (BS) consente interventi tempestivi sull'area metropolitana milanese e su tutto il Nord Italia.",
+    "Sì. Lo studio opera regolarmente su Milano e provincia, oltre che su Brescia, Bergamo e tutta la Lombardia. La sede ad Adro (BS) consente interventi tempestivi sull'area metropolitana milanese e su tutto il Nord Italia.",
   areaServedPrimary: "Provincia di Milano",
   heroImage: {
     src: "/assets/superstudio-maxi/strutture-acciaio-milano.webp",
