@@ -13,6 +13,6 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     host: site.url,
-    sitemap: `${site.url}/sitemap.xml`,
+    sitemap: [`${site.url}/sitemap.xml`, `${site.url}/sitemap-pages.xml`],
   };
 }

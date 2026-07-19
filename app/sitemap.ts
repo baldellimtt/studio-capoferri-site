@@ -4,7 +4,7 @@ import { projectAreas, projectCategories } from "@/lib/projects";
 
 export const dynamic = "force-static";
 
-const lastModified = new Date("2026-07-10");
+const lastModified = new Date("2026-07-19");
 
 function entry(path: string, locale: "it" | "en", priority: number, changefreq: MetadataRoute.Sitemap[number]["changeFrequency"] = "monthly") {
   return {
