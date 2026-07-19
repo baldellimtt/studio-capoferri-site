@@ -11,6 +11,14 @@ import { linkTitles } from "@/lib/link-seo";
 import { layoutContentMaxClass } from "@/lib/site";
 import { ui } from "@/lib/ui";
 
+/**
+ * Hero SOTA budget:
+ * - brand is in the header logo
+ * - one large rotating H1 (primary visual)
+ * - one short support line (SEO keywords)
+ * - one CTA
+ * - full-bleed image
+ */
 const heroSlidesByLocale = {
   it: [
     {
@@ -58,7 +66,7 @@ export function HeroHome() {
   const locale = useLocale();
   const copy = chromeCopy[locale].hero;
   const heroSlides = heroSlidesByLocale[locale];
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = !!useReducedMotion();
   const [i, setI] = useState(0);
   const [extraSlidesReady, setExtraSlidesReady] = useState(false);
 
@@ -105,7 +113,7 @@ export function HeroHome() {
             </div>
           );
         })}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/36 via-black/16 to-black/22" aria-hidden />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/42 via-black/18 to-black/24" aria-hidden />
         <motion.div
           aria-hidden
           className="absolute inset-0"
@@ -126,34 +134,35 @@ export function HeroHome() {
         className={`relative z-10 mx-auto flex min-h-[calc(100svh-72px)] flex-col justify-end gap-5 px-4 pb-10 pt-20 sm:min-h-[calc(100svh-78px)] sm:gap-7 sm:px-5 sm:pb-12 sm:pt-24 md:min-h-[calc(100svh-94px)] md:px-5 md:pb-20 md:pt-28 ${layoutContentMaxClass}`}
       >
         <motion.div
-          className="max-w-[62ch] text-left md:ml-auto md:text-right"
+          className="max-w-[20rem] text-left sm:max-w-[28rem] md:ml-auto md:max-w-[34rem] md:text-right"
           initial={reduceMotion ? false : { opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.72, ease: subtleEase }}
         >
-          <p className="eyebrow mb-1 text-white/85 sm:mb-1.5 md:text-sm">{copy.eyebrow}</p>
-          <p className="eyebrow mb-2 text-white/65 sm:mb-3 md:text-sm">{copy.location}</p>
+          <p className="eyebrow mb-3 text-white/70">{copy.location}</p>
+
           <h1
-            className={`${fontDisplay.className} section-title text-[clamp(1.75rem,5.5vw,3.75rem)] text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.5)]`}
-          >
-            {copy.headline}
-          </h1>
-          <p
-            className={`${fontDisplay.className} mt-2 text-[clamp(1.05rem,0.9rem+0.8vw,1.45rem)] tracking-[0.04em] text-white/92 drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]`}
+            className={`${fontDisplay.className} section-title text-[clamp(2rem,7vw,3.85rem)] leading-[0.98] text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.5)]`}
             aria-live="polite"
           >
             <span className="block">{s.line1}</span>
-            <span className="mt-0.5 block text-white/88">{s.line2}</span>
+            <span className="mt-1 block text-white/95">{s.line2}</span>
+          </h1>
+
+          <p className="mt-4 max-w-[32ch] text-[0.9rem] leading-snug tracking-[0.01em] text-white/82 md:ml-auto md:text-[1rem]">
+            {copy.support}
           </p>
-          <p className="copy-rhythm reading-measure-tight mt-3 text-pretty text-[0.92rem] text-white/88 sm:text-[0.98rem] md:mt-5 md:ml-auto md:text-lg">
-            {copy.body}
-          </p>
+
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: reduceMotion ? 0 : 0.2, duration: 0.55, ease: subtleEase }}
           >
-            <Link href={localizeHref("/contatti#form-contatti", locale)} className={`focus-ring mt-6 sm:mt-8 ${ui.btnOnDark}`} title={linkTitles.consulenza(locale)}>
+            <Link
+              href={localizeHref("/contatti#form-contatti", locale)}
+              className={`focus-ring mt-6 sm:mt-8 ${ui.btnOnDark}`}
+              title={linkTitles.consulenza(locale)}
+            >
               {copy.cta}
             </Link>
           </motion.div>
