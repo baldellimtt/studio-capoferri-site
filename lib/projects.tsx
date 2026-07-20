@@ -457,6 +457,18 @@ export const projectCaseStudies: Record<
         src: "/assets/industriale/centro-direzionale-provaglio-diseo/carpenteria-metallica-soppalco-provaglio-diseo.webp",
         alt: "Montaggio del soppalco in acciaio con connessioni strutturali e lamiera grecata — centro direzionale Provaglio d'Iseo",
       },
+      {
+        src: "/assets/industriale/centro-direzionale-provaglio-diseo/progettazione-strutture-acciaio-industriali.jpeg",
+        alt: "Apertura in copertura e carpenteria metallica sul piano del soppalco — centro direzionale Provaglio d'Iseo",
+      },
+      {
+        src: "/assets/industriale/centro-direzionale-provaglio-diseo/strutture-in-acciaio-soppalco-direzionale.jpeg",
+        alt: "Travi e capriate in acciaio integrate nella struttura preesistente — soppalco Provaglio d'Iseo",
+      },
+      {
+        src: "/assets/industriale/centro-direzionale-provaglio-diseo/vista-copertura-progettazione-acciaio.jpeg",
+        alt: "Vista dal basso dell'orditura metallica in fase di montaggio — centro direzionale Provaglio d'Iseo",
+      },
     ],
   },
   "ricettivi/superstudio-village": {
