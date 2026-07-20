@@ -418,20 +418,16 @@ export const projectCaseStudies: Record<
     body: (
       <>
         <p className="copy-rhythm mb-4 text-[0.98rem] text-[#444] sm:text-[1.05rem]">
-          Dopo un&apos;intensa fase di progettazione preliminare e di sviluppo tecnico, l&apos;attività si sposta finalmente sul campo.
+          L&apos;intervento riguarda la riqualificazione di un edificio industriale a <strong>Provaglio d&apos;Iseo</strong>, trasformato in un nuovo{" "}
+          <strong>centro direzionale</strong> con uffici, laboratori e spazi di lavoro.
         </p>
         <p className="copy-rhythm mb-4 text-[0.98rem] text-[#444] sm:text-[1.05rem]">
-          Negli ultimi mesi abbiamo affrontato lo sviluppo operativo di un importante intervento di riqualificazione: un edificio industriale che
-          diventerà un nuovo <strong>centro direzionale</strong> con uffici, laboratori e spazi di lavoro a{" "}
-          <strong>Provaglio d&apos;Iseo</strong>.
-        </p>
-        <p className="copy-rhythm mb-4 text-[0.98rem] text-[#444] sm:text-[1.05rem]">
-          Il progetto è partito da una base definitiva sviluppata dal progettista generale. Il nostro valore aggiunto si è concentrato su
-          un&apos;ottimizzazione a 360°, finalizzata ad adattare le soluzioni progettuali alle reali dinamiche costruttive del cantiere.
+          Il progetto è partito da una base definitiva sviluppata dal progettista generale. Lo Studio Capoferri ha concentrato il proprio contributo su
+          un&apos;ottimizzazione a 360°, adattando le soluzioni progettuali alle reali dinamiche costruttive del cantiere.
         </p>
         <p className="copy-rhythm mb-6 text-[0.98rem] text-[#444] sm:text-[1.05rem]">
-          Il cuore dell&apos;intervento è la realizzazione di un <strong>soppalco in carpenteria metallica di oltre 5.000 mq</strong>. Un elemento
-          imponente, integrato nella struttura esistente per ampliarne la superficie utile. Nello specifico, l&apos;attività ha riguardato:
+          Il cuore dell&apos;intervento è un <strong>soppalco in carpenteria metallica di oltre 5.000 mq</strong>, integrato nella struttura esistente
+          per ampliarne la superficie utile. L&apos;attività ha riguardato:
         </p>
         <ul className="mb-6 list-none space-y-3 text-[0.95rem] text-[#333] sm:text-[1.02rem]">
           <li className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2a3f54]">
@@ -448,8 +444,7 @@ export const projectCaseStudies: Record<
           </li>
         </ul>
         <p className="copy-rhythm text-[0.98rem] text-[#444] sm:text-[1.05rem]">
-          Vedere l&apos;inizio dei lavori è la conferma che un confronto costante tra progettazione e costruzione genera soluzioni più efficienti e
-          coerenti con la realtà del cantiere. Ora la parola passa alle squadre operative.
+          Il confronto costante tra progettazione e costruzione ha permesso di sviluppare soluzioni efficienti e coerenti con la realtà del cantiere.
         </p>
       </>
     ),

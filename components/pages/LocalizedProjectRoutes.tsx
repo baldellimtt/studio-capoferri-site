@@ -133,11 +133,10 @@ const caseCopy = {
     "industriali/centro-direzionale-provaglio-diseo": {
       heading: "Office centre - Provaglio d'Iseo",
       body: [
-        "After an intense phase of preliminary design and technical development, the work finally moved on site.",
-        "In recent months we have dealt with the operational development of a major redevelopment project: an industrial building that will become a new office centre with offices, laboratories and workspaces in Provaglio d'Iseo.",
-        "The project started from an approved base scheme developed by the lead designer. Our added value focused on full optimisation, aimed at adapting the design solutions to the real construction dynamics of the site.",
-        "The core of the intervention is the construction of a steel mezzanine of more than 5,000 square metres, integrated into the existing structure in order to expand the usable floor area.",
-        "Seeing the work begin confirms that constant dialogue between design and construction generates solutions that are more efficient and more consistent with site reality.",
+        "The project concerns the redevelopment of an industrial building in Provaglio d'Iseo, converted into a new office centre with offices, laboratories and workspaces.",
+        "It started from an approved base scheme developed by the lead designer. Studio Capoferri focused its contribution on full optimisation, adapting the design solutions to the real construction dynamics of the site.",
+        "The core of the intervention is a steel mezzanine of more than 5,000 square metres, integrated into the existing structure to expand the usable floor area.",
+        "Constant dialogue between design and construction made it possible to develop solutions that are efficient and consistent with site reality.",
       ],
       bullets: [
         ["Structural and geometric optimisation", "of the steelwork package."],
