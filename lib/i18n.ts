@@ -65,7 +65,6 @@ export const chromeCopy = {
     },
     footer: {
       services: "Servizi",
-      steelDesign: "Progettazione acciaio",
       company: "Azienda",
       contacts: "Contatti",
       rights: "Tutti i diritti riservati",
@@ -132,7 +131,6 @@ export const chromeCopy = {
     },
     footer: {
       services: "Services",
-      steelDesign: "Steel design",
       company: "Company",
       contacts: "Contact",
       rights: "All rights reserved",

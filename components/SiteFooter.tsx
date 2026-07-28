@@ -6,7 +6,7 @@ import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
 import { fontDisplay } from "@/lib/fonts";
 import { chromeCopy, getNavLabel, localizeHref } from "@/lib/i18n";
 import { linkTitles } from "@/lib/link-seo";
-import { layoutContentMaxClass, layoutGutterXClass, site, steelLandingPages } from "@/lib/site";
+import { layoutContentMaxClass, layoutGutterXClass, site } from "@/lib/site";
 import { ui } from "@/lib/ui";
 
 const footerServices = {
@@ -28,11 +28,6 @@ const footerServices = {
   ],
 } as const;
 
-const steelLabels = {
-  it: ["Acciaio a Brescia", "Acciaio a Bergamo", "Acciaio a Milano"],
-  en: ["Steel design in Brescia", "Steel design in Bergamo", "Steel design in Milan"],
-} as const;
-
 export function SiteFooter() {
   const locale = useLocale();
   const copy = chromeCopy[locale].footer;
@@ -51,14 +46,6 @@ export function SiteFooter() {
                   <li key={item.href}>
                     <Link className={ui.footerLink} href={localizeHref(item.href, locale)} title={linkTitles.servizio(item.label, locale)}>
                       {item.label}
-                    </Link>
-                  </li>
-                ))}
-                <li className="pt-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/65">{copy.steelDesign}</li>
-                {steelLandingPages.map((page, index) => (
-                  <li key={page.href}>
-                    <Link className={ui.footerLink} href={localizeHref(page.href, locale)} title={linkTitles.acciaio(steelLabels[locale][index], locale)}>
-                      {steelLabels[locale][index]}
                     </Link>
                   </li>
                 ))}
