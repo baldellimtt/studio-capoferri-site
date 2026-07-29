@@ -16,8 +16,8 @@ const siteDescription =
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Studio Capoferri - Ingegneria Brescia, Bergamo, Milano",
-    template: `%s — ${site.name}`,
+    default: "Studio Capoferri - Ingegneria civile, architettura e strutture in acciaio",
+    template: `${site.name} — %s`,
   },
   description: siteDescription,
   alternates: { canonical: `${site.url}/` },

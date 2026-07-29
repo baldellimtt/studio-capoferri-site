@@ -33,11 +33,13 @@ export function buildPageMetadata({
   locale = "it",
 }: PageMetadataInput): Metadata {
   const url = pageUrl(path, locale);
-  const ogTitle = `${title} - ${site.name}`;
+  // Brand once at the start; absolute avoids root template appending it again.
+  const pageTitle = title.replace(new RegExp(`\\s*[—–-]\\s*${site.name}\\s*$`, "i"), "").trim();
+  const documentTitle = `${site.name} — ${pageTitle}`;
   const otherLocale = locale === "it" ? "en_US" : "it_IT";
 
   return {
-    title,
+    title: { absolute: documentTitle },
     description,
     alternates: {
       canonical: url,
@@ -54,13 +56,13 @@ export function buildPageMetadata({
       alternateLocale: [otherLocale],
       url,
       siteName: site.name,
-      title: ogTitle,
+      title: documentTitle,
       description,
-      images: [{ url: image, width: 1200, height: 630, alt: title }],
+      images: [{ url: image, width: 1200, height: 630, alt: pageTitle }],
     },
     twitter: {
       card: "summary_large_image",
-      title: ogTitle,
+      title: documentTitle,
       description,
       images: [image],
     },

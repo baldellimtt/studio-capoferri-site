@@ -19,7 +19,8 @@ function Counter({
   reduced: boolean;
   active: boolean;
 }) {
-  const [v, setV] = useState(reduced ? target : 0);
+  // SSR / first paint must show the real target (not 0+) for SEO and no-JS.
+  const [v, setV] = useState(target);
 
   useEffect(() => {
     if (reduced) {
@@ -27,6 +28,7 @@ function Counter({
       return;
     }
     if (!active) return;
+    setV(0);
     const duration = 1800;
     const t0 = performance.now();
     let raf = 0;
