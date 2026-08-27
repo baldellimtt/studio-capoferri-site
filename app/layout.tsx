@@ -11,12 +11,12 @@ import { site } from "@/lib/site";
 import "./globals.css";
 
 const siteDescription =
-  "Studio Capoferri ad Adro (BS): ingegneria civile, architettura e strutture in acciaio da oltre 40 anni. Brescia, Bergamo, Milano. Richiedi un preventivo.";
+  "Studio di ingegneria e progettazione a Brescia e provincia: strutture in acciaio, architettura e consulenza strutturale da Adro (BS). Oltre 40 anni di esperienza.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Studio Capoferri - Ingegneria civile, architettura e strutture in acciaio",
+    default: "Studio Capoferri — Studio di ingegneria a Brescia e provincia",
     template: `${site.name} — %s`,
   },
   description: siteDescription,
